@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>liorAi</title>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&family=Rubik:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0a0a0f;
+            --accent: #00e5a0;
+            --accent2: #00b8d4;
+            --text: #f0f0f5;
+            --grad: linear-gradient(135deg, #00e5a0, #00b8d4);
+        }
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Heebo', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; }
+        
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 7rem 2rem;
+        }
+        
+        h1 {
+            font-family: 'Rubik', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            font-weight: 800;
+            text-align: center;
+        }
+        
+        .gr {
+            background: var(--grad);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            margin-top: 1rem;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <div>
+            <h1>ברוכים הבאים ל<span class="gr">liorAi</span></h1>
+            <p class="subtitle">תוכן AI, נדל"ן ועוד - בקרוב!</p>
+        </div>
+    </section>
+</body>
+</html>
