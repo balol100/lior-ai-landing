@@ -218,9 +218,80 @@ footer{padding:2.5rem 2rem;border-top:1px solid var(--brd)}
   .price-box{padding:2rem 1.2rem}
   .vid-sec{padding:0 1rem 3rem}
 }
+
+/* PAGE LOADER */
+.loader{position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;justify-content:center;z-index:10000;transition:opacity .5s,visibility .5s}
+.loader.hidden{opacity:0;visibility:hidden}
+.loader-inner{text-align:center}
+.loader-logo{font-family:'Rubik',sans-serif;font-weight:700;font-size:2rem;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:1.2rem}
+.loader-bar{width:120px;height:3px;background:var(--bg3);border-radius:3px;overflow:hidden;margin:0 auto}
+.loader-bar::after{content:'';display:block;width:40%;height:100%;background:var(--grad);border-radius:3px;animation:lbar 1s ease-in-out infinite}
+@keyframes lbar{0%{transform:translateX(-100%)}100%{transform:translateX(350%)}}
+
+/* STATS COUNTER */
+.stats-sec{padding:4rem 2rem;max-width:1200px;margin:0 auto}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
+.stat-card{text-align:center;padding:2rem 1rem;background:var(--bg3);border:1px solid var(--brd);border-radius:16px;transition:all .4s}
+.stat-card:hover{border-color:rgba(0,229,160,.2);transform:translateY(-3px)}
+.stat-num{font-family:'Rubik',sans-serif;font-size:clamp(2rem,4vw,2.8rem);font-weight:800;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.2}
+.stat-label{color:var(--t2);font-size:.88rem;margin-top:.4rem}
+@media(max-width:640px){.stats-grid{grid-template-columns:1fr 1fr}}
+
+/* PROCESS/HOW I WORK */
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:2.5rem}
+.proc-card{text-align:center;padding:2rem 1.5rem;background:var(--bg3);border:1px solid var(--brd);border-radius:16px;position:relative;transition:all .4s}
+.proc-card:hover{border-color:rgba(0,229,160,.2);transform:translateY(-3px)}
+.proc-num{position:absolute;top:-14px;right:50%;transform:translateX(50%);width:28px;height:28px;background:var(--grad);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Rubik',sans-serif;font-size:.8rem;font-weight:700;color:var(--bg)}
+.proc-icon{font-size:2rem;margin-bottom:.8rem;margin-top:.5rem}
+.proc-card h3{font-family:'Rubik',sans-serif;font-size:1rem;font-weight:600;margin-bottom:.4rem}
+.proc-card p{color:var(--t2);font-size:.85rem;line-height:1.7}
+@media(max-width:900px){.process-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.process-grid{grid-template-columns:1fr}}
+
+/* TESTIMONIALS */
+.test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem}
+.test-card{background:var(--bg3);border:1px solid var(--brd);border-radius:16px;padding:2rem;transition:all .4s;position:relative}
+.test-card:hover{border-color:rgba(0,229,160,.2);transform:translateY(-3px)}
+.test-card::before{content:'\201F';position:absolute;top:14px;left:20px;font-size:3rem;color:rgba(0,229,160,.15);font-family:serif;line-height:1}
+.test-stars{color:#FBBF24;font-size:.9rem;margin-bottom:.8rem;letter-spacing:2px}
+.test-text{color:var(--t2);font-size:.9rem;line-height:1.8;margin-bottom:1.2rem}
+.test-author{display:flex;align-items:center;gap:.8rem}
+.test-avatar{width:40px;height:40px;border-radius:50%;background:var(--ag);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.test-name{font-family:'Rubik',sans-serif;font-weight:600;font-size:.9rem}
+.test-role{font-size:.78rem;color:var(--t3)}
+@media(max-width:900px){.test-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:640px){.test-grid{grid-template-columns:1fr}}
+
+/* FAQ */
+.faq-list{max-width:720px;margin:2rem auto 0;display:flex;flex-direction:column;gap:.8rem}
+.faq-item{background:var(--bg3);border:1px solid var(--brd);border-radius:12px;overflow:hidden;transition:border-color .3s}
+.faq-item:hover{border-color:rgba(0,229,160,.15)}
+.faq-q{width:100%;padding:1.2rem 1.5rem;background:none;border:none;color:var(--t1);font-family:'Heebo',sans-serif;font-size:.95rem;font-weight:500;cursor:pointer;display:flex;justify-content:space-between;align-items:center;text-align:right;direction:rtl}
+.faq-q::after{content:'+';font-size:1.3rem;color:var(--accent);transition:transform .3s;flex-shrink:0;margin-right:1rem}
+.faq-item.open .faq-q::after{transform:rotate(45deg)}
+.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease}
+.faq-item.open .faq-a{max-height:300px;padding:0 1.5rem 1.2rem}
+.faq-a p{color:var(--t2);font-size:.9rem;line-height:1.8}
+
+/* FLOATING CTA */
+.float-cta{position:fixed;bottom:28px;left:28px;z-index:99;display:flex;flex-direction:column;gap:10px;align-items:center}
+.float-btn{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:1.5rem;box-shadow:0 4px 20px rgba(0,0,0,.3);transition:all .3s;border:none;cursor:pointer}
+.float-whatsapp{background:#25D366;color:#fff}
+.float-whatsapp:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(37,211,102,.4)}
+.float-top{width:42px;height:42px;background:var(--bg3);border:1px solid var(--brd);color:var(--t2);font-size:1rem;opacity:0;transform:translateY(10px);transition:all .3s;pointer-events:none}
+.float-top.show{opacity:1;transform:translateY(0);pointer-events:auto}
+.float-top:hover{border-color:var(--accent);color:var(--accent)}
 </style>
 </head>
 <body>
+
+<!-- LOADER -->
+<div class="loader" id="loader">
+  <div class="loader-inner">
+    <div class="loader-logo">lior<span style="font-weight:300;opacity:.7">_</span>Ai</div>
+    <div class="loader-bar"></div>
+  </div>
+</div>
 
 <!-- NAV -->
 <nav>
@@ -235,6 +306,7 @@ footer{padding:2.5rem 2rem;border-top:1px solid var(--brd)}
     <li><a href="#portfolio">תיק עבודות</a></li>
     <li><a href="#content">תוכן</a></li>
     <li><a href="#pricing">תמיכה</a></li>
+    <li><a href="#faq">שאלות נפוצות</a></li>
     <li><a href="#contact" class="nav-cta">צור קשר</a></li>
   </ul>
 </nav>
@@ -290,6 +362,28 @@ footer{padding:2.5rem 2rem;border-top:1px solid var(--brd)}
   </div>
 </div>
 
+<!-- STATS -->
+<div class="stats-sec rv">
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-num" data-count="15" data-suffix="+">0</div>
+      <div class="stat-label">פרויקטים שהושלמו</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num" data-count="100" data-suffix="%">0</div>
+      <div class="stat-label">שביעות רצון לקוחות</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num" data-count="50" data-suffix="+">0</div>
+      <div class="stat-label">פוסטים ומאמרים</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-num" data-count="3" data-suffix="+">0</div>
+      <div class="stat-label">שנות ניסיון</div>
+    </div>
+  </div>
+</div>
+
 <!-- SERVICES -->
 <section id="services">
   <div class="slbl">שירותים מקצועיים</div>
@@ -302,6 +396,41 @@ footer{padding:2.5rem 2rem;border-top:1px solid var(--brd)}
     <div class="srv rv"><div class="srv-i">🏗️</div><h3>תוכן לנדל"ן ובנייה</h3><p>תוכן מקצועי על התחדשות עירונית, ניתוח שוק, ניהול נכסים ומגמות בתעשיית הבנייה.</p><span class="stag">מומחיות בתחום</span></div>
     <div class="srv rv"><div class="srv-i">✍️</div><h3>כתיבת תוכן AI</h3><p>תוכן שיווקי, בלוגים ומאמרים מקצועיים בעזרת AI — איכות גבוהה, SEO-friendly ועקביות.</p><span class="stag">תוכן ממיר</span></div>
     <div class="srv rv"><div class="srv-i">🤖</div><h3>אוטומציה ובינה מלאכותית</h3><p>ייעוץ והטמעת כלי AI לעסקים. אוטומציה של תהליכים, ניתוח נתונים ושימוש בטכנולוגיות חדשניות.</p><span class="stag">חדשנות</span></div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="cen rv">
+    <div class="slbl">תהליך עבודה</div>
+    <h2 class="sttl">איך אני עובד</h2>
+    <p class="ssub">תהליך מובנה ויעיל שמבטיח תוצאות מקצועיות</p>
+  </div>
+  <div class="process-grid">
+    <div class="proc-card rv">
+      <div class="proc-num">1</div>
+      <div class="proc-icon">💬</div>
+      <h3>שיחת היכרות</h3>
+      <p>נבין יחד את הצרכים, המטרות והקהל שלך כדי לבנות אסטרטגיה מדויקת.</p>
+    </div>
+    <div class="proc-card rv">
+      <div class="proc-num">2</div>
+      <div class="proc-icon">📐</div>
+      <h3>תכנון ועיצוב</h3>
+      <p>עיצוב מותאם אישית עם AI — מבנה, טקסטים, צבעים וחוויית משתמש מושלמת.</p>
+    </div>
+    <div class="proc-card rv">
+      <div class="proc-num">3</div>
+      <div class="proc-icon">⚡</div>
+      <h3>פיתוח והעלאה</h3>
+      <p>בניית האתר עם קוד נקי, רספונסיבי ומותאם לקידום בגוגל — ועולה לאוויר.</p>
+    </div>
+    <div class="proc-card rv">
+      <div class="proc-num">4</div>
+      <div class="proc-icon">📈</div>
+      <h3>אופטימיזציה ותמיכה</h3>
+      <p>שיפור ביצועים, ניתוח נתונים, קידום אורגני ותמיכה שוטפת לאורך זמן.</p>
+    </div>
   </div>
 </section>
 
@@ -336,7 +465,7 @@ footer{padding:2.5rem 2rem;border-top:1px solid var(--brd)}
 <div class="wrap">
   <div class="cen rv">
     <div class="slbl">תיק עבודות</div>
-    <h2 class="sttl">פרויקטים אמיתיים</h2>
+    <h2 class="sttl">עבודות לדוגמא</h2>
     <p class="ssub">דפי נחיתה ואתרי תדמית שבניתי עם AI — לחצו לצפייה באתר החי</p>
   </div>
   <div class="pgrid">
@@ -359,10 +488,45 @@ footer{padding:2.5rem 2rem;border-top:1px solid var(--brd)}
 </div>
 </section>
 
+<!-- TESTIMONIALS -->
+<section id="testimonials">
+  <div class="cen rv">
+    <div class="slbl">המלצות</div>
+    <h2 class="sttl">ממליצים עלי</h2>
+    <p class="ssub">משוב אמיתי מלקוחות מרוצים שעבדתי איתם</p>
+  </div>
+  <div class="test-grid">
+    <div class="test-card rv">
+      <div class="test-stars">★★★★★</div>
+      <div class="test-text">ליאור בנה לי דף נחיתה מדהים שהכפיל את כמות הפניות שלי. מקצוען אמיתי עם הבנה עמוקה בשיווק דיגיטלי.</div>
+      <div class="test-author">
+        <div class="test-avatar">👩</div>
+        <div><div class="test-name">עדי בוגנים</div><div class="test-role">עיצוב גבות מקצועי</div></div>
+      </div>
+    </div>
+    <div class="test-card rv">
+      <div class="test-stars">★★★★★</div>
+      <div class="test-text">אתר התדמית שליאור בנה לי הרים את העסק לרמה אחרת. שירות מעולה, תקשורת מצוינת ותוצאות מרשימות.</div>
+      <div class="test-author">
+        <div class="test-avatar">👨</div>
+        <div><div class="test-name">אילן סדיקוב</div><div class="test-role">חשמלאי מוסמך</div></div>
+      </div>
+    </div>
+    <div class="test-card rv">
+      <div class="test-stars">★★★★★</div>
+      <div class="test-text">מרגע הפגישה הראשונה הבנתי שאני בידיים טובות. האתר מושלם, מהיר ומביא לידים כל יום. ממליץ בחום!</div>
+      <div class="test-author">
+        <div class="test-avatar">🚗</div>
+        <div><div class="test-name">Royal Service Car</div><div class="test-role">מוסך היברידי, באר שבע</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CONTENT TOPICS -->
 <section id="content">
   <div class="slbl">תוכן חינמי</div>
-  <h2 class="sttl">על מה אני כותב</h2>
+  <h2 class="sttl">התוכן שלי</h2>
   <p class="ssub">תוכן פתוח לכולם על נדל"ן, AI וטכנולוגיה</p>
   <div class="tgrid">
     <div class="topic rv"><span style="font-size:1.3rem">🏙️</span><span style="font-size:.9rem;font-weight:500">התחדשות עירונית</span></div>
@@ -412,6 +576,37 @@ footer{padding:2.5rem 2rem;border-top:1px solid var(--brd)}
   </div>
 </section>
 
+<!-- FAQ -->
+<section id="faq">
+  <div class="cen rv">
+    <div class="slbl">שאלות נפוצות</div>
+    <h2 class="sttl">שאלות ותשובות</h2>
+    <p class="ssub">תשובות לשאלות הנפוצות ביותר שאני מקבל</p>
+  </div>
+  <div class="faq-list">
+    <div class="faq-item rv">
+      <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">כמה זמן לוקח לבנות דף נחיתה?</button>
+      <div class="faq-a"><p>דף נחיתה מקצועי מוכן בדרך כלל תוך 3-7 ימי עבודה, תלוי במורכבות הפרויקט. זה כולל עיצוב, כתיבת תוכן עם AI, פיתוח והעלאה לאוויר.</p></div>
+    </div>
+    <div class="faq-item rv">
+      <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">מה כולל שירות הקידום האורגני?</button>
+      <div class="faq-a"><p>שירות ה-SEO כולל מחקר מילות מפתח, אופטימיזציה טכנית, כתיבת תוכן ממוקד, בניית סמכות דומיין וניטור ביצועים שוטף.</p></div>
+    </div>
+    <div class="faq-item rv">
+      <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">האם אני מקבל קוד המקור של האתר?</button>
+      <div class="faq-a"><p>כן, כל קבצי המקור שלך. אני מאמין בשקיפות מלאה ובבעלות הלקוח על המוצר הסופי.</p></div>
+    </div>
+    <div class="faq-item rv">
+      <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">מה ההבדל בין דף נחיתה לאתר תדמית?</button>
+      <div class="faq-a"><p>דף נחיתה הוא עמוד אחד ממוקד המרה עם CTA ברור. אתר תדמית הוא אתר רב-עמודי שמציג את העסק, השירותים, תיק העבודות ועוד.</p></div>
+    </div>
+    <div class="faq-item rv">
+      <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">איך AI עוזר בתהליך?</button>
+      <div class="faq-a"><p>אני משתמש בכלי AI לכתיבת טקסטים שיווקיים, ניתוח מתחרים, אופטימיזציית תוכן, יצירת רעיונות עיצוב ואוטומציה של תהליכים — מה שמאפשר תוצאה טובה יותר ומהירה יותר.</p></div>
+    </div>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section id="contact" class="cta-sec">
   <div class="cta-glow"></div>
@@ -420,10 +615,10 @@ footer{padding:2.5rem 2rem;border-top:1px solid var(--brd)}
   <p>מחפש דף נחיתה? אתר תדמית? קידום אורגני? ייעוץ AI? שלח הודעה ונתחיל.</p>
   <form class="cform" onsubmit="handleSubmit(event)">
     <div class="fr">
-      <input type="text" placeholder="שם מלא" required>
-      <input type="email" placeholder="אימייל" required dir="ltr">
+      <input type="text" name="name" placeholder="שם מלא" required aria-label="שם מלא">
+      <input type="email" name="email" placeholder="אימייל" required dir="ltr" aria-label="אימייל">
     </div>
-    <select>
+    <select name="service" aria-label="סוג שירות">
       <option value="">מה מעניין אותך?</option>
       <option>פיתוח דף נחיתה</option>
       <option>אתר תדמית</option>
@@ -433,10 +628,16 @@ footer{padding:2.5rem 2rem;border-top:1px solid var(--brd)}
       <option>שיתוף פעולה</option>
       <option>אחר</option>
     </select>
-    <textarea placeholder="ספר לי מה אתה צריך..."></textarea>
+    <textarea name="message" placeholder="ספר לי מה אתה צריך..." aria-label="הודעה"></textarea>
     <button type="submit" class="btn btn-p" style="width:100%;justify-content:center">שלח הודעה →</button>
   </form>
 </section>
+
+<!-- FLOATING CTA -->
+<div class="float-cta">
+  <button class="float-btn float-top" id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="חזרה למעלה">↑</button>
+  <a href="https://wa.me/972508668022?text=%D7%94%D7%99%D7%99%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%99%D7%A8%D7%95%D7%AA%D7%99%D7%9D%20%D7%A9%D7%9C%D7%9A" target="_blank" class="float-btn float-whatsapp" aria-label="שלח הודעה בוואטסאפ">💬</a>
+</div>
 
 <!-- FOOTER -->
 <footer>
@@ -445,16 +646,63 @@ footer{padding:2.5rem 2rem;border-top:1px solid var(--brd)}
     <div class="foot-t"><a href="https://balol100.github.io/lior-ai-landing/" target="_blank" style="color:inherit;text-decoration:none;">כל הזכויות שמורות - lior_Ai</a></div>
     <div class="foot-links">
       <a href="#services">שירותים</a>
+      <a href="#process">תהליך עבודה</a>
       <a href="#portfolio">עבודות</a>
+      <a href="#testimonials">המלצות</a>
+      <a href="#faq">שאלות נפוצות</a>
       <a href="#contact">צור קשר</a>
+    </div>
+    <div style="display:flex;justify-content:center;gap:1rem;flex-wrap:wrap">
+      <a href="https://x.com/LiorBalol" target="_blank" style="width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,.04);border:1px solid var(--brd);display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:.8rem;color:var(--t2);transition:all .3s" aria-label="Twitter">𝕏</a>
+      <a href="https://www.youtube.com/channel/UCjwWgjFmZN5MELt2-QqkF8Q" target="_blank" style="width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,.04);border:1px solid var(--brd);display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:.8rem;color:var(--t2);transition:all .3s" aria-label="YouTube">▶</a>
+      <a href="https://github.com/balol100" target="_blank" style="width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,.04);border:1px solid var(--brd);display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:.8rem;color:var(--t2);transition:all .3s" aria-label="GitHub">⌨</a>
+      <a href="https://www.patreon.com/cw/lior_Ai1" target="_blank" style="width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,.04);border:1px solid var(--brd);display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:.8rem;color:var(--t2);transition:all .3s" aria-label="Patreon">P</a>
+      <a href="mailto:liorbll100@gmail.com" style="width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,.04);border:1px solid var(--brd);display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:.8rem;color:var(--t2);transition:all .3s" aria-label="Email">✉</a>
+    </div>
+    <div style="border-top:1px solid var(--brd);padding-top:1.2rem;width:100%">
+      <div class="foot-t">© 2026 lior_Ai — כל הזכויות שמורות | נבנה עם AI</div>
     </div>
   </div>
 </footer>
 
 <script>
+// Page loader
+window.addEventListener("load",function(){
+  setTimeout(function(){document.getElementById("loader").classList.add("hidden")},600);
+});
+
+// Scroll reveal
 var obs=new IntersectionObserver(function(entries){entries.forEach(function(el){if(el.isIntersecting){el.target.classList.add("vis");obs.unobserve(el.target)}});},{threshold:.1});
 document.querySelectorAll(".rv").forEach(function(el){obs.observe(el)});
 
+// Counter animation
+var counted=false;
+var cobs=new IntersectionObserver(function(entries){
+  entries.forEach(function(el){
+    if(el.isIntersecting&&!counted){
+      counted=true;
+      document.querySelectorAll("[data-count]").forEach(function(c){
+        var target=parseInt(c.getAttribute("data-count")),suffix=c.getAttribute("data-suffix")||"";
+        var start=0,dur=2000,step=Math.ceil(target/60);
+        var timer=setInterval(function(){
+          start+=step;
+          if(start>=target){start=target;clearInterval(timer)}
+          c.textContent=start+suffix;
+        },dur/60);
+      });
+    }
+  });
+},{threshold:.3});
+var statsSec=document.querySelector(".stats-sec");
+if(statsSec)cobs.observe(statsSec);
+
+// Back to top button
+var topBtn=document.getElementById("topBtn");
+window.addEventListener("scroll",function(){
+  if(window.scrollY>600){topBtn.classList.add("show")}else{topBtn.classList.remove("show")}
+});
+
+// Form submit
 function handleSubmit(e){
   e.preventDefault();
   var f=e.target,nm=f.querySelector('input[type="text"]').value,em=f.querySelector('input[type="email"]').value,
@@ -466,11 +714,19 @@ function handleSubmit(e){
   setTimeout(function(){btn.textContent="שלח הודעה →";btn.style.background="";btn.style.color=""},3000);
 }
 
+// Smooth scroll
 document.querySelectorAll('a[href^="#"]').forEach(function(a){
   a.addEventListener("click",function(e){e.preventDefault();
     var t=document.querySelector(a.getAttribute("href"));
     if(t){t.scrollIntoView({behavior:"smooth"});document.querySelector(".nav-l").classList.remove("open")}
   });
+});
+
+// Nav shadow on scroll
+var nav=document.querySelector("nav");
+window.addEventListener("scroll",function(){
+  if(window.scrollY>20){nav.style.boxShadow="0 4px 30px rgba(0,0,0,.3)"}
+  else{nav.style.boxShadow="none"}
 });
 </script>
 </body>
