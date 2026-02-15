@@ -367,6 +367,13 @@ document.querySelectorAll('.scroll-top').forEach(link => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     });
 });
+
+// Nav shadow on scroll
+var nav=document.querySelector("nav");
+window.addEventListener("scroll",function(){
+  if(window.scrollY>20){nav.style.boxShadow="0 4px 30px rgba(0,0,0,.3)"}
+  else{nav.style.boxShadow="none"}
+});
 </script>
 
 </body>
