@@ -10,7 +10,7 @@
     <meta property="og:title" content="lior_Ai | הנדל&quot;ן שלך מונע בבינה מלאכותית">
     <meta property="og:description" content="דפי נחיתה, אתרי תדמית ותוכן מבוסס AI לעסקי נדל&quot;ן ובנייה.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://your-domain.com/og-image.jpg"> <!-- החלף ב-URL של תמונת OG אמיתית -->
+    <meta property="og:image" content="https://your-domain.com/og-image.jpg"> <!-- החלף ב-URL אמיתי של תמונת OG -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content="https://your-domain.com/og-image.jpg">
     
@@ -37,11 +37,9 @@
         img{max-width:100%;display:block}
         .wrap{max-width:1100px;margin:0 auto;padding:0 20px}
 
-        /* Reveal Animation System */
         .reveal{opacity:0;transform:translateY(30px);transition:all 0.8s cubic-bezier(0.4, 0, 0.2, 1)}
         .reveal.active{opacity:1;transform:translateY(0)}
 
-        /* NAV */
         .nav{position:sticky;top:0;z-index:90;background:rgba(4,7,18,.90);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
         .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:10px}
         .logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:17px;color:#E8ECF4}
@@ -56,7 +54,6 @@
         .nav-cta{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:12px;background:linear-gradient(135deg,var(--accent-g),#10B981);color:#052E16;font-weight:800;font-size:13px;border:none;cursor:pointer;transition:transform .15s;box-shadow:0 4px 20px rgba(52,211,153,.2)}
         .nav-cta:hover{transform:translateY(-1px)}
 
-        /* Hamburger Menu */
         .hamburger{display:none;align-items:center;justify-content:center;width:40px;height:40px;border:none;background:transparent;cursor:pointer}
         .hamburger span{width:24px;height:2px;background:var(--text);display:block;transition:0.3s}
         .hamburger span::before,.hamburger span::after{content:'';width:24px;height:2px;background:var(--text);display:block;position:absolute;transition:0.3s}
@@ -67,11 +64,10 @@
         .hamburger.active span::after{transform:translateY(0) rotate(-45deg)}
         .mobile-menu{display:none;flex-direction:column;gap:10px;padding:20px 0;background:var(--surface);position:absolute;top:100%;right:0;width:100%;border-top:1px solid var(--border);z-index:1}
         .mobile-menu.active{display:flex}
+        .mobile-menu a{padding:10px 20px;font-size:15px;font-weight:600;color:var(--muted);transition:all .2s}
+        .mobile-menu a:hover{color:#fff;background:rgba(255,255,255,.05)}
 
-        /* HERO */
-        .hero{padding:70px 0 50px;position:relative;overflow:hidden;background:linear-gradient(135deg, rgba(167,139,250,0.03), rgba(52,211,153,0.02)); /* Placeholder ל-background - החלף ב-url אמיתי */
-        /* אם יש תמונה: background: url('hero-bg.jpg') center/cover no-repeat fixed; */
-        }
+        .hero{padding:70px 0 50px;position:relative;overflow:hidden;background:linear-gradient(135deg, rgba(167,139,250,0.03), rgba(52,211,153,0.02))}
         .hero::before{content:'';position:absolute;top:-200px;right:-300px;width:900px;height:900px;border-radius:50%;background:radial-gradient(circle,rgba(167,139,250,.08),transparent 60%);pointer-events:none}
         .hero>*{position:relative}
         .hero-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:24px;align-items:center}
@@ -97,13 +93,11 @@
         .hl-list li{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:12px;background:rgba(52,211,153,.04);border:1px solid rgba(52,211,153,.1);font-size:13px;font-weight:700;color:var(--muted)}
         .li-i{width:22px;height:22px;border-radius:7px;background:rgba(52,211,153,.15);display:flex;align-items:center;justify-content:center;color:var(--accent-g);font-size:12px;flex-shrink:0}
 
-        /* SECTIONS */
         section{padding:60px 0}
         .stag{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;background:rgba(167,139,250,.1);border:1px solid rgba(167,139,250,.2);font-size:12px;font-weight:800;color:var(--accent);margin-bottom:12px}
         h2{font-size:clamp(22px,3vw,32px);font-weight:900;margin-bottom:6px;color:#F1F5F9}
         .ssub{color:var(--muted);font-weight:500;max-width:60ch;margin-bottom:32px}
 
-        /* SERVICES */
         .g3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
         .sc{padding:24px;border-radius:var(--r);background:var(--surface);border:1px solid var(--border);transition:transform 0.2s, border-color 0.2s}
         .sc:hover{transform:translateY(-3px);border-color:rgba(167,139,250,0.2)}
@@ -114,9 +108,7 @@
         .sc h3{font-size:16px;font-weight:800;margin-bottom:8px;color:#E8ECF4}
         .sc p{font-size:13px;color:var(--muted);font-weight:500;line-height:1.7}
 
-        /* PACKAGES */
         .pkg-header{text-align:center;margin-bottom:8px}
-        .pkg-header p.pkg-tagline{color:var(--muted);font-size:15px;max-width:50ch;margin:0 auto 32px}
         .pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
         .pkg{padding:28px 24px;border-radius:var(--r);background:var(--surface);border:1px solid var(--border);display:flex;flex-direction:column;transition:transform 0.2s;position:relative}
         .pkg:hover{transform:translateY(-3px)}
@@ -125,8 +117,6 @@
         .pkg-num{font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:700;color:var(--accent);margin-bottom:6px}
         .pkg-name{font-size:20px;font-weight:900;color:#F1F5F9;margin-bottom:4px}
         .pkg-desc{font-size:13px;color:var(--muted);margin-bottom:16px;font-weight:600}
-        .pkg-meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
-        .pkg-meta span{padding:4px 10px;border-radius:8px;background:rgba(255,255,255,0.04);border:1px solid var(--border);font-size:11px;font-weight:700;color:var(--muted)}
         .pkg-features{list-style:none;display:grid;gap:8px;margin-bottom:22px;flex:1}
         .pkg-features li{display:flex;align-items:flex-start;gap:8px;font-size:13px;font-weight:600;color:var(--text);line-height:1.5}
         .pkg-features .ck{color:var(--accent-g);font-weight:900;flex-shrink:0;margin-top:2px}
@@ -134,20 +124,11 @@
         .pkg-cta.green{background:linear-gradient(135deg,var(--accent-g),#10B981);color:#052E16;box-shadow:0 4px 16px rgba(52,211,153,0.15)}
         .pkg-cta.outline{background:rgba(255,255,255,0.04);border:1px solid var(--border);color:#E8ECF4}
 
-        /* PROCESS */
-        .g4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-        .step{padding:24px 20px;border-radius:var(--r);background:var(--surface);border:1px solid var(--border);text-align:center}
-        .step-n{font-family:'Space Grotesk',sans-serif;font-size:32px;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--accent-g));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:10px}
-        .step h3{font-size:14px;font-weight:800;margin-bottom:6px;color:#E8ECF4}
-        .step p{font-size:12px;color:var(--muted);font-weight:600}
-
-        /* ABOUT */
         .ag{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}
         .av{border-radius:var(--r);background:var(--surface);border:1px solid var(--border);padding:0;overflow:hidden;min-height:320px}
         .at-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
         .at-tags span{display:inline-block;padding:6px 14px;border-radius:999px;background:rgba(255,255,255,0.04);border:1px solid var(--border);font-size:12px;font-weight:700;color:var(--muted)}
 
-        /* PORTFOLIO */
         .pg{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
         .pj{border-radius:var(--r);background:var(--surface);border:1px solid var(--border);overflow:hidden;transition:transform 0.2s}
         .pj:hover{transform:translateY(-3px)}
@@ -159,39 +140,26 @@
         .pj-l{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:10px;background:rgba(255,255,255,0.04);border:1px solid var(--border);font-size:12px;font-weight:800;color:#E8ECF4;transition:all 0.2s}
         .pj-l:hover{background:rgba(167,139,250,0.1)}
 
-        /* TESTIMONIALS */
-        .tg{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-        .tm{padding:24px;border-radius:var(--r);background:var(--surface);border:1px solid var(--border)}
-        .tm-s{color:#FBBF24;font-size:14px;margin-bottom:12px;letter-spacing:2px}
-        .tm q{display:block;font-size:14px;font-weight:600;line-height:1.8;color:#E8ECF4;font-style:normal;margin-bottom:14px}
-        .tm-w{font-size:12px;font-weight:800;color:var(--muted)}
-
-        /* FAQ */
         .fq{display:grid;grid-template-columns:1fr 1fr;gap:14px}
         details{padding:18px 20px;border-radius:16px;background:var(--surface);border:1px solid var(--border)}
-        summary{cursor:pointer;font-weight:800;font-size:14px;color:#E8ECF4;list-style:none;display:flex;justify-content:space-between;align-items:center;role="button"}
+        summary{cursor:pointer;font-weight:800;font-size:14px;color:#E8ECF4;list-style:none;display:flex;justify-content:space-between;align-items:center}
         summary::after{content:'+';color:var(--muted);font-size:18px}
         details[open] summary::after{content:'-'}
         details p{margin-top:12px;font-size:13px;color:var(--muted);font-weight:500;line-height:1.7}
 
-        /* FOOTER & WHATSAPP */
-        .fi{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
-        .waf{position:fixed;bottom:24px;left:24px;z-index:80;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#25D366,#128C7E);display:flex;align-items:center;justify-content:center;font-size:28px;color:#fff;box-shadow:0 6px 24px rgba(37,211,102,0.3);animation:pulse 2s infinite;aria-label="צור קשר בוואטסאפ"}
+        .waf{position:fixed;bottom:24px;left:24px;z-index:80;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#25D366,#128C7E);display:flex;align-items:center;justify-content:center;font-size:28px;color:#fff;box-shadow:0 6px 24px rgba(37,211,102,0.3);animation:pulse 2s infinite}
 
         @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
         @keyframes pulse{0%,100%{box-shadow:0 6px 24px rgba(37,211,102,0.3)}50%{box-shadow:0 6px 36px rgba(37,211,102,0.5)}}
         
         @media(max-width:900px){
-            .hero-grid,.ag,.g3,.pg,.tg,.pkg-grid{grid-template-columns:1fr}
-            .g4{grid-template-columns:1fr 1fr}
+            .hero-grid,.ag,.g3,.pg,.pkg-grid{grid-template-columns:1fr}
             .nav-links{display:none}
             .hamburger{display:flex}
-            .mobile-menu{display:none}
             h1{font-size:28px}
         }
         @media(max-width:600px){
             .sr{grid-template-columns:1fr}
-            .g4{grid-template-columns:1fr}
             .hero-ctas{flex-direction:column}
             .bp,.bg{width:100%}
         }
@@ -201,7 +169,7 @@
 
 <div class="nav"><div class="wrap"><div class="nav-inner">
     <div class="logo"><span class="logo-dot"></span><span>lior_Ai</span></div>
-    <button class="hamburger" aria-label="תפריט ניווט" onclick="toggleMenu()">
+    <button class="hamburger" aria-label="פתח תפריט" onclick="toggleMenu()">
         <span></span>
     </button>
     <div class="nav-links">
@@ -212,10 +180,13 @@
         <a href="#faq" data-i18n="nF">FAQ</a>
     </div>
     <div class="nav-right">
-        <div class="lang-toggle"><button id="btnHe" class="active" aria-label="עברית" title="עברית">HE</button><button id="btnEn" aria-label="אנגלית" title="אנגלית">EN</button></div>
+        <div class="lang-toggle">
+            <button id="btnHe" class="active" aria-label="עברית">HE</button>
+            <button id="btnEn" aria-label="English">EN</button>
+        </div>
         <a class="nav-cta" href="https://wa.me/972508668022?text=היי" target="_blank" data-i18n="nCTA">בואו נדבר</a>
     </div>
-    <div class="mobile-menu">
+    <div class="mobile-menu" id="mobileMenu">
         <a href="#services" data-i18n="nS">שירותים</a>
         <a href="#packages" data-i18n="nPk">מסלולים</a>
         <a href="#portfolio" data-i18n="nP">עבודות</a>
@@ -227,14 +198,14 @@
 <header class="hero"><div class="wrap"><div class="hero-grid">
     <div>
         <div class="hero-badge">AI + נדל"ן + חדשנות</div>
-        <h1 data-i18n="h1">הנדל"ן שלך<br><span class="hl">מונע בבינה מלאכותית</span></h1>
-        <p class="hero-sub" data-i18n="hSub">דפי נחיתה, אתרי תדמית, קידום אורגני ותוכן מבוסס AI לעסקי נדל"ן.</p>
+        <h1 data-i18n="h1">הנדל&quot;ן שלך<br><span class="hl">מונע בבינה מלאכותית</span></h1>
+        <p class="hero-sub" data-i18n="hSub">דפי נחיתה, אתרי תדמית, קידום אורגני ותוכן מבוסס AI לעסקי נדל&quot;ן.</p>
         <div class="hero-ctas">
             <a class="bp" href="https://wa.me/972508668022?text=היי" target="_blank" data-i18n="hC1">בואו נדבר בוואטסאפ</a>
             <a class="bg" href="#packages" data-i18n="hC2">צפה במסלולים</a>
         </div>
         <div class="trust-row">
-            <span class="tp"><span class="ci">✓</span> <span data-i18n="t1">18+ שנות ניסיון בנדל"ן</span></span>
+            <span class="tp"><span class="ci">✓</span> <span data-i18n="t1">18+ שנות ניסיון בנדל&quot;ן</span></span>
             <span class="tp"><span class="ci">✓</span> <span data-i18n="t2">השקה תוך 3-7 ימים</span></span>
             <span class="tp"><span class="ci">✓</span> <span data-i18n="t3">100% קוד אצלך</span></span>
         </div>
@@ -262,7 +233,7 @@
         <div class="sc reveal"><div class="si p">🚀</div><h3 data-i18n="s1t">דפי נחיתה מונעי AI</h3><p data-i18n="s1p">דפי נחיתה חכמים שממירים מבקרים ללידים.</p></div>
         <div class="sc reveal"><div class="si g">🎨</div><h3 data-i18n="s2t">אתרי תדמית</h3><p data-i18n="s2p">עיצוב מודרני לבניית אמון ויוקרה.</p></div>
         <div class="sc reveal"><div class="si a">📈</div><h3 data-i18n="s3t">קידום SEO</h3><p data-i18n="s3p">אסטרטגיית קידום חכמה מבוססת AI.</p></div>
-        <div class="sc reveal"><div class="si p">🏗️</div><h3 data-i18n="s4t">תוכן לנדל"ן</h3><p data-i18n="s4p">כתיבה מקצועית לענף הבנייה והתיווך.</p></div>
+        <div class="sc reveal"><div class="si p">🏗️</div><h3 data-i18n="s4t">תוכן לנדל&quot;ן</h3><p data-i18n="s4p">כתיבה מקצועית לענף הבנייה והתיווך.</p></div>
         <div class="sc reveal"><div class="si g">✍️</div><h3 data-i18n="s5t">כתיבת תוכן AI</h3><p data-i18n="s5p">בלוגים ומאמרים שיווקיים באיכות גבוהה.</p></div>
         <div class="sc reveal"><div class="si a">🤖</div><h3 data-i18n="s6t">אוטומציה</h3><p data-i18n="s6p">הטמעת כלי בינה מלאכותית לייעול העסק.</p></div>
     </div>
@@ -275,8 +246,9 @@
     </div>
     <div class="pkg-grid">
         <div class="pkg reveal">
-            <div class="pkg-num">01</div><div class="pkg-name" data-i18n="pk1n">הכי ממיר</div>
-            <div class="pkg-desc">Landing שמביא פניות</div>
+            <div class="pkg-num">01</div>
+            <div class="pkg-name" data-i18n="pk1n">הכי ממיר</div>
+            <div class="pkg-desc" data-i18n="pk1d">Landing שמביא פניות</div>
             <ul class="pkg-features">
                 <li><span class="ck">✓</span>עמוד ממוקד המרה עם CTA חזק</li>
                 <li><span class="ck">✓</span>אינטגרציה ל-WhatsApp וטפסים</li>
@@ -287,8 +259,9 @@
         </div>
         <div class="pkg pop reveal">
             <div class="pkg-badge" data-i18n="pkBadge">הכי נפוץ</div>
-            <div class="pkg-num">02</div><div class="pkg-name" data-i18n="pk2n">אתר תדמית</div>
-            <div class="pkg-desc">נוכחות דיגיטלית יוקרתית</div>
+            <div class="pkg-num">02</div>
+            <div class="pkg-name" data-i18n="pk2n">אתר תדמית</div>
+            <div class="pkg-desc" data-i18n="pk2d">נוכחות דיגיטלית יוקרתית</div>
             <ul class="pkg-features">
                 <li><span class="ck">✓</span>4-6 עמודי תוכן (בית, אודות, שירותים, גלריה, צור קשר)</li>
                 <li><span class="ck">✓</span>עיצוב מותאם אישית + גרפיקה</li>
@@ -299,8 +272,9 @@
             <a class="pkg-cta green" href="https://wa.me/972508668022?text=Website" data-i18n="pk2c">דבר איתי</a>
         </div>
         <div class="pkg reveal">
-            <div class="pkg-num">03</div><div class="pkg-name" data-i18n="pk3n">לסקייל</div>
-            <div class="pkg-desc">AI + אוטומציה לעסק</div>
+            <div class="pkg-num">03</div>
+            <div class="pkg-name" data-i18n="pk3n">לסקייל</div>
+            <div class="pkg-desc" data-i18n="pk3d">AI + אוטומציה לעסק</div>
             <ul class="pkg-features">
                 <li><span class="ck">✓</span>חיבור ל-CRM ומדידת המרות</li>
                 <li><span class="ck">✓</span>אוטומציה של תוכן + צ'טבוט AI</li>
@@ -317,12 +291,37 @@
     <div class="stag reveal" data-i18n="poT">תיק עבודות</div>
     <h2 class="reveal" data-i18n="poH">עבודות לדוגמא</h2>
     <div class="pg">
-        <div class="pj reveal"><div class="pj-img">💅</div><div class="pj-b"><span class="pj-type">לנדינג</span><h3>עדי בוגנים</h3><p>עיצוב גבות - דף המרה ממוקד</p><a class="pj-l" href="https://balol100.github.io/adi-brows-landing/" target="_blank">צפה באתר</a></div></div>
-        <div class="pj reveal"><div class="pj-img">⚡</div><div class="pj-b"><span class="pj-type">אתר תדמית</span><h3>אילן סדיקוב</h3><p>חשמלאי מוסמך - נוכחות מקצועית</p><a class="pj-l" href="https://balol100.github.io/ilan-electric/" target="_blank">צפה באתר</a></div></div>
-        <div class="pj reveal"><div class="pj-img">🚗</div><div class="pj-b"><span class="pj-type">אתר תדמית</span><h3>Royal Service</h3><p>מוסך היברידי - גלריה ושירותים</p><a class="pj-l" href="https://balol100.github.io/royal-service-car-website/" target="_blank">צפה באתר</a></div></div>
+        <div class="pj reveal">
+            <div class="pj-img">💅</div>
+            <div class="pj-b">
+                <span class="pj-type">לנדינג</span>
+                <h3>עדי בוגנים</h3>
+                <p>עיצוב גבות - דף המרה ממוקד</p>
+                <a class="pj-l" href="https://balol100.github.io/adi-brows-landing/" target="_blank">צפה באתר</a>
+            </div>
+        </div>
+        <div class="pj reveal">
+            <div class="pj-img">⚡</div>
+            <div class="pj-b">
+                <span class="pj-type">אתר תדמית</span>
+                <h3>אילן סדיקוב</h3>
+                <p>חשמלאי מוסמך - נוכחות מקצועית</p>
+                <a class="pj-l" href="https://balol100.github.io/ilan-electric/" target="_blank">צפה באתר</a>
+            </div>
+        </div>
+        <div class="pj reveal">
+            <div class="pj-img">🚗</div>
+            <div class="pj-b">
+                <span class="pj-type">אתר תדמית</span>
+                <h3>Royal Service</h3>
+                <p>מוסך היברידי - גלריה ושירותים</p>
+                <a class="pj-l" href="https://balol100.github.io/royal-service-car-website/" target="_blank">צפה באתר</a>
+            </div>
+        </div>
+        <!-- שאר הפרויקטים נשארים כפי שהיו -->
         <div class="pj reveal"><div class="pj-img">🍲</div><div class="pj-b"><span class="pj-type">אתר תדמית</span><h3>אצל יניב</h3><p>מסעדה וקייטרינג - תפריטים + הזמנות</p><a class="pj-l" href="https://balol100.github.io/restaurant-website/" target="_blank">צפה באתר</a></div></div>
         <div class="pj reveal"><div class="pj-img">🏠</div><div class="pj-b"><span class="pj-type">לנדינג</span><h3>אבי דדון</h3><p>ייעוץ משכנתאות - פניות מהירות</p><a class="pj-l" href="https://balol100.github.io/avi-dadon/" target="_blank">צפה באתר</a></div></div>
-        <div class="pj reveal"><div class="pj-img">🤖</div><div class="pj-b"><span class="pj-type">אתר תדמית</span><h3>lior_Ai</h3><p>האתר הנוכחי - AI + נדל"ן</p><a class="pj-l scroll-top" href="#top">אתה כאן</a></div></div>
+        <div class="pj reveal"><div class="pj-img">🤖</div><div class="pj-b"><span class="pj-type">אתר תדמית</span><h3>lior_Ai</h3><p>האתר הנוכחי - AI + נדל&quot;ן</p><a class="pj-l scroll-top" href="#top">אתה כאן</a></div></div>
     </div>
 </div></section>
 
@@ -330,9 +329,9 @@
     <div class="av reveal"><img src="profile.jpg" alt="ליאור - מומחה נדל&quot;ן ובינה מלאכותית" style="width:100%;height:100%;object-fit:cover;object-position:top"></div>
     <div class="at reveal">
         <div class="stag" data-i18n="aT">אודות</div>
-        <h2 data-i18n="aH">AI + נדל"ן = הצלחה</h2>
-        <p data-i18n="a2"><strong>18+ שנות ניסיון</strong> בענף הנדל"ן. סמנכ"ל מכירות לשעבר המשלב את עולם השטח עם טכנולוגיית המחר.</p>
-        <div class="at-tags"><span>דפי נחיתה</span><span>אתרי תדמית</span><span>SEO</span><span>נדל"ן</span></div>
+        <h2 data-i18n="aH">AI + נדל&quot;ן = הצלחה</h2>
+        <p data-i18n="a2"><strong>18+ שנות ניסיון</strong> בענף הנדל&quot;ן. סמנכ&quot;ל מכירות לשעבר המשלב את עולם השטח עם טכנולוגיית המחר.</p>
+        <div class="at-tags"><span>דפי נחיתה</span><span>אתרי תדמית</span><span>SEO</span><span>נדל&quot;ן</span></div>
     </div>
 </div></div></section>
 
@@ -352,7 +351,7 @@
     </div>
 </footer>
 
-<a class="waf" href="https://wa.me/972508668022?text=היי" target="_blank">💬</a>
+<a class="waf" href="https://wa.me/972508668022?text=היי" target="_blank" aria-label="צור קשר בוואטסאפ">💬</a>
 
 <script>
     var L = {
@@ -394,12 +393,15 @@
             s6p: "הטמעת כלי בינה מלאכותית לייעול העסק.",
             pkT: "מסלולים",
             pkH: "3 מסלולים. בחירה אחת. ביצוע מהר.",
-            pk1n: "הכי ממיר",
-            pk1c: "דבר איתי",
             pkBadge: "הכי נפוץ",
+            pk1n: "הכי ממיר",
+            pk1d: "Landing שמביא פניות",
+            pk1c: "דבר איתי",
             pk2n: "אתר תדמית",
+            pk2d: "נוכחות דיגיטלית יוקרתית",
             pk2c: "דבר איתי",
             pk3n: "לסקייל",
+            pk3d: "AI + אוטומציה לעסק",
             pk3c: "דבר איתי",
             poT: "תיק עבודות",
             poH: "עבודות לדוגמא",
@@ -451,12 +453,15 @@
             s6p: "Implementing AI tools to streamline your business.",
             pkT: "Plans",
             pkH: "3 plans. One decision. Fast execution.",
-            pk1n: "High-Conversion Landing",
-            pk1c: "Contact Me",
             pkBadge: "Most Popular",
+            pk1n: "High-Conversion Landing",
+            pk1d: "Landing that brings leads",
+            pk1c: "Contact Me",
             pk2n: "Business Website",
+            pk2d: "Premium digital presence",
             pk2c: "Contact Me",
             pk3n: "Scale with AI",
+            pk3d: "AI + Automation for your business",
             pk3c: "Contact Me",
             poT: "Portfolio",
             poH: "Sample Projects",
@@ -477,10 +482,24 @@
         document.documentElement.dir = l === "he" ? "rtl" : "ltr";
         document.getElementById("btnHe").classList.toggle("active", l === "he");
         document.getElementById("btnEn").classList.toggle("active", l === "en");
+
         document.querySelectorAll("[data-i18n]").forEach(e => {
             let k = e.getAttribute("data-i18n");
-            if (L[l][k]) e.innerHTML = L[l][k];
+            if (L[l] && L[l][k]) {
+                e.innerHTML = L[l][k];
+            }
         });
+
+        // התאמת כיוון טקסט באנגלית לחלקים מסוימים
+        const isEn = l === "en";
+        document.querySelectorAll('.pkg-name, .pkg-desc, .pkg-badge, .pkg-features li, .pj-type, .pj h3, .pj p').forEach(el => {
+            el.style.direction = isEn ? "ltr" : "";
+            el.style.textAlign = isEn ? "left" : "";
+        });
+
+        // סגירת תפריט מובייל אם פתוח
+        document.querySelector('.hamburger').classList.remove('active');
+        document.querySelector('.mobile-menu').classList.remove('active');
     }
 
     document.getElementById("btnHe").addEventListener("click", () => setLang("he"));
@@ -492,12 +511,12 @@
     }
 
     function reveal() {
-        var reveals = document.querySelectorAll(".reveal");
-        for (var i = 0; i < reveals.length; i++) {
-            var windowHeight = window.innerHeight;
-            var elementTop = reveals[i].getBoundingClientRect().top;
-            if (elementTop < windowHeight - 100) reveals[i].classList.add("active");
-        }
+        document.querySelectorAll(".reveal").forEach(el => {
+            const rect = el.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 100) {
+                el.classList.add("active");
+            }
+        });
     }
     window.addEventListener("scroll", reveal);
     reveal();
@@ -506,14 +525,6 @@
         link.addEventListener('click', e => {
             e.preventDefault();
             window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    });
-
-    // סגירת תפריט מובייל בעת לחיצה על קישור
-    document.querySelectorAll('.mobile-menu a').forEach(link => {
-        link.addEventListener('click', () => {
-            document.querySelector('.hamburger').classList.remove('active');
-            document.querySelector('.mobile-menu').classList.remove('active');
         });
     });
 </script>
