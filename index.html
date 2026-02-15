@@ -1,725 +1,371 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>lior_Ai | בינה מלאכותית × נדל"ן × חדשנות</title>
-<meta name="description" content="lior_Ai - יוצר תוכן מבוסס AI בתחום הנדל״ן. דפי נחיתה, אתרי תדמית, קידום אורגני, התחדשות עירונית וניתוח שוק.">
-      <link rel="icon" href="favicon.ico" type="image/x-icon">
-<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&family=Rubik:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#0a0a0f;--bg2:#111118;--bg3:#16161f;--accent:#00e5a0;--accent2:#00b8d4;--ag:rgba(0,229,160,.15);--grad:linear-gradient(135deg,#00e5a0,#00b8d4);--t1:#f0f0f5;--t2:#8888a0;--t3:#55556a;--brd:rgba(255,255,255,.06);--tr:.35s cubic-bezier(.4,0,.2,1)}
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--t1);overflow-x:hidden;line-height:1.7;-webkit-font-smoothing:antialiased}
-body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");pointer-events:none;z-index:9999}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>lior_Ai | פתרונות AI, בניית אתרים וקידום לענף הנדל"ן</title>
+    <meta name="description" content="ליאור AI - מומחה נדלן עם 18 שנות ניסיון המשלב בינה מלאכותית לבניית אתרים, דפי נחיתה וקידום אורגני שמביא תוצאות.">
+    
+    <meta property="og:title" content="lior_Ai | הנדלנ שלך מונע בבינה מלאכותית">
+    <meta property="og:description" content="דפי נחיתה, אתרי תדמית ותוכן מבוסס AI לעסקי נדלן ובנייה.">
+    <meta property="og:url" content="https://balol100.github.io/">
+    <meta property="og:type" content="website">
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}
+        :root{
+            --bg:#040712;
+            --surface:#090D17;
+            --border:rgba(255,255,255,.07);
+            --text:#CDD5E5;
+            --muted:#A1A9BB; /* Improved contrast for accessibility */
+            --accent:#A78BFA;
+            --accent-g:#34D399;
+            --r:20px
+        }
+        html{scroll-behavior:smooth}
+        body{background:var(--bg);color:var(--text);font-family:'Heebo',system-ui,sans-serif;line-height:1.7;overflow-x:hidden}
+        a{color:inherit;text-decoration:none}
+        img{max-width:100%;display:block}
+        .wrap{max-width:1100px;margin:0 auto;padding:0 20px}
 
-/* NAV */
-nav{position:fixed;top:0;width:100%;z-index:100;height:62px;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;background:rgba(10,10,15,.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--brd)}
-.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-.logo-av{width:34px;height:34px;border-radius:10px;overflow:hidden;border:2px solid rgba(0,229,160,.3)}
-.logo-av img{width:100%;height:100%;object-fit:cover}
-.logo-t{font-family:'Rubik',sans-serif;font-weight:700;font-size:1.35rem;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.logo-t span{font-weight:300;opacity:.7}
-.nav-l{display:flex;gap:2rem;list-style:none;align-items:center}
-.nav-l a{color:var(--t2);text-decoration:none;font-size:.87rem;font-weight:400;transition:var(--tr)}
-.nav-l a:hover{color:var(--accent)}
-.nav-cta{padding:.55rem 1.4rem!important;background:var(--grad)!important;color:var(--bg)!important;border-radius:8px!important;font-weight:600!important;-webkit-text-fill-color:var(--bg)!important;-webkit-background-clip:unset!important}
-.mob-t{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:5px}
-.mob-t span{width:22px;height:2px;background:var(--t1);border-radius:1px}
+        /* Reveal Animation Class */
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
 
-/* HERO */
-.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;padding:7rem 2rem 4rem;overflow:hidden}
-.hero-grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(0,229,160,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,160,.03) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse at center,black 30%,transparent 70%)}
-.glow{position:absolute;border-radius:50%;filter:blur(120px);opacity:.12;pointer-events:none}
-.glow-1{width:500px;height:500px;background:var(--accent);top:8%;left:18%;animation:fl 18s ease-in-out infinite}
-.glow-2{width:380px;height:380px;background:var(--accent2);bottom:10%;right:12%;animation:fl 22s ease-in-out infinite reverse}
-@keyframes fl{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(30px,-20px) scale(1.08)}}
-.hero-inner{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center;max-width:1200px;width:100%;position:relative;z-index:2}
-.hero-badge{display:inline-flex;align-items:center;gap:.5rem;padding:.5rem 1.2rem;background:var(--ag);border:1px solid rgba(0,229,160,.2);border-radius:50px;font-size:.83rem;color:var(--accent);margin-bottom:1.8rem;animation:fu .7s ease both}
-.dot{width:8px;height:8px;background:var(--accent);border-radius:50%;animation:blink 2s infinite}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
-.hero h1{font-family:'Rubik',sans-serif;font-size:clamp(2.2rem,5vw,3.6rem);font-weight:800;line-height:1.12;margin-bottom:1.2rem;animation:fu .7s ease .1s both}
-.gr{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.hero-p{font-size:1.08rem;color:var(--t2);max-width:490px;line-height:1.85;margin-bottom:2rem;animation:fu .7s ease .22s both}
-.hero-btns{display:flex;gap:14px;flex-wrap:wrap;animation:fu .7s ease .34s both}
-@keyframes fu{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 30px;border-radius:10px;font-family:'Heebo',sans-serif;font-size:.95rem;font-weight:600;text-decoration:none;cursor:pointer;border:none;transition:var(--tr)}
-.btn-p{background:var(--grad);color:var(--bg)}
-.btn-p:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,229,160,.3)}
-.btn-s{background:transparent;color:var(--t1);border:1px solid var(--brd)}
-.btn-s:hover{border-color:var(--accent);color:var(--accent);background:var(--ag)}
+        /* NAV */
+        .nav{position:sticky;top:0;z-index:90;background:rgba(4,7,18,.90);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+        .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:10px}
+        .logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:17px;color:#E8ECF4}
+        .logo-dot{width:10px;height:10px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-g))}
+        .nav-links{display:flex;align-items:center;gap:4px}
+        .nav-links a{padding:8px 12px;border-radius:10px;font-size:13px;font-weight:700;color:var(--muted);transition:all .2s}
+        .nav-links a:hover{color:#fff;background:rgba(255,255,255,.05)}
+        .nav-right{display:flex;align-items:center;gap:10px}
+        .lang-toggle{display:flex;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+        .lang-toggle button{border:0;cursor:pointer;background:transparent;color:var(--muted);font-weight:800;font-size:12px;padding:8px 12px;transition:all .15s;font-family:inherit}
+        .lang-toggle button.active{background:rgba(167,139,250,.2);color:#E8ECF4}
+        .nav-cta{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:12px;background:linear-gradient(135deg,var(--accent-g),#10B981);color:#052E16;font-weight:800;font-size:13px;border:none;cursor:pointer;transition:transform .15s;box-shadow:0 4px 20px rgba(52,211,153,.2)}
+        .nav-cta:hover{transform:translateY(-1px)}
 
-/* HERO CARD */
-.hcard{background:var(--bg3);border:1px solid var(--brd);border-radius:20px;padding:28px;position:relative;overflow:hidden;animation:fu .9s ease .3s both}
-.hcard::before{content:'';position:absolute;top:0;right:0;left:0;height:3px;background:var(--grad)}
-.hc-head{display:flex;align-items:center;gap:14px;margin-bottom:18px}
-.hc-av{width:60px;height:60px;border-radius:50%;overflow:hidden;border:3px solid rgba(0,229,160,.25);flex-shrink:0}
-.hc-av img{width:100%;height:100%;object-fit:cover}
-.hc-name{font-family:'Rubik',sans-serif;font-weight:700;font-size:1.1rem}
-.hc-role{font-size:.8rem;color:var(--t3)}
-.hc-soc{display:flex;gap:8px;margin-top:5px}
-.hc-soc a{width:24px;height:24px;border-radius:6px;background:rgba(255,255,255,.04);border:1px solid var(--brd);display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:.68rem;color:var(--t2);transition:var(--tr)}
-.hc-soc a:hover{background:var(--accent);border-color:var(--accent);color:var(--bg)}
-.hc-tags{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:16px}
-.hc-tags span{padding:4px 12px;border-radius:6px;font-size:.74rem;font-weight:500;background:var(--ag);border:1px solid rgba(0,229,160,.12);color:var(--accent)}
-.hc-tags .c2{background:rgba(0,184,212,.1);border-color:rgba(0,184,212,.15);color:var(--accent2)}
-.hc-tags .c3{background:rgba(251,191,36,.08);border-color:rgba(251,191,36,.12);color:#FBBF24}
-.hc-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.hc-stat{background:rgba(255,255,255,.02);border:1px solid var(--brd);border-radius:10px;padding:14px 8px;text-align:center}
-.hc-stat-n{font-family:'Rubik',sans-serif;font-weight:700;font-size:1.2rem;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.hc-stat-l{font-size:.7rem;color:var(--t3);margin-top:2px}
+        /* HERO */
+        .hero{padding:70px 0 50px;position:relative;overflow:hidden}
+        .hero::before{content:'';position:absolute;top:-200px;right:-300px;width:900px;height:900px;border-radius:50%;background:radial-gradient(circle,rgba(167,139,250,.08),transparent 60%);pointer-events:none}
+        .hero>*{position:relative}
+        .hero-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:24px;align-items:center}
+        .hero-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;border-radius:999px;background:rgba(167,139,250,.1);border:1px solid rgba(167,139,250,.25);font-size:13px;font-weight:700;color:var(--accent);margin-bottom:20px;animation:fadeUp .6s ease both}
+        h1{font-size:clamp(30px,4.5vw,50px);font-weight:900;line-height:1.15;color:#F1F5F9;animation:fadeUp .6s .1s ease both}
+        h1 .hl{background:linear-gradient(135deg,var(--accent),var(--accent-g));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .hero-sub{font-size:17px;color:var(--muted);margin:18px 0 28px;max-width:55ch;font-weight:500;animation:fadeUp .6s .2s ease both}
+        .hero-ctas{display:flex;gap:12px;flex-wrap:wrap;animation:fadeUp .6s .3s ease both}
+        .bp{display:inline-flex;align-items:center;gap:10px;padding:14px 28px;border-radius:14px;background:linear-gradient(135deg,var(--accent-g),#10B981);color:#052E16;font-weight:800;font-size:15px;border:none;cursor:pointer;transition:transform .15s;box-shadow:0 6px 24px rgba(52,211,153,.2)}
+        .bp:hover{transform:translateY(-2px)}
+        .bg{display:inline-flex;align-items:center;gap:10px;padding:14px 28px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid var(--border);color:#E8ECF4;font-weight:700;font-size:15px;cursor:pointer;transition:all .2s}
+        .bg:hover{background:rgba(255,255,255,.07)}
+        .trust-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px;animation:fadeUp .6s .4s ease both}
+        .tp{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.03);border:1px solid var(--border);font-size:12px;font-weight:700;color:var(--muted)}
+        .tp .ci{color:var(--accent-g);font-weight:900}
+        .hc{background:var(--surface);border:1px solid var(--border);border-radius:var(--r);padding:28px 24px;animation:fadeUp .6s .3s ease both}
+        .hc-t{font-weight:900;font-size:16px;margin-bottom:16px;color:#F1F5F9}
+        .sr{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px}
+        .st{padding:14px;border-radius:14px;background:rgba(255,255,255,.03);border:1px solid var(--border);text-align:center}
+        .sn{font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--accent-g));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .sl{font-size:12px;color:var(--muted);font-weight:700;margin-top:2px}
+        .hl-list{list-style:none;display:grid;gap:8px}
+        .hl-list li{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:12px;background:rgba(52,211,153,.04);border:1px solid rgba(52,211,153,.1);font-size:13px;font-weight:700;color:var(--muted)}
+        .li-i{width:22px;height:22px;border-radius:7px;background:rgba(52,211,153,.15);display:flex;align-items:center;justify-content:center;color:var(--accent-g);font-size:12px;flex-shrink:0}
 
-/* VIDEO BANNER */
-.vid-sec{padding:0 2rem 4rem;max-width:1200px;margin:0 auto;position:relative;z-index:1}
-.vid-wrap{position:relative;border-radius:20px;overflow:hidden;border:1px solid var(--brd);box-shadow:0 20px 60px rgba(0,0,0,.4);background:var(--bg3);aspect-ratio:16/9}
-.vid-wrap::before{content:'';position:absolute;top:0;right:0;left:0;height:3px;background:var(--grad);z-index:3}
-.vid-wrap iframe{position:absolute;top:50%;left:50%;width:130%;height:130%;transform:translate(-50%,-50%);border:0;pointer-events:none}
-.vid-overlay{position:absolute;inset:0;background:linear-gradient(transparent 40%,rgba(10,10,15,.85));pointer-events:none;z-index:2}
-.vid-caption{position:absolute;bottom:20px;right:24px;z-index:3;display:flex;align-items:center;gap:10px}
-.vid-caption span{font-size:.85rem;color:rgba(255,255,255,.7);font-weight:500}
-.vid-caption .vdot{width:8px;height:8px;background:var(--accent);border-radius:50%;animation:blink 2s infinite}
+        /* SECTIONS */
+        section{padding:60px 0}
+        .stag{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;background:rgba(167,139,250,.1);border:1px solid rgba(167,139,250,.2);font-size:12px;font-weight:800;color:var(--accent);margin-bottom:12px}
+        h2{font-size:clamp(22px,3vw,32px);font-weight:900;margin-bottom:6px;color:#F1F5F9}
+        .ssub{color:var(--muted);font-weight:500;max-width:60ch;margin-bottom:32px}
 
-/* SECTIONS */
-section{padding:6rem 2rem;max-width:1200px;margin:0 auto}
-.slbl{display:inline-flex;align-items:center;gap:.5rem;color:var(--accent);font-size:.82rem;font-weight:500;text-transform:uppercase;letter-spacing:2.5px;margin-bottom:.8rem}
-.slbl::before{content:'';width:24px;height:2px;background:var(--grad)}
-.sttl{font-family:'Rubik',sans-serif;font-size:clamp(1.7rem,3.8vw,2.6rem);font-weight:700;margin-bottom:.8rem;line-height:1.2}
-.ssub{color:var(--t2);font-size:1.02rem;max-width:540px;margin-bottom:2.5rem}
-.cen{text-align:center}.cen .ssub,.cen .slbl{margin-left:auto;margin-right:auto;justify-content:center}
+        /* SERVICES */
+        .g3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+        .sc{padding:24px;border-radius:var(--r);background:var(--surface);border:1px solid var(--border);transition:transform .2s,border-color .2s}
+        .sc:hover{transform:translateY(-3px);border-color:rgba(167,139,250,.2)}
+        .si{width:44px;height:44px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:16px}
+        .si.p{background:rgba(167,139,250,.12);border:1px solid rgba(167,139,250,.2)}
+        .si.g{background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.15)}
+        .si.a{background:rgba(251,191,36,.1);border:1px solid rgba(251,191,36,.15)}
+        .sc h3{font-size:16px;font-weight:800;margin-bottom:8px;color:#E8ECF4}
+        .sc p{font-size:13px;color:var(--muted);font-weight:500;line-height:1.7}
 
-/* SERVICES */
-.sgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2rem}
-.srv{background:var(--bg3);border:1px solid var(--brd);border-radius:16px;padding:2rem;transition:all .4s;position:relative;overflow:hidden}
-.srv::before{content:'';position:absolute;top:0;right:0;width:90px;height:90px;background:var(--ag);border-radius:0 16px 0 100%;opacity:0;transition:opacity .4s}
-.srv:hover{border-color:rgba(0,229,160,.2);transform:translateY(-4px);box-shadow:0 8px 32px rgba(0,0,0,.3)}
-.srv:hover::before{opacity:1}
-.srv-i{width:48px;height:48px;display:flex;align-items:center;justify-content:center;background:var(--ag);border-radius:12px;font-size:1.4rem;margin-bottom:1rem}
-.srv h3{font-family:'Rubik',sans-serif;font-size:1.1rem;font-weight:600;margin-bottom:.5rem}
-.srv p{color:var(--t2);font-size:.9rem;line-height:1.7}
-.stag{display:inline-block;margin-top:.8rem;padding:.25rem .7rem;background:rgba(0,229,160,.08);border:1px solid rgba(0,229,160,.15);border-radius:6px;font-size:.73rem;color:var(--accent)}
+        /* PACKAGES */
+        .pkg-header{text-align:center;margin-bottom:8px}
+        .pkg-header p.pkg-tagline{color:var(--muted);font-size:15px;max-width:50ch;margin:0 auto 32px}
+        .pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+        .pkg{padding:28px 24px;border-radius:var(--r);background:var(--surface);border:1px solid var(--border);display:flex;flex-direction:column;transition:transform .2s,border-color .2s;position:relative}
+        .pkg:hover{transform:translateY(-3px)}
+        .pkg.pop{border-color:rgba(52,211,153,.3);box-shadow:0 0 40px rgba(52,211,153,.06)}
+        .pkg-badge{position:absolute;top:-12px;right:20px;padding:4px 14px;border-radius:999px;background:var(--accent-g);color:#052E16;font-size:11px;font-weight:900}
+        .pkg-num{font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:700;color:var(--accent);margin-bottom:6px}
+        .pkg-name{font-size:20px;font-weight:900;color:#F1F5F9;margin-bottom:4px}
+        .pkg-desc{font-size:13px;color:var(--muted);margin-bottom:16px;font-weight:600}
+        .pkg-meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+        .pkg-meta span{padding:4px 10px;border-radius:8px;background:rgba(255,255,255,.04);border:1px solid var(--border);font-size:11px;font-weight:700;color:var(--muted)}
+        .pkg-features{list-style:none;display:grid;gap:8px;margin-bottom:22px;flex:1}
+        .pkg-features li{display:flex;align-items:flex-start;gap:8px;font-size:13px;font-weight:600;color:var(--text);line-height:1.5}
+        .pkg-features .ck{color:var(--accent-g);font-weight:900;flex-shrink:0;margin-top:2px}
+        .pkg-cta{display:block;text-align:center;padding:12px;border-radius:12px;font-weight:800;font-size:14px;transition:transform .15s}
+        .pkg-cta.green{background:linear-gradient(135deg,var(--accent-g),#10B981);color:#052E16;box-shadow:0 4px 16px rgba(52,211,153,.15)}
+        .pkg-cta.outline{background:rgba(255,255,255,.04);border:1px solid var(--border);color:#E8ECF4}
+        .pkg-cta:hover{transform:translateY(-1px)}
 
-/* ABOUT */
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
-.orbit-wrap{position:relative;height:380px;border-radius:20px;overflow:hidden;background:var(--bg3);border:1px solid var(--brd);display:flex;align-items:center;justify-content:center}
-.orbit-c{position:relative;width:200px;height:200px}
-.orbit-ctr{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:76px;height:76px;background:var(--grad);border-radius:18px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 40px rgba(0,229,160,.3);overflow:hidden}
-.orbit-ctr img{width:100%;height:100%;object-fit:cover}
-.orbit-ring{position:absolute;inset:0;border:1px dashed rgba(0,229,160,.12);border-radius:50%;animation:spin 20s linear infinite}
-.orbit-ring:nth-child(3){inset:-28px;animation:spin 28s linear infinite reverse}
-.orbit-d{position:absolute;width:34px;height:34px;background:var(--bg3);border:1px solid rgba(0,229,160,.25);border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:.85rem}
-.orbit-ring:nth-child(2) .orbit-d:nth-child(1){top:-17px;left:50%;transform:translateX(-50%)}
-.orbit-ring:nth-child(2) .orbit-d:nth-child(2){bottom:-17px;left:50%;transform:translateX(-50%)}
-.orbit-ring:nth-child(2) .orbit-d:nth-child(3){top:50%;right:-17px;transform:translateY(-50%)}
-.orbit-ring:nth-child(3) .orbit-d:nth-child(1){top:-17px;right:30%}
-.orbit-ring:nth-child(3) .orbit-d:nth-child(2){bottom:-17px;left:30%}
-@keyframes spin{to{transform:rotate(360deg)}}
-.about-txt h3{font-family:'Rubik',sans-serif;font-size:1.3rem;margin-bottom:.8rem}
-.about-txt p{color:var(--t2);margin-bottom:1.2rem;line-height:1.8}
-.af{display:flex;align-items:center;gap:.7rem;color:var(--t2);font-size:.92rem;margin-bottom:.6rem}
-.ck{width:20px;height:20px;background:var(--ag);border-radius:5px;display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:.7rem;flex-shrink:0}
+        /* PROCESS */
+        .g4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+        .step{padding:24px 20px;border-radius:var(--r);background:var(--surface);border:1px solid var(--border);text-align:center}
+        .step-n{font-family:'Space Grotesk',sans-serif;font-size:32px;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--accent-g));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:10px}
+        .step h3{font-size:14px;font-weight:800;margin-bottom:6px;color:#E8ECF4}
+        .step p{font-size:12px;color:var(--muted);font-weight:600}
 
-/* PORTFOLIO */
-#portfolio{background:var(--bg2);border-top:1px solid var(--brd);border-bottom:1px solid var(--brd);max-width:100%;padding:6rem 2rem}
-#portfolio .wrap{max-width:1200px;margin:0 auto}
-.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem;margin-top:2rem}
-.pc{border-radius:16px;overflow:hidden;border:1px solid var(--brd);transition:all .4s;background:var(--bg3);text-decoration:none;color:inherit;display:block}
-.pc:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,.4);border-color:rgba(0,229,160,.2)}
-.pc-prev{height:180px;overflow:hidden}
-.pc-mock{width:100%;height:100%;display:flex;flex-direction:column}
-.pc-bar{height:24px;background:rgba(255,255,255,.04);display:flex;align-items:center;padding:0 10px;gap:5px}
-.pc-dot{width:7px;height:7px;border-radius:50%}
-.pc-dot:nth-child(1){background:#FF5F56}.pc-dot:nth-child(2){background:#FFBD2E}.pc-dot:nth-child(3){background:#27C93F}
-.pc-body{flex:1;padding:12px;display:flex;flex-direction:column;gap:6px}
-.pc-nav{height:5px;width:55%;background:rgba(255,255,255,.06);border-radius:3px}
-.pc-hero{flex:1;border-radius:8px;display:flex;align-items:center;justify-content:center}
-.pc-hero span{font-size:.68rem;color:#fff;font-weight:600;text-align:center;padding:0 6px}
-.pc-blocks{display:grid;grid-template-columns:1fr 1fr 1fr;gap:5px}
-.pc-block{height:18px;border-radius:4px;background:rgba(255,255,255,.04)}
-.pc-info{padding:16px}
-.pc-type{font-size:.7rem;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:3px}
-.pc h3{font-family:'Rubik',sans-serif;font-size:.95rem;font-weight:600;margin-bottom:3px}
-.pc p{font-size:.8rem;color:var(--t3);line-height:1.6}
-.pc-link{padding:0 16px 14px}
+        /* ABOUT */
+        .ag{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}
+        .av{border-radius:var(--r);background:var(--surface);border:1px solid var(--border);padding:40px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;min-height:320px}
+        .av-i{font-size:36px;width:72px;height:72px;border-radius:18px;background:linear-gradient(135deg,rgba(167,139,250,.12),rgba(52,211,153,.08));border:1px solid rgba(167,139,250,.15);display:flex;align-items:center;justify-content:center}
+        .av-tags{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+        .av-tags span{padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.04);border:1px solid var(--border);font-size:11px;font-weight:700;color:var(--muted)}
+        .at p{color:var(--muted);font-weight:500;line-height:1.8;margin-bottom:14px}
+        .at p strong{color:#E8ECF4;font-weight:800}
+        .at-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+        .at-tags span{padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.03);border:1px solid var(--border);font-size:12px;font-weight:700;color:var(--muted)}
 
-/* TOPICS */
-.tgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:2rem}
-.topic{display:flex;align-items:center;gap:.8rem;padding:1.1rem 1.3rem;background:var(--bg3);border:1px solid var(--brd);border-radius:12px;transition:all .3s}
-.topic:hover{border-color:rgba(0,229,160,.2);background:rgba(0,229,160,.03)}
+        /* PORTFOLIO */
+        .pg{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+        .pj{border-radius:var(--r);background:var(--surface);border:1px solid var(--border);overflow:hidden;transition:transform .2s}
+        .pj:hover{transform:translateY(-3px)}
+        .pj-img{height:140px;background:linear-gradient(135deg,rgba(167,139,250,.06),rgba(52,211,153,.04));display:flex;align-items:center;justify-content:center;font-size:42px;border-bottom:1px solid var(--border)}
+        .pj-b{padding:18px}
+        .pj-type{display:inline-block;padding:4px 10px;border-radius:999px;background:rgba(167,139,250,.1);border:1px solid rgba(167,139,250,.2);font-size:11px;font-weight:800;color:var(--accent);margin-bottom:10px}
+        .pj h3{font-size:15px;font-weight:800;margin-bottom:6px;color:#E8ECF4}
+        .pj p{font-size:12px;color:var(--muted);font-weight:600;margin-bottom:14px}
+        .pj-l{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:10px;background:rgba(255,255,255,.04);border:1px solid var(--border);font-size:12px;font-weight:800;color:#E8ECF4;transition:all .2s}
+        .pj-l:hover{background:rgba(167,139,250,.1)}
 
-/* PRICING */
-.price-box{background:var(--bg2);border-radius:24px;padding:3.5rem;border:1px solid var(--brd);text-align:center}
-.pcards{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:2.5rem;max-width:680px;margin-left:auto;margin-right:auto}
-.pcard{background:var(--bg3);border:1px solid var(--brd);border-radius:16px;padding:2.2rem 1.8rem;text-align:center;transition:all .4s;position:relative}
-.feat{border-color:rgba(0,229,160,.3);box-shadow:0 0 40px rgba(0,229,160,.06)}
-.feat::before{content:'מומלץ';position:absolute;top:-11px;left:50%;transform:translateX(-50%);padding:.25rem .9rem;background:var(--grad);color:var(--bg);font-size:.75rem;font-weight:700;border-radius:6px}
-.pcard h3{font-family:'Rubik',sans-serif;font-size:1.1rem;margin-bottom:.3rem}
-.pcard .pr{font-family:'Rubik',sans-serif;font-size:2.8rem;font-weight:700;margin:1rem 0}
-.pcard .pr span{font-size:.9rem;font-weight:400;color:var(--t2)}
-.pfl{list-style:none;text-align:right;margin:1.2rem 0;display:flex;flex-direction:column;gap:.6rem}
-.pfl li{color:var(--t2);font-size:.88rem;display:flex;align-items:center;gap:.5rem}
-.pfl li::before{content:'✓';color:var(--accent);font-weight:700;flex-shrink:0}
+        /* TESTIMONIALS */
+        .tg{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+        .tm{padding:24px;border-radius:var(--r);background:var(--surface);border:1px solid var(--border)}
+        .tm-s{color:#FBBF24;font-size:14px;margin-bottom:12px;letter-spacing:2px}
+        .tm q{display:block;font-size:14px;font-weight:600;line-height:1.8;color:#E8ECF4;font-style:normal;margin-bottom:14px}
+        .tm-w{font-size:12px;font-weight:800;color:var(--muted)}
 
-/* SOCIAL */
-.platforms{display:flex;justify-content:center;gap:2.5rem;flex-wrap:wrap;margin-top:2rem}
-.plat{display:flex;flex-direction:column;align-items:center;gap:.4rem;text-decoration:none}
-.plat-i{width:56px;height:56px;background:var(--bg3);border:1px solid var(--brd);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;transition:all .3s;color:var(--t1)}
-.plat-i:hover{border-color:rgba(0,229,160,.3);transform:translateY(-3px)}
-.plat-n{font-size:.78rem;color:var(--t3)}
+        /* CONTENT */
+        .cb{padding:36px;border-radius:var(--r);background:var(--surface);border:1px solid var(--border);text-align:center}
+        .cb p{color:var(--muted);max-width:50ch;margin:0 auto 24px;font-weight:500;font-size:14px}
+        .ct{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:24px}
+        .ct span{padding:10px 18px;border-radius:999px;background:rgba(255,255,255,.04);border:1px solid var(--border);font-size:13px;font-weight:700;color:var(--text)}
+        .soc{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+        .soc a{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid var(--border);font-size:13px;font-weight:800;color:#E8ECF4;transition:all .2s}
+        .soc a:hover{background:rgba(255,255,255,.07)}
 
-/* CONTACT */
-.cta-sec{text-align:center;position:relative}
-.cta-glow{position:absolute;width:400px;height:400px;background:var(--accent);border-radius:50%;filter:blur(150px);opacity:.05;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
-.cta-sec h2{font-family:'Rubik',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;margin-bottom:.8rem;position:relative}
-.cta-sec>p{color:var(--t2);font-size:1.05rem;margin-bottom:2rem;position:relative}
-.cform{max-width:520px;margin:0 auto;display:flex;flex-direction:column;gap:.9rem;position:relative}
-.cform input,.cform textarea,.cform select{width:100%;padding:.9rem 1.1rem;background:var(--bg3);border:1px solid var(--brd);border-radius:10px;color:var(--t1);font-family:'Heebo',sans-serif;font-size:.92rem;outline:none;transition:border-color .3s;direction:rtl}
-.cform input:focus,.cform textarea:focus,.cform select:focus{border-color:var(--accent)}
-.cform textarea{resize:vertical;min-height:110px}
-.cform input::placeholder,.cform textarea::placeholder{color:var(--t3)}
-.cform select{appearance:none;-webkit-appearance:none}
-.cform select option{background:var(--bg3);color:var(--t1)}
-.fr{display:flex;gap:.9rem}
+        /* CTA */
+        .cta-box{padding:50px 40px;border-radius:var(--r);background:var(--surface);border:1px solid rgba(167,139,250,.15);text-align:center;position:relative;overflow:hidden}
+        .cta-box::before{content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:600px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(167,139,250,.08),transparent 60%);pointer-events:none}
+        .cta-box>*{position:relative}
+        .cta-box p{color:var(--muted);max-width:50ch;margin:0 auto 28px;font-weight:500}
+        .cta-btns{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
 
-/* FOOTER */
-footer{padding:2.5rem 2rem;border-top:1px solid var(--brd)}
-.foot{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
-.foot-t{color:var(--t3);font-size:.82rem}
-.foot-links{display:flex;gap:1.5rem}
-.foot-links a{color:var(--t2);text-decoration:none;font-size:.83rem;transition:color .3s}
-.foot-links a:hover{color:var(--accent)}
+        /* FAQ */
+        .fq{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+        details{padding:18px 20px;border-radius:16px;background:var(--surface);border:1px solid var(--border)}
+        details[open]{border-color:rgba(167,139,250,.2)}
+        summary{cursor:pointer;font-weight:800;font-size:14px;color:#E8ECF4;list-style:none;display:flex;justify-content:space-between;align-items:center}
+        summary::-webkit-details-marker{display:none}
+        summary::after{content:'+';color:var(--muted);font-size:18px}
+        details[open] summary::after{content:'-'}
+        details p{margin-top:12px;font-size:13px;color:var(--muted);font-weight:500;line-height:1.7}
 
-/* REVEAL */
-.rv{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
-.rv.vis{opacity:1;transform:translateY(0)}
+        /* FOOTER */
+        footer{padding:30px 0 50px;border-top:1px solid var(--border);margin-top:20px}
+        .fi{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+        .fl{display:flex;gap:8px;flex-wrap:wrap}
+        .fl a{padding:8px 14px;border-radius:10px;background:rgba(255,255,255,.03);border:1px solid var(--border);font-size:12px;font-weight:700;color:var(--muted);transition:all .2s}
+        .fl a:hover{color:#fff}
 
-/* RESPONSIVE */
-@media(max-width:900px){
-  .hero-inner{grid-template-columns:1fr;gap:32px}
-  .sgrid{grid-template-columns:1fr 1fr}
-  .about-grid{grid-template-columns:1fr;gap:2rem}
-  .orbit-wrap{height:280px}
-  .tgrid{grid-template-columns:1fr 1fr}
-  .pgrid{grid-template-columns:1fr 1fr}
-  .pcards{grid-template-columns:1fr 1fr}
-}
-@media(max-width:640px){
-  .mob-t{display:flex}
-  .nav-l{display:none;position:absolute;top:100%;right:0;left:0;background:var(--bg);border-bottom:1px solid var(--brd);flex-direction:column;padding:1.5rem 2rem;gap:1rem}
-  .nav-l.open{display:flex}
-  .sgrid,.pgrid,.tgrid,.pcards{grid-template-columns:1fr}
-  .hero{padding-top:6rem}
-  section{padding:4rem 1.5rem}
-  .hero-btns{flex-direction:column}
-  .hero-btns .btn{justify-content:center}
-  .fr{flex-direction:column}
-  .foot{flex-direction:column;text-align:center}
-  #portfolio{padding:4rem 1.5rem}
-  .price-box{padding:2rem 1.2rem}
-  .vid-sec{padding:0 1rem 3rem}
-}
+        /* WHATSAPP */
+        .waf{position:fixed;bottom:24px;left:24px;z-index:80;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#25D366,#128C7E);display:flex;align-items:center;justify-content:center;font-size:28px;color:#fff;box-shadow:0 6px 24px rgba(37,211,102,.3);transition:transform .2s;animation:pulse 2s infinite}
+        .waf:hover{transform:scale(1.1)}
 
-/* PAGE LOADER */
-.loader{position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;justify-content:center;z-index:10000;transition:opacity .5s,visibility .5s}
-.loader.hidden{opacity:0;visibility:hidden}
-.loader-inner{text-align:center}
-.loader-logo{font-family:'Rubik',sans-serif;font-weight:700;font-size:2rem;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;margin-bottom:1.2rem}
-.loader-bar{width:120px;height:3px;background:var(--bg3);border-radius:3px;overflow:hidden;margin:0 auto}
-.loader-bar::after{content:'';display:block;width:40%;height:100%;background:var(--grad);border-radius:3px;animation:lbar 1s ease-in-out infinite}
-@keyframes lbar{0%{transform:translateX(-100%)}100%{transform:translateX(350%)}}
-
-/* STATS COUNTER */
-.stats-sec{padding:4rem 2rem;max-width:1200px;margin:0 auto}
-.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem}
-.stat-card{text-align:center;padding:2rem 1rem;background:var(--bg3);border:1px solid var(--brd);border-radius:16px;transition:all .4s}
-.stat-card:hover{border-color:rgba(0,229,160,.2);transform:translateY(-3px)}
-.stat-num{font-family:'Rubik',sans-serif;font-size:clamp(2rem,4vw,2.8rem);font-weight:800;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;line-height:1.2}
-.stat-label{color:var(--t2);font-size:.88rem;margin-top:.4rem}
-@media(max-width:640px){.stats-grid{grid-template-columns:1fr 1fr}}
-
-/* PROCESS/HOW I WORK */
-.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:2.5rem}
-.proc-card{text-align:center;padding:2rem 1.5rem;background:var(--bg3);border:1px solid var(--brd);border-radius:16px;position:relative;transition:all .4s}
-.proc-card:hover{border-color:rgba(0,229,160,.2);transform:translateY(-3px)}
-.proc-num{position:absolute;top:-14px;right:50%;transform:translateX(50%);width:28px;height:28px;background:var(--grad);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Rubik',sans-serif;font-size:.8rem;font-weight:700;color:var(--bg)}
-.proc-icon{font-size:2rem;margin-bottom:.8rem;margin-top:.5rem}
-.proc-card h3{font-family:'Rubik',sans-serif;font-size:1rem;font-weight:600;margin-bottom:.4rem}
-.proc-card p{color:var(--t2);font-size:.85rem;line-height:1.7}
-@media(max-width:900px){.process-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:640px){.process-grid{grid-template-columns:1fr}}
-
-/* TESTIMONIALS */
-.test-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:2.5rem}
-.test-card{background:var(--bg3);border:1px solid var(--brd);border-radius:16px;padding:2rem;transition:all .4s;position:relative}
-.test-card:hover{border-color:rgba(0,229,160,.2);transform:translateY(-3px)}
-.test-card::before{content:'\201F';position:absolute;top:14px;left:20px;font-size:3rem;color:rgba(0,229,160,.15);font-family:serif;line-height:1}
-.test-stars{color:#FBBF24;font-size:.9rem;margin-bottom:.8rem;letter-spacing:2px}
-.test-text{color:var(--t2);font-size:.9rem;line-height:1.8;margin-bottom:1.2rem}
-.test-author{display:flex;align-items:center;gap:.8rem}
-.test-avatar{width:40px;height:40px;border-radius:50%;background:var(--ag);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
-.test-name{font-family:'Rubik',sans-serif;font-weight:600;font-size:.9rem}
-.test-role{font-size:.78rem;color:var(--t3)}
-@media(max-width:900px){.test-grid{grid-template-columns:1fr 1fr}}
-@media(max-width:640px){.test-grid{grid-template-columns:1fr}}
-
-/* FAQ */
-.faq-list{max-width:720px;margin:2rem auto 0;display:flex;flex-direction:column;gap:.8rem}
-.faq-item{background:var(--bg3);border:1px solid var(--brd);border-radius:12px;overflow:hidden;transition:border-color .3s}
-.faq-item:hover{border-color:rgba(0,229,160,.15)}
-.faq-q{width:100%;padding:1.2rem 1.5rem;background:none;border:none;color:var(--t1);font-family:'Heebo',sans-serif;font-size:.95rem;font-weight:500;cursor:pointer;display:flex;justify-content:space-between;align-items:center;text-align:right;direction:rtl}
-.faq-q::after{content:'+';font-size:1.3rem;color:var(--accent);transition:transform .3s;flex-shrink:0;margin-right:1rem}
-.faq-item.open .faq-q::after{transform:rotate(45deg)}
-.faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease,padding .35s ease}
-.faq-item.open .faq-a{max-height:300px;padding:0 1.5rem 1.2rem}
-.faq-a p{color:var(--t2);font-size:.9rem;line-height:1.8}
-
-/* FLOATING CTA */
-.float-cta{position:fixed;bottom:28px;left:28px;z-index:99;display:flex;flex-direction:column;gap:10px;align-items:center}
-.float-btn{width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:1.5rem;box-shadow:0 4px 20px rgba(0,0,0,.3);transition:all .3s;border:none;cursor:pointer}
-.float-whatsapp{background:#25D366;color:#fff}
-.float-whatsapp:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(37,211,102,.4)}
-.float-top{width:42px;height:42px;background:var(--bg3);border:1px solid var(--brd);color:var(--t2);font-size:1rem;opacity:0;transform:translateY(10px);transition:all .3s;pointer-events:none}
-.float-top.show{opacity:1;transform:translateY(0);pointer-events:auto}
-.float-top:hover{border-color:var(--accent);color:var(--accent)}
-</style>
+        @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+        @keyframes pulse{0%,100%{box-shadow:0 6px 24px rgba(37,211,102,.3)}50%{box-shadow:0 6px 36px rgba(37,211,102,.5)}}
+        
+        @media(max-width:900px){
+            .hero-grid,.ag{grid-template-columns:1fr}
+            .g3,.pg,.tg,.pkg-grid{grid-template-columns:1fr}
+            .g4{grid-template-columns:1fr 1fr}
+            .fq{grid-template-columns:1fr}
+            .nav-links{display:none}
+            h1{font-size:28px}
+        }
+        @media(max-width:600px){
+            .sr{grid-template-columns:1fr} /* Mobile Stats Fix */
+            .g4{grid-template-columns:1fr}
+            .hero-ctas{flex-direction:column}
+            .bp,.bg{width:100%;justify-content:center}
+        }
+    </style>
 </head>
 <body>
 
-<!-- LOADER -->
-<div class="loader" id="loader">
-  <div class="loader-inner">
-    <div class="loader-logo">lior<span style="font-weight:300;opacity:.7">_</span>Ai</div>
-    <div class="loader-bar"></div>
-  </div>
+<div class="nav"><div class="wrap"><div class="nav-inner">
+<div class="logo"><span class="logo-dot"></span><span>lior_Ai</span></div>
+<div class="nav-links"><a href="#services" data-i18n="nS">שירותים</a><a href="#packages" data-i18n="nPk">מסלולים</a><a href="#portfolio" data-i18n="nP">עבודות</a><a href="#about" data-i18n="nA">אודות</a><a href="#faq" data-i18n="nF">FAQ</a><a href="#contact" data-i18n="nCt">צור קשר</a></div>
+<div class="nav-right">
+<div class="lang-toggle"><button id="btnHe" class="active" type="button">HE</button><button id="btnEn" type="button">EN</button></div>
+<a class="nav-cta" href="https://wa.me/972508668022?text=היי%20אשמח%20לשמוע%20על%20השירותים%20שלך" target="_blank" rel="noopener" data-i18n="nCTA">בואו נדבר</a>
 </div>
+</div></div></div>
 
-<!-- NAV -->
-<nav>
-  <a href="#" class="logo">
-    <div class="logo-av"><img src="data:image/jpeg;base64,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" alt="Lior"></div>
-    <div class="logo-t">lior<span>_</span>Ai</div>
-  </a>
-  <button class="mob-t" onclick="document.querySelector('.nav-l').classList.toggle('open')" aria-label="תפריט"><span></span><span></span><span></span></button>
-  <ul class="nav-l">
-    <li><a href="#services">שירותים</a></li>
-    <li><a href="#about">אודות</a></li>
-    <li><a href="#portfolio">תיק עבודות</a></li>
-    <li><a href="#content">תוכן</a></li>
-    <li><a href="#pricing">תמיכה</a></li>
-    <li><a href="#faq">שאלות נפוצות</a></li>
-    <li><a href="#contact" class="nav-cta">צור קשר</a></li>
-  </ul>
-</nav>
-
-<!-- HERO -->
-<section class="hero">
-  <div class="hero-grid-bg"></div>
-  <div class="glow glow-1"></div>
-  <div class="glow glow-2"></div>
-  <div class="hero-inner">
-    <div>
-      <div class="hero-badge"><span class="dot"></span>התוכן חינמי · תמיכה סימלית ב-$2</div>
-      <h1>הנדל"ן שלך<br><span class="gr">מונע בבינה מלאכותית</span></h1>
-      <p class="hero-p">דפי נחיתה, אתרי תדמית, קידום אורגני בגוגל ותוכן מבוסס AI שמביא תוצאות אמיתיות לעסקי נדל"ן, בנייה והתחדשות עירונית.</p>
-      <div class="hero-btns">
-        <a href="#contact" class="btn btn-p">בואו נדבר →</a>
-        <a href="#services" class="btn btn-s">מה אני מציע</a>
-      </div>
-    </div>
-    <div class="hcard">
-      <div class="hc-head">
-        <div class="hc-av"><img src="data:image/jpeg;base64,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" alt="Lior AI"></div>
-        <div>
-          <div class="hc-name">lior_Ai</div>
-          <div class="hc-role">AI & Real Estate Content Creator</div>
-          <div class="hc-soc">
-            <a href="https://x.com/LiorBalol" target="_blank">𝕏</a>
-            <a href="https://www.youtube.com/channel/UCjwWgjFmZN5MELt2-QqkF8Q" target="_blank">▶</a>
-            <a href="https://github.com/balol100" target="_blank">⌨</a>
-            <a href="https://www.patreon.com/cw/lior_Ai1" target="_blank">P</a>
-          </div>
-        </div>
-      </div>
-      <div class="hc-tags">
-        <span>נדל"ן</span><span class="c2">בינה מלאכותית</span><span class="c3">התחדשות עירונית</span>
-        <span>דפי נחיתה</span><span class="c2">אתרי תדמית</span><span class="c3">SEO</span>
-      </div>
-      <div class="hc-stats">
-        <div class="hc-stat"><div class="hc-stat-n">AI</div><div class="hc-stat-l">תוכן חדשני</div></div>
-        <div class="hc-stat"><div class="hc-stat-n">$2</div><div class="hc-stat-l">תמיכה סימלית</div></div>
-        <div class="hc-stat"><div class="hc-stat-n">24/7</div><div class="hc-stat-l">גישה חופשית</div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- VIDEO BANNER -->
-<div class="vid-sec rv">
-  <div class="vid-wrap">
-    <iframe src="https://www.youtube.com/embed/HKcSfo_2Lmo?autoplay=1&mute=1&loop=1&playlist=HKcSfo_2Lmo&controls=0&showinfo=0&modestbranding=1&rel=0&playsinline=1" allow="autoplay;encrypted-media" allowfullscreen></iframe>
-    <div class="vid-overlay"></div>
-    <div class="vid-caption"><span class="vdot"></span><span>lior_Ai — בינה מלאכותית × נדל"ן × חדשנות</span></div>
-  </div>
+<header class="hero" id="top"><div class="wrap"><div class="hero-grid"><div>
+<div class="hero-badge">AI + נדל"ן + חדשנות</div>
+<h1 data-i18n="h1">הנדל"ן שלך<br><span class="hl">מונע בבינה מלאכותית</span></h1>
+<p class="hero-sub" data-i18n="hSub">דפי נחיתה, אתרי תדמית, קידום אורגני ותוכן מבוסס AI שמביא תוצאות אמיתיות לעסקי נדל"ן, בנייה והתחדשות עירונית.</p>
+<div class="hero-ctas">
+<a class="bp" href="https://wa.me/972508668022?text=היי%20אשמח%20לשמוע%20על%20השירותים%20שלך" target="_blank" data-i18n="hC1">בואו נדבר בוואטסאפ</a>
+<a class="bg" href="#packages" data-i18n="hC2">צפה במסלולים</a>
 </div>
-
-<!-- STATS -->
-<div class="stats-sec rv">
-  <div class="stats-grid">
-    <div class="stat-card">
-      <div class="stat-num" data-count="15" data-suffix="+">0</div>
-      <div class="stat-label">פרויקטים שהושלמו</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-num" data-count="100" data-suffix="%">0</div>
-      <div class="stat-label">שביעות רצון לקוחות</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-num" data-count="50" data-suffix="+">0</div>
-      <div class="stat-label">פוסטים ומאמרים</div>
-    </div>
-    <div class="stat-card">
-      <div class="stat-num" data-count="3" data-suffix="+">0</div>
-      <div class="stat-label">שנות ניסיון</div>
-    </div>
-  </div>
+<div class="trust-row">
+<span class="tp"><span class="ci">&#10003;</span> <span data-i18n="t1">18+ שנות ניסיון בנדל"ן</span></span>
+<span class="tp"><span class="ci">&#10003;</span> <span data-i18n="t2">השקה תוך 3-7 ימים</span></span>
+<span class="tp"><span class="ci">&#10003;</span> <span data-i18n="t3">100% קוד אצלך</span></span>
+<span class="tp"><span class="ci">&#10003;</span> <span data-i18n="t4">מיקוד המרות + WhatsApp</span></span>
 </div>
-
-<!-- SERVICES -->
-<section id="services">
-  <div class="slbl">שירותים מקצועיים</div>
-  <h2 class="sttl">מה אני יכול לעשות בשבילך</h2>
-  <p class="ssub">שילוב ייחודי של בינה מלאכותית, שיווק דיגיטלי וידע מעמיק בנדל"ן</p>
-  <div class="sgrid">
-    <div class="srv rv"><div class="srv-i">🚀</div><h3>דפי נחיתה מונעי AI</h3><p>דפי נחיתה חכמים שממירים מבקרים ללידים. עיצוב מודרני, טקסטים AI ואופטימיזציה להמרות.</p><span class="stag">המרות גבוהות</span></div>
-    <div class="srv rv"><div class="srv-i">🎨</div><h3>אתרי תדמית</h3><p>אתרי תדמית מרשימים לעסקים וחברות — עיצוב מודרני, חוויית משתמש מושלמת ותוכן שמדבר ללקוחות.</p><span class="stag">נוכחות דיגיטלית</span></div>
-    <div class="srv rv"><div class="srv-i">📈</div><h3>קידום אורגני SEO</h3><p>אסטרטגיית SEO מבוססת AI. מחקר מילות מפתח, תוכן ממוקד, ובניית סמכות דומיין לטווח ארוך.</p><span class="stag">תנועה אורגנית</span></div>
-    <div class="srv rv"><div class="srv-i">🏗️</div><h3>תוכן לנדל"ן ובנייה</h3><p>תוכן מקצועי על התחדשות עירונית, ניתוח שוק, ניהול נכסים ומגמות בתעשיית הבנייה.</p><span class="stag">מומחיות בתחום</span></div>
-    <div class="srv rv"><div class="srv-i">✍️</div><h3>כתיבת תוכן AI</h3><p>תוכן שיווקי, בלוגים ומאמרים מקצועיים בעזרת AI — איכות גבוהה, SEO-friendly ועקביות.</p><span class="stag">תוכן ממיר</span></div>
-    <div class="srv rv"><div class="srv-i">🤖</div><h3>אוטומציה ובינה מלאכותית</h3><p>ייעוץ והטמעת כלי AI לעסקים. אוטומציה של תהליכים, ניתוח נתונים ושימוש בטכנולוגיות חדשניות.</p><span class="stag">חדשנות</span></div>
-  </div>
-</section>
-
-<!-- PROCESS -->
-<section id="process">
-  <div class="cen rv">
-    <div class="slbl">תהליך עבודה</div>
-    <h2 class="sttl">איך אני עובד</h2>
-    <p class="ssub">תהליך מובנה ויעיל שמבטיח תוצאות מקצועיות</p>
-  </div>
-  <div class="process-grid">
-    <div class="proc-card rv">
-      <div class="proc-num">1</div>
-      <div class="proc-icon">💬</div>
-      <h3>שיחת היכרות</h3>
-      <p>נבין יחד את הצרכים, המטרות והקהל שלך כדי לבנות אסטרטגיה מדויקת.</p>
-    </div>
-    <div class="proc-card rv">
-      <div class="proc-num">2</div>
-      <div class="proc-icon">📐</div>
-      <h3>תכנון ועיצוב</h3>
-      <p>עיצוב מותאם אישית עם AI — מבנה, טקסטים, צבעים וחוויית משתמש מושלמת.</p>
-    </div>
-    <div class="proc-card rv">
-      <div class="proc-num">3</div>
-      <div class="proc-icon">⚡</div>
-      <h3>פיתוח והעלאה</h3>
-      <p>בניית האתר עם קוד נקי, רספונסיבי ומותאם לקידום בגוגל — ועולה לאוויר.</p>
-    </div>
-    <div class="proc-card rv">
-      <div class="proc-num">4</div>
-      <div class="proc-icon">📈</div>
-      <h3>אופטימיזציה ותמיכה</h3>
-      <p>שיפור ביצועים, ניתוח נתונים, קידום אורגני ותמיכה שוטפת לאורך זמן.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="about-grid">
-    <div class="orbit-wrap rv">
-      <div class="orbit-c">
-        <div class="orbit-ctr"><img src="data:image/jpeg;base64,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" alt="Lior"></div>
-        <div class="orbit-ring">
-          <div class="orbit-d">🏠</div><div class="orbit-d">📊</div><div class="orbit-d">⚡</div>
-        </div>
-        <div class="orbit-ring">
-          <div class="orbit-d">🔍</div><div class="orbit-d">💡</div>
-        </div>
-      </div>
-    </div>
-    <div class="about-txt rv">
-      <div class="slbl">אודות</div>
-      <h3>AI + נדל"ן = הצלחה</h3>
-      <p>אני lior_Ai — יוצר תוכן ומפתח פתרונות דיגיטליים בצומת שבין בינה מלאכותית לנדל"ן. מאמין שטכנולוגיה חכמה יכולה לשנות את האופן שבו עסקים בתחום הנדל"ן והבנייה עובדים, משווקים ומתקדמים.</p>
-      <div class="af"><span class="ck">✓</span><span>דפי נחיתה ואתרי תדמית שממירים — עיצוב וטקסט מבוססי AI</span></div>
-      <div class="af"><span class="ck">✓</span><span>קידום אורגני לטווח ארוך בגוגל</span></div>
-      <div class="af"><span class="ck">✓</span><span>תוכן מקצועי על חדשנות בנדל"ן</span></div>
-      <div class="af"><span class="ck">✓</span><span>ייעוץ והטמעת כלי AI לעסקים</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- PORTFOLIO -->
-<section id="portfolio">
-<div class="wrap">
-  <div class="cen rv">
-    <div class="slbl">תיק עבודות</div>
-    <h2 class="sttl">עבודות לדוגמא</h2>
-    <p class="ssub">דפי נחיתה ואתרי תדמית שבניתי עם AI — לחצו לצפייה באתר החי</p>
-  </div>
-  <div class="pgrid">
-    <a href="https://balol100.github.io/adi-brows-landing/" target="_blank" class="pc rv">
-      <div class="pc-prev"><div class="pc-mock"><div class="pc-bar"><div class="pc-dot"></div><div class="pc-dot"></div><div class="pc-dot"></div></div><div class="pc-body"><div class="pc-nav"></div><div class="pc-hero" style="background:linear-gradient(135deg,#E91E8C,#FF6FB5)"><span>עדי בוגנים<br>עיצוב גבות</span></div><div class="pc-blocks"><div class="pc-block"></div><div class="pc-block"></div><div class="pc-block"></div></div></div></div></div>
-      <div class="pc-info"><div class="pc-type">דף נחיתה</div><h3>עדי בוגנים — עיצוב גבות מקצועי</h3><p>דף נחיתה עם שירותים, המלצות לקוחות, גלריה ו-CTA — עיצוב נקי וממיר.</p></div>
-      <div class="pc-link"><span class="stag">🔗 צפה באתר החי</span></div>
-    </a>
-    <a href="https://balol100.github.io/ilan-electric/" target="_blank" class="pc rv">
-      <div class="pc-prev"><div class="pc-mock"><div class="pc-bar"><div class="pc-dot"></div><div class="pc-dot"></div><div class="pc-dot"></div></div><div class="pc-body"><div class="pc-nav"></div><div class="pc-hero" style="background:linear-gradient(135deg,#F59E0B,#EF4444)"><span>אילן חשמל<br>חשמלאי מוסמך</span></div><div class="pc-blocks"><div class="pc-block"></div><div class="pc-block"></div><div class="pc-block"></div></div></div></div></div>
-      <div class="pc-info"><div class="pc-type">אתר תדמית</div><h3>אילן סדיקוב — חשמלאי מוסמך</h3><p>אתר תדמית מקצועי עם שירותים, אזורי שירות, המלצות וטופס יצירת קשר.</p></div>
-      <div class="pc-link"><span class="stag">🔗 צפה באתר החי</span></div>
-    </a>
-    <a href="https://balol100.github.io/royal-service-car-website/" target="_blank" class="pc rv">
-      <div class="pc-prev"><div class="pc-mock"><div class="pc-bar"><div class="pc-dot"></div><div class="pc-dot"></div><div class="pc-dot"></div></div><div class="pc-body"><div class="pc-nav"></div><div class="pc-hero" style="background:linear-gradient(135deg,#00e5a0,#00b8d4)"><span>Royal Service<br>רכב היברידי</span></div><div class="pc-blocks"><div class="pc-block"></div><div class="pc-block"></div><div class="pc-block"></div></div></div></div></div>
-      <div class="pc-info"><div class="pc-type">אתר תדמית</div><h3>Royal Service Car — מוסך היברידי</h3><p>אתר מקצועי למוסך בבאר שבע — שירותים, מומחיות, המלצות ואיזור שירות.</p></div>
-      <div class="pc-link"><span class="stag">🔗 צפה באתר החי</span></div>
-    </a>
-  </div>
 </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section id="testimonials">
-  <div class="cen rv">
-    <div class="slbl">המלצות</div>
-    <h2 class="sttl">ממליצים עלי</h2>
-    <p class="ssub">משוב אמיתי מלקוחות מרוצים שעבדתי איתם</p>
-  </div>
-  <div class="test-grid">
-    <div class="test-card rv">
-      <div class="test-stars">★★★★★</div>
-      <div class="test-text">ליאור בנה לי דף נחיתה מדהים שהכפיל את כמות הפניות שלי. מקצוען אמיתי עם הבנה עמוקה בשיווק דיגיטלי.</div>
-      <div class="test-author">
-        <div class="test-avatar">👩</div>
-        <div><div class="test-name">עדי בוגנים</div><div class="test-role">עיצוב גבות מקצועי</div></div>
-      </div>
-    </div>
-    <div class="test-card rv">
-      <div class="test-stars">★★★★★</div>
-      <div class="test-text">אתר התדמית שליאור בנה לי הרים את העסק לרמה אחרת. שירות מעולה, תקשורת מצוינת ותוצאות מרשימות.</div>
-      <div class="test-author">
-        <div class="test-avatar">👨</div>
-        <div><div class="test-name">אילן סדיקוב</div><div class="test-role">חשמלאי מוסמך</div></div>
-      </div>
-    </div>
-    <div class="test-card rv">
-      <div class="test-stars">★★★★★</div>
-      <div class="test-text">מרגע הפגישה הראשונה הבנתי שאני בידיים טובות. האתר מושלם, מהיר ומביא לידים כל יום. ממליץ בחום!</div>
-      <div class="test-author">
-        <div class="test-avatar">🚗</div>
-        <div><div class="test-name">Royal Service Car</div><div class="test-role">מוסך היברידי, באר שבע</div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTENT TOPICS -->
-<section id="content">
-  <div class="slbl">תוכן חינמי</div>
-  <h2 class="sttl">התוכן שלי</h2>
-  <p class="ssub">תוכן פתוח לכולם על נדל"ן, AI וטכנולוגיה</p>
-  <div class="tgrid">
-    <div class="topic rv"><span style="font-size:1.3rem">🏙️</span><span style="font-size:.9rem;font-weight:500">התחדשות עירונית</span></div>
-    <div class="topic rv"><span style="font-size:1.3rem">📉</span><span style="font-size:.9rem;font-weight:500">ניתוח שוק הנדל"ן</span></div>
-    <div class="topic rv"><span style="font-size:1.3rem">🏢</span><span style="font-size:.9rem;font-weight:500">ניהול נכסים חכם</span></div>
-    <div class="topic rv"><span style="font-size:1.3rem">🤖</span><span style="font-size:.9rem;font-weight:500">AI בתעשיית הבנייה</span></div>
-    <div class="topic rv"><span style="font-size:1.3rem">💰</span><span style="font-size:.9rem;font-weight:500">ניתוח פיננסי</span></div>
-    <div class="topic rv"><span style="font-size:1.3rem">🔮</span><span style="font-size:.9rem;font-weight:500">מגמות טכנולוגיות</span></div>
-    <div class="topic rv"><span style="font-size:1.3rem">📱</span><span style="font-size:.9rem;font-weight:500">PropTech חדשנות</span></div>
-    <div class="topic rv"><span style="font-size:1.3rem">🌱</span><span style="font-size:.9rem;font-weight:500">בנייה ירוקה וחכמה</span></div>
-  </div>
-</section>
-
-<!-- PRICING -->
-<section id="pricing">
-  <div class="price-box rv">
-    <div class="slbl" style="justify-content:center">תמיכה</div>
-    <h2 class="sttl" style="text-align:center">התוכן חינמי. התמיכה אופציונלית 💚</h2>
-    <p class="ssub" style="text-align:center;margin-left:auto;margin-right:auto">כל התוכן פתוח לכולם. מי שרוצה לתמוך — מוזמן</p>
-    <div class="pcards">
-      <div class="pcard">
-        <h3>תוכן חינמי</h3>
-        <div class="pr">$0<span>/חודש</span></div>
-        <ul class="pfl"><li>גישה לכל הפוסטים והתוכן</li><li>תובנות על AI ונדל"ן</li><li>עדכונים שוטפים</li><li>גישה לקהילה</li></ul>
-        <a href="https://www.patreon.com/cw/lior_Ai1" target="_blank" class="btn btn-s" style="width:100%;justify-content:center">צפה בתוכן</a>
-      </div>
-      <div class="pcard feat">
-        <h3>תומך 💚</h3>
-        <div class="pr"><span style="font-size:1.2rem">$</span>2<span>/חודש</span></div>
-        <ul class="pfl"><li>כל מה שבחינמי</li><li>תמיכה ישירה ביוצר</li><li>תודה מיוחדת ❤️</li><li>עזרה בהמשך יצירת תוכן</li></ul>
-        <a href="https://www.patreon.com/cw/lior_Ai1" target="_blank" class="btn btn-p" style="width:100%;justify-content:center">תמוך עכשיו</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SOCIAL -->
-<section class="cen rv">
-  <div class="slbl" style="justify-content:center">עקבו אחריי</div>
-  <h2 class="sttl">מוצאים אותי ברשתות</h2>
-  <div class="platforms">
-    <a href="https://www.patreon.com/cw/lior_Ai1" target="_blank" class="plat"><div class="plat-i">🎨</div><span class="plat-n">Patreon</span></a>
-    <a href="https://x.com/LiorBalol" target="_blank" class="plat"><div class="plat-i">𝕏</div><span class="plat-n">X / Twitter</span></a>
-    <a href="https://www.youtube.com/channel/UCjwWgjFmZN5MELt2-QqkF8Q" target="_blank" class="plat"><div class="plat-i">▶️</div><span class="plat-n">YouTube</span></a>
-    <a href="https://github.com/balol100" target="_blank" class="plat"><div class="plat-i">⚙️</div><span class="plat-n">GitHub</span></a>
-    <a href="mailto:liorbll100@gmail.com" class="plat"><div class="plat-i">✉️</div><span class="plat-n">Email</span></a>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section id="faq">
-  <div class="cen rv">
-    <div class="slbl">שאלות נפוצות</div>
-    <h2 class="sttl">שאלות ותשובות</h2>
-    <p class="ssub">תשובות לשאלות הנפוצות ביותר שאני מקבל</p>
-  </div>
-  <div class="faq-list">
-    <div class="faq-item rv">
-      <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">כמה זמן לוקח לבנות דף נחיתה?</button>
-      <div class="faq-a"><p>דף נחיתה מקצועי מוכן בדרך כלל תוך 3-7 ימי עבודה, תלוי במורכבות הפרויקט. זה כולל עיצוב, כתיבת תוכן עם AI, פיתוח והעלאה לאוויר.</p></div>
-    </div>
-    <div class="faq-item rv">
-      <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">מה כולל שירות הקידום האורגני?</button>
-      <div class="faq-a"><p>שירות ה-SEO כולל מחקר מילות מפתח, אופטימיזציה טכנית, כתיבת תוכן ממוקד, בניית סמכות דומיין וניטור ביצועים שוטף.</p></div>
-    </div>
-    <div class="faq-item rv">
-      <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">האם אני מקבל קוד המקור של האתר?</button>
-      <div class="faq-a"><p>כן, כל קבצי המקור שלך. אני מאמין בשקיפות מלאה ובבעלות הלקוח על המוצר הסופי.</p></div>
-    </div>
-    <div class="faq-item rv">
-      <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">מה ההבדל בין דף נחיתה לאתר תדמית?</button>
-      <div class="faq-a"><p>דף נחיתה הוא עמוד אחד ממוקד המרה עם CTA ברור. אתר תדמית הוא אתר רב-עמודי שמציג את העסק, השירותים, תיק העבודות ועוד.</p></div>
-    </div>
-    <div class="faq-item rv">
-      <button class="faq-q" onclick="this.parentElement.classList.toggle('open')">איך AI עוזר בתהליך?</button>
-      <div class="faq-a"><p>אני משתמש בכלי AI לכתיבת טקסטים שיווקיים, ניתוח מתחרים, אופטימיזציית תוכן, יצירת רעיונות עיצוב ואוטומציה של תהליכים — מה שמאפשר תוצאה טובה יותר ומהירה יותר.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="cta-sec">
-  <div class="cta-glow"></div>
-  <div class="slbl" style="justify-content:center">בואו נדבר</div>
-  <h2>מוכן <span class="gr">להתחיל?</span></h2>
-  <p>מחפש דף נחיתה? אתר תדמית? קידום אורגני? ייעוץ AI? שלח הודעה ונתחיל.</p>
-  <form class="cform" onsubmit="handleSubmit(event)">
-    <div class="fr">
-      <input type="text" name="name" placeholder="שם מלא" required aria-label="שם מלא">
-      <input type="email" name="email" placeholder="אימייל" required dir="ltr" aria-label="אימייל">
-    </div>
-    <select name="service" aria-label="סוג שירות">
-      <option value="">מה מעניין אותך?</option>
-      <option>פיתוח דף נחיתה</option>
-      <option>אתר תדמית</option>
-      <option>קידום אורגני בגוגל (SEO)</option>
-      <option>כתיבת תוכן AI</option>
-      <option>אוטומציות וייעוץ</option>
-      <option>שיתוף פעולה</option>
-      <option>אחר</option>
-    </select>
-    <textarea name="message" placeholder="ספר לי מה אתה צריך..." aria-label="הודעה"></textarea>
-    <button type="submit" class="btn btn-p" style="width:100%;justify-content:center">שלח הודעה →</button>
-  </form>
-</section>
-
-<!-- FLOATING CTA -->
-<div class="float-cta">
-  <button class="float-btn float-top" id="topBtn" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="חזרה למעלה">↑</button>
-  <a href="https://wa.me/972508668022?text=%D7%94%D7%99%D7%99%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A9%D7%9E%D7%95%D7%A2%20%D7%A2%D7%9C%20%D7%94%D7%A9%D7%99%D7%A8%D7%95%D7%AA%D7%99%D7%9D%20%D7%A9%D7%9C%D7%9A" target="_blank" class="float-btn float-whatsapp" aria-label="שלח הודעה בוואטסאפ">💬</a>
+<div class="hc reveal">
+<div class="hc-t" data-i18n="stT">במספרים</div>
+<div class="sr">
+<div class="st"><div class="sn">18+</div><div class="sl" data-i18n="stY">שנות ניסיון</div></div>
+<div class="st"><div class="sn">9+</div><div class="sl" data-i18n="stP">פרויקטים</div></div>
+<div class="st"><div class="sn">100%</div><div class="sl" data-i18n="stSa">שביעות רצון</div></div>
+<div class="st"><div class="sn">24/7</div><div class="sl" data-i18n="stA">גישה חופשית</div></div>
 </div>
+<ul class="hl-list">
+<li><span class="li-i">&#10003;</span><span data-i18n="hL1">דפי נחיתה שממירים לפניות</span></li>
+<li><span class="li-i">&#10003;</span><span data-i18n="hL2">אתרי תדמית שמוכרים אמון</span></li>
+<li><span class="li-i">&#10003;</span><span data-i18n="hL3">קידום אורגני + תוכן AI</span></li>
+</ul>
+</div>
+</div></div></header>
 
-<!-- FOOTER -->
-<footer>
-  <div class="foot">
-    <div style="font-family:'Rubik',sans-serif;font-weight:700;font-size:1.1rem;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent">lior<span style="font-weight:300;opacity:.7">_</span>Ai</div>
-    <div class="foot-t"><a href="https://balol100.github.io/lior-ai-landing/" target="_blank" style="color:inherit;text-decoration:none;">כל הזכויות שמורות - lior_Ai</a></div>
-    <div class="foot-links">
-      <a href="#services">שירותים</a>
-      <a href="#process">תהליך עבודה</a>
-      <a href="#portfolio">עבודות</a>
-      <a href="#testimonials">המלצות</a>
-      <a href="#faq">שאלות נפוצות</a>
-      <a href="#contact">צור קשר</a>
-    </div>
-    <div style="display:flex;justify-content:center;gap:1rem;flex-wrap:wrap">
-      <a href="https://x.com/LiorBalol" target="_blank" style="width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,.04);border:1px solid var(--brd);display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:.8rem;color:var(--t2);transition:all .3s" aria-label="Twitter">𝕏</a>
-      <a href="https://www.youtube.com/channel/UCjwWgjFmZN5MELt2-QqkF8Q" target="_blank" style="width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,.04);border:1px solid var(--brd);display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:.8rem;color:var(--t2);transition:all .3s" aria-label="YouTube">▶</a>
-      <a href="https://github.com/balol100" target="_blank" style="width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,.04);border:1px solid var(--brd);display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:.8rem;color:var(--t2);transition:all .3s" aria-label="GitHub">⌨</a>
-      <a href="https://www.patreon.com/cw/lior_Ai1" target="_blank" style="width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,.04);border:1px solid var(--brd);display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:.8rem;color:var(--t2);transition:all .3s" aria-label="Patreon">P</a>
-      <a href="mailto:liorbll100@gmail.com" style="width:36px;height:36px;border-radius:10px;background:rgba(255,255,255,.04);border:1px solid var(--brd);display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:.8rem;color:var(--t2);transition:all .3s" aria-label="Email">✉</a>
-    </div>
-    <div style="border-top:1px solid var(--brd);padding-top:1.2rem;width:100%">
-      <div class="foot-t">© 2026 lior_Ai — כל הזכויות שמורות | נבנה עם AI</div>
-    </div>
-  </div>
-</footer>
+<section id="services"><div class="wrap">
+<div class="stag reveal" data-i18n="svT">שירותים</div>
+<h2 class="reveal" data-i18n="svH">מה אני יכול לעשות בשבילך</h2>
+<p class="ssub reveal" data-i18n="svS">שילוב ייחודי של בינה מלאכותית, שיווק דיגיטלי וידע מעמיק בנדל"ן</p>
+<div class="g3">
+<div class="sc reveal"><div class="si p">&#128640;</div><h3 data-i18n="s1t">דפי נחיתה מונעי AI</h3><p data-i18n="s1p">דפי נחיתה חכמים שממירים מבקרים ללידים. עיצוב מודרני, טקסטים AI ואופטימיזציה להמרות.</p></div>
+<div class="sc reveal"><div class="si g">&#127912;</div><h3 data-i18n="s2t">אתרי תדמית</h3><p data-i18n="s2p">אתרי תדמית מרשימים - עיצוב מודרני, חוויית משתמש מושלמת ותוכן שבונה אמון.</p></div>
+<div class="sc reveal"><div class="si a">&#128200;</div><h3 data-i18n="s3t">קידום אורגני SEO</h3><p data-i18n="s3p">אסטרטגיית SEO מבוססת AI. מחקר מילות מפתח, תוכן ממוקד ובניית סמכות דומיין.</p></div>
+</div></div></section>
+
+<section id="packages"><div class="wrap">
+<div class="pkg-header">
+<div class="stag reveal" data-i18n="pkT">מסלולים</div>
+<h2 class="reveal" data-i18n="pkH">3 מסלולים. בחירה אחת. ביצוע מהר.</h2>
+</div>
+<div class="pkg-grid">
+<div class="pkg reveal">
+<div class="pkg-num">01</div>
+<div class="pkg-name" data-i18n="pk1n">הכי ממיר</div>
+<a class="pkg-cta outline" href="https://wa.me/972508668022?text=Landing" target="_blank" data-i18n="pk1c">שלח "Landing" בוואטסאפ</a>
+</div>
+<div class="pkg pop reveal">
+<div class="pkg-badge" data-i18n="pkBadge">הכי נפוץ</div>
+<div class="pkg-num">02</div>
+<div class="pkg-name" data-i18n="pk2n">אתר תדמית שמוכר אמון</div>
+<a class="pkg-cta green" href="https://wa.me/972508668022?text=Website" target="_blank" data-i18n="pk2c">שלח "Website" בוואטסאפ</a>
+</div>
+<div class="pkg reveal">
+<div class="pkg-num">03</div>
+<div class="pkg-name" data-i18n="pk3n">לסקייל</div>
+<a class="pkg-cta outline" href="https://wa.me/972508668022?text=Automation" target="_blank" data-i18n="pk3c">שלח "Automation" בוואטסאפ</a>
+</div>
+</div></div></section>
+
+<section id="about"><div class="wrap"><div class="ag">
+<div class="av reveal">
+<img src="profile.jpg" alt="lior_Ai" style="width:100%;height:100%;object-fit:cover;min-height:320px;border-radius:var(--r)">
+</div>
+<div class="at reveal">
+<div class="stag" data-i18n="aT">אודות</div>
+<h2 data-i18n="aH">AI + נדל"ן = הצלחה</h2>
+<p data-i18n="a2"><strong>18+ שנות ניסיון</strong> בענף הנדל"ן. סמנכ"ל מכירות בחברת בנייה. ראיתי משברים, שווקים, מחזורי עסקאות - ועכשיו אני רואה איך AI משנה הכל.</p>
+</div>
+</div></div></section>
+
+<section id="portfolio"><div class="wrap">
+<div class="stag reveal" data-i18n="poT">תיק עבודות</div>
+<h2 class="reveal" data-i18n="poH">עבודות לדוגמא</h2>
+<div class="pg">
+<div class="pj reveal"><div class="pj-img">&#128663;</div><div class="pj-b"><h3>Royal Service Car</h3><a class="pj-l" href="https://balol100.github.io/royal-service-car-website/" target="_blank">צפה באתר</a></div></div>
+<div class="pj reveal"><div class="pj-img">&#127974;</div><div class="pj-b"><h3>אבי דדון - משכנתאות</h3><a class="pj-l" href="https://balol100.github.io/avi-dadon/" target="_blank">צפה באתר</a></div></div>
+<div class="pj reveal"><div class="pj-img">🤖</div><div class="pj-b"><h3>lior_Ai - האתר הזה</h3><a class="pj-l scroll-top" href="#top">אתה כבר כאן</a></div></div>
+</div></div></section>
+
+<section id="faq"><div class="wrap">
+<div class="stag reveal" data-i18n="fqT">שאלות נפוצות</div>
+<div class="fq">
+<details class="reveal" open><summary data-i18n="f1q">כמה זמן לוקח לבנות דף נחיתה?</summary><p data-i18n="f1a">3-7 ימי עבודה. כולל עיצוב, תוכן AI, פיתוח והעלאה.</p></details>
+<details class="reveal"><summary data-i18n="f3q">אני מקבל את הקוד?</summary><p data-i18n="f3a">כן, 100%. כל קבצי המקור שלך.</p></details>
+</div></div></section>
+
+<section id="contact"><div class="wrap">
+<div class="cta-box reveal">
+<h2 data-i18n="ctH">בואו נבנה משהו שמביא תוצאות</h2>
+<div class="cta-btns">
+<a class="bp" href="https://wa.me/972508668022?text=היי" target="_blank" data-i18n="ctB1">בואו נדבר בוואטסאפ</a>
+</div></div></div></section>
+
+<footer><div class="wrap"><div class="fi">
+<div><div style="font-weight:900;font-size:16px;color:#E8ECF4">lior_Ai</div><div style="font-size:12px;color:var(--muted)">2026 lior_Ai | נבנה עם AI</div></div>
+</div></div></footer>
+
+<a class="waf" href="https://wa.me/972508668022?text=היי" target="_blank" aria-label="WhatsApp">💬</a>
 
 <script>
-// Page loader
-window.addEventListener("load",function(){
-  setTimeout(function(){document.getElementById("loader").classList.add("hidden")},600);
-});
+// Language Translations Data
+var L={he:{nS:"שירותים",nPk:"מסלולים",nP:"עבודות",nA:"אודות",nF:"FAQ",nCt:"צור קשר",nCTA:"בואו נדבר",h1:'הנדל"ן שלך<br><span class="hl">מונע בבינה מלאכולתית</span>',hSub:'דפי נחיתה, אתרי תדמית, קידום אורגני ותוכן מבוסס AI שמביא תוצאות אמיתיות לעסקי נדל"ן.',hC1:"WhatsApp",hC2:"מסלולים",t1:'18+ שנות ניסיון',t2:"3-7 ימי השקה",t3:"100% קוד אצלך",t4:"מיקוד WhatsApp",stT:"במספרים",stY:"שנות ניסיון",stP:"פרויקטים",stSa:"שביעות רצון",stA:"גישה חופשית",hL1:"דפי נחיתה ממירים",hL2:"אתרי תדמית",hL3:"SEO + AI",svT:"שירותים",svH:"מה אני עושה",svS:'שילוב של AI וידע בנדל"ן',s1t:"דפי נחיתה AI",s1p:"ממירים מבקרים ללידים.",s2t:"אתרי תדמית",s2p:"עיצוב מודרני לבניית אמון.",s3t:"SEO",s3p:"קידום אורגני חכם.",pkT:"מסלולים",pkH:"בחירה אחת. ביצוע מהר.",pk1n:"הכי ממיר",pk1c:'דבר איתי',pkBadge:"הכי נפוץ",pk2n:"אתר תדמית",pk2c:'דבר איתי',pk3n:"לסקייל",pk3c:'דבר איתי',poT:"תיק עבודות",poH:"עבודות לדוגמא",aT:"אודות",aH:'AI + נדל"ן = הצלחה',a2:'18+ שנות ניסיון בנדל"ן. מבין את השוק והטכנולוגיה.',fqT:"שאלות נפוצות",f1q:"כמה זמן זה לוקח?",f1a:"3-7 ימי עבודה.",f3q:"הקוד שלי?",f3a:"כן, 100%.",ctH:"מוכן להתחיל?",ctB1:"WhatsApp me"},
+en:{nS:"Services",nPk:"Packages",nP:"Portfolio",nA:"About",nF:"FAQ",nCt:"Contact",nCTA:"Let's talk",h1:'Your Real Estate<br><span class="hl">Powered by AI</span>',hSub:"Landing pages, websites, SEO and AI content for real estate.",hC1:"WhatsApp",hC2:"Packages",t1:"18+ years exp.",t2:"3-7 days launch",t3:"100% ownership",t4:"WhatsApp focus",stT:"Stats",stY:"Years exp.",stP:"Projects",stSa:"Success",stA:"Free access",hL1:"Landing pages",hL2:"Websites",hL3:"SEO + AI",svT:"Services",svH:"What I do",svS:"AI meets Real Estate",s1t:"AI Landings",s1p:"Convert visitors to leads.",s2t:"Websites",s2p:"Build trust with design.",s3t:"SEO",s3p:"Smart organic growth.",pkT:"Packages",pkH:"Fast execution.",pk1n:"Converter",pk1c:'Talk to me',pkBadge:"Popular",pk2n:"Website",pk2c:'Talk to me',pk3n:"Scale",pk3c:'Talk to me',poT:"Portfolio",poH:"Recent Works",aT:"About",aH:"AI + Real Estate",a2:"18+ years in real estate expertise.",fqT:"FAQ",f1q:"How long?",f1a:"3-7 business days.",f3q:"My code?",f3a:"Yes, 100%.",ctH:"Ready?",ctB1:"WhatsApp me"}};
 
-// Scroll reveal
-var obs=new IntersectionObserver(function(entries){entries.forEach(function(el){if(el.isIntersecting){el.target.classList.add("vis");obs.unobserve(el.target)}});},{threshold:.1});
-document.querySelectorAll(".rv").forEach(function(el){obs.observe(el)});
-
-// Counter animation
-var counted=false;
-var cobs=new IntersectionObserver(function(entries){
-  entries.forEach(function(el){
-    if(el.isIntersecting&&!counted){
-      counted=true;
-      document.querySelectorAll("[data-count]").forEach(function(c){
-        var target=parseInt(c.getAttribute("data-count")),suffix=c.getAttribute("data-suffix")||"";
-        var start=0,dur=2000,step=Math.ceil(target/60);
-        var timer=setInterval(function(){
-          start+=step;
-          if(start>=target){start=target;clearInterval(timer)}
-          c.textContent=start+suffix;
-        },dur/60);
-      });
-    }
-  });
-},{threshold:.3});
-var statsSec=document.querySelector(".stats-sec");
-if(statsSec)cobs.observe(statsSec);
-
-// Back to top button
-var topBtn=document.getElementById("topBtn");
-window.addEventListener("scroll",function(){
-  if(window.scrollY>600){topBtn.classList.add("show")}else{topBtn.classList.remove("show")}
-});
-
-// Form submit
-function handleSubmit(e){
-  e.preventDefault();
-  var f=e.target,nm=f.querySelector('input[type="text"]').value,em=f.querySelector('input[type="email"]').value,
-  subj=f.querySelector('select').value,msg=f.querySelector('textarea').value;
-  var body="שם: "+nm+"%0Aאימייל: "+em+"%0Aנושא: "+subj+"%0A%0A"+msg;
-  window.open("mailto:liorbll100@gmail.com?subject="+encodeURIComponent(subj||"פנייה מהאתר")+"&body="+body);
-  var btn=f.querySelector('button');
-  btn.textContent="✓ פותח מייל...";btn.style.background="rgba(0,229,160,.2)";btn.style.color="#00e5a0";
-  setTimeout(function(){btn.textContent="שלח הודעה →";btn.style.background="";btn.style.color=""},3000);
+function setLang(l){
+    document.documentElement.lang=l;
+    document.documentElement.dir=l==="he"?"rtl":"ltr";
+    document.getElementById("btnHe").classList.toggle("active",l==="he");
+    document.getElementById("btnEn").classList.toggle("active",l==="en");
+    document.querySelectorAll("[data-i18n]").forEach(e=>{
+        let k=e.getAttribute("data-i18n");
+        if(L[l][k]) e.innerHTML=L[l][k];
+    });
 }
 
-// Smooth scroll
-document.querySelectorAll('a[href^="#"]').forEach(function(a){
-  a.addEventListener("click",function(e){e.preventDefault();
-    var t=document.querySelector(a.getAttribute("href"));
-    if(t){t.scrollIntoView({behavior:"smooth"});document.querySelector(".nav-l").classList.remove("open")}
-  });
+document.getElementById("btnHe").addEventListener("click",()=>setLang("he"));
+document.getElementById("btnEn").addEventListener("click",()=>setLang("en"));
+
+// Scroll Reveal Logic
+function reveal() {
+    var reveals = document.querySelectorAll(".reveal");
+    for (var i = 0; i < reveals.length; i++) {
+        var windowHeight = window.innerHeight;
+        var elementTop = reveals[i].getBoundingClientRect().top;
+        var elementVisible = 150;
+        if (elementTop < windowHeight - elementVisible) {
+            reveals[i].classList.add("active");
+        }
+    }
+}
+window.addEventListener("scroll", reveal);
+
+// Smooth Scroll Top for Portfolio
+document.querySelectorAll('.scroll-top').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
 });
 
 // Nav shadow on scroll
@@ -729,5 +375,6 @@ window.addEventListener("scroll",function(){
   else{nav.style.boxShadow="none"}
 });
 </script>
+
 </body>
 </html>
