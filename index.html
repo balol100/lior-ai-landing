@@ -5,10 +5,14 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>lior_Ai | פתרונות AI, בניית אתרים וקידום לענף הנדל"ן</title>
     <meta name="description" content="ליאור AI - מומחה נדל&quot;ן המשלב בינה מלאכותית לבניית אתרים, דפי נחיתה וקידום אורגני שמביא תוצאות אמיתיות.">
+    <meta name="keywords" content="דפי נחיתה נדלן, אתר תדמית נדלן, קידום אתרים נדלן, AI בנדלן, ליאור AI, בניית אתרים נדלן, SEO נדלן">
     
     <meta property="og:title" content="lior_Ai | הנדל&quot;ן שלך מונע בבינה מלאכותית">
     <meta property="og:description" content="דפי נחיתה, אתרי תדמית ותוכן מבוסס AI לעסקי נדל&quot;ן ובנייה.">
     <meta property="og:type" content="website">
+    <meta property="og:image" content="https://your-domain.com/og-image.jpg"> <!-- החלף ב-URL של תמונת OG אמיתית -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://your-domain.com/og-image.jpg">
     
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
     
@@ -52,8 +56,22 @@
         .nav-cta{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:12px;background:linear-gradient(135deg,var(--accent-g),#10B981);color:#052E16;font-weight:800;font-size:13px;border:none;cursor:pointer;transition:transform .15s;box-shadow:0 4px 20px rgba(52,211,153,.2)}
         .nav-cta:hover{transform:translateY(-1px)}
 
+        /* Hamburger Menu */
+        .hamburger{display:none;align-items:center;justify-content:center;width:40px;height:40px;border:none;background:transparent;cursor:pointer}
+        .hamburger span{width:24px;height:2px;background:var(--text);display:block;transition:0.3s}
+        .hamburger span::before,.hamburger span::after{content:'';width:24px;height:2px;background:var(--text);display:block;position:absolute;transition:0.3s}
+        .hamburger span::before{transform:translateY(-6px)}
+        .hamburger span::after{transform:translateY(6px)}
+        .hamburger.active span{opacity:0}
+        .hamburger.active span::before{transform:translateY(0) rotate(45deg)}
+        .hamburger.active span::after{transform:translateY(0) rotate(-45deg)}
+        .mobile-menu{display:none;flex-direction:column;gap:10px;padding:20px 0;background:var(--surface);position:absolute;top:100%;right:0;width:100%;border-top:1px solid var(--border);z-index:1}
+        .mobile-menu.active{display:flex}
+
         /* HERO */
-        .hero{padding:70px 0 50px;position:relative;overflow:hidden}
+        .hero{padding:70px 0 50px;position:relative;overflow:hidden;background:linear-gradient(135deg, rgba(167,139,250,0.03), rgba(52,211,153,0.02)); /* Placeholder ל-background - החלף ב-url אמיתי */
+        /* אם יש תמונה: background: url('hero-bg.jpg') center/cover no-repeat fixed; */
+        }
         .hero::before{content:'';position:absolute;top:-200px;right:-300px;width:900px;height:900px;border-radius:50%;background:radial-gradient(circle,rgba(167,139,250,.08),transparent 60%);pointer-events:none}
         .hero>*{position:relative}
         .hero-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:24px;align-items:center}
@@ -151,26 +169,41 @@
         /* FAQ */
         .fq{display:grid;grid-template-columns:1fr 1fr;gap:14px}
         details{padding:18px 20px;border-radius:16px;background:var(--surface);border:1px solid var(--border)}
-        summary{cursor:pointer;font-weight:800;font-size:14px;color:#E8ECF4;list-style:none;display:flex;justify-content:space-between;align-items:center}
+        summary{cursor:pointer;font-weight:800;font-size:14px;color:#E8ECF4;list-style:none;display:flex;justify-content:space-between;align-items:center;role="button"}
         summary::after{content:'+';color:var(--muted);font-size:18px}
         details[open] summary::after{content:'-'}
         details p{margin-top:12px;font-size:13px;color:var(--muted);font-weight:500;line-height:1.7}
 
         /* FOOTER & WHATSAPP */
         .fi{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
-        .waf{position:fixed;bottom:24px;left:24px;z-index:80;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#25D366,#128C7E);display:flex;align-items:center;justify-content:center;font-size:28px;color:#fff;box-shadow:0 6px 24px rgba(37,211,102,0.3);animation:pulse 2s infinite}
+        .waf{position:fixed;bottom:24px;left:24px;z-index:80;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#25D366,#128C7E);display:flex;align-items:center;justify-content:center;font-size:28px;color:#fff;box-shadow:0 6px 24px rgba(37,211,102,0.3);animation:pulse 2s infinite;aria-label="צור קשר בוואטסאפ"}
 
         @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
         @keyframes pulse{0%,100%{box-shadow:0 6px 24px rgba(37,211,102,0.3)}50%{box-shadow:0 6px 36px rgba(37,211,102,0.5)}}
         
-        @media(max-width:900px){.hero-grid,.ag,.g3,.pg,.tg,.pkg-grid{grid-template-columns:1fr}.g4{grid-template-columns:1fr 1fr}.nav-links{display:none}h1{font-size:28px}}
-        @media(max-width:600px){.sr{grid-template-columns:1fr}.g4{grid-template-columns:1fr}.hero-ctas{flex-direction:column}.bp,.bg{width:100%}}
+        @media(max-width:900px){
+            .hero-grid,.ag,.g3,.pg,.tg,.pkg-grid{grid-template-columns:1fr}
+            .g4{grid-template-columns:1fr 1fr}
+            .nav-links{display:none}
+            .hamburger{display:flex}
+            .mobile-menu{display:none}
+            h1{font-size:28px}
+        }
+        @media(max-width:600px){
+            .sr{grid-template-columns:1fr}
+            .g4{grid-template-columns:1fr}
+            .hero-ctas{flex-direction:column}
+            .bp,.bg{width:100%}
+        }
     </style>
 </head>
 <body id="top">
 
 <div class="nav"><div class="wrap"><div class="nav-inner">
     <div class="logo"><span class="logo-dot"></span><span>lior_Ai</span></div>
+    <button class="hamburger" aria-label="תפריט ניווט" onclick="toggleMenu()">
+        <span></span>
+    </button>
     <div class="nav-links">
         <a href="#services" data-i18n="nS">שירותים</a>
         <a href="#packages" data-i18n="nPk">מסלולים</a>
@@ -179,8 +212,15 @@
         <a href="#faq" data-i18n="nF">FAQ</a>
     </div>
     <div class="nav-right">
-        <div class="lang-toggle"><button id="btnHe" class="active">HE</button><button id="btnEn">EN</button></div>
+        <div class="lang-toggle"><button id="btnHe" class="active" aria-label="עברית" title="עברית">HE</button><button id="btnEn" aria-label="אנגלית" title="אנגלית">EN</button></div>
         <a class="nav-cta" href="https://wa.me/972508668022?text=היי" target="_blank" data-i18n="nCTA">בואו נדבר</a>
+    </div>
+    <div class="mobile-menu">
+        <a href="#services" data-i18n="nS">שירותים</a>
+        <a href="#packages" data-i18n="nPk">מסלולים</a>
+        <a href="#portfolio" data-i18n="nP">עבודות</a>
+        <a href="#about" data-i18n="nA">אודות</a>
+        <a href="#faq" data-i18n="nF">FAQ</a>
     </div>
 </div></div></div>
 
@@ -237,20 +277,37 @@
         <div class="pkg reveal">
             <div class="pkg-num">01</div><div class="pkg-name" data-i18n="pk1n">הכי ממיר</div>
             <div class="pkg-desc">Landing שמביא פניות</div>
-            <ul class="pkg-features"><li><span class="ck">✓</span>עמוד ממוקד המרה</li></ul>
+            <ul class="pkg-features">
+                <li><span class="ck">✓</span>עמוד ממוקד המרה עם CTA חזק</li>
+                <li><span class="ck">✓</span>אינטגרציה ל-WhatsApp וטפסים</li>
+                <li><span class="ck">✓</span>אופטימיזציה למובייל + SEO בסיסי</li>
+                <li><span class="ck">✓</span>2 סבבי תיקונים + הדרכה</li>
+            </ul>
             <a class="pkg-cta outline" href="https://wa.me/972508668022?text=Landing" data-i18n="pk1c">דבר איתי</a>
         </div>
         <div class="pkg pop reveal">
             <div class="pkg-badge" data-i18n="pkBadge">הכי נפוץ</div>
             <div class="pkg-num">02</div><div class="pkg-name" data-i18n="pk2n">אתר תדמית</div>
             <div class="pkg-desc">נוכחות דיגיטלית יוקרתית</div>
-            <ul class="pkg-features"><li><span class="ck">✓</span>4-6 עמודי תוכן</li></ul>
+            <ul class="pkg-features">
+                <li><span class="ck">✓</span>4-6 עמודי תוכן (בית, אודות, שירותים, גלריה, צור קשר)</li>
+                <li><span class="ck">✓</span>עיצוב מותאם אישית + גרפיקה</li>
+                <li><span class="ck">✓</span>חיבור ל-Analytics + Search Console</li>
+                <li><span class="ck">✓</span>אופטימיזציה למהירות + SEO מתקדם</li>
+                <li><span class="ck">✓</span>3 סבבי תיקונים + תחזוקה ראשונית</li>
+            </ul>
             <a class="pkg-cta green" href="https://wa.me/972508668022?text=Website" data-i18n="pk2c">דבר איתי</a>
         </div>
         <div class="pkg reveal">
             <div class="pkg-num">03</div><div class="pkg-name" data-i18n="pk3n">לסקייל</div>
             <div class="pkg-desc">AI + אוטומציה לעסק</div>
-            <ul class="pkg-features"><li><span class="ck">✓</span>חיבור ל-CRM ומדידה</li></ul>
+            <ul class="pkg-features">
+                <li><span class="ck">✓</span>חיבור ל-CRM ומדידת המרות</li>
+                <li><span class="ck">✓</span>אוטומציה של תוכן + צ'טבוט AI</li>
+                <li><span class="ck">✓</span>אסטרטגיית SEO + תוכן חודשי</li>
+                <li><span class="ck">✓</span>דשבורד ניתוח + דוחות</li>
+                <li><span class="ck">✓</span>תמיכה שוטפת + עדכונים</li>
+            </ul>
             <a class="pkg-cta outline" href="https://wa.me/972508668022?text=Automation" data-i18n="pk3c">דבר איתי</a>
         </div>
     </div>
@@ -260,17 +317,17 @@
     <div class="stag reveal" data-i18n="poT">תיק עבודות</div>
     <h2 class="reveal" data-i18n="poH">עבודות לדוגמא</h2>
     <div class="pg">
-        <div class="pj reveal"><div class="pj-img">💅</div><div class="pj-b"><h3>עדי בוגנים</h3><p>עיצוב גבות</p><a class="pj-l" href="https://balol100.github.io/adi-brows-landing/" target="_blank">צפה באתר</a></div></div>
-        <div class="pj reveal"><div class="pj-img">⚡</div><div class="pj-b"><h3>אילן סדיקוב</h3><p>חשמלאי מוסמך</p><a class="pj-l" href="https://balol100.github.io/ilan-electric/" target="_blank">צפה באתר</a></div></div>
-        <div class="pj reveal"><div class="pj-img">🚗</div><div class="pj-b"><h3>Royal Service</h3><p>מוסך היברידי</p><a class="pj-l" href="https://balol100.github.io/royal-service-car-website/" target="_blank">צפה באתר</a></div></div>
-        <div class="pj reveal"><div class="pj-img">🍲</div><div class="pj-b"><h3>אצל יניב</h3><p>מסעדה וקייטרינג</p><a class="pj-l" href="https://balol100.github.io/restaurant-website/" target="_blank">צפה באתר</a></div></div>
-        <div class="pj reveal"><div class="pj-img">🏠</div><div class="pj-b"><h3>אבי דדון</h3><p>ייעוץ משכנתאות</p><a class="pj-l" href="https://balol100.github.io/avi-dadon/" target="_blank">צפה באתר</a></div></div>
-        <div class="pj reveal"><div class="pj-img">🤖</div><div class="pj-b"><h3>lior_Ai</h3><p>האתר הנוכחי</p><a class="pj-l scroll-top" href="#top">אתה כאן</a></div></div>
+        <div class="pj reveal"><div class="pj-img">💅</div><div class="pj-b"><span class="pj-type">לנדינג</span><h3>עדי בוגנים</h3><p>עיצוב גבות - דף המרה ממוקד</p><a class="pj-l" href="https://balol100.github.io/adi-brows-landing/" target="_blank">צפה באתר</a></div></div>
+        <div class="pj reveal"><div class="pj-img">⚡</div><div class="pj-b"><span class="pj-type">אתר תדמית</span><h3>אילן סדיקוב</h3><p>חשמלאי מוסמך - נוכחות מקצועית</p><a class="pj-l" href="https://balol100.github.io/ilan-electric/" target="_blank">צפה באתר</a></div></div>
+        <div class="pj reveal"><div class="pj-img">🚗</div><div class="pj-b"><span class="pj-type">אתר תדמית</span><h3>Royal Service</h3><p>מוסך היברידי - גלריה ושירותים</p><a class="pj-l" href="https://balol100.github.io/royal-service-car-website/" target="_blank">צפה באתר</a></div></div>
+        <div class="pj reveal"><div class="pj-img">🍲</div><div class="pj-b"><span class="pj-type">אתר תדמית</span><h3>אצל יניב</h3><p>מסעדה וקייטרינג - תפריטים + הזמנות</p><a class="pj-l" href="https://balol100.github.io/restaurant-website/" target="_blank">צפה באתר</a></div></div>
+        <div class="pj reveal"><div class="pj-img">🏠</div><div class="pj-b"><span class="pj-type">לנדינג</span><h3>אבי דדון</h3><p>ייעוץ משכנתאות - פניות מהירות</p><a class="pj-l" href="https://balol100.github.io/avi-dadon/" target="_blank">צפה באתר</a></div></div>
+        <div class="pj reveal"><div class="pj-img">🤖</div><div class="pj-b"><span class="pj-type">אתר תדמית</span><h3>lior_Ai</h3><p>האתר הנוכחי - AI + נדל"ן</p><a class="pj-l scroll-top" href="#top">אתה כאן</a></div></div>
     </div>
 </div></section>
 
 <section id="about"><div class="wrap"><div class="ag">
-    <div class="av reveal"><img src="profile.jpg" alt="lior_Ai" style="width:100%;height:100%;object-fit:cover;object-position:top"></div>
+    <div class="av reveal"><img src="profile.jpg" alt="ליאור - מומחה נדל&quot;ן ובינה מלאכותית" style="width:100%;height:100%;object-fit:cover;object-position:top"></div>
     <div class="at reveal">
         <div class="stag" data-i18n="aT">אודות</div>
         <h2 data-i18n="aH">AI + נדל"ן = הצלחה</h2>
@@ -429,6 +486,11 @@
     document.getElementById("btnHe").addEventListener("click", () => setLang("he"));
     document.getElementById("btnEn").addEventListener("click", () => setLang("en"));
 
+    function toggleMenu() {
+        document.querySelector('.hamburger').classList.toggle('active');
+        document.querySelector('.mobile-menu').classList.toggle('active');
+    }
+
     function reveal() {
         var reveals = document.querySelectorAll(".reveal");
         for (var i = 0; i < reveals.length; i++) {
@@ -446,6 +508,14 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
     });
+
+    // סגירת תפריט מובייל בעת לחיצה על קישור
+    document.querySelectorAll('.mobile-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+            document.querySelector('.hamburger').classList.remove('active');
+            document.querySelector('.mobile-menu').classList.remove('active');
+        });
+    });
 </script>
 </body>
-</htm
+</html>
