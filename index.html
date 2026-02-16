@@ -4,20 +4,27 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>lior_Ai | פתרונות AI, בניית אתרים וקידום לענף הנדל"ן</title>
-    <meta name="description" content="ליאור AI - מומחה נדל&quot;ן המשלב בינה מלאכותית לבניית אתרים, דפי נחיתה וקידום אורגני שמביא תוצאות אמיתיות.">
-    <meta name="keywords" content="דפי נחיתה נדלן, אתר תדמית נדלן, קידום אתרים נדלן, AI בנדלן, ליאור AI, בניית אתרים נדלן, SEO נדלן">
-    
-    <meta property="og:title" content="lior_Ai | הנדל&quot;ן שלך מונע בבינה מלאכותית">
-    <meta property="og:description" content="דפי נחיתה, אתרי תדמית ותוכן מבוסס AI לעסקי נדל&quot;ן ובנייה.">
+    <meta name="description" content="ליאור AI - מומחה נדלן עם 18 שנות ניסיון המשלב בינה מלאכותית לבניית אתרים, דפי נחיתה וקידום אורגני שמביא תוצאות.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="lior_Ai | בינה מלאכותית × נדל״ן × חדשנות">
+    <meta property="og:description" content="דפי נחיתה, אתרי תדמית, קידום אורגני ותוכן AI לעסקי נדל״ן">
+    <meta property="og:image" content="https://www.lior-ai.com/og-image.jpg">
+    <meta property="og:url" content="https://www.lior-ai.com">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://your-domain.com/og-image.jpg"> <!-- החלף בכתובת אמיתית -->
+
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
-    
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
-    
+    <meta name="twitter:title" content="lior_Ai | AI + נדל״ן + חדשנות">
+    <meta name="twitter:description" content="דפי נחיתה, אתרי תדמית וקידום AI לעסקי נדל״ן">
+    <meta name="twitter:image" content="https://www.lior-ai.com/og-image.jpg">
+
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-    
+
     <style>
         *{margin:0;padding:0;box-sizing:border-box}
         :root{
@@ -36,9 +43,11 @@
         img{max-width:100%;display:block}
         .wrap{max-width:1100px;margin:0 auto;padding:0 20px}
 
-        .reveal{opacity:0;transform:translateY(30px);transition:all 0.8s cubic-bezier(0.4, 0, 0.2, 1)}
-        .reveal.active{opacity:1;transform:translateY(0)}
+        /* Reveal Animation Class */
+        .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
 
+        /* NAV */
         .nav{position:sticky;top:0;z-index:90;background:rgba(4,7,18,.90);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
         .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:14px 0;gap:10px}
         .logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:17px;color:#E8ECF4}
@@ -53,20 +62,8 @@
         .nav-cta{display:inline-flex;align-items:center;gap:8px;padding:10px 18px;border-radius:12px;background:linear-gradient(135deg,var(--accent-g),#10B981);color:#052E16;font-weight:800;font-size:13px;border:none;cursor:pointer;transition:transform .15s;box-shadow:0 4px 20px rgba(52,211,153,.2)}
         .nav-cta:hover{transform:translateY(-1px)}
 
-        .hamburger{display:none;align-items:center;justify-content:center;width:40px;height:40px;border:none;background:transparent;cursor:pointer}
-        .hamburger span{width:24px;height:2px;background:var(--text);display:block;transition:0.3s}
-        .hamburger span::before,.hamburger span::after{content:'';width:24px;height:2px;background:var(--text);display:block;position:absolute;transition:0.3s}
-        .hamburger span::before{transform:translateY(-6px)}
-        .hamburger span::after{transform:translateY(6px)}
-        .hamburger.active span{opacity:0}
-        .hamburger.active span::before{transform:translateY(0) rotate(45deg)}
-        .hamburger.active span::after{transform:translateY(0) rotate(-45deg)}
-        .mobile-menu{display:none;flex-direction:column;gap:10px;padding:20px 0;background:var(--surface);position:absolute;top:100%;right:0;width:100%;border-top:1px solid var(--border);z-index:1}
-        .mobile-menu.active{display:flex}
-        .mobile-menu a{padding:10px 20px;font-size:15px;font-weight:600;color:var(--muted);transition:all .2s}
-        .mobile-menu a:hover{color:#fff;background:rgba(255,255,255,.05)}
-
-        .hero{padding:70px 0 50px;position:relative;overflow:hidden;background:linear-gradient(135deg, rgba(167,139,250,0.03), rgba(52,211,153,0.02))}
+        /* HERO */
+        .hero{padding:70px 0 50px;position:relative;overflow:hidden}
         .hero::before{content:'';position:absolute;top:-200px;right:-300px;width:900px;height:900px;border-radius:50%;background:radial-gradient(circle,rgba(167,139,250,.08),transparent 60%);pointer-events:none}
         .hero>*{position:relative}
         .hero-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:24px;align-items:center}
@@ -77,8 +74,8 @@
         .hero-ctas{display:flex;gap:12px;flex-wrap:wrap;animation:fadeUp .6s .3s ease both}
         .bp{display:inline-flex;align-items:center;gap:10px;padding:14px 28px;border-radius:14px;background:linear-gradient(135deg,var(--accent-g),#10B981);color:#052E16;font-weight:800;font-size:15px;border:none;cursor:pointer;transition:transform .15s;box-shadow:0 6px 24px rgba(52,211,153,.2)}
         .bp:hover{transform:translateY(-2px)}
-        .bg{display:inline-flex;align-items:center;gap:10px;padding:14px 28px;border-radius:14px;background:rgba(255,255,255,0.04);border:1px solid var(--border);color:#E8ECF4;font-weight:700;font-size:15px;cursor:pointer;transition:all .2s}
-        .bg:hover{background:rgba(255,255,255,0.07)}
+        .bg{display:inline-flex;align-items:center;gap:10px;padding:14px 28px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid var(--border);color:#E8ECF4;font-weight:700;font-size:15px;cursor:pointer;transition:all .2s}
+        .bg:hover{background:rgba(255,255,255,.07)}
         .trust-row{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px;animation:fadeUp .6s .4s ease both}
         .tp{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.03);border:1px solid var(--border);font-size:12px;font-weight:700;color:var(--muted)}
         .tp .ci{color:var(--accent-g);font-weight:900}
@@ -92,497 +89,303 @@
         .hl-list li{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:12px;background:rgba(52,211,153,.04);border:1px solid rgba(52,211,153,.1);font-size:13px;font-weight:700;color:var(--muted)}
         .li-i{width:22px;height:22px;border-radius:7px;background:rgba(52,211,153,.15);display:flex;align-items:center;justify-content:center;color:var(--accent-g);font-size:12px;flex-shrink:0}
 
+        /* SECTIONS */
         section{padding:60px 0}
         .stag{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:999px;background:rgba(167,139,250,.1);border:1px solid rgba(167,139,250,.2);font-size:12px;font-weight:800;color:var(--accent);margin-bottom:12px}
         h2{font-size:clamp(22px,3vw,32px);font-weight:900;margin-bottom:6px;color:#F1F5F9}
         .ssub{color:var(--muted);font-weight:500;max-width:60ch;margin-bottom:32px}
 
+        /* SERVICES */
         .g3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-        .sc{padding:24px;border-radius:var(--r);background:var(--surface);border:1px solid var(--border);transition:transform 0.2s, border-color 0.2s}
-        .sc:hover{transform:translateY(-3px);border-color:rgba(167,139,250,0.2)}
+        .sc{padding:24px;border-radius:var(--r);background:var(--surface);border:1px solid var(--border);transition:transform .2s,border-color .2s}
+        .sc:hover{transform:translateY(-3px);border-color:rgba(167,139,250,.2)}
         .si{width:44px;height:44px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:16px}
-        .si.p{background:rgba(167,139,250,0.12);border:1px solid rgba(167,139,250,0.2)}
-        .si.g{background:rgba(52,211,153,0.1);border:1px solid rgba(52,211,153,0.15)}
-        .si.a{background:rgba(251,191,36,0.1);border:1px solid rgba(251,191,36,0.15)}
+        .si.p{background:rgba(167,139,250,.12);border:1px solid rgba(167,139,250,.2)}
+        .si.g{background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.15)}
+        .si.a{background:rgba(251,191,36,.1);border:1px solid rgba(251,191,36,.15)}
         .sc h3{font-size:16px;font-weight:800;margin-bottom:8px;color:#E8ECF4}
         .sc p{font-size:13px;color:var(--muted);font-weight:500;line-height:1.7}
 
+        /* PACKAGES */
         .pkg-header{text-align:center;margin-bottom:8px}
+        .pkg-header p.pkg-tagline{color:var(--muted);font-size:15px;max-width:50ch;margin:0 auto 32px}
         .pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-        .pkg{padding:28px 24px;border-radius:var(--r);background:var(--surface);border:1px solid var(--border);display:flex;flex-direction:column;transition:transform 0.2s;position:relative}
+        .pkg{padding:28px 24px;border-radius:var(--r);background:var(--surface);border:1px solid var(--border);display:flex;flex-direction:column;transition:transform .2s,border-color .2s;position:relative}
         .pkg:hover{transform:translateY(-3px)}
-        .pkg.pop{border-color:rgba(52,211,153,0.3);box-shadow:0 0 40px rgba(52,211,153,0.06)}
+        .pkg.pop{border-color:rgba(52,211,153,.3);box-shadow:0 0 40px rgba(52,211,153,.06)}
         .pkg-badge{position:absolute;top:-12px;right:20px;padding:4px 14px;border-radius:999px;background:var(--accent-g);color:#052E16;font-size:11px;font-weight:900}
         .pkg-num{font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:700;color:var(--accent);margin-bottom:6px}
         .pkg-name{font-size:20px;font-weight:900;color:#F1F5F9;margin-bottom:4px}
         .pkg-desc{font-size:13px;color:var(--muted);margin-bottom:16px;font-weight:600}
+        .pkg-meta{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+        .pkg-meta span{padding:4px 10px;border-radius:8px;background:rgba(255,255,255,.04);border:1px solid var(--border);font-size:11px;font-weight:700;color:var(--muted)}
         .pkg-features{list-style:none;display:grid;gap:8px;margin-bottom:22px;flex:1}
         .pkg-features li{display:flex;align-items:flex-start;gap:8px;font-size:13px;font-weight:600;color:var(--text);line-height:1.5}
         .pkg-features .ck{color:var(--accent-g);font-weight:900;flex-shrink:0;margin-top:2px}
-        .pkg-cta{display:block;text-align:center;padding:12px;border-radius:12px;font-weight:800;font-size:14px;transition:transform 0.15s}
-        .pkg-cta.green{background:linear-gradient(135deg,var(--accent-g),#10B981);color:#052E16;box-shadow:0 4px 16px rgba(52,211,153,0.15)}
-        .pkg-cta.outline{background:rgba(255,255,255,0.04);border:1px solid var(--border);color:#E8ECF4}
+        .pkg-cta{display:block;text-align:center;padding:12px;border-radius:12px;font-weight:800;font-size:14px;transition:transform .15s}
+        .pkg-cta.green{background:linear-gradient(135deg,var(--accent-g),#10B981);color:#052E16;box-shadow:0 4px 16px rgba(52,211,153,.15)}
+        .pkg-cta.outline{background:rgba(255,255,255,.04);border:1px solid var(--border);color:#E8ECF4}
+        .pkg-cta:hover{transform:translateY(-1px)}
 
+        /* PROCESS */
+        .g4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+        .step{padding:24px 20px;border-radius:var(--r);background:var(--surface);border:1px solid var(--border);text-align:center}
+        .step-n{font-family:'Space Grotesk',sans-serif;font-size:32px;font-weight:700;background:linear-gradient(135deg,var(--accent),var(--accent-g));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:10px}
+        .step h3{font-size:14px;font-weight:800;margin-bottom:6px;color:#E8ECF4}
+        .step p{font-size:12px;color:var(--muted);font-weight:600}
+
+        /* ABOUT */
         .ag{display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}
-        .av{border-radius:var(--r);background:var(--surface);border:1px solid var(--border);padding:0;overflow:hidden;min-height:320px}
+        .av{border-radius:var(--r);background:var(--surface);border:1px solid var(--border);padding:40px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:16px;min-height:320px}
+        .av-i{font-size:36px;width:72px;height:72px;border-radius:18px;background:linear-gradient(135deg,rgba(167,139,250,.12),rgba(52,211,153,.08));border:1px solid rgba(167,139,250,.15);display:flex;align-items:center;justify-content:center}
+        .av-tags{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+        .av-tags span{padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.04);border:1px solid var(--border);font-size:11px;font-weight:700;color:var(--muted)}
+        .at p{color:var(--muted);font-weight:500;line-height:1.8;margin-bottom:14px}
+        .at p strong{color:#E8ECF4;font-weight:800}
         .at-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
-        .at-tags span{display:inline-block;padding:6px 14px;border-radius:999px;background:rgba(255,255,255,0.04);border:1px solid var(--border);font-size:12px;font-weight:700;color:var(--muted)}
+        .at-tags span{padding:8px 14px;border-radius:999px;background:rgba(255,255,255,.03);border:1px solid var(--border);font-size:12px;font-weight:700;color:var(--muted)}
 
+        /* PORTFOLIO */
         .pg{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-        .pj{border-radius:var(--r);background:var(--surface);border:1px solid var(--border);overflow:hidden;transition:transform 0.2s}
+        .pj{border-radius:var(--r);background:var(--surface);border:1px solid var(--border);overflow:hidden;transition:transform .2s}
         .pj:hover{transform:translateY(-3px)}
-        .pj-img{height:140px;background:linear-gradient(135deg,rgba(167,139,250,0.06),rgba(52,211,153,0.04));display:flex;align-items:center;justify-content:center;font-size:42px;border-bottom:1px solid var(--border)}
+        .pj-img{height:140px;background:linear-gradient(135deg,rgba(167,139,250,.06),rgba(52,211,153,.04));display:flex;align-items:center;justify-content:center;font-size:42px;border-bottom:1px solid var(--border)}
         .pj-b{padding:18px}
-        .pj-type{display:inline-block;padding:4px 10px;border-radius:999px;background:rgba(167,139,250,0.1);border:1px solid rgba(167,139,250,0.2);font-size:11px;font-weight:800;color:var(--accent);margin-bottom:10px}
+        .pj-type{display:inline-block;padding:4px 10px;border-radius:999px;background:rgba(167,139,250,.1);border:1px solid rgba(167,139,250,.2);font-size:11px;font-weight:800;color:var(--accent);margin-bottom:10px}
         .pj h3{font-size:15px;font-weight:800;margin-bottom:6px;color:#E8ECF4}
         .pj p{font-size:12px;color:var(--muted);font-weight:600;margin-bottom:14px}
-        .pj-l{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:10px;background:rgba(255,255,255,0.04);border:1px solid var(--border);font-size:12px;font-weight:800;color:#E8ECF4;transition:all 0.2s}
-        .pj-l:hover{background:rgba(167,139,250,0.1)}
+        .pj-l{display:inline-flex;align-items:center;gap:6px;padding:8px 14px;border-radius:10px;background:rgba(255,255,255,.04);border:1px solid var(--border);font-size:12px;font-weight:800;color:#E8ECF4;transition:all .2s}
+        .pj-l:hover{background:rgba(167,139,250,.1)}
 
+        /* TESTIMONIALS */
+        .tg{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+        .tm{padding:24px;border-radius:var(--r);background:var(--surface);border:1px solid var(--border)}
+        .tm-s{color:#FBBF24;font-size:14px;margin-bottom:12px;letter-spacing:2px}
+        .tm q{display:block;font-size:14px;font-weight:600;line-height:1.8;color:#E8ECF4;font-style:normal;margin-bottom:14px}
+        .tm-w{font-size:12px;font-weight:800;color:var(--muted)}
+
+        /* CONTENT */
+        .cb{padding:36px;border-radius:var(--r);background:var(--surface);border:1px solid var(--border);text-align:center}
+        .cb p{color:var(--muted);max-width:50ch;margin:0 auto 24px;font-weight:500;font-size:14px}
+        .ct{display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin-bottom:24px}
+        .ct span{padding:10px 18px;border-radius:999px;background:rgba(255,255,255,.04);border:1px solid var(--border);font-size:13px;font-weight:700;color:var(--text)}
+        .soc{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+        .soc a{display:inline-flex;align-items:center;gap:8px;padding:12px 20px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid var(--border);font-size:13px;font-weight:800;color:#E8ECF4;transition:all .2s}
+        .soc a:hover{background:rgba(255,255,255,.07)}
+
+        /* CTA */
+        .cta-box{padding:50px 40px;border-radius:var(--r);background:var(--surface);border:1px solid rgba(167,139,250,.15);text-align:center;position:relative;overflow:hidden}
+        .cta-box::before{content:'';position:absolute;top:-100px;left:50%;transform:translateX(-50%);width:600px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(167,139,250,.08),transparent 60%);pointer-events:none}
+        .cta-box>*{position:relative}
+        .cta-box p{color:var(--muted);max-width:50ch;margin:0 auto 28px;font-weight:500}
+        .cta-btns{display:flex;justify-content:center;gap:12px;flex-wrap:wrap}
+
+        /* FAQ */
         .fq{display:grid;grid-template-columns:1fr 1fr;gap:14px}
         details{padding:18px 20px;border-radius:16px;background:var(--surface);border:1px solid var(--border)}
+        details[open]{border-color:rgba(167,139,250,.2)}
         summary{cursor:pointer;font-weight:800;font-size:14px;color:#E8ECF4;list-style:none;display:flex;justify-content:space-between;align-items:center}
+        summary::-webkit-details-marker{display:none}
         summary::after{content:'+';color:var(--muted);font-size:18px}
         details[open] summary::after{content:'-'}
         details p{margin-top:12px;font-size:13px;color:var(--muted);font-weight:500;line-height:1.7}
 
-        .waf{position:fixed;bottom:24px;left:24px;z-index:80;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#25D366,#128C7E);display:flex;align-items:center;justify-content:center;font-size:28px;color:#fff;box-shadow:0 6px 24px rgba(37,211,102,0.3);animation:pulse 2s infinite}
+        /* FOOTER */
+        footer{padding:30px 0 50px;border-top:1px solid var(--border);margin-top:20px}
+        .fi{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px}
+        .fl{display:flex;gap:8px;flex-wrap:wrap}
+        .fl a{padding:8px 14px;border-radius:10px;background:rgba(255,255,255,.03);border:1px solid var(--border);font-size:12px;font-weight:700;color:var(--muted);transition:all .2s}
+        .fl a:hover{color:#fff}
+
+        /* WHATSAPP */
+        .waf{position:fixed;bottom:24px;left:24px;z-index:80;width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#25D366,#128C7E);display:flex;align-items:center;justify-content:center;font-size:28px;color:#fff;box-shadow:0 6px 24px rgba(37,211,102,.3);transition:transform .2s;animation:pulse 2s infinite}
+        .waf:hover{transform:scale(1.1)}
 
         @keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
-        @keyframes pulse{0%,100%{box-shadow:0 6px 24px rgba(37,211,102,0.3)}50%{box-shadow:0 6px 36px rgba(37,211,102,0.5)}}
-        
+        @keyframes pulse{0%,100%{box-shadow:0 6px 24px rgba(37,211,102,.3)}50%{box-shadow:0 6px 36px rgba(37,211,102,.5)}}
+
         @media(max-width:900px){
-            .hero-grid,.ag,.g3,.pg,.pkg-grid{grid-template-columns:1fr}
+            .hero-grid,.ag{grid-template-columns:1fr}
+            .g3,.pg,.tg,.pkg-grid{grid-template-columns:1fr}
+            .g4{grid-template-columns:1fr 1fr}
+            .fq{grid-template-columns:1fr}
             .nav-links{display:none}
-            .hamburger{display:flex}
             h1{font-size:28px}
         }
         @media(max-width:600px){
             .sr{grid-template-columns:1fr}
+            .g4{grid-template-columns:1fr}
             .hero-ctas{flex-direction:column}
-            .bp,.bg{width:100%}
+            .bp,.bg{width:100%;justify-content:center}
         }
     </style>
 </head>
-<body id="top">
+<body>
 
 <div class="nav"><div class="wrap"><div class="nav-inner">
-    <div class="logo"><span class="logo-dot"></span><span>lior_Ai</span></div>
-    <button class="hamburger" aria-label="פתח תפריט" onclick="toggleMenu()">
-        <span></span>
-    </button>
-    <div class="nav-links">
-        <a href="#services" data-i18n="nS">שירותים</a>
-        <a href="#packages" data-i18n="nPk">מסלולים</a>
-        <a href="#portfolio" data-i18n="nP">עבודות</a>
-        <a href="#about" data-i18n="nA">אודות</a>
-        <a href="#faq" data-i18n="nF">FAQ</a>
-    </div>
-    <div class="nav-right">
-        <div class="lang-toggle">
-            <button id="btnHe" class="active" aria-label="עברית">HE</button>
-            <button id="btnEn" aria-label="English">EN</button>
-        </div>
-        <a class="nav-cta" href="https://wa.me/972508668022?text=היי" target="_blank" data-i18n="nCTA">בואו נדבר</a>
-    </div>
-    <div class="mobile-menu" id="mobileMenu">
-        <a href="#services" data-i18n="nS">שירותים</a>
-        <a href="#packages" data-i18n="nPk">מסלולים</a>
-        <a href="#portfolio" data-i18n="nP">עבודות</a>
-        <a href="#about" data-i18n="nA">אודות</a>
-        <a href="#faq" data-i18n="nF">FAQ</a>
-    </div>
+<div class="logo"><span class="logo-dot"></span><span>lior_Ai</span></div>
+<div class="nav-links"><a href="#services" data-i18n="nS">שירותים</a><a href="#packages" data-i18n="nPk">מסלולים</a><a href="#portfolio" data-i18n="nP">עבודות</a><a href="#about" data-i18n="nA">אודות</a><a href="#faq" data-i18n="nF">FAQ</a><a href="#contact" data-i18n="nCt">צור קשר</a></div>
+<div class="nav-right">
+<div class="lang-toggle"><button id="btnHe" class="active" type="button">HE</button><button id="btnEn" type="button">EN</button></div>
+<a class="nav-cta" href="https://wa.me/972508668022?text=היי%20אשמח%20לשמוע%20על%20השירותים%20שלך" target="_blank" rel="noopener" data-i18n="nCTA">בואו נדבר</a>
+</div>
 </div></div></div>
 
-<header class="hero"><div class="wrap"><div class="hero-grid">
-    <div>
-        <div class="hero-badge">AI + נדל"ן + חדשנות</div>
-        <h1 data-i18n="h1">הנדל&quot;ן שלך<br><span class="hl">מונע בבינה מלאכותית</span></h1>
-        <p class="hero-sub" data-i18n="hSub">דפי נחיתה, אתרי תדמית, קידום אורגני ותוכן מבוסס AI לעסקי נדל&quot;ן.</p>
-        <div class="hero-ctas">
-            <a class="bp" href="https://wa.me/972508668022?text=היי" target="_blank" data-i18n="hC1">בואו נדבר בוואטסאפ</a>
-            <a class="bg" href="#packages" data-i18n="hC2">צפה במסלולים</a>
-        </div>
-        <div class="trust-row">
-            <span class="tp"><span class="ci">✓</span> <span data-i18n="t1">18+ שנות ניסיון בנדל&quot;ן</span></span>
-            <span class="tp"><span class="ci">✓</span> <span data-i18n="t2">השקה תוך 3-7 ימים</span></span>
-            <span class="tp"><span class="ci">✓</span> <span data-i18n="t3">100% קוד אצלך</span></span>
-        </div>
-    </div>
-    <div class="hc reveal">
-        <div class="hc-t" data-i18n="stT">במספרים</div>
-        <div class="sr">
-            <div class="st"><div class="sn">18+</div><div class="sl" data-i18n="stY">שנות ניסיון</div></div>
-            <div class="st"><div class="sn">9+</div><div class="sl" data-i18n="stP">פרויקטים</div></div>
-            <div class="st"><div class="sn">100%</div><div class="sl" data-i18n="stSa">שביעות רצון</div></div>
-            <div class="st"><div class="sn">24/7</div><div class="sl" data-i18n="stA">גישה חופשית</div></div>
-        </div>
-        <ul class="hl-list">
-            <li><span class="li-i">✓</span><span data-i18n="hL1">דפי נחיתה שממירים לפניות</span></li>
-            <li><span class="li-i">✓</span><span data-i18n="hL2">אתרי תדמית שמוכרים אמון</span></li>
-            <li><span class="li-i">✓</span><span data-i18n="hL3">קידום אורגני + תוכן AI</span></li>
-        </ul>
-    </div>
+<header class="hero" id="top"><div class="wrap"><div class="hero-grid"><div>
+<div class="hero-badge">AI + נדל"ן + חדשנות</div>
+<h1 data-i18n="h1">הנדל"ן שלך<br><span class="hl">מונע בבינה מלאכותית</span></h1>
+<p class="hero-sub" data-i18n="hSub">דפי נחיתה, אתרי תדמית, קידום אורגני ותוכן מבוסס AI שמביא תוצאות אמיתיות לעסקי נדל"ן, בנייה והתחדשות עירונית.</p>
+<div class="hero-ctas">
+<a class="bp" href="https://wa.me/972508668022?text=היי%20אשמח%20לשמוע%20על%20השירותים%20שלך" target="_blank" data-i18n="hC1">בואו נדבר בוואטסאפ</a>
+<a class="bg" href="#packages" data-i18n="hC2">צפה במסלולים</a>
+</div>
+<div class="trust-row">
+<span class="tp"><span class="ci">&#10003;</span> <span data-i18n="t1">18+ שנות ניסיון בנדל"ן</span></span>
+<span class="tp"><span class="ci">&#10003;</span> <span data-i18n="t2">השקה תוך 3-7 ימים</span></span>
+<span class="tp"><span class="ci">&#10003;</span> <span data-i18n="t3">100% קוד אצלך</span></span>
+<span class="tp"><span class="ci">&#10003;</span> <span data-i18n="t4">מיקוד המרות + WhatsApp</span></span>
+</div>
+</div>
+<div class="hc reveal">
+<div class="hc-t" data-i18n="stT">במספרים</div>
+<div class="sr">
+<div class="st"><div class="sn">18+</div><div class="sl" data-i18n="stY">שנות ניסיון</div></div>
+<div class="st"><div class="sn">9+</div><div class="sl" data-i18n="stP">פרויקטים</div></div>
+<div class="st"><div class="sn">100%</div><div class="sl" data-i18n="stSa">שביעות רצון</div></div>
+<div class="st"><div class="sn">24/7</div><div class="sl" data-i18n="stA">גישה חופשית</div></div>
+</div>
+<ul class="hl-list">
+<li><span class="li-i">&#10003;</span><span data-i18n="hL1">דפי נחיתה שממירים לפניות</span></li>
+<li><span class="li-i">&#10003;</span><span data-i18n="hL2">אתרי תדמית שמוכרים אמון</span></li>
+<li><span class="li-i">&#10003;</span><span data-i18n="hL3">קידום אורגני + תוכן AI</span></li>
+</ul>
+</div>
 </div></div></header>
 
 <section id="services"><div class="wrap">
-    <div class="stag reveal" data-i18n="svT">שירותים</div>
-    <h2 class="reveal" data-i18n="svH">מה אני יכול לעשות בשבילך</h2>
-    <div class="g3">
-        <div class="sc reveal"><div class="si p">🚀</div><h3 data-i18n="s1t">דפי נחיתה מונעי AI</h3><p data-i18n="s1p">דפי נחיתה חכמים שממירים מבקרים ללידים.</p></div>
-        <div class="sc reveal"><div class="si g">🎨</div><h3 data-i18n="s2t">אתרי תדמית</h3><p data-i18n="s2p">עיצוב מודרני לבניית אמון ויוקרה.</p></div>
-        <div class="sc reveal"><div class="si a">📈</div><h3 data-i18n="s3t">קידום SEO</h3><p data-i18n="s3p">אסטרטגיית קידום חכמה מבוססת AI.</p></div>
-        <div class="sc reveal"><div class="si p">🏗️</div><h3 data-i18n="s4t">תוכן לנדל&quot;ן</h3><p data-i18n="s4p">כתיבה מקצועית לענף הבנייה והתיווך.</p></div>
-        <div class="sc reveal"><div class="si g">✍️</div><h3 data-i18n="s5t">כתיבת תוכן AI</h3><p data-i18n="s5p">בלוגים ומאמרים שיווקיים באיכות גבוהה.</p></div>
-        <div class="sc reveal"><div class="si a">🤖</div><h3 data-i18n="s6t">אוטומציה</h3><p data-i18n="s6p">הטמעת כלי בינה מלאכותית לייעול העסק.</p></div>
-    </div>
-</div></section>
+<div class="stag reveal" data-i18n="svT">שירותים</div>
+<h2 class="reveal" data-i18n="svH">מה אני יכול לעשות בשבילך</h2>
+<p class="ssub reveal" data-i18n="svS">שילוב ייחודי של בינה מלאכותית, שיווק דיגיטלי וידע מעמיק בנדל"ן</p>
+<div class="g3">
+<div class="sc reveal"><div class="si p">&#128640;</div><h3 data-i18n="s1t">דפי נחיתה מונעי AI</h3><p data-i18n="s1p">דפי נחיתה חכמים שממירים מבקרים ללידים. עיצוב מודרני, טקסטים AI ואופטימיזציה להמרות.</p></div>
+<div class="sc reveal"><div class="si g">&#127912;</div><h3 data-i18n="s2t">אתרי תדמית</h3><p data-i18n="s2p">אתרי תדמית מרשימים - עיצוב מודרני, חוויית משתמש מושלמת ותוכן שבונה אמון.</p></div>
+<div class="sc reveal"><div class="si a">&#128200;</div><h3 data-i18n="s3t">קידום אורגני SEO</h3><p data-i18n="s3p">אסטרטגיית SEO מבוססת AI. מחקר מילות מפתח, תוכן ממוקד ובניית סמכות דומיין.</p></div>
+</div></div></section>
 
 <section id="packages"><div class="wrap">
-    <div class="pkg-header">
-        <div class="stag reveal" data-i18n="pkT">מסלולים</div>
-        <h2 class="reveal" data-i18n="pkH">3 מסלולים. בחירה אחת. ביצוע מהר.</h2>
-    </div>
-    <div class="pkg-grid">
-        <div class="pkg reveal">
-            <div class="pkg-num">01</div>
-            <div class="pkg-name" data-i18n="pk1n">הכי ממיר</div>
-            <div class="pkg-desc" data-i18n="pk1d">Landing שמביא פניות</div>
-            <ul class="pkg-features">
-                <li data-i18n="pk1f1"><span class="ck">✓</span>עמוד ממוקד המרה עם CTA חזק</li>
-                <li data-i18n="pk1f2"><span class="ck">✓</span>אינטגרציה ל-WhatsApp וטפסים</li>
-                <li data-i18n="pk1f3"><span class="ck">✓</span>אופטימיזציה למובייל + SEO בסיסי</li>
-                <li data-i18n="pk1f4"><span class="ck">✓</span>2 סבבי תיקונים + הדרכה</li>
-            </ul>
-            <a class="pkg-cta outline" href="https://wa.me/972508668022?text=Landing" data-i18n="pk1c">דבר איתי</a>
-        </div>
-        <div class="pkg pop reveal">
-            <div class="pkg-badge" data-i18n="pkBadge">הכי נפוץ</div>
-            <div class="pkg-num">02</div>
-            <div class="pkg-name" data-i18n="pk2n">אתר תדמית</div>
-            <div class="pkg-desc" data-i18n="pk2d">נוכחות דיגיטלית יוקרתית</div>
-            <ul class="pkg-features">
-                <li data-i18n="pk2f1"><span class="ck">✓</span>4-6 עמודי תוכן (בית, אודות, שירותים, גלריה, צור קשר)</li>
-                <li data-i18n="pk2f2"><span class="ck">✓</span>עיצוב מותאם אישית + גרפיקה</li>
-                <li data-i18n="pk2f3"><span class="ck">✓</span>חיבור ל-Analytics + Search Console</li>
-                <li data-i18n="pk2f4"><span class="ck">✓</span>אופטימיזציה למהירות + SEO מתקדם</li>
-                <li data-i18n="pk2f5"><span class="ck">✓</span>3 סבבי תיקונים + תחזוקה ראשונית</li>
-            </ul>
-            <a class="pkg-cta green" href="https://wa.me/972508668022?text=Website" data-i18n="pk2c">דבר איתי</a>
-        </div>
-        <div class="pkg reveal">
-            <div class="pkg-num">03</div>
-            <div class="pkg-name" data-i18n="pk3n">לסקייל</div>
-            <div class="pkg-desc" data-i18n="pk3d">AI + אוטומציה לעסק</div>
-            <ul class="pkg-features">
-                <li data-i18n="pk3f1"><span class="ck">✓</span>חיבור ל-CRM ומדידת המרות</li>
-                <li data-i18n="pk3f2"><span class="ck">✓</span>אוטומציה של תוכן + צ'טבוט AI</li>
-                <li data-i18n="pk3f3"><span class="ck">✓</span>אסטרטגיית SEO + תוכן חודשי</li>
-                <li data-i18n="pk3f4"><span class="ck">✓</span>דשבורד ניתוח + דוחות</li>
-                <li data-i18n="pk3f5"><span class="ck">✓</span>תמיכה שוטפת + עדכונים</li>
-            </ul>
-            <a class="pkg-cta outline" href="https://wa.me/972508668022?text=Automation" data-i18n="pk3c">דבר איתי</a>
-        </div>
-    </div>
-</div></section>
-
-<section id="portfolio"><div class="wrap">
-    <div class="stag reveal" data-i18n="poT">תיק עבודות</div>
-    <h2 class="reveal" data-i18n="poH">עבודות לדוגמא</h2>
-    <div class="pg">
-        <div class="pj reveal">
-            <div class="pj-img">💅</div>
-            <div class="pj-b">
-                <span class="pj-type">לנדינג</span>
-                <h3>עדי בוגנים</h3>
-                <p>עיצוב גבות - דף המרה ממוקד</p>
-                <a class="pj-l" href="https://balol100.github.io/adi-brows-landing/" target="_blank">צפה באתר</a>
-            </div>
-        </div>
-        <div class="pj reveal">
-            <div class="pj-img">⚡</div>
-            <div class="pj-b">
-                <span class="pj-type">אתר תדמית</span>
-                <h3>אילן סדיקוב</h3>
-                <p>חשמלאי מוסמך - נוכחות מקצועית</p>
-                <a class="pj-l" href="https://balol100.github.io/ilan-electric/" target="_blank">צפה באתר</a>
-            </div>
-        </div>
-        <div class="pj reveal">
-            <div class="pj-img">🚗</div>
-            <div class="pj-b">
-                <span class="pj-type">אתר תדמית</span>
-                <h3>Royal Service</h3>
-                <p>מוסך היברידי - גלריה ושירותים</p>
-                <a class="pj-l" href="https://balol100.github.io/royal-service-car-website/" target="_blank">צפה באתר</a>
-            </div>
-        </div>
-        <div class="pj reveal">
-            <div class="pj-img">🍲</div>
-            <div class="pj-b">
-                <span class="pj-type">אתר תדמית</span>
-                <h3>אצל יניב</h3>
-                <p>מסעדה וקייטרינג - תפריטים + הזמנות</p>
-                <a class="pj-l" href="https://balol100.github.io/restaurant-website/" target="_blank">צפה באתר</a>
-            </div>
-        </div>
-        <div class="pj reveal">
-            <div class="pj-img">🏠</div>
-            <div class="pj-b">
-                <span class="pj-type">לנדינג</span>
-                <h3>אבי דדון</h3>
-                <p>ייעוץ משכנתאות - פניות מהירות</p>
-                <a class="pj-l" href="https://balol100.github.io/avi-dadon/" target="_blank">צפה באתר</a>
-            </div>
-        </div>
-        <div class="pj reveal">
-            <div class="pj-img">🤖</div>
-            <div class="pj-b">
-                <span class="pj-type">אתר תדמית</span>
-                <h3>lior_Ai</h3>
-                <p>האתר הנוכחי - AI + נדל&quot;ן</p>
-                <a class="pj-l scroll-top" href="#top">אתה כאן</a>
-            </div>
-        </div>
-    </div>
-</div></section>
+<div class="pkg-header">
+<div class="stag reveal" data-i18n="pkT">מסלולים</div>
+<h2 class="reveal" data-i18n="pkH">3 מסלולים. בחירה אחת. ביצוע מהר.</h2>
+</div>
+<div class="pkg-grid">
+<div class="pkg reveal">
+<div class="pkg-num">01</div>
+<div class="pkg-name" data-i18n="pk1n">הכי ממיר</div>
+<a class="pkg-cta outline" href="https://wa.me/972508668022?text=Landing" target="_blank" data-i18n="pk1c">שלח "Landing" בוואטסאפ</a>
+</div>
+<div class="pkg pop reveal">
+<div class="pkg-badge" data-i18n="pkBadge">הכי נפוץ</div>
+<div class="pkg-num">02</div>
+<div class="pkg-name" data-i18n="pk2n">אתר תדמית שמוכר אמון</div>
+<a class="pkg-cta green" href="https://wa.me/972508668022?text=Website" target="_blank" data-i18n="pk2c">שלח "Website" בוואטסאפ</a>
+</div>
+<div class="pkg reveal">
+<div class="pkg-num">03</div>
+<div class="pkg-name" data-i18n="pk3n">לסקייל</div>
+<a class="pkg-cta outline" href="https://wa.me/972508668022?text=Automation" target="_blank" data-i18n="pk3c">שלח "Automation" בוואטסאפ</a>
+</div>
+</div></div></section>
 
 <section id="about"><div class="wrap"><div class="ag">
-    <div class="av reveal"><img src="profile.jpg" alt="ליאור - מומחה נדל&quot;ן ובינה מלאכותית" style="width:100%;height:100%;object-fit:cover;object-position:top"></div>
-    <div class="at reveal">
-        <div class="stag" data-i18n="aT">אודות</div>
-        <h2 data-i18n="aH">AI + נדל&quot;ן = הצלחה</h2>
-        <p data-i18n="a2"><strong>18+ שנות ניסיון</strong> בענף הנדל&quot;ן. סמנכ&quot;ל מכירות לשעבר המשלב את עולם השטח עם טכנולוגיית המחר.</p>
-        <div class="at-tags"><span>דפי נחיתה</span><span>אתרי תדמית</span><span>SEO</span><span>נדל&quot;ן</span></div>
-    </div>
+<div class="av reveal" style="padding:0;overflow:hidden">
+<img src="profile.jpg" alt="lior_Ai" style="width:100%;height:100%;object-fit:cover;min-height:320px;border-radius:var(--r)" onerror="this.style.display='none';this.parentElement.innerHTML='<div style=\'display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:320px;padding:40px;gap:16px\'><div style=\'font-size:48px;width:80px;height:80px;border-radius:18px;background:linear-gradient(135deg,rgba(167,139,250,.12),rgba(52,211,153,.08));border:1px solid rgba(167,139,250,.15);display:flex;align-items:center;justify-content:center\'>👤</div><div style=\'display:flex;flex-wrap:wrap;justify-content:center;gap:8px\'><span style=\'padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);font-size:11px;font-weight:700;color:#A1A9BB\'>AI</span><span style=\'padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);font-size:11px;font-weight:700;color:#A1A9BB\'>נדל\\\"ן</span><span style=\'padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);font-size:11px;font-weight:700;color:#A1A9BB\'>18+ שנים</span></div></div>';">
+</div>
+<div class="at reveal">
+<div class="stag" data-i18n="aT">אודות</div>
+<h2 data-i18n="aH">AI + נדל"ן = הצלחה</h2>
+<p data-i18n="a2i">אני <strong>lior_Ai</strong> — יוצר תוכן ומפתח פתרונות דיגיטליים בצומת שבין בינה מלאכותית לנדל"ן.</p>
+<p data-i18n="a2"><strong>18+ שנות ניסיון</strong> בענף הנדל"ן. סמנכ"ל מכירות בחברת בנייה. ראיתי משברים, שווקים, מחזורי עסקאות — ועכשיו אני רואה איך AI משנה הכל.</p>
+<p data-i18n="a2t">כל יום אני משתמש ב-ChatGPT, Claude, Gemini וכלי AI נוספים — ומשתף כאן את מה שעובד ומה שלא. מאמין שטכנולוגיה חכמה יכולה לשנות את האופן שבו עסקים בנדל"ן עובדים, משווקים ומתקדמים.</p>
+<ul class="hl-list" style="margin-top:18px">
+<li><span class="li-i">&#10003;</span><span data-i18n="aL1">דפי נחיתה ואתרי תדמית שממירים — עיצוב וטקסט מבוססי AI</span></li>
+<li><span class="li-i">&#10003;</span><span data-i18n="aL2">קידום אורגני לטווח ארוך בגוגל</span></li>
+<li><span class="li-i">&#10003;</span><span data-i18n="aL3">תוכן מקצועי על חדשנות בנדל"ן ובנייה</span></li>
+<li><span class="li-i">&#10003;</span><span data-i18n="aL4">ייעוץ והטמעת כלי AI לעסקים</span></li>
+</ul>
+</div>
+</div></div></section>
+
+<section id="portfolio"><div class="wrap">
+<div class="stag reveal" data-i18n="poT">תיק עבודות</div>
+<h2 class="reveal" data-i18n="poH">עבודות לדוגמא</h2>
+<div class="pg">
+<div class="pj reveal"><div class="pj-img">&#128663;</div><div class="pj-b"><h3>Royal Service Car</h3><a class="pj-l" href="https://balol100.github.io/royal-service-car-website/" target="_blank">צפה באתר</a></div></div>
+<div class="pj reveal"><div class="pj-img">&#127974;</div><div class="pj-b"><h3>אבי דדון - משכנתאות</h3><a class="pj-l" href="https://balol100.github.io/avi-dadon/" target="_blank">צפה באתר</a></div></div>
+<div class="pj reveal"><div class="pj-img">🤖</div><div class="pj-b"><h3>lior_Ai - האתר הזה</h3><a class="pj-l scroll-top" href="#top">אתה כבר כאן</a></div></div>
 </div></div></section>
 
 <section id="faq"><div class="wrap">
-    <div class="stag reveal" data-i18n="fqT">שאלות נפוצות</div>
-    <div class="fq">
-        <details class="reveal" open><summary data-i18n="f1q">כמה זמן לוקח לבנות דף?</summary><p data-i18n="f1a">3-7 ימי עבודה בדרך כלל.</p></details>
-        <details class="reveal"><summary data-i18n="f3q">אני מקבל את הקוד?</summary><p data-i18n="f3a">כן, 100%. כל הקבצים שלך לנצח.</p></details>
-    </div>
-</div></section>
+<div class="stag reveal" data-i18n="fqT">שאלות נפוצות</div>
+<div class="fq">
+<details class="reveal" open><summary data-i18n="f1q">כמה זמן לוקח לבנות דף נחיתה?</summary><p data-i18n="f1a">3-7 ימי עבודה. כולל עיצוב, תוכן AI, פיתוח והעלאה.</p></details>
+<details class="reveal"><summary data-i18n="f3q">אני מקבל את הקוד?</summary><p data-i18n="f3a">כן, 100%. כל קבצי המקור שלך.</p></details>
+</div></div></section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="foot">
-    <div style="font-family:'Rubik',sans-serif;font-weight:700;font-size:1.1rem;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent">lior<span style="font-weight:300;opacity:.7">_</span>Ai</div>
-    <div class="foot-t"><a href="https://balol100.github.io/lior-ai-landing/" target="_blank" style="color:inherit;text-decoration:none;">כל הזכויות שמורות - lior_Ai</a></div>
-    <div class="foot-links">
-      <a href="#services">שירותים</a>
-      <a href="#portfolio">עבודות</a>
-      <a href="#contact">צור קשר</a>
-<footer id="contact" style="padding:80px 0; text-align:center; border-top:1px solid var(--border)">
-    <div class="wrap reveal">
-        <h2 data-i18n="ctH">בואו נבנה משהו שמביא תוצאות</h2>
-        <div style="margin-top:30px"><a class="bp" href="https://wa.me/972508668022?text=היי">WhatsApp Me</a></div>
-        <p style="margin-top:40px; font-size:12px; color:var(--muted)">2026 lior_Ai | נבנה עם בינה מלאכותית</p>
-    </div>
-</footer>
+<section id="contact"><div class="wrap">
+<div class="cta-box reveal">
+<h2 data-i18n="ctH">בואו נבנה משהו שמביא תוצאות</h2>
+<div class="cta-btns">
+<a class="bp" href="https://wa.me/972508668022?text=היי" target="_blank" data-i18n="ctB1">בואו נדבר בוואטסאפ</a>
+</div></div></div></section>
 
-<a class="waf" href="https://wa.me/972508668022?text=היי" target="_blank" aria-label="צור קשר בוואטסאפ">💬</a>
+<footer><div class="wrap"><div class="fi">
+<div><div style="font-weight:900;font-size:16px;color:#E8ECF4">lior_Ai</div><div style="font-size:12px;color:var(--muted)">2026 lior_Ai | נבנה עם AI</div></div>
+</div></div></footer>
+
+<a class="waf" href="https://wa.me/972508668022?text=היי" target="_blank" aria-label="WhatsApp">💬</a>
 
 <script>
-    const L = {
-        he: {
-            nS: "שירותים",
-            nPk: "מסלולים",
-            nP: "עבודות",
-            nA: "אודות",
-            nF: "FAQ",
-            nCTA: "בואו נדבר",
-            h1: "הנדל&quot;ן שלך<br><span class=\"hl\">מונע בבינה מלאכותית</span>",
-            hSub: "דפי נחיתה, אתרי תדמית, קידום אורגני ותוכן מבוסס AI לעסקי נדל&quot;ן.",
-            hC1: "בואו נדבר בוואטסאפ",
-            hC2: "צפה במסלולים",
-            t1: "18+ שנות ניסיון בנדל&quot;ן",
-            t2: "השקה תוך 3-7 ימים",
-            t3: "100% קוד אצלך",
-            stT: "במספרים",
-            stY: "שנות ניסיון",
-            stP: "פרויקטים",
-            stSa: "שביעות רצון",
-            stA: "גישה חופשית",
-            hL1: "דפי נחיתה שממירים לפניות",
-            hL2: "אתרי תדמית שמוכרים אמון",
-            hL3: "קידום אורגני + תוכן AI",
-            svT: "שירותים",
-            svH: "מה אני יכול לעשות בשבילך",
-            s1t: "דפי נחיתה מונעי AI",
-            s1p: "דפי נחיתה חכמים שממירים מבקרים ללידים.",
-            s2t: "אתרי תדמית",
-            s2p: "עיצוב מודרני לבניית אמון ויוקרה.",
-            s3t: "קידום SEO",
-            s3p: "אסטרטגיית קידום חכמה מבוססת AI.",
-            s4t: "תוכן לנדל&quot;ן",
-            s4p: "כתיבה מקצועית לענף הבנייה והתיווך.",
-            s5t: "כתיבת תוכן AI",
-            s5p: "בלוגים ומאמרים שיווקיים באיכות גבוהה.",
-            s6t: "אוטומציה",
-            s6p: "הטמעת כלי בינה מלאכותית לייעול העסק.",
-            pkT: "מסלולים",
-            pkH: "3 מסלולים. בחירה אחת. ביצוע מהר.",
-            pkBadge: "הכי נפוץ",
-            pk1n: "הכי ממיר",
-            pk1d: "Landing שמביא פניות",
-            pk1c: "דבר איתי",
-            pk1f1: "עמוד ממוקד המרה עם CTA חזק",
-            pk1f2: "אינטגרציה ל-WhatsApp וטפסים",
-            pk1f3: "אופטימיזציה למובייל + SEO בסיסי",
-            pk1f4: "2 סבבי תיקונים + הדרכה",
-            pk2n: "אתר תדמית",
-            pk2d: "נוכחות דיגיטלית יוקרתית",
-            pk2c: "דבר איתי",
-            pk2f1: "4-6 עמודי תוכן (בית, אודות, שירותים, גלריה, צור קשר)",
-            pk2f2: "עיצוב מותאם אישית + גרפיקה",
-            pk2f3: "חיבור ל-Analytics + Search Console",
-            pk2f4: "אופטימיזציה למהירות + SEO מתקדם",
-            pk2f5: "3 סבבי תיקונים + תחזוקה ראשונית",
-            pk3n: "לסקייל",
-            pk3d: "AI + אוטומציה לעסק",
-            pk3c: "דבר איתי",
-            pk3f1: "חיבור ל-CRM ומדידת המרות",
-            pk3f2: "אוטומציה של תוכן + צ'טבוט AI",
-            pk3f3: "אסטרטגיית SEO + תוכן חודשי",
-            pk3f4: "דשבורד ניתוח + דוחות",
-            pk3f5: "תמיכה שוטפת + עדכונים",
-            poT: "תיק עבודות",
-            poH: "עבודות לדוגמא",
-            aT: "אודות",
-            aH: "AI + נדל&quot;ן = הצלחה",
-            a2: "<strong>18+ שנות ניסיון</strong> בענף הנדל&quot;ן. סמנכ&quot;ל מכירות לשעבר המשלב את עולם השטח עם טכנולוגיית המחר.",
-            fqT: "שאלות נפוצות",
-            f1q: "כמה זמן לוקח לבנות דף?",
-            f1a: "3-7 ימי עבודה בדרך כלל.",
-            f3q: "אני מקבל את הקוד?",
-            f3a: "כן, 100%. כל הקבצים שלך לנצח.",
-            ctH: "בואו נבנה משהו שמביא תוצאות"
-        },
-        en: {
-            nS: "Services",
-            nPk: "Plans",
-            nP: "Portfolio",
-            nA: "About",
-            nF: "FAQ",
-            nCTA: "Let's talk",
-            h1: "Your Real Estate<br><span class=\"hl\">Powered by AI</span>",
-            hSub: "Landing pages, business websites and AI-powered content for real estate.",
-            hC1: "WhatsApp Me",
-            hC2: "View Plans",
-            t1: "18+ Years in Real Estate",
-            t2: "Launch in 3–7 days",
-            t3: "100% Code Ownership",
-            stT: "By the Numbers",
-            stY: "Years Experience",
-            stP: "Projects",
-            stSa: "Client Satisfaction",
-            stA: "24/7 Access",
-            hL1: "Landing pages that convert",
-            hL2: "Trust-building business websites",
-            hL3: "SEO + AI content",
-            svT: "Services",
-            svH: "What I Can Do for You",
-            s1t: "AI-Powered Landing Pages",
-            s1p: "Smart landing pages that turn visitors into leads.",
-            s2t: "Business Websites",
-            s2p: "Modern design that builds trust and authority.",
-            s3t: "SEO",
-            s3p: "AI-based smart SEO strategy.",
-            s4t: "Real Estate Content",
-            s4p: "Professional copywriting for real estate and construction.",
-            s5t: "AI Content Writing",
-            s5p: "High-quality blog posts and marketing articles.",
-            s6t: "Automation",
-            s6p: "Implementing AI tools to streamline your business.",
-            pkT: "Plans",
-            pkH: "3 plans. One decision. Fast execution.",
-            pkBadge: "Most Popular",
-            pk1n: "High-Conversion Landing",
-            pk1d: "Landing that brings leads",
-            pk1c: "Contact Me",
-            pk1f1: "Focused conversion page with strong CTA",
-            pk1f2: "WhatsApp & forms integration",
-            pk1f3: "Mobile optimization + basic SEO",
-            pk1f4: "2 revision rounds + guidance",
-            pk2n: "Business Website",
-            pk2d: "Premium digital presence",
-            pk2c: "Contact Me",
-            pk2f1: "4-6 content pages (Home, About, Services, Gallery, Contact)",
-            pk2f2: "Custom design + graphics",
-            pk2f3: "Analytics + Search Console connection",
-            pk2f4: "Speed optimization + advanced SEO",
-            pk2f5: "3 revision rounds + initial maintenance",
-            pk3n: "Scale with AI",
-            pk3d: "AI + Automation for your business",
-            pk3c: "Contact Me",
-            pk3f1: "CRM connection & conversion tracking",
-            pk3f2: "Content automation + AI chatbot",
-            pk3f3: "SEO strategy + monthly content",
-            pk3f4: "Analytics dashboard + reports",
-            pk3f5: "Ongoing support + updates",
-            poT: "Portfolio",
-            poH: "Sample Projects",
-            aT: "About",
-            aH: "AI + Real Estate = Results",
-            a2: "<strong>18+ years of experience</strong> in real estate. Former VP of Sales combining field expertise with tomorrow's technology.",
-            fqT: "FAQ",
-            f1q: "How long does it take to build a page?",
-            f1a: "Usually 3–7 business days.",
-            f3q: "Do I own the code?",
-            f3a: "Yes, 100%. All files are yours forever.",
-            ctH: "Let's build something that gets results"
-        }
-    };
+// Language Translations Data
+var L={he:{nS:"שירותים",nPk:"מסלולים",nP:"עבודות",nA:"אודות",nF:"FAQ",nCt:"צור קשר",nCTA:"בואו נדבר",h1:'הנדל"ן שלך<br><span class="hl">מונע בבינה מלאכולתית</span>',hSub:'דפי נחיתה, אתרי תדמית, קידום אורגני ותוכן מבוסס AI שמביא תוצאות אמיתיות לעסקי נדל"ן.',hC1:"WhatsApp",hC2:"מסלולים",t1:'18+ שנות ניסיון',t2:"3-7 ימי השקה",t3:"100% קוד אצלך",t4:"מיקוד WhatsApp",stT:"במספרים",stY:"שנות ניסיון",stP:"פרויקטים",stSa:"שביעות רצון",stA:"גישה חופשית",hL1:"דפי נחיתה ממירים",hL2:"אתרי תדמית",hL3:"SEO + AI",svT:"שירותים",svH:"מה אני עושה",svS:'שילוב של AI וידע בנדל"ן',s1t:"דפי נחיתה AI",s1p:"ממירים מבקרים ללידים.",s2t:"אתרי תדמית",s2p:"עיצוב מודרני לבניית אמון.",s3t:"SEO",s3p:"קידום אורגני חכם.",pkT:"מסלולים",pkH:"בחירה אחת. ביצוע מהר.",pk1n:"הכי ממיר",pk1c:'דבר איתי',pkBadge:"הכי נפוץ",pk2n:"אתר תדמית",pk2c:'דבר איתי',pk3n:"לסקייל",pk3c:'דבר איתי',poT:"תיק עבודות",poH:"עבודות לדוגמא",aT:"אודות",aH:'AI + נדל"ן = הצלחה',a2i:'אני <strong>lior_Ai</strong> — יוצר תוכן ומפתח פתרונות דיגיטליים בצומת שבין בינה מלאכותית לנדל"ן.',a2:'<strong>18+ שנות ניסיון</strong> בענף הנדל"ן. סמנכ"ל מכירות בחברת בנייה. ראיתי משברים, שווקים, מחזורי עסקאות — ועכשיו אני רואה איך AI משנה הכל.',a2t:"כל יום אני משתמש ב-ChatGPT, Claude, Gemini וכלי AI נוספים — ומשתף כאן את מה שעובד ומה שלא. מאמין שטכנולוגיה חכמה יכולה לשנות את האופן שבו עסקים בנדל\"ן עובדים, משווקים ומתקדמים.",aL1:"דפי נחיתה ואתרי תדמית שממירים — עיצוב וטקסט מבוססי AI",aL2:"קידום אורגני לטווח ארוך בגוגל",aL3:'תוכן מקצועי על חדשנות בנדל"ן ובנייה',aL4:"ייעוץ והטמעת כלי AI לעסקים",fqT:"שאלות נפוצות",f1q:"כמה זמן זה לוקח?",f1a:"3-7 ימי עבודה.",f3q:"הקוד שלי?",f3a:"כן, 100%.",ctH:"מוכן להתחיל?",ctB1:"WhatsApp me"},
+en:{nS:"Services",nPk:"Packages",nP:"Portfolio",nA:"About",nF:"FAQ",nCt:"Contact",nCTA:"Let's talk",h1:'Your Real Estate<br><span class="hl">Powered by AI</span>',hSub:"Landing pages, websites, SEO and AI content for real estate.",hC1:"WhatsApp",hC2:"Packages",t1:"18+ years exp.",t2:"3-7 days launch",t3:"100% ownership",t4:"WhatsApp focus",stT:"Stats",stY:"Years exp.",stP:"Projects",stSa:"Success",stA:"Free access",hL1:"Landing pages",hL2:"Websites",hL3:"SEO + AI",svT:"Services",svH:"What I do",svS:"AI meets Real Estate",s1t:"AI Landings",s1p:"Convert visitors to leads.",s2t:"Websites",s2p:"Build trust with design.",s3t:"SEO",s3p:"Smart organic growth.",pkT:"Packages",pkH:"Fast execution.",pk1n:"Converter",pk1c:'Talk to me',pkBadge:"Popular",pk2n:"Website",pk2c:'Talk to me',pk3n:"Scale",pk3c:'Talk to me',poT:"Portfolio",poH:"Recent Works",aT:"About",aH:"AI + Real Estate",a2i:"I'm <strong>lior_Ai</strong> — content creator and digital solutions developer at the intersection of AI and real estate.",a2:"<strong>18+ years of experience</strong> in real estate. VP Sales at a construction company. I've seen crises, markets, deal cycles — and now I see how AI changes everything.",a2t:"Every day I use ChatGPT, Claude, Gemini and other AI tools — sharing here what works and what doesn't. I believe smart technology can transform how real estate businesses operate, market, and grow.",aL1:"Landing pages & websites that convert — AI-powered design and copy",aL2:"Long-term organic SEO on Google",aL3:"Professional content on real estate & construction innovation",aL4:"AI tools consulting & implementation for businesses",fqT:"FAQ",f1q:"How long?",f1a:"3-7 business days.",f3q:"My code?",f3a:"Yes, 100%.",ctH:"Ready?",ctB1:"WhatsApp me"}};
 
-    function setLang(l) {
-        document.documentElement.lang = l;
-        document.documentElement.dir = l === "he" ? "rtl" : "ltr";
-        document.getElementById("btnHe").classList.toggle("active", l === "he");
-        document.getElementById("btnEn").classList.toggle("active", l === "en");
-
-        const isEn = l === "en";
-
-        document.querySelectorAll("[data-i18n]").forEach(e => {
-            const k = e.getAttribute("data-i18n");
-            if (L[l]?.[k]) e.innerHTML = L[l][k];
-        });
-
-        // התאמת כיוון ויישור
-        document.querySelectorAll('.pkg-name, .pkg-desc, .pkg-badge, .pkg-features li, .pj-type, .pj h3, .pj p, .hc, .hero-sub, .ssub, .hl-list li').forEach(el => {
-            el.style.direction = isEn ? "ltr" : "";
-            el.style.textAlign = isEn ? "left" : "";
-        });
-
-        // סגירת תפריט מובייל
-        document.querySelector('.hamburger')?.classList.remove('active');
-        document.querySelector('.mobile-menu')?.classList.remove('active');
-    }
-
-    document.getElementById("btnHe").addEventListener("click", () => setLang("he"));
-    document.getElementById("btnEn").addEventListener("click", () => setLang("en"));
-
-    function toggleMenu() {
-        document.querySelector('.hamburger').classList.toggle('active');
-        document.querySelector('.mobile-menu').classList.toggle('active');
-    }
-
-    function reveal() {
-        document.querySelectorAll(".reveal").forEach(el => {
-            const rect = el.getBoundingClientRect();
-            if (rect.top < window.innerHeight - 100) el.classList.add("active");
-        });
-    }
-    window.addEventListener("scroll", reveal);
-    reveal();
-
-    document.querySelectorAll('.scroll-top').forEach(link => {
-        link.addEventListener('click', e => {
-            e.preventDefault();
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
+function setLang(l){
+    document.documentElement.lang=l;
+    document.documentElement.dir=l==="he"?"rtl":"ltr";
+    document.getElementById("btnHe").classList.toggle("active",l==="he");
+    document.getElementById("btnEn").classList.toggle("active",l==="en");
+    document.querySelectorAll("[data-i18n]").forEach(e=>{
+        let k=e.getAttribute("data-i18n");
+        if(L[l][k]) e.innerHTML=L[l][k];
     });
+}
+
+document.getElementById("btnHe").addEventListener("click",()=>setLang("he"));
+document.getElementById("btnEn").addEventListener("click",()=>setLang("en"));
+
+// Scroll Reveal Logic
+function reveal() {
+    var reveals = document.querySelectorAll(".reveal");
+    for (var i = 0; i < reveals.length; i++) {
+        var windowHeight = window.innerHeight;
+        var elementTop = reveals[i].getBoundingClientRect().top;
+        var elementVisible = 150;
+        if (elementTop < windowHeight - elementVisible) {
+            reveals[i].classList.add("active");
+        }
+    }
+}
+window.addEventListener("scroll", reveal);
+reveal();
+
+// Smooth Scroll Top for Portfolio
+document.querySelectorAll('.scroll-top').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+});
 </script>
+
 </body>
 </html>
