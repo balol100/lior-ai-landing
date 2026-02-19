@@ -307,7 +307,6 @@ footer{padding:2rem;border-top:1px solid var(--brd)}
         <p class="note" data-i18n="hero_note">🔒 ללא התחייבות. ללא ספאם.</p>
       </form>
     </div>
-  </div>
 </section>
 
 <section id="portfolio">
@@ -368,7 +367,6 @@ footer{padding:2rem;border-top:1px solid var(--brd)}
     <a class="btn btn-s" href="mailto:liorbll100@gmail.com" data-i18n="ctB2">שלח מייל</a>
   </div>
 </section>
-  </section>
 
   <section id="services"><div class="container reveal"><h2 class="title" data-i18n="services_title">איך אני פותר את הבעיה שלך</h2><div class="grid3">
     <article class="service">🚀 <span data-i18n="s1">דפי נחיתה שממירים</span></article>
@@ -419,13 +417,13 @@ footer{padding:2rem;border-top:1px solid var(--brd)}
       ['Website','אריה מגריל — רפואה סינית','25+ שנות ניסיון, דיקור וצמחים','#2D5016,#6B8E23','https://balol100.github.io/arye-magril-landing/'],
       ['Website','lior_Ai','אתה כבר כאן 😎','#00e5a0,#00b8d4','#']
     ];
-    projectsEl.innerHTML=projects.map(p=>`<a class="project" href="${p[4]}" ${p[4]!=='#'?'target="_blank"':''}><div class="mock"><div class="window"><div class="w-top"><span class="dot" style="background:#ff5f56"></span><span class="dot" style="background:#ffbd2e"></span><span class="dot" style="background:#27c93f"></span></div><div class="w-nav"></div><div class="w-hero" style="background:linear-gradient(135deg,${p[3]})">${p[1]}</div><div class="w-blocks"><span></span><span></span><span></span></div></div></div><div class="meta"><div class="type">${p[0]}</div><h3>${p[1]}</h3><p>${p[2]}</p></div></a>`).join('');
+    document.getElementById('projects').innerHTML=projects.map(p=>`<a class="project" href="${p[4]}" ${p[4]!=='#'?'target="_blank"':''}><div class="mock"><div class="window"><div class="w-top"><span class="dot" style="background:#ff5f56"></span><span class="dot" style="background:#ffbd2e"></span><span class="dot" style="background:#27c93f"></span></div><div class="w-nav"></div><div class="w-hero" style="background:linear-gradient(135deg,${p[3]})">${p[1]}</div><div class="w-blocks"><span></span><span></span><span></span></div></div></div><div class="meta"><div class="type">${p[0]}</div><h3>${p[1]}</h3><p>${p[2]}</p></div></a>`).join('');
 
     document.querySelectorAll('.wa-form').forEach(f=>f.addEventListener('submit',e=>{e.preventDefault();const d=new FormData(f);const name=d.get('name')||'';const phone=d.get('phone')||'';const url=d.get('url')||'';const msg=`היי ליאור, אשמח לשיחה.%0Aשם: ${name}%0Aטלפון: ${phone}${url?`%0Aאתר: ${url}`:''}`;window.open(`https://wa.me/972508668022?text=${msg}`,'_blank');}));
 
-    for(let i=0;i<25;i++){const p=document.createElement('span');p.className='particle';p.style.left=Math.random()*100+'%';p.style.width=(2+Math.random())+'px';p.style.height=p.style.width;p.style.background=i%2?'rgba(0,229,160,.2)':'rgba(0,184,212,.15)';p.style.animationDuration=(10+Math.random()*12)+'s';particles.appendChild(p)}
+    const particlesEl=document.getElementById('particles');for(let i=0;i<25;i++){const p=document.createElement('span');p.className='particle';p.style.left=Math.random()*100+'%';p.style.width=(2+Math.random())+'px';p.style.height=p.style.width;p.style.background=i%2?'rgba(0,229,160,.2)':'rgba(0,184,212,.15)';p.style.animationDuration=(10+Math.random()*12)+'s';particlesEl.appendChild(p)}
 
-    const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('show')),{threshold:.15});document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+    const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');e.target.classList.add('vis');}}),{threshold:.15});document.querySelectorAll('.reveal,.rv').forEach(el=>io.observe(el));
 
     function toggleA11y(show){a11y.style.display=show?'flex':'none'} openA11y.onclick=()=>toggleA11y(true);
     privacyLink.onclick=(e)=>{e.preventDefault();privacy.style.display='flex'};
