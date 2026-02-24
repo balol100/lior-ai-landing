@@ -51,7 +51,7 @@
     th,td{padding:.75rem;border-bottom:1px solid var(--line);vertical-align:top;text-align:right}
     th{color:var(--accent)}
     .about-wrap{display:grid;grid-template-columns:.7fr 1.3fr;gap:1.2rem;align-items:center}
-    .about-wrap img{width:100%;border-radius:14px;border:1px solid var(--line)}
+        .about-wrap img{width:100%;height:340px;object-fit:cover;object-position:center top;border-radius:14px;border:1px solid var(--line)}
     form label{display:block;font-weight:700;margin-top:.5rem}
     input,select,textarea{width:100%;padding:.72rem;border-radius:10px;border:1px solid var(--line);background:#0f0f16;color:var(--text);font-family:inherit}
     button{margin-top:.9rem;border:none;border-radius:10px;padding:.82rem 1rem;background:var(--grad);color:#08231b;font-weight:800;cursor:pointer}
@@ -309,15 +309,15 @@
           <p>השאירו שם, תחום וטלפון – ואחזור אליכם תוך 24 שעות עם הצעה מותאמת אישית.</p>
           <p>רוצים לדבר מיד? <a href="https://wa.me/972508668022" target="_blank" rel="noopener noreferrer">שלחו הודעת וואטסאפ</a>.</p>
         </div>
-        <form class="card" action="#" method="post">
+        <form class="card" id="contactForm" onsubmit="sendToWhatsApp(event)">
           <label for="name">שם מלא</label>
-          <input id="name" type="text" name="name" required>
+          <input id="name" type="text" name="name" required placeholder="השם שלך">
 
           <label for="business">שם העסק / תחום</label>
-          <input id="business" type="text" name="business" required>
+          <input id="business" type="text" name="business" required placeholder="שם העסק או תחום">
 
           <label for="phone">טלפון / וואטסאפ</label>
-          <input id="phone" type="tel" name="phone" required>
+          <input id="phone" type="tel" name="phone" required placeholder="05X-XXXXXXX">
 
           <label for="service">מה אתם מחפשים?</label>
           <select id="service" name="service">
@@ -328,9 +328,9 @@
           </select>
 
           <label for="message">הערות נוספות</label>
-          <textarea id="message" name="message" rows="3" placeholder="יעד עסקי, קהל יעד או כל פרט שיעזור לי לדייק את ההצעה"></textarea>
+          <textarea id="message" name="message" rows="3" placeholder="פרטים נוספים, שאלות או כל פרט שיעזור לדייק את ההצעה"></textarea>
 
-          <button type="submit">שלחו פרטים</button>
+          <button type="submit">💬 שלח בוואטסאפ</button>
         </form>
       </div>
     </section>
@@ -398,6 +398,22 @@
       if(e.target === this) this.classList.remove('open');
     });
     // body classes
+    // וואטסאפ טופס
+    function sendToWhatsApp(e) {
+      e.preventDefault();
+      var name = document.getElementById('name').value.trim();
+      var business = document.getElementById('business').value.trim();
+      var phone = document.getElementById('phone').value.trim();
+      var service = document.getElementById('service').value;
+      var message = document.getElementById('message').value.trim();
+      var text = 'היי ליאור, אשמח לשמוע על השירותים שלך.%0A';
+      text += 'שם: ' + name + '%0A';
+      text += 'עסק: ' + business + '%0A';
+      text += 'טלפון: ' + phone + '%0A';
+      text += 'שירות: ' + service;
+      if (message) text += '%0Aהערות: ' + message;
+      window.open('https://wa.me/972508668022?text=' + text, '_blank');
+    }
     document.body.classList.remove('big-text','hc','no-anim','links-on');
   </script>
 </body>
