@@ -62,6 +62,18 @@
       .hero,.grid-3,.grid-2,.about-wrap{grid-template-columns:1fr}
       .menu{display:none}
     }
+      .fab-acc{position:fixed;bottom:22px;right:22px;width:54px;height:54px;z-index:80;border-radius:50%;background:var(--card);border:1px solid var(--line);font-size:1.3rem;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:.2s}
+    .fab-acc:hover{background:var(--accent);color:#000}
+    .overlay{display:none;position:fixed;inset:0;z-index:90;background:rgba(0,0,0,.7);align-items:center;justify-content:center;padding:1rem}
+    .overlay.open{display:flex}
+    .overlay-box{width:min(560px,95%);max-height:85vh;overflow:auto;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1.5rem;position:relative}
+    .overlay-close{position:absolute;top:.8rem;left:.8rem;background:none;border:none;color:var(--text);font-size:1.4rem;cursor:pointer;line-height:1}
+    .a11y-actions{display:flex;flex-wrap:wrap;gap:.4rem;margin:1rem 0}
+    .a11y-actions button{border:1px solid var(--line);background:var(--card);color:var(--text);padding:.4rem .75rem;border-radius:8px;cursor:pointer;font-size:.9rem}
+    .a11y-actions button:hover{background:var(--accent);color:#000}
+    .overlay-box h3{margin-bottom:.5rem;font-size:1.1rem}
+    .overlay-box ol{padding-inline-start:1.2rem;color:var(--muted)}
+    .overlay-box ol li{margin:.3rem 0}
   </style>
 
   <script type="application/ld+json">
@@ -325,7 +337,68 @@
   </main>
 
   <footer>
-    <div class="container">© lior-ai | ליאור בלול — בניית דפי נחיתה, אתרי תדמית, סוכן AI וייעוץ AI לעסקים בישראל</div>
+    <div class="container">© lior-ai | ליאור בלול — בניית דפי נחיתה, אתרי תדמית, סוכן AI וייעוץ AI לעסקים בישראל | <a id="privacyLink" href="#" style="color:inherit;cursor:pointer">מדיניות פרטיות</a></div>
   </footer>
+  <!-- כפתור נגישות צף -->
+  <button class="fab-acc" id="openA11y" aria-label="פתח תפריט נגישות">&#9855;</button>
+
+  <!-- Overlay נגישות -->
+  <div class="overlay" id="a11yOverlay">
+    <div class="overlay-box">
+      <button class="overlay-close" id="closeA11y" aria-label="סגור">&times;</button>
+      <h3>נגישות</h3>
+      <div class="a11y-actions">
+        <button onclick="document.body.classList.toggle('big-text')">🔤 הגדלת טקסט</button>
+        <button onclick="document.body.classList.toggle('hc')">🌗 ניגודיות גבוהה</button>
+        <button onclick="document.body.classList.toggle('no-anim')">&#9208;&#65039; עצירת אנימציות</button>
+        <button onclick="document.body.classList.toggle('links-on')">🔗 הדגשת קישורים</button>
+      </div>
+      <p style="font-size:.88rem;color:var(--muted)">הצהרת נגישות: אנו פועלים לשיפור הנגישות באתר בהתאם לת&quot;י 5568. לפניות: <a href="mailto:liorbll100@gmail.com">liorbll100@gmail.com</a></p>
+    </div>
+  </div>
+
+  <!-- Overlay מדיניות פרטיות -->
+  <div class="overlay" id="privacyOverlay">
+    <div class="overlay-box">
+      <button class="overlay-close" id="closePrivacy" aria-label="סגור">&times;</button>
+      <h3>מדיניות פרטיות</h3>
+      <ol>
+        <li><strong>כללי</strong> — אתר זה משמש לצורך יצירת קשר והצגת שירותים בלבד.</li>
+        <li><strong>מידע שנאסף</strong> — שם, טלפון ושם עסק בלבד, לצורך חזרת פנייה.</li>
+        <li><strong>שימוש במידע</strong> — המידע משמש אך ורק לצורך יצירת קשר ואינו מועבר לגורמים שלישיים.</li>
+        <li><strong>עוגיות</strong> — האתר עשוי להשתמש בעוגיות הפעלה לדוגמאות טכניות בלבד.</li>
+        <li><strong>אבטחת מידע</strong> — המידע מוגן באמצעי פרוטוקול HTTPS מאובטח.</li>
+        <li><strong>זכויות המשתמש</strong> — זכאי לעיון, תיקון או מחיקת המידע שלך.</li>
+        <li><strong>יצירת קשר</strong> — <a href="mailto:liorbll100@gmail.com">liorbll100@gmail.com</a></li>
+      </ol>
+      <p style="font-size:.82rem;color:var(--muted);margin-top:.8rem">לפי חוק הגנת הפרטיות, התשמ&quot;א-1981.</p>
+    </div>
+  </div>
+
+  <script>
+    // נגישות
+    document.getElementById('openA11y').addEventListener('click', function(){
+      document.getElementById('a11yOverlay').classList.add('open');
+    });
+    document.getElementById('closeA11y').addEventListener('click', function(){
+      document.getElementById('a11yOverlay').classList.remove('open');
+    });
+    document.getElementById('a11yOverlay').addEventListener('click', function(e){
+      if(e.target === this) this.classList.remove('open');
+    });
+    // מדיניות פרטיות
+    document.getElementById('privacyLink').addEventListener('click', function(e){
+      e.preventDefault();
+      document.getElementById('privacyOverlay').classList.add('open');
+    });
+    document.getElementById('closePrivacy').addEventListener('click', function(){
+      document.getElementById('privacyOverlay').classList.remove('open');
+    });
+    document.getElementById('privacyOverlay').addEventListener('click', function(e){
+      if(e.target === this) this.classList.remove('open');
+    });
+    // body classes
+    document.body.classList.remove('big-text','hc','no-anim','links-on');
+  </script>
 </body>
 </html>
