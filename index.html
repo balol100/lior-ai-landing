@@ -1,517 +1,331 @@
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>lior_Ai | אתרים שמביאים לקוחות</title>
-<meta name="description" content="נוכחות דיגיטלית שמביאה פניות אמיתיות — לא סתם אתר יפה.">
-<!-- OG / Social Sharing -->
-<meta property="og:title" content="lior_Ai | אתרים שמביאים לקוחות">
-<meta property="og:description" content="דפי נחיתה ואתרים ממוקדי המרה לעסקים.">
-<meta property="og:image" content="https://www.lior-ai.com/og-image.jpg">
-<meta property="og:url" content="https://www.lior-ai.com">
-<meta property="og:type" content="website">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="lior_Ai | אתרים שמביאים לקוחות">
-<meta name="twitter:description" content="דפי נחיתה ואתרים ממוקדי המרה לעסקים.">
-<meta name="twitter:image" content="https://www.lior-ai.com/og-image.jpg">
-<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;900&family=Rubik:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
-:root{--bg:#0a0a0f;--bg2:#111118;--bg3:#16161f;--accent:#00e5a0;--accent2:#00b8d4;--ag:rgba(0,229,160,.15);--grad:linear-gradient(135deg,#00e5a0,#00b8d4);--t1:#f0f0f5;--t2:#8888a0;--t3:#55556a;--brd:rgba(255,255,255,.06);--tr:.35s cubic-bezier(.4,0,.2,1)}
-*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;font-size:18px}
-body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--t1);overflow-x:hidden;line-height:1.7;-webkit-font-smoothing:antialiased}
-body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");pointer-events:none;z-index:9999}
-a{text-decoration:none;color:inherit}
-nav{position:fixed;top:0;width:100%;z-index:100;height:62px;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;background:rgba(10,10,15,.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--brd)}
-.logo{display:flex;align-items:center;gap:10px}
-.logo-dot{width:10px;height:10px;border-radius:50%;background:var(--grad)}
-.logo-t{font-family:'Rubik',sans-serif;font-weight:700;font-size:1.3rem;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.nav-mid{display:flex;gap:1.8rem;list-style:none;align-items:center}
-.nav-mid a{color:var(--t2);font-size:.95rem;font-weight:400;transition:var(--tr)}
-.nav-mid a:hover{color:var(--accent)}
-.nav-r{display:flex;align-items:center;gap:10px}
-.lang-t{display:flex;border:1px solid var(--brd);border-radius:8px;overflow:hidden}
-.lang-t button{border:0;cursor:pointer;background:transparent;color:var(--t2);font-weight:700;font-size:.85rem;padding:7px 14px;transition:.15s;font-family:inherit}
-.lang-t button.active{background:rgba(0,229,160,.15);color:var(--accent)}
-.nav-cta{padding:.5rem 1.2rem;background:var(--grad);color:var(--bg);border-radius:8px;font-weight:700;font-size:.95rem;transition:var(--tr)}
-.nav-cta:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(0,229,160,.25)}
-.mob-t{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:5px}
-.mob-t span{width:22px;height:2px;background:var(--t1);border-radius:1px}
-.hero{min-height:100vh;display:flex;align-items:center;position:relative;padding:7rem 2rem 3rem;overflow:hidden}
-.hero-grid-bg{position:absolute;inset:0;background-image:linear-gradient(rgba(0,229,160,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,160,.03) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse at center,black 30%,transparent 70%)}
-.glow{position:absolute;border-radius:50%;filter:blur(120px);opacity:.12;pointer-events:none}
-.glow-1{width:500px;height:500px;background:var(--accent);top:8%;left:18%;animation:fl 18s ease-in-out infinite}
-.glow-2{width:380px;height:380px;background:var(--accent2);bottom:10%;right:12%;animation:fl 22s ease-in-out infinite reverse}
-@keyframes fl{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(30px,-20px) scale(1.08)}}
-.hero-wrap{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;max-width:1200px;width:100%;margin:0 auto;position:relative;z-index:2}
-.hero-badge{display:inline-flex;align-items:center;gap:.5rem;padding:.45rem 1.1rem;background:var(--ag);border:1px solid rgba(0,229,160,.2);border-radius:50px;font-size:.92rem;color:var(--accent);margin-bottom:1.5rem;animation:fu .7s ease both}
-.hero-badge .dot{width:8px;height:8px;background:var(--accent);border-radius:50%;animation:blink 2s infinite}
-@keyframes blink{0%,100%{opacity:1}50%{opacity:.3}}
-.hero h1{font-family:'Rubik',sans-serif;font-size:clamp(2.2rem,5vw,3.8rem);font-weight:800;line-height:1.15;margin-bottom:1rem;animation:fu .7s ease .1s both}
-.gr{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.hero-p{font-size:1.12rem;color:var(--t2);max-width:490px;line-height:1.8;margin-bottom:1.6rem;animation:fu .7s ease .2s both}
-.hero-btns{display:flex;gap:12px;flex-wrap:wrap;animation:fu .7s ease .3s both}
-@keyframes fu{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
-.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 30px;border-radius:10px;font-family:'Heebo',sans-serif;font-size:1rem;font-weight:600;cursor:pointer;border:none;transition:var(--tr)}
-.btn-p{background:var(--grad);color:var(--bg)}
-.btn-p:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,229,160,.3)}
-.btn-s{background:transparent;color:var(--t1);border:1px solid var(--brd)}
-.btn-s:hover{border-color:var(--accent);color:var(--accent);background:var(--ag)}
-.trust-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:1.2rem;animation:fu .7s ease .4s both}
-.trust-row span{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:999px;background:rgba(255,255,255,.03);border:1px solid var(--brd);font-size:.88rem;font-weight:600;color:var(--t2)}
-.trust-row .ci{color:var(--accent);font-weight:900}
-.hcard{background:var(--bg3);border:1px solid var(--brd);border-radius:20px;padding:24px;position:relative;overflow:hidden;animation:fu .9s ease .3s both}
-.hcard::before{content:'';position:absolute;top:0;right:0;left:0;height:3px;background:var(--grad)}
-.hc-t{font-family:'Rubik',sans-serif;font-weight:700;font-size:1.1rem;text-align:center;margin-bottom:16px}
-.hc-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
-.hc-stat{background:rgba(255,255,255,.02);border:1px solid var(--brd);border-radius:12px;padding:16px 10px;text-align:center}
-.hc-stat-n{font-family:'Rubik',sans-serif;font-weight:700;font-size:1.7rem;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-.hc-stat-l{font-size:.82rem;color:var(--t3);margin-top:3px}
-.hc-list{list-style:none;display:flex;flex-direction:column;gap:8px}
-.hc-list li{display:flex;align-items:center;gap:10px;padding:10px 14px;border-radius:10px;background:rgba(0,229,160,.04);border:1px solid rgba(0,229,160,.08);font-size:.95rem;font-weight:600;color:var(--t2)}
-.hc-list .ck{width:18px;height:18px;border-radius:5px;background:rgba(0,229,160,.15);display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:.65rem;flex-shrink:0}
-section{padding:5rem 2rem;max-width:1200px;margin:0 auto}
-.slbl{display:inline-flex;align-items:center;gap:.5rem;color:var(--accent);font-size:.9rem;font-weight:500;text-transform:uppercase;letter-spacing:2.5px;margin-bottom:.6rem}
-.slbl::before{content:'';width:24px;height:2px;background:var(--grad)}
-.sttl{font-family:'Rubik',sans-serif;font-size:clamp(1.8rem,3.8vw,2.7rem);font-weight:700;margin-bottom:.6rem;line-height:1.2}
-.ssub{color:var(--t2);font-size:1.06rem;max-width:540px;margin-bottom:2rem}
-.cen{text-align:center}.cen .ssub,.cen .slbl{margin-left:auto;margin-right:auto;justify-content:center}
-.sgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.5rem}
-.srv{background:var(--bg3);border:1px solid var(--brd);border-radius:16px;padding:1.8rem;transition:all .4s;position:relative;overflow:hidden}
-.srv:hover{border-color:rgba(0,229,160,.2);transform:translateY(-3px);box-shadow:0 8px 28px rgba(0,0,0,.3)}
-.srv-i{width:44px;height:44px;display:flex;align-items:center;justify-content:center;background:var(--ag);border-radius:12px;font-size:1.3rem;margin-bottom:.8rem}
-.srv h3{font-family:'Rubik',sans-serif;font-size:1.1rem;font-weight:600;margin-bottom:.4rem}
-.srv p{color:var(--t2);font-size:.95rem;line-height:1.7}
-.pkg-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.5rem}
-.pkg{background:var(--bg3);border:1px solid var(--brd);border-radius:16px;padding:1.8rem;position:relative;overflow:hidden;transition:all .4s;display:flex;flex-direction:column}
-.pkg:hover{transform:translateY(-3px);box-shadow:0 8px 28px rgba(0,0,0,.3)}
-.pkg.pop{border-color:rgba(0,229,160,.3);box-shadow:0 0 40px rgba(0,229,160,.06)}
-.pkg-badge{position:absolute;top:-11px;left:50%;transform:translateX(-50%);padding:.22rem .8rem;background:var(--grad);color:var(--bg);font-size:.72rem;font-weight:700;border-radius:6px}
-.pkg-num{font-family:'Rubik',sans-serif;font-size:.92rem;font-weight:700;color:var(--accent);margin-bottom:3px}
-.pkg-name{font-family:'Rubik',sans-serif;font-size:1.2rem;font-weight:700;margin-bottom:3px}
-.pkg-desc{font-size:.92rem;color:var(--t3);margin-bottom:.8rem}
-.pkg-meta{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:.8rem}
-.pkg-meta span{padding:3px 8px;background:rgba(0,229,160,.08);border:1px solid rgba(0,229,160,.15);border-radius:6px;font-size:.8rem;color:var(--accent)}
-.pkg-feat{list-style:none;display:flex;flex-direction:column;gap:.5rem;margin-bottom:1.2rem;flex:1}
-.pkg-feat li{display:flex;align-items:flex-start;gap:.5rem;font-size:.95rem;color:var(--t2)}
-.pkg-feat li::before{content:'✓';color:var(--accent);font-weight:700;flex-shrink:0}
-.about-grid{display:grid;grid-template-columns:auto 1fr;gap:3rem;align-items:center}
-.about-photo{width:160px;height:160px;border-radius:20px;overflow:hidden;border:2px solid rgba(0,229,160,.25);box-shadow:0 0 30px rgba(0,229,160,.08);flex-shrink:0}
-.about-photo img{width:100%;height:100%;object-fit:cover;object-position:center top}
-.about-txt h3{font-family:'Rubik',sans-serif;font-size:1.35rem;margin-bottom:.6rem}
-.about-txt p{color:var(--t2);margin-bottom:.8rem;line-height:1.8;font-size:1rem}
-.af{display:flex;align-items:center;gap:.6rem;color:var(--t2);font-size:.97rem;margin-bottom:.5rem}
-.ck-i{width:18px;height:18px;background:var(--ag);border-radius:5px;display:flex;align-items:center;justify-content:center;color:var(--accent);font-size:.65rem;flex-shrink:0}
-#portfolio{background:var(--bg2);border-top:1px solid var(--brd);border-bottom:1px solid var(--brd);max-width:100%;padding:5rem 2rem}
-#portfolio .wrap{max-width:1200px;margin:0 auto}
-.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.5rem}
-.pc{border-radius:16px;overflow:hidden;border:1px solid var(--brd);transition:all .4s;background:var(--bg3);display:block}
-.pc:hover{transform:translateY(-3px);box-shadow:0 10px 36px rgba(0,0,0,.4);border-color:rgba(0,229,160,.2)}
-.pc-prev{height:140px;overflow:hidden}
-.pc-mock{width:100%;height:100%;display:flex;flex-direction:column}
-.pc-bar{height:20px;background:rgba(255,255,255,.04);display:flex;align-items:center;padding:0 8px;gap:4px}
-.pc-dot{width:6px;height:6px;border-radius:50%}
-.pc-dot:nth-child(1){background:#FF5F56}.pc-dot:nth-child(2){background:#FFBD2E}.pc-dot:nth-child(3){background:#27C93F}
-.pc-body{flex:1;padding:8px;display:flex;flex-direction:column;gap:4px}
-.pc-nav{height:4px;width:50%;background:rgba(255,255,255,.06);border-radius:3px}
-.pc-hero{flex:1;border-radius:6px;display:flex;align-items:center;justify-content:center}
-.pc-hero span{font-size:.6rem;color:#fff;font-weight:600;text-align:center;padding:0 4px}
-.pc-blocks{display:grid;grid-template-columns:1fr 1fr 1fr;gap:3px}
-.pc-block{height:12px;border-radius:3px;background:rgba(255,255,255,.04)}
-.pc-info{padding:12px}
-.pc-type{font-size:.75rem;font-weight:600;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:2px}
-.pc h3{font-family:'Rubik',sans-serif;font-size:.95rem;font-weight:600;margin-bottom:2px}
-.pc p{font-size:.84rem;color:var(--t3);line-height:1.5}
-.tst-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.5rem}
-.tst{background:var(--bg3);border:1px solid var(--brd);border-radius:16px;padding:1.6rem;text-align:right}
-.tst-stars{color:#FBBF24;font-size:.95rem;margin-bottom:.5rem;letter-spacing:2px}
-.tst q{display:block;font-size:.95rem;line-height:1.8;color:var(--t1);font-style:italic;margin-bottom:.7rem}
-.tst-who{font-size:.85rem;font-weight:700;color:var(--accent)}
-.faq-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:1.5rem}
-.faq-grid details{padding:14px 16px;border-radius:12px;background:var(--bg3);border:1px solid var(--brd);transition:border-color .3s}
-.faq-grid details[open]{border-color:rgba(0,229,160,.2)}
-.faq-grid summary{cursor:pointer;font-weight:700;font-size:.97rem;color:var(--t1);list-style:none;display:flex;justify-content:space-between;align-items:center}
-.faq-grid summary::-webkit-details-marker{display:none}
-.faq-grid summary::after{content:'+';color:var(--t2);font-size:1.1rem}
-.faq-grid details[open] summary::after{content:'-'}
-.faq-grid details p{margin-top:8px;font-size:.93rem;color:var(--t2);line-height:1.7}
-.platforms{display:flex;justify-content:center;gap:2rem;flex-wrap:wrap;margin-top:1.5rem}
-.plat{display:flex;flex-direction:column;align-items:center;gap:.3rem}
-.plat-i{width:50px;height:50px;background:var(--bg3);border:1px solid var(--brd);border-radius:14px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;transition:all .3s;color:var(--t1)}
-.plat-i:hover{border-color:rgba(0,229,160,.3);transform:translateY(-2px)}
-.plat-n{font-size:.72rem;color:var(--t3)}
-.cta-sec{text-align:center;position:relative}
-.cta-glow{position:absolute;width:400px;height:400px;background:var(--accent);border-radius:50%;filter:blur(150px);opacity:.04;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
-.cta-sec h2{font-family:'Rubik',sans-serif;font-size:clamp(1.6rem,3.5vw,2.5rem);font-weight:700;margin-bottom:.6rem;position:relative}
-.cta-sec>p{color:var(--t2);font-size:1rem;margin-bottom:1.5rem;position:relative}
-footer{padding:2rem;border-top:1px solid var(--brd)}
-.foot{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
-.foot-t{color:var(--t3);font-size:.88rem}
-.foot-links{display:flex;gap:1.2rem}
-.foot-links a{color:var(--t2);font-size:.9rem;transition:color .3s}
-.foot-links a:hover{color:var(--accent)}
-.waf{position:fixed;bottom:24px;left:24px;z-index:80;width:54px;height:54px;border-radius:50%;background:linear-gradient(135deg,#25D366,#128C7E);display:flex;align-items:center;justify-content:center;font-size:26px;color:#fff;box-shadow:0 4px 20px rgba(37,211,102,.3);transition:transform .2s;animation:pulse 2s infinite}
-.waf:hover{transform:scale(1.1)}
-@keyframes pulse{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.3)}50%{box-shadow:0 4px 32px rgba(37,211,102,.5)}}
-.rv{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
-.rv.vis{opacity:1;transform:translateY(0)}
-@media(max-width:900px){
-  .hero-wrap,.about-grid{grid-template-columns:1fr}
-  .about-grid{gap:1.5rem;justify-items:center;text-align:center}
-  .about-txt .af{justify-content:center}
-  .sgrid,.pkg-grid,.tst-grid,.pgrid{grid-template-columns:1fr 1fr}
-  .faq-grid{grid-template-columns:1fr}
-  .nav-mid{display:none}
-}
-@media(max-width:640px){
-  .mob-t{display:flex}
-  .nav-mid{display:none;position:absolute;top:100%;right:0;left:0;background:var(--bg);border-bottom:1px solid var(--brd);flex-direction:column;padding:1.5rem 2rem;gap:1rem}
-  .nav-mid.open{display:flex}
-  .sgrid,.pgrid,.pkg-grid,.tst-grid{grid-template-columns:1fr}
-  .hero{padding-top:5.5rem}
-  section{padding:3.5rem 1.5rem}
-  .hero-btns{flex-direction:column}.hero-btns .btn{justify-content:center}
-  .foot{flex-direction:column;text-align:center}
-  #portfolio{padding:3.5rem 1.5rem}
-  .about-photo{width:120px;height:120px}
-}
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>בניית אתרים, דפי נחיתה וסוכני AI לעסקים – ליאור בלול | lior-ai</title>
+  <meta name="description" content="בניית אתרי תדמית, דפי נחיתה, סוכן AI וייעוץ AI לעסקים בישראל שמחפשים יותר לידים, יותר שיחות ויותר לקוחות בפועל.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://lior-ai.com/">
+  <meta property="og:title" content="בניית אתרים, דפי נחיתה וסוכני AI לעסקים – ליאור בלול | lior-ai">
+  <meta property="og:description" content="דפי נחיתה, אתרי תדמית וסוכן AI שמייצרים לידים לעסקים בישראל.">
+  <meta property="og:image" content="https://lior-ai.com/og-image.jpg">
+  <meta property="og:url" content="https://lior-ai.com/">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="בניית אתרים, דפי נחיתה וסוכני AI לעסקים – ליאור בלול | lior-ai">
+  <meta name="twitter:description" content="נוכחות דיגיטלית ממוקדת לידים: דפי נחיתה, אתרי תדמית, סוכן AI וייעוץ AI.">
+  <meta name="twitter:image" content="https://lior-ai.com/og-image.jpg">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800&family=Rubik:wght@500;700;800&display=swap" rel="stylesheet">
   <style>
-    :root{--bg:#0a0a0f;--bg2:#101018;--bg3:#0d0d14;--t1:#f0f0f5;--t2:#a8a8be;--acc:#00e5a0;--acc2:#00b8d4;--grad:linear-gradient(135deg,#00e5a0,#00b8d4);--br:rgba(255,255,255,.1)}
-    *{box-sizing:border-box;margin:0;padding:0} html{scroll-behavior:smooth}
-    body{font-family:Heebo,sans-serif;background:var(--bg);color:var(--t1);line-height:1.7;overflow-x:hidden}
-    body.big-text{font-size:1.12rem} body.hc{filter:contrast(1.15) brightness(1.05)}
-    body.no-anim *,body.no-anim *::before,body.no-anim *::after{animation:none!important;transition:none!important}
-    body.cursor-large *{cursor:url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32"><circle cx="12" cy="12" r="9" fill="%2300e5a0" opacity="0.45"/></svg>') 8 8,auto}
-    body.links-on a{text-decoration:underline!important}
-    a{text-decoration:none;color:inherit}
-    .container{width:min(1140px,92%);margin:auto}
-
-    .particles{position:fixed;inset:0;pointer-events:none;z-index:0}
-    .particle{position:absolute;bottom:-20px;border-radius:50%;animation:rise linear infinite}
-    @keyframes rise{to{transform:translateY(-115vh)}}
-
-    nav{position:fixed;top:0;left:0;right:0;height:66px;z-index:60;background:rgba(10,10,15,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--br)}
-    .nav-inner{height:100%;display:flex;justify-content:space-between;align-items:center;gap:1rem}
-    .logo{font-family:Rubik,sans-serif;font-size:1.22rem;font-weight:800;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-    .nav-links{display:flex;gap:1rem;list-style:none;color:var(--t2);font-size:.94rem}
-    .nav-links a:hover{color:var(--acc)}
-    .lang button{background:transparent;border:1px solid var(--br);color:var(--t2);padding:.3rem .55rem;border-radius:8px;cursor:pointer}
-    .lang .active{background:rgba(0,229,160,.14);color:var(--acc)}
-
-    section{padding:88px 0;position:relative;z-index:1}
-    .hero{min-height:100vh;padding-top:120px;display:flex;align-items:center;overflow:hidden;background-image:url('images/hero-bg.webp');background-size:cover;background-position:center top}
-    .hero:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 85% 15%,rgba(0,229,160,.17),transparent 34%),radial-gradient(circle at 12% 85%,rgba(0,184,212,.14),transparent 30%);pointer-events:none}
-    .hero:after{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:54px 54px;opacity:.17;animation:grid 8s ease-in-out infinite;pointer-events:none}
-    @keyframes grid{50%{opacity:.26}}
-    .orb{position:absolute;border-radius:50%;filter:blur(120px);pointer-events:none;opacity:.35;animation:float 15s ease-in-out infinite}
-    .o1{width:340px;height:340px;left:3%;top:8%;background:rgba(0,229,160,.28)} .o2{width:300px;height:300px;right:5%;bottom:10%;background:rgba(0,184,212,.23);animation-delay:2s}
-    @keyframes float{50%{transform:translate(25px,-20px)}}
-    .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:1.3rem;align-items:center}
-    h1{font-family:Rubik,sans-serif;font-size:clamp(2rem,5vw,3.7rem);line-height:1.18;margin-bottom:1rem}
-    .gradient{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-    .lead{color:var(--t2);font-size:1.1rem;max-width:640px}
-
-    .card{background:var(--bg2);border:1px solid var(--br);border-radius:16px;padding:1rem}
-    .form-title{font-size:1.2rem;font-weight:800}.form-sub{color:var(--t2);font-size:.94rem;margin:.2rem 0 .6rem}
-    .input{width:100%;padding:.74rem;border:1px solid var(--br);border-radius:10px;background:#0e0e15;color:var(--t1);margin:.35rem 0}
-    .btn{display:block;width:100%;padding:.78rem;border:none;border-radius:10px;font-weight:700;cursor:pointer;text-align:center}
-    .btn-main{background:var(--acc);color:#04231a}.btn-wa{background:#25D366;color:#04321d;margin-top:.45rem}.btn-cal{background:#2467ea;color:#fff;margin-top:.45rem}
-    .sep{text-align:center;color:var(--t2);margin:.45rem 0}.note{text-align:center;color:var(--t2);font-size:.82rem;margin-top:.5rem}
-
-    .title{font-family:Rubik,sans-serif;font-size:clamp(1.6rem,3.8vw,2.55rem);margin-bottom:.7rem}
-    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
-    .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
-    .service,.price,.testi{background:var(--bg2);border:1px solid var(--br);border-radius:14px;padding:1rem}
-
-    .price{position:relative;display:flex;flex-direction:column}.badge{position:absolute;top:10px;left:10px;padding:.2rem .55rem;background:rgba(0,229,160,.14);border:1px solid rgba(0,229,160,.38);color:var(--acc);font-size:.73rem;border-radius:14px}
-    .price .btn,.price .btn-wa,.price .btn-main{margin-top:auto!important;display:block;width:100%;box-sizing:border-box}
-    .p-price{font-size:1.45rem;font-weight:800;margin:.2rem 0}.price ul{padding-inline-start:1.15rem}.price li{color:var(--t2);margin:.2rem 0}
-    table{width:100%;margin-top:1rem;border-collapse:collapse;background:var(--bg2);border:1px solid var(--br);overflow:hidden;border-radius:12px}
-    th,td{padding:.62rem;border-bottom:1px solid var(--br);text-align:center} th:first-child,td:first-child{text-align:right}
-
-    .about{display:grid;grid-template-columns:.7fr 1.3fr;gap:1.2rem;align-items:center}
-    .about img{width:100%;max-width:300px;border:1px solid var(--br);border-radius:16px}
-    .about-content-wrap{display:flex;align-items:center;gap:2rem}
-    .about-content-wrap>div:first-child{flex:1}
-    .about-laptop-img{flex:1}
-    .about-laptop-img img{width:100%;max-width:none;border-radius:12px;border:1px solid var(--br)}
-    #portfolio{background:var(--bg3)}
-    .project{display:block;background:#111120;border:1px solid var(--br);border-radius:14px;overflow:hidden}
-    .mock{height:180px;padding:10px;background:#131425}
-    .window{height:100%;border:1px solid rgba(255,255,255,.14);border-radius:11px;overflow:hidden;background:#0c0d15}
-    .w-top{height:24px;padding:0 8px;display:flex;align-items:center;gap:5px;background:#17182a}.dot{width:8px;height:8px;border-radius:50%}
-    .w-nav{margin:8px;height:18px;border-radius:6px;background:#1d1f33}.w-hero{margin:8px;height:58px;border-radius:10px;padding:6px;font-size:.7rem;color:#fff}
-    .w-blocks{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;padding:0 8px}.w-blocks span{height:32px;background:#252742;border-radius:7px}
-    .meta{padding:14px}.type{font-size:.74rem;color:var(--acc)} .meta h3{font-size:.98rem} .meta p{font-size:.86rem;color:var(--t2)}
-
-    .socials{display:flex;flex-wrap:wrap;gap:.6rem}.socials a{padding:.55rem .82rem;border-radius:10px;border:1px solid var(--br);background:var(--bg2);color:var(--t2)}
-    .faq{display:grid;grid-template-columns:1fr 1fr;gap:.8rem} details{background:var(--bg2);border:1px solid var(--br);border-radius:10px;padding:.75rem} summary{cursor:pointer;font-weight:700}
-    footer{padding:1.6rem 0;border-top:1px solid var(--br)}
-
-    .fab-wa,.fab-acc{position:fixed;bottom:22px;width:56px;height:56px;z-index:80;border-radius:50%;display:flex;align-items:center;justify-content:center}
-    .fab-wa{left:22px;background:#25D366;color:#fff;font-size:1.34rem;animation:pulse 2s infinite}.fab-acc{right:22px;background:#1c1d2f;border:1px solid var(--br);font-size:1.28rem;cursor:pointer}
-    @keyframes pulse{50%{box-shadow:0 0 0 14px rgba(37,211,102,.1)}}
-
-    .overlay{display:none;position:fixed;inset:0;z-index:90;background:rgba(0,0,0,.68);align-items:center;justify-content:center;padding:1rem}
-    .box{width:min(700px,95%);max-height:85vh;overflow:auto;background:var(--bg2);border:1px solid var(--br);border-radius:14px;padding:1rem}
-    .close{float:left;cursor:pointer}
-    .a11y-actions button{margin:.2rem;border:1px solid var(--br);background:#121220;color:var(--t1);padding:.42rem .7rem;border-radius:8px;cursor:pointer}
-
-    .reveal{opacity:0;transform:translateY(18px);transition:.55s}.reveal.show{opacity:1;transform:none}
-
-    @media (max-width:1200px){.grid4{grid-template-columns:repeat(2,1fr)}}
-    @media (max-width:960px){.hero-grid,.grid3,.grid4,.about{grid-template-columns:1fr}.faq{grid-template-columns:1fr}.nav-links{display:none}.about-content-wrap{flex-direction:column}}
+    :root { --bg:#0a0a0f; --card:#12121b; --text:#f4f6fb; --muted:#a8adbd; --line:rgba(255,255,255,.1); --accent:#00e5a0; --accent2:#00b8d4; --grad:linear-gradient(135deg,#00e5a0,#00b8d4); }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);line-height:1.75}
+    a{color:inherit}
+    .container{width:min(1120px,92%);margin:auto}
+    nav{position:sticky;top:0;z-index:20;background:rgba(10,10,15,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:.9rem 0;gap:1rem}
+    .logo{font-family:'Rubik',sans-serif;font-weight:800;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-decoration:none}
+    .menu{display:flex;gap:1rem;flex-wrap:wrap}
+    .menu a{font-size:.95rem;color:var(--muted);text-decoration:none}
+    .menu a:hover{color:var(--accent)}
+    .cta-btn{background:var(--grad);color:#05231a;padding:.6rem 1rem;border-radius:10px;font-weight:800;text-decoration:none}
+    header{padding:4.5rem 0 3rem;background-image:url('images/hero-bg.webp');background-size:cover;background-position:center;position:relative}
+    header::before{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,10,15,.75),rgba(10,10,15,.95))}
+    .hero{position:relative;z-index:1;display:grid;grid-template-columns:1.15fr .85fr;gap:1.2rem;align-items:start}
+    h1{font-family:'Rubik',sans-serif;font-size:clamp(2rem,4vw,3.4rem);line-height:1.2;margin:.2rem 0 1rem}
+    h2{font-family:'Rubik',sans-serif;font-size:clamp(1.45rem,2.8vw,2.2rem);margin:0 0 .8rem}
+    h3{font-size:1.18rem;margin:1rem 0 .4rem}
+    p{margin:0 0 1rem;color:var(--muted)}
+    section{padding:3.2rem 0;border-top:1px solid var(--line)}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:1rem}
+    .quick-links a{color:var(--accent)}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:1rem}
+    .service-card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1rem}
+    table{width:100%;border-collapse:collapse;background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+    caption{padding:1rem;font-weight:700;text-align:right}
+    th,td{padding:.75rem;border-bottom:1px solid var(--line);vertical-align:top;text-align:right}
+    th{color:var(--accent)}
+    .about-wrap{display:grid;grid-template-columns:.7fr 1.3fr;gap:1.2rem;align-items:center}
+    .about-wrap img{width:100%;border-radius:14px;border:1px solid var(--line)}
+    form label{display:block;font-weight:700;margin-top:.5rem}
+    input,select,textarea{width:100%;padding:.72rem;border-radius:10px;border:1px solid var(--line);background:#0f0f16;color:var(--text);font-family:inherit}
+    button{margin-top:.9rem;border:none;border-radius:10px;padding:.82rem 1rem;background:var(--grad);color:#08231b;font-weight:800;cursor:pointer}
+    .faq-item{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:.9rem}
+    .faq-item p{margin:.35rem 0 0}
+    footer{padding:2rem 0;color:var(--muted);text-align:center;border-top:1px solid var(--line)}
+    @media (max-width:900px){
+      .hero,.grid-3,.grid-2,.about-wrap{grid-template-columns:1fr}
+      .menu{display:none}
+    }
   </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "lior-ai - ליאור בלול",
+    "description": "בניית דפי נחיתה, אתרי תדמית, סוכני AI וייעוץ AI לעסקים בישראל.",
+    "url": "https://lior-ai.com/",
+    "telephone": "+972508668022",
+    "areaServed": "Israel",
+    "founder": "ליאור בלול",
+    "image": "https://lior-ai.com/profile-optimized.jpg",
+    "sameAs": [
+      "https://www.youtube.com/channel/UCjwWgjFmZN5MELt2-QqkF8Q",
+      "https://x.com/LiorBalol",
+      "https://github.com/balol100"
+    ],
+    "serviceType": [
+      "בניית דף נחיתה לעסקים",
+      "בניית אתר תדמית",
+      "סוכן AI לאתר",
+      "ייעוץ AI לעסקים"
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@graph":[
+      {
+        "@type":"Service",
+        "name":"דף נחיתה",
+        "serviceType":"בניית דפי נחיתה לעסקים קטנים בישראל",
+        "provider":{"@type":"ProfessionalService","name":"lior-ai - ליאור בלול"},
+        "areaServed":"Israel"
+      },
+      {
+        "@type":"Service",
+        "name":"אתר תדמית",
+        "serviceType":"בניית אתרי תדמית שמייצרים לידים",
+        "provider":{"@type":"ProfessionalService","name":"lior-ai - ליאור בלול"},
+        "areaServed":"Israel"
+      },
+      {
+        "@type":"Service",
+        "name":"סוכן AI",
+        "serviceType":"סוכן AI לאתר לעסקים",
+        "provider":{"@type":"ProfessionalService","name":"lior-ai - ליאור בלול"},
+        "areaServed":"Israel"
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {
+        "@type":"Question",
+        "name":"מה ההבדל בין דף נחיתה לאתר תדמית?",
+        "acceptedAnswer":{"@type":"Answer","text":"דף נחיתה ממוקד בפעולה אחת ברורה כמו השארת פרטים, בעוד אתר תדמית מציג את כל העסק, השירותים והאמינות שלך לאורך כמה עמודים."}
+      },
+      {
+        "@type":"Question",
+        "name":"איך סוכן AI באתר יעזור לי?",
+        "acceptedAnswer":{"@type":"Answer","text":"סוכן AI נותן מענה מיידי ללקוחות, מסביר על השירותים שלך, עונה על שאלות נפוצות ואוסף לידים גם מחוץ לשעות העבודה."}
+      },
+      {
+        "@type":"Question",
+        "name":"האם אפשר לשלב גם ייעוץ AI או קידום?",
+        "acceptedAnswer":{"@type":"Answer","text":"כן. אפשר להתחיל מדף נחיתה או אתר תדמית, ולהוסיף ייעוץ AI וקידום לפי שלב הצמיחה של העסק."}
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
-  <div class="particles" id="particles"></div>
-  <a class="fab-wa" href="https://wa.me/972508668022" target="_blank" aria-label="WhatsApp">💬</a>
-  <button class="fab-acc" id="openA11y" aria-label="Accessibility">♿</button>
-
   <nav>
     <div class="container nav-inner">
-      <a class="logo" href="#">lior_Ai</a>
-      <ul class="nav-links">
-        <li><a href="#services" data-i18n="nav_services">שירותים</a></li>
-        <li><a href="#pricing" data-i18n="nav_pricing">מחירים</a></li>
-        <li><a href="#portfolio" data-i18n="nav_portfolio">פורטפוליו</a></li>
-        <li><a href="#about" data-i18n="nav_about">אודות</a></li>
-        <li><a href="#faq" data-i18n="nav_faq">FAQ</a></li>
-        <li><a href="#contact" data-i18n="nav_contact">צור קשר</a></li>
-      </ul>
-      <div class="lang"><button id="enBtn" type="button">EN</button> <button id="heBtn" class="active" type="button">HE</button></div>
+      <a href="#top" class="logo">lior-ai</a>
+      <div class="menu" aria-label="ניווט ראשי">
+        <a href="#why-no-leads">למה אין לידים</a>
+        <a href="#packages">חבילות</a>
+        <a href="#pricing">השוואת חבילות</a>
+        <a href="#about">מי אני</a>
+        <a href="#faq">שאלות ותשובות</a>
+        <a href="#contact">יצירת קשר</a>
+      </div>
+      <a href="#contact" class="cta-btn">שלחו פרטים</a>
     </div>
   </nav>
 
-  <section class="hero">
-    <div class="orb o1"></div><div class="orb o2"></div>
-    <div class="container hero-grid">
-      <div class="reveal">
-        <h1 data-i18n="hero_title">יש לך אתר שלא <span class="gradient">מביא לקוחות?</span></h1>
-        <p class="lead" data-i18n="hero_sub">רוב בעלי העסקים משלמים על אתר שלא עובד. אני בונה נוכחות דיגיטלית שמביאה פניות אמיתיות — לא סתם ‘אתר יפה’.</p>
+  <header id="top">
+    <div class="container hero">
+      <div>
+        <p>בניית אתרים ממוקדי תוצאה לעסקים בישראל.</p>
+        <h1>אני בונה אתרים וסוכני AI שמביאים לידים לעסק – לא רק "אתר יפה"</h1>
+        <p>אם אתם מחפשים נוכחות דיגיטלית שמייצרת פניות אמיתיות, כאן מתחילים.</p>
+        <p class="quick-links">מחפש <a href="#packages">דף נחיתה</a>, <a href="#packages">אתר תדמית</a> או <a href="#packages">סוכן AI</a> שמייצרים לידים לעסק שלך? אפשר גם לשלב <a href="#packages">ייעוץ AI לעסקים</a> לפי הצורך.</p>
+        <a href="#contact" class="cta-btn">השאירו פרטים וקבלו שיחה אישית</a>
       </div>
-      <form class="card reveal wa-form">
-        <h2 class="form-title" data-i18n="hero_form_title">ייעוץ ראשוני — חינם</h2>
-        <p class="form-sub" data-i18n="hero_form_sub">השאירו שם וטלפון, אחזור היום</p>
-        <input class="input" name="name" required data-i18n-ph="ph_name" placeholder="שם מלא" />
-        <input class="input" name="phone" required data-i18n-ph="ph_phone" placeholder="טלפון" />
-        <button class="btn btn-main" type="submit" data-i18n="hero_submit">שלחו — אני חוזר היום</button>
-        <div class="sep" data-i18n="or">או</div>
-        <a class="btn btn-wa" href="https://wa.me/972508668022" target="_blank" data-i18n="hero_wa">💬 שלחו וואטסאפ</a>
-        <a class="btn btn-cal" href="https://wa.me/972508668022?text=היי%20ליאור%2C%20אשמח%20לקבוע%20שיחת%20זום%20של%2020%20דקות" target="_blank" data-i18n="hero_cal">📅 שריינו שיחת זום — 20 דק׳</a>
-        <p class="note" data-i18n="hero_note">🔒 ללא התחייבות. ללא ספאם.</p>
-      </form>
+      <aside class="card">
+        <h2>ייעוץ ראשוני – ללא התחייבות</h2>
+        <p>שם, תחום וטלפון – ואחזור אליכם עם כיוון ברור לבניית דף נחיתה, אתר תדמית או סוכן AI.</p>
+        <a href="#contact" class="cta-btn">לעבור לטופס יצירת קשר</a>
+      </aside>
     </div>
-</section>
+  </header>
 
+  <main>
+    <section id="why-no-leads">
+      <div class="container">
+        <h2>למה רוב האתרים לא מביאים לידים</h2>
+        <p>ברוב המקרים, האתר נראה טוב אבל לא בנוי לפעולה ברורה: אין הצעה חדה, אין מסר מדויק, ואין קריאה לפעולה שחוזרת לאורך העמוד. התוצאה היא תנועה בלי פניות.</p>
+        <p>בנוסף, עסקים רבים לא בונים התאמה מלאה בין התוכן למה שהלקוח מחפש בגוגל. כשאין חיבור בין כוונת החיפוש לבין הטקסט, הכותרות והמבנה, קשה לקבל תוצאות גם בקידום אורגני וגם בהמרות.</p>
+        <p>אני מתמקד במבנה שמייצר תנועה איכותית + החלטת פעולה מהירה: מסר ברור, CTA בולט, ותוכן שמדבר על הערך העסקי שלך.</p>
+      </div>
+    </section>
 
-<section id="testimonials">
-  <div class="cen rv"><div class="slbl" data-i18n="teT">המלצות</div><h2 class="sttl" data-i18n="teH">ממליצים עלי</h2><p class="ssub" style="margin-left:auto;margin-right:auto" data-i18n="teS">משוב אמיתי מלקוחות</p></div>
-  <div class="tst-grid">
-    <div class="tst rv"><div class="tst-stars">★★★★★</div><q data-i18n="q1">ליאור בנה לי דף נחיתה מדהים שהכפיל את כמות הפניות שלי. מקצוען אמיתי.</q><div class="tst-who">עדי בוגנים — עיצוב גבות</div></div>
-    <div class="tst rv"><div class="tst-stars">★★★★★</div><q data-i18n="q2">אתר התדמית שליאור בנה לי הרים את העסק לרמה אחרת. שירות מעולה ותוצאות מרשימות.</q><div class="tst-who">אילן סדיקוב — חשמלאי</div></div>
-    <div class="tst rv"><div class="tst-stars">★★★★★</div><q data-i18n="q3">מהפגישה הראשונה הבנתי שאני בידיים טובות. האתר מביא לידים כל יום. ממליץ בחום!</q><div class="tst-who">Royal Service Car</div></div>
-  </div>
-</section>
+    <section id="packages">
+      <div class="container">
+        <h2>החבילות שלי</h2>
+        <div class="grid-3">
+          <article class="service-card">
+            <h3>דף נחיתה</h3>
+            <p>בניית דפי נחיתה לעסקים קטנים בישראל עם מיקוד בפעולה אחת: ליד, שיחת טלפון או וואטסאפ. מתאים לקמפיינים ולמי שרוצה תוצאה מהירה וברורה.</p>
+          </article>
+          <article class="service-card">
+            <h3>אתר תדמית</h3>
+            <p>אתרי תדמית שמייצרים לידים, מציגים אמינות ומספרים את הסיפור של העסק בצורה חדה. מתאים לעסקים שרוצים בסיס שיווקי לטווח ארוך.</p>
+          </article>
+          <article class="service-card">
+            <h3>סוכן AI לאתר</h3>
+            <p>סוכן AI לאתר שנותן מענה מיידי, מסביר על השירותים ואוסף פרטי לקוחות. שיפור אמיתי לזמינות וליחס ההמרה גם כשאתם לא זמינים.</p>
+          </article>
+        </div>
+        <article class="service-card" style="margin-top:1rem">
+          <h3>ייעוץ AI / קידום</h3>
+          <p>למי שכבר פעיל ורוצה לגדול: התאמת תהליך עבודה עם AI, דיוק מסרים, ותכנון צעדי קידום שמחוברים למטרות העסק.</p>
+          <a href="#contact" class="cta-btn">אני רוצה ייעוץ מותאם</a>
+        </article>
+      </div>
+    </section>
 
-<section class="cen rv">
-  <div class="slbl" style="justify-content:center" data-i18n="soT">עקבו אחריי</div>
-  <h2 class="sttl" data-i18n="soH">מוצאים אותי ברשתות</h2>
-  <div class="platforms">
-    <a href="https://x.com/LiorBalol" target="_blank" class="plat"><div class="plat-i">𝕏</div><span class="plat-n">X</span></a>
-    <a href="https://www.youtube.com/channel/UCjwWgjFmZN5MELt2-QqkF8Q" target="_blank" class="plat"><div class="plat-i">▶️</div><span class="plat-n">YouTube</span></a>
-    <a href="https://github.com/balol100" target="_blank" class="plat"><div class="plat-i">⚙️</div><span class="plat-n">GitHub</span></a>
-    <a href="https://www.patreon.com/cw/lior_Ai1" target="_blank" class="plat"><div class="plat-i">☕</div><span class="plat-n">Patreon</span></a>
-    <a href="mailto:liorbll100@gmail.com" class="plat"><div class="plat-i">✉️</div><span class="plat-n">Email</span></a>
-  </div>
-</section>
+    <section id="pricing">
+      <div class="container">
+        <h2>השוואת חבילות: דף נחיתה, אתר תדמית וסוכן AI</h2>
+        <table>
+          <caption>השוואת החבילות שאני מציע לעסקים</caption>
+          <thead>
+            <tr>
+              <th>פיצ׳ר</th>
+              <th>דף נחיתה</th>
+              <th>אתר תדמית</th>
+              <th>סוכן AI</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>מחיר התחלתי</td>
+              <td>מ־1,200 ₪ + מע״מ</td>
+              <td>מ־2,200 ₪ + מע״מ</td>
+              <td>200 ₪ לחודש</td>
+            </tr>
+            <tr>
+              <td>מיקוד בלידים</td>
+              <td>ממוקד לליד אחד ברור</td>
+              <td>מציג את העסק + טפסי פנייה</td>
+              <td>מענה חכם שמגדיל סגירת לידים</td>
+            </tr>
+            <tr>
+              <td>SEO בסיסי</td>
+              <td>SEO בסיסי לעמוד אחד</td>
+              <td>SEO בסיסי לכל עמודי הליבה</td>
+              <td>מותאם לתוכן האתר הקיים</td>
+            </tr>
+            <tr>
+              <td>זמן תגובה ללקוח</td>
+              <td>לפי זמינות העסק</td>
+              <td>לפי זמינות העסק</td>
+              <td>מענה 24/7 עם איסוף פרטים</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
 
-<section id="contact" class="cta-sec">
-  <div class="cta-glow"></div>
-  <div class="slbl" style="justify-content:center" data-i18n="ctT">בואו נדבר</div>
-  <h2 data-i18n="ctH">מוכן <span class="gr">להתחיל?</span></h2>
-  <p data-i18n="ctS">מחפש דף נחיתה? אתר? קידום? ייעוץ AI? שלח הודעה.</p>
-  <div style="display:flex;justify-content:center;gap:14px;flex-wrap:wrap;position:relative">
-    <a class="btn btn-p" href="https://wa.me/972508668022?text=היי%20אשמח%20לשמוע%20על%20השירותים%20שלך" target="_blank" data-i18n="ctB1">בואו נדבר בוואטסאפ →</a>
-    <a class="btn btn-s" href="mailto:liorbll100@gmail.com" data-i18n="ctB2">שלח מייל</a>
-  </div>
-</section>
+    <section id="explain-services">
+      <div class="container">
+        <h2>דף נחיתה, אתר תדמית או סוכן AI – מה באמת מתאים לעסק שלך?</h2>
+        <p>בעלי עסקים קטנים בישראל שואלים אותי שוב ושוב מה עדיף: דף נחיתה, אתר תדמית או סוכן AI. התשובה הפשוטה היא שאין פתרון אחד שמתאים לכולם — אבל יש סדר נכון שמאפשר לבנות מערכת שיווקית שמביאה פניות באופן עקבי. דף נחיתה הוא לרוב נקודת פתיחה חכמה כשצריך תוצאה ממוקדת ומהירה. הוא בנוי סביב פעולה אחת, עם מסר קצר, הוכחות חברתיות וקריאה ברורה להשארת פרטים. כשעושים בניית דף נחיתה בצורה נכונה, קל יותר למדוד מה עובד, לשפר את ההמרה ולהוציא יותר מכל שקל של פרסום.</p>
+        <p>אתר תדמית לעסקים נכנס לתמונה כשצריך לבנות אמון רחב יותר. לקוח שנכנס לאתר תדמית רוצה לראות מי אתם, אילו שירותים אתם נותנים, איך תהליך העבודה נראה ומה מייחד אתכם בשוק. לכן אתר תדמית שמייצר לידים חייב לכלול היררכיה ברורה של עמודים, תוכן שמדבר בשפה של הלקוחות, והנעה לפעולה שחוזרת בנקודות הנכונות. הוא לא מחליף דף נחיתה — הוא משלים אותו. דף נחיתה מוכר הצעה נקודתית, ואתר תדמית בונה סמכות לאורך זמן.</p>
+        <p>סוכן AI לאתר הוא שכבה שמגדילה את היכולת לסגור פניות בזמן אמת. במקום שהלקוח ימתין לנציג או יעזוב באמצע, סוכן AI עונה מיד, מסביר על השירותים, מסנן פניות ומרכז פרטים חשובים לשיחה הבאה. עבור עסקים בישראל שעובדים עם וואטסאפ, טפסים ושיחות טלפון, סוכן AI יכול להפוך תנועה קיימת ליותר לידים איכותיים בלי להעמיס על בעל העסק.</p>
+        <p>השילוב המומלץ ברוב המקרים הוא להתחיל מבסיס שעובד, ואז להרחיב: דף נחיתה ממיר, אתר תדמית שמחזק אמינות, וסוכן AI ששומר על זמינות גבוהה. כשמוסיפים לזה ייעוץ AI לעסקים או קידום מדויק לפי שלב הצמיחה, מקבלים מערכת שיווקית שמדברת נכון לקהל הישראלי ומייצרת תוצאות אמיתיות — לא רק תנועה, אלא פניות שהופכות לעסקאות.</p>
+      </div>
+    </section>
 
-  <section id="services" style="background-image:url('images/services-bg.webp');background-size:cover;background-position:center"><div class="container reveal"><h2 class="title" data-i18n="services_title">איך אני פותר את הבעיה שלך</h2><div class="grid3">
-    <article class="service">🚀 <span data-i18n="s1">דפי נחיתה שממירים</span></article>
-    <article class="service">🎨 <span data-i18n="s2">אתרי תדמית שבונים אמון</span></article>
-    <article class="service">📈 <span data-i18n="s3">קידום אורגני SEO</span></article>
-    <article class="service">📍 <span data-i18n="s4">דף עסקי בגוגל</span></article>
-    <article class="service">✍️ <span data-i18n="s5">תוכן שמוכר</span></article>
-    <article class="service">🤖 <span data-i18n="s6">אוטומציות חכמות</span></article>
-  </div></div></section>
+    <section id="about">
+      <div class="container about-wrap">
+        <picture>
+          <source srcset="profile.webp" type="image/webp">
+          <img src="profile-optimized.jpg" alt="ליאור בלול - בניית אתרים וסוכני AI לעסקים" loading="lazy" width="600" height="800">
+        </picture>
+        <div>
+          <h2>מי אני</h2>
+          <p>ליאור בלול. ניסיון של 18+ שנים בנדל״ן, מכירות ושיווק, יחד עם התמחות בבינה מלאכותית ופתרונות דיגיטליים לעסקים.</p>
+          <p>אני לא מוכר ״אתר יפה״. אני בונה תהליך שמטרתו לידים ולקוחות: מסר, מבנה, חוויית משתמש ויישום AI במקומות שבאמת משפיעים על תוצאות.</p>
+          <a href="#contact" class="cta-btn">בואו נדייק את הפתרון לעסק שלכם</a>
+        </div>
+      </div>
+    </section>
 
-  <se<section id="pricing">
-    <h2 class="title" data-i18n="pricing_title">שקיפות מלאה. בלי הפתעות.</h2>
-    <div class="grid4">
+    <section id="faq">
+      <div class="container">
+        <h2>שאלות ותשובות (FAQ)</h2>
+        <div class="grid-2">
+          <article class="faq-item"><h3>מה ההבדל בין דף נחיתה לאתר תדמית?</h3><p>דף נחיתה מיועד לפעולה אחת ברורה. אתר תדמית מיועד להציג את העסק והשירותים באופן רחב ולבנות אמון לאורך זמן.</p></article>
+          <article class="faq-item"><h3>איך סוכן AI באתר יעזור לי?</h3><p>סוכן AI נותן מענה מיידי, מסביר על השירותים ואוסף פרטי לקוחות גם מחוץ לשעות הפעילות.</p></article>
+          <article class="faq-item"><h3>תוך כמה זמן אפשר לעלות לאוויר?</h3><p>תלוי בהיקף, אך בדרך כלל דף נחיתה עולה מהר יותר, ואתר תדמית דורש אפיון רחב יותר.</p></article>
+          <article class="faq-item"><h3>אפשר להתחיל בקטן ואז להתרחב?</h3><p>כן. הרבה עסקים מתחילים עם דף נחיתה, ואז מרחיבים לאתר תדמית ולשילוב סוכן AI.</p></article>
+        </div>
+      </div>
+    </section>
 
-      <article class="price">
-        <h3 data-i18n="p0_t">00 — דף עסקי בגוגל</h3>
-        <p class="p-price" data-i18n="p0_price">₪350 + מע"מ</p>
-        <ul>
-          <li data-i18n="p0_1">📍 הקמת Google Business Profile + אימות</li>
-          <li data-i18n="p0_2">אופטימיזציה מלאה — תיאור, קטגוריות, שעות, שירותים</li>
-          <li data-i18n="p0_3">העלאת תמונות מקצועיות</li>
-          <li data-i18n="p0_4">פוסט ראשון + הנחיות לניהול ביקורות</li>
-          <li data-i18n="p0_5">אספקה: 1-3 ימים</li>
-        </ul>
-        <a class="btn btn-wa" href="https://wa.me/972508668022?text=Google" target="_blank" data-i18n="p0_cta">שלח "Google" בוואטסאפ</a>
-      </article>
+    <section id="contact">
+      <div class="container grid-2">
+        <div>
+          <h2>השאירו פרטים ואבנה לכם אתר או דף נחיתה שמייצר לידים</h2>
+          <p>השאירו שם, תחום וטלפון – ואחזור אליכם תוך 24 שעות עם הצעה מותאמת אישית.</p>
+          <p>רוצים לדבר מיד? <a href="https://wa.me/972508668022" target="_blank" rel="noopener noreferrer">שלחו הודעת וואטסאפ</a>.</p>
+        </div>
+        <form class="card" action="#" method="post">
+          <label for="name">שם מלא</label>
+          <input id="name" type="text" name="name" required>
 
-      <article class="price">
-        <h3 data-i18n="p1_t">01 — דף שמביא פניות</h3>
-        <p class="p-price" data-i18n="p1_price">מ-₪1,200 + מע"מ</p>
-        <ul>
-          <li data-i18n="p1_1">עמוד אחד ממוקד המרה</li>
-          <li data-i18n="p1_2">עיצוב מותאם + תוכן AI</li>
-          <li data-i18n="p1_3">חיבור לוואטסאפ וטופס</li>
-          <li data-i18n="p1_4">מהיר ומותאם לנייד</li>
-          <li data-i18n="p1_5">אספקה: 3-7 ימים</li>
-        </ul>
-        <a class="btn btn-wa" href="https://wa.me/972508668022?text=Landing" target="_blank" data-i18n="p1_cta">שלח "Landing" בוואטסאפ</a>
-      </article>
-<article class="price">
-  <span class="badge" data-i18n="popular">הכי נפוץ</span>
-  <h3 data-i18n="p2_t">02 — אתר שמוכר אמון</h3>
+          <label for="business">שם העסק / תחום</label>
+          <input id="business" type="text" name="business" required>
 
-  <p class="p-price" data-i18n="p2_price">
-    <span style="text-decoration:line-through;opacity:.5">מ-₪2,500</span>
-    <span style="color:var(--acc);font-weight:800">מ-₪2,200 + מע"מ</span>
-  </p>
+          <label for="phone">טלפון / וואטסאפ</label>
+          <input id="phone" type="tel" name="phone" required>
 
-  <ul>
-    <li data-i18n="p2_1">4-6 עמודים מעוצבים</li>
-    <li data-i18n="p2_2">אודות + שירותים + תיק עבודות</li>
-    <li data-i18n="p2_3">CTA חכם בכל מסך</li>
-    <li data-i18n="p2_4">SEO בסיסי מובנה</li>
-    <li data-i18n="p2_6">אוטומציה ללידים והודעות</li>
-    <li data-i18n="p2_7">חיבור ל-CRM ו-Analytics</li>
-    <li data-i18n="p2_8">דף עסקי בגוגל מותאם</li>
-    <li data-i18n="p2_9">ליווי חודש ראשון</li>
-    <li data-i18n="p2_5">אספקה: 5-10 ימים</li>
-  </ul>
+          <label for="service">מה אתם מחפשים?</label>
+          <select id="service" name="service">
+            <option>דף נחיתה</option>
+            <option>אתר תדמית</option>
+            <option>סוכן AI</option>
+            <option>ייעוץ AI / קידום</option>
+          </select>
 
-  <a class="btn btn-main"
-     href="https://wa.me/972508668022?text=Website"
-     target="_blank"
-     data-i18n="p2_cta">שלח "Website" בוואטסאפ</a>
-</article>
+          <label for="message">הערות נוספות</label>
+          <textarea id="message" name="message" rows="3" placeholder="יעד עסקי, קהל יעד או כל פרט שיעזור לי לדייק את ההצעה"></textarea>
 
+          <button type="submit">שלחו פרטים</button>
+        </form>
+      </div>
+    </section>
+  </main>
 
-      <article class="price">
-        <h3 data-i18n="p3_t">🤖 03 — סוכן AI לאתר שלך</h3>
-        <p class="p-price" data-i18n="p3_price">₪200 לחודש | ללא הקמה | ללא התחייבות</p>
-        <ul>
-          <li data-i18n="p3_1">סוכן AI שעונה ללקוחות 24/7</li>
-          <li data-i18n="p3_2">מותאם לעסק שלך ובעברית</li>
-          <li data-i18n="p3_3">אוסף לידים ופרטים אוטומטית</li>
-          <li data-i18n="p3_4">מותקן באתר שלך תוך 24 שעות</li>
-        </ul>
-        <a
-          class="btn btn-wa"
-          href="https://wa.me/972508668022?text=%D7%94%D7%99%D7%99%20%D7%9C%D7%99%D7%90%D7%95%D7%A8%2C%20%D7%90%D7%A0%D7%99%20%D7%9E%D7%A2%D7%95%D7%A0%D7%99%D7%99%D7%9F%20%D7%91%D7%A1%D7%95%D7%9B%D7%9F%20AI%20%D7%9C%D7%90%D7%AA%D7%A8%20%D7%A9%D7%9C%D7%99"
-          target="_blank"
-          data-i18n="p3_cta"
-        >💬 שלח "AI Agent" בוואטסאפ</a>
-      </article>
-
-    </div>
-
-    <div style="overflow:auto">
-      <table>
-        <thead>
-          <tr>
-            <th data-i18n="cmp_feature">פיצ'ר</th>
-            <th data-i18n="cmp_h01">Landing מ-₪1,200</th>
-            <th data-i18n="cmp_h02">אתר תדמית <s>₪2,500</s> ₪2,200</th>
-            <th data-i18n="cmp_h03">סוכן AI ₪200/חודש</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td data-i18n="cmp_pages">עמודים</td><td>1</td><td>4-6</td><td data-i18n="cmp_inst">מתקין על אתר קיים</td></tr>
-          <tr><td data-i18n="cmp_design">עיצוב מותאם</td><td>✓</td><td>✓</td><td>—</td></tr>
-          <tr><td data-i18n="cmp_ai">תוכן AI</td><td>✓</td><td>✓</td><td>✓</td></tr>
-          <tr><td>WhatsApp</td><td>✓</td><td>✓</td><td>—</td></tr>
-          <tr><td>SEO</td><td>—</td><td>✓</td><td>—</td></tr>
-          <tr><td>CRM</td><td>—</td><td>✓</td><td>—</td></tr>
-          <tr><td>Analytics</td><td>—</td><td>✓</td><td>—</td></tr>
-          <tr><td data-i18n="cmp_auto">אוטומציה</td><td>—</td><td>✓</td><td>✓</td></tr>
-          <tr><td>Google Business</td><td>—</td><td>✓</td><td>—</td></tr>
-          <tr><td data-i18n="cmp_month">ליווי חודש</td><td>—</td><td>✓</td><td>—</td></tr>
-          <tr><td data-i18n="cmp_ai_agent">סוכן AI 24/7</td><td>—</td><td>—</td><td>✓</td></tr>
-          <tr><td data-i18n="cmp_no_commit">ללא התחייבות</td><td>—</td><td>—</td><td>✓</td></tr>
-          <tr><td data-i18n="cmp_code">100% קוד אצלך</td><td>✓</td><td>✓</td><td>—</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-
-  <section id=”about”><div class=”container about reveal”><picture><source srcset=”profile.webp” type=”image/webp”><img src=”profile-optimized.jpg” alt=”ליאור” width=”600” height=”800” loading=”lazy” /></picture><div><h2 class=”title” data-i18n=”about_title”>לא סתם בונה אתרים</h2><p style=”color:var(--t2)” data-i18n=”about_text”>אני ליאור — סמנכ”ל מכירות בחברת בנייה עם 18+ שנות ניסיון בנדל”ן. ראיתי עסקים שורפים כסף על אתרים שלא עובדים — ואני יודע בדיוק למה.</p><div style=”display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem;margin-top:1rem”><div style=”background:var(--bg3);border:1px solid var(--br);border-radius:10px;padding:.8rem;text-align:center”><div style=”font-family:Rubik,sans-serif;font-size:1.5rem;font-weight:800;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent”>7+</div><div style=”font-size:.78rem;color:var(--t2)” data-i18n=”stat_projects”>פרויקטים</div></div><div style=”background:var(--bg3);border:1px solid var(--br);border-radius:10px;padding:.8rem;text-align:center”><div style=”font-family:Rubik,sans-serif;font-size:1.5rem;font-weight:800;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent”>18+</div><div style=”font-size:.78rem;color:var(--t2)” data-i18n=”stat_years”>שנות ניסיון</div></div><div style=”background:var(--bg3);border:1px solid var(--br);border-radius:10px;padding:.8rem;text-align:center”><div style=”font-family:Rubik,sans-serif;font-size:1.5rem;font-weight:800;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent”>×2</div><div style=”font-size:.78rem;color:var(--t2)” data-i18n=”stat_leads”>פניות ללקוחות</div></div></div></div></div></section>
-
-  <section id="portfolio"><div class="container reveal"><h2 class="title" data-i18n="portfolio_title">פורטפוליו</h2><div class="grid3" id="projects"></div></div></section>
-
-
-
-  <section id="faq"><div class="container reveal">
-    <div class="cen" style="margin-bottom:1.5rem"><div class="slbl" style="justify-content:center" data-i18n="fqT">שאלות נפוצות</div><h2 class="title" data-i18n="fqH">שאלות ותשובות</h2></div>
-    <div class="faq">
-      <details open><summary data-i18n="f0q">מה זה דף עסקי בגוגל ולמה אני צריך את זה?</summary><p data-i18n="f0a">דף עסקי בגוגל (Google Business Profile) זה מה שמציג את העסק שלך בגוגל מפות ובתוצאות החיפוש המקומיות. בלי דף מותאם — לקוחות שמחפשים את השירות שלך באזור פשוט לא מוצאים אותך. אני מקים, מאמת ומבצע אופטימיזציה מלאה כדי שתופיע ראשון.</p></details>
-      <details><summary data-i18n="f1q">כמה זמן לוקח לבנות דף נחיתה?</summary><p data-i18n="f1a">3-7 ימי עבודה. כולל עיצוב, תוכן AI, פיתוח והעלאה.</p></details>
-      <details><summary data-i18n="f2q">אני מקבל את הקוד?</summary><p data-i18n="f2a">כן, 100%. כל קבצי המקור שלך.</p></details>
-      <details><summary data-i18n="f3q">Landing vs אתר תדמית?</summary><p data-i18n="f3a">Landing = עמוד אחד ממוקד המרה. אתר = רב-עמודי שמציג את העסק.</p></details>
-      <details><summary data-i18n="f4q">מה כולל קידום אורגני?</summary><p data-i18n="f4a">מחקר מילות מפתח, אופטימיזציה טכנית, תוכן ממוקד ובניית סמכות דומיין.</p></details>
-      <details><summary data-i18n="f5q">איך AI עוזר?</summary><p data-i18n="f5a">כתיבת טקסטים, ניתוח מתחרים, אופטימיזציה — תוצאה טובה ומהירה יותר.</p></details>
-      <details><summary data-i18n="f6q">אפשר באנגלית?</summary><p data-i18n="f6a">כן. דף דו-לשוני או גרסה מלאה באנגלית.</p></details>
-    </div>
-  </div></section>
-
-  <section id="contact"><div class="container reveal"><h2 class="title" data-i18n="cta_title">האתר שלך לא עובד? בוא נתקן את זה.</h2><div class="grid3"><form class="card wa-form" style="grid-column:span 2"><input class="input" name="name" required data-i18n-ph="ph_name" placeholder="שם מלא" /><input class="input" name="phone" required data-i18n-ph="ph_phone" placeholder="טלפון" /><button class="btn btn-main" data-i18n="cta_submit">שלחו — אני חוזר היום</button></form><div class="card"><a class="btn btn-wa" href="https://wa.me/972508668022" target="_blank" data-i18n="cta_wa">💬 שלחו וואטסאפ</a><a class="btn btn-cal" href="mailto:liorbll100@gmail.com" data-i18n="cta_mail">✉️ שלחו מייל</a></div></div></div></section>
-
-  <footer><div class="container" style="display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap"><strong>lior_Ai</strong><span>© 2026</span><a href="#" id="privacyLink" data-i18n="privacy_link">מדיניות פרטיות</a><div style="display:flex;gap:.7rem"><a href="https://x.com/LiorBalol" target="_blank">X</a><a href="https://github.com/balol100" target="_blank">GitHub</a></div></div></footer>
-
-  <div class="overlay" id="a11y"><div class="box"><span class="close" onclick="toggleA11y(false)">✕</span><h3 data-i18n="a11y_title">נגישות</h3><div class="a11y-actions"><button onclick="document.body.classList.toggle('big-text')">🔤 הגדלת טקסט</button><button onclick="document.body.classList.toggle('hc')">🌗 ניגודיות גבוהה</button><button onclick="document.body.classList.toggle('no-anim')">⏸️ עצירת אנימציות</button><button onclick="document.body.classList.toggle('cursor-large')">🖱️ סמן מוגדל</button><button onclick="document.body.classList.toggle('links-on')">🔗 הדגשת קישורים</button></div><p style="color:var(--t2);margin-top:.6rem" data-i18n="a11y_text">הצהרת נגישות קצרה: אנו פועלים לשיפור הנגישות באתר בהתאם לת"י 5568. לפניות: <a href="mailto:liorbll100@gmail.com">liorbll100@gmail.com</a></p></div></div>
-
-  <div class="overlay" id="privacy"><div class="box"><span class="close" onclick="privacy.style.display='none'">✕</span><h3 data-i18n="privacy_title">מדיניות פרטיות</h3><ol style="padding-inline-start:1.2rem"><li data-i18n="pr1">כללי</li><li data-i18n="pr2">מידע שנאסף</li><li data-i18n="pr3">שימוש במידע</li><li data-i18n="pr4">עוגיות</li><li data-i18n="pr5">אבטחת מידע</li><li data-i18n="pr6">זכויות המשתמש</li><li data-i18n="pr7">יצירת קשר</li></ol><p style="color:var(--t2);margin-top:.6rem" data-i18n="privacy_text">לפי חוק הגנת הפרטיות, התשמ"א-1981. מייל: <a href="mailto:liorbll100@gmail.com">liorbll100@gmail.com</a></p></div></div>
-
-  <div class="overlay" id="exitModal"><div class="box"><span class="close" onclick="exitModal.style.display='none'">✕</span><h3 data-i18n="exit_title">רגע! לפני שאתה עוזב…</h3><p style="color:var(--t2);margin:.2rem 0 .6rem" data-i18n="exit_text">קבל בדיקת אתר + דוח שיפור — חינם וללא התחייבות</p><form class="wa-form"><input class="input" name="name" required data-i18n-ph="ph_name" placeholder="שם מלא" /><input class="input" name="phone" required data-i18n-ph="ph_phone" placeholder="טלפון" /><input class="input" name="url" data-i18n-ph="ph_url" placeholder="כתובת האתר שלך" /><button class="btn btn-main" data-i18n="exit_submit">שלחו לי את הדוח</button></form></div></div>
-
-  <script>
-    const projects=[
-      ['Landing Page','עדי בוגנים — עיצוב גבות','הפניות הוכפלו אחרי ההשקה','#E91E8C,#FF6FB5','https://balol100.github.io/adi-brows-landing/'],
-      ['Website','אילן סדיקוב — חשמלאי','אתר שהרים את העסק לרמה אחרת','#F59E0B,#EF4444','https://balol100.github.io/ilan-electric/'],
-      ['Website','Royal Service Car','מוסך היברידי בבאר שבע','#00e5a0,#00b8d4','https://balol100.github.io/royal-service-car-website/'],
-      ['Website','אצל יניב — מסעדה כשרה','תפריט, קייטרינג והזמנות','#8B4513,#D2691E','https://balol100.github.io/restaurant-website/'],
-      ['Landing Page','אבי דדון — משכנתאות','מחשבון חיסכון והמלצות','#1E3A5F,#4A90D9','https://balol100.github.io/avi-dadon/'],
-      ['Website','אריה מגריל — רפואה סינית','25+ שנות ניסיון, דיקור וצמחים','#2D5016,#6B8E23','https://balol100.github.io/arye-magril-landing/'],
-      ['Website','lior_Ai','אתה כבר כאן 😎','#00e5a0,#00b8d4','#']
-    ];
-    document.getElementById('projects').innerHTML=projects.map(p=>`<a class="project" href="${p[4]}" ${p[4]!=='#'?'target="_blank"':''}><div class="mock"><div class="window"><div class="w-top"><span class="dot" style="background:#ff5f56"></span><span class="dot" style="background:#ffbd2e"></span><span class="dot" style="background:#27c93f"></span></div><div class="w-nav"></div><div class="w-hero" style="background:linear-gradient(135deg,${p[3]})">${p[1]}</div><div class="w-blocks"><span></span><span></span><span></span></div></div></div><div class="meta"><div class="type">${p[0]}</div><h3>${p[1]}</h3><p>${p[2]}</p></div></a>`).join('');
-
-    document.querySelectorAll('.wa-form').forEach(f=>f.addEventListener('submit',e=>{e.preventDefault();const d=new FormData(f);const name=d.get('name')||'';const phone=d.get('phone')||'';const url=d.get('url')||'';const msg=`היי ליאור, אשמח לשיחה.%0Aשם: ${name}%0Aטלפון: ${phone}${url?`%0Aאתר: ${url}`:''}`;window.open(`https://wa.me/972508668022?text=${msg}`,'_blank');}));
-
-    const particlesEl=document.getElementById('particles');for(let i=0;i<25;i++){const p=document.createElement('span');p.className='particle';p.style.left=Math.random()*100+'%';p.style.width=(2+Math.random())+'px';p.style.height=p.style.width;p.style.background=i%2?'rgba(0,229,160,.2)':'rgba(0,184,212,.15)';p.style.animationDuration=(10+Math.random()*12)+'s';particlesEl.appendChild(p)}
-
-    const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');e.target.classList.add('vis');}}),{threshold:.15});document.querySelectorAll('.reveal,.rv').forEach(el=>io.observe(el));
-
-    function toggleA11y(show){a11y.style.display=show?'flex':'none'} openA11y.onclick=()=>toggleA11y(true);
-    privacyLink.onclick=(e)=>{e.preventDefault();privacy.style.display='flex'};
-    document.addEventListener('mouseleave',e=>{if(e.clientY<=0&&!sessionStorage.getItem('exitShown')){exitModal.style.display='flex';sessionStorage.setItem('exitShown','1')}});
-
-    const i18n={
-      he:{nav_services:'שירותים',nav_pricing:'מחירים',nav_portfolio:'פורטפוליו',nav_about:'אודות',nav_faq:'FAQ',nav_contact:'צור קשר',hero_title:'יש לך אתר שלא <span class="gradient">מביא לקוחות?</span>',hero_sub:'רוב בעלי העסקים משלמים על אתר שלא עובד. אני בונה נוכחות דיגיטלית שמביאה פניות אמיתיות — לא סתם ‘אתר יפה’.',hero_form_title:'ייעוץ ראשוני — חינם',hero_form_sub:'השאירו שם וטלפון, אחזור היום',hero_submit:'שלחו — אני חוזר היום',or:'או',hero_wa:'💬 שלחו וואטסאפ',hero_cal:'📅 שריינו שיחת זום — 20 דק׳',hero_note:'🔒 ללא התחייבות. ללא ספאם.',services_title:'איך אני פותר את הבעיה שלך',pricing_title:'שקיפות מלאה. בלי הפתעות.',popular:'הכי נפוץ',portfolio_title:'פורטפוליו',testi_title:'המלצות',social_title:'רשתות חברתיות',cta_title:'האתר שלך לא עובד? בוא נתקן את זה.',cta_submit:'שלחו — אני חוזר היום',cta_wa:'💬 שלחו וואטסאפ',cta_mail:'✉️ שלחו מייל',about_title:'לא סתם בונה אתרים',about_text:'אני ליאור — סמנכ”ל מכירות בחברת בנייה עם 18+ שנות ניסיון בנדל”ן. ראיתי עסקים שורפים כסף על אתרים שלא עובדים — ואני יודע בדיוק למה.',privacy_link:'מדיניות פרטיות',a11y_title:'נגישות',a11y_text:'הצהרת נגישות קצרה: אנו פועלים לשיפור הנגישות באתר בהתאם לת"י 5568. לפניות: <a href="mailto:liorbll100@gmail.com">liorbll100@gmail.com</a>',privacy_title:'מדיניות פרטיות',pr1:'כללי',pr2:'מידע שנאסף',pr3:'שימוש במידע',pr4:'עוגיות',pr5:'אבטחת מידע',pr6:'זכויות המשתמש',pr7:'יצירת קשר',privacy_text:'לפי חוק הגנת הפרטיות, התשמ"א-1981. מייל: <a href="mailto:liorbll100@gmail.com">liorbll100@gmail.com</a>',exit_title:'רגע! לפני שאתה עוזב…',exit_text:'קבל בדיקת אתר + דוח שיפור — חינם וללא התחייבות',exit_submit:'שלחו לי את הדוח',ph_name:'שם מלא',ph_phone:'טלפון',ph_url:'כתובת האתר שלך',s1:'דפי נחיתה שממירים',s2:'אתרי תדמית שבונים אמון',s3:'קידום אורגני SEO',s4:'דף עסקי בגוגל',s5:'תוכן שמוכר',s6:'אוטומציות חכמות',p0_t:'00 — דף עסקי בגוגל',p0_price:'₪350 + מע”מ',p0_1:'📍 הקמת Google Business Profile + אימות',p0_2:'אופטימיזציה מלאה — תיאור, קטגוריות, שעות, שירותים',p0_3:'העלאת תמונות מקצועיות',p0_4:'פוסט ראשון + הנחיות לניהול ביקורות',p0_5:'אספקה: 1-3 ימים',p0_cta:'שלח “Google” בוואטסאפ',p1_t:'01 — דף שמביא פניות',p1_price:'מ-₪1,200 + מע”מ',p1_1:'עמוד אחד ממוקד המרה',p1_2:'עיצוב מותאם + תוכן AI',p1_3:'חיבור לוואטסאפ וטופס',p1_4:'מהיר ומותאם לנייד',p1_5:'אספקה: 3-7 ימים',p1_cta:'שלח “Landing” בוואטסאפ',p2_t:'02 — אתר שמוכר אמון',p2_price:'<span style=”text-decoration:line-through;opacity:.5”>מ-₪2,500</span> <span style=”color:var(--acc);font-weight:800”>מ-₪2,200 + מע”מ</span>',p2_1:'4-6 עמודים מעוצבים',p2_2:'אודות + שירותים + תיק עבודות',p2_3:'CTA חכם בכל מסך',p2_4:'SEO בסיסי מובנה',p2_6:'אוטומציה ללידים והודעות',p2_7:'חיבור ל-CRM ו-Analytics',p2_8:'דף עסקי בגוגל מותאם',p2_9:'ליווי חודש ראשון',p2_5:'אספקה: 5-10 ימים',p2_cta:'שלח “Website” בוואטסאפ',p3_t:'🤖 03 — סוכן AI לאתר שלך',p3_price:'₪200 לחודש | ללא הקמה | ללא התחייבות',p3_1:'סוכן AI שעונה ללקוחות 24/7',p3_2:'מותאם לעסק שלך ובעברית',p3_3:'אוסף לידים ופרטים אוטומטית',p3_4:'מתקין באתר קיים תוך 24 שעות',p3_cta:'💬 שלח הודעה בוואטסאפ',stat_projects:'פרויקטים',stat_years:'שנות ניסיון',stat_leads:'פניות ללקוחות',cmp_feature:'פיצ׳ר',cmp_h01:'Landing מ-₪1,200',cmp_h02:'אתר תדמית <s>₪2,500</s> ₪2,200',cmp_h03:'סוכן AI ₪200/חודש',cmp_pages:'עמודים',cmp_inst:'מתקין על אתר קיים',cmp_design:'עיצוב מותאם',cmp_ai:'תוכן AI',cmp_mobile:'מותאם לנייד',cmp_auto:'אוטומציה',cmp_month:'ליווי חודש',cmp_ai_agent:'סוכן AI 24/7',cmp_no_commit:'ללא התחייבות',cmp_code:'100% קוד אצלך',f0q:'מה זה דף עסקי בגוגל ולמה אני צריך את זה?',f0a:'דף עסקי בגוגל (Google Business Profile) זה מה שמציג את העסק שלך בגוגל מפות ובתוצאות החיפוש המקומיות. בלי דף מותאם — לקוחות שמחפשים את השירות שלך באזור פשוט לא מוצאים אותך. אני מקים, מאמת ומבצע אופטימיזציה מלאה כדי שתופיע ראשון.',f1q:'כמה זמן לוקח?',f1a:'3-7 ימי עבודה',f2q:'אני מקבל את הקוד?',f2a:'כן, 100%',f3q:'Landing vs אתר?',f3a:'Landing = עמוד אחד, אתר = רב-עמודי',f4q:'מה כולל קידום אורגני?',f4a:'מחקר מילות מפתח, אופטימיזציה טכנית, תוכן',f5q:'איך AI עוזר?',f5a:'כתיבת טקסטים, ניתוח מתחרים, אופטימיזציה',f6q:'אפשר באנגלית?',f6a:'כן',t1:'“ליאור בנה לי דף נחיתה שהכפיל את כמות הפניות שלי. מקצוען אמיתי.”<br><strong>עדי בוגנים — עיצוב גבות</strong>',t2:'“האתר הרים את העסק לרמה אחרת. שירות מעולה ותוצאות מרשימות.”<br><strong>אילן סדיקוב — חשמלאי</strong>',t3:'“מהפגישה הראשונה ידעתי שאני בידיים טובות. לידים כל יום. ממליץ בחום!”<br><strong>Royal Service Car</strong>'},
-      en:{nav_services:'Services',nav_pricing:'Pricing',nav_portfolio:'Portfolio',nav_about:'About',nav_faq:'FAQ',nav_contact:'Contact',hero_title:'Do you have a website that <span class="gradient">doesn\'t bring clients?</span>',hero_sub:'Most business owners pay for websites that do not work. I build digital presence that drives real inquiries — not just a pretty website.',hero_form_title:'Initial consultation — free',hero_form_sub:'Leave name and phone, I will call today',hero_submit:'Send — I call back today',or:'or',hero_wa:'💬 Send WhatsApp',hero_cal:'📅 Book Zoom call — 20 min',hero_note:'🔒 No commitment. No spam.',services_title:'How I solve your problem',pricing_title:'Full transparency. No surprises.',popular:'Most popular',portfolio_title:'Portfolio',testi_title:'Testimonials',social_title:'Social networks',cta_title:'Your website is not working? Let’s fix it.',cta_submit:'Send — I call back today',cta_wa:'💬 Send WhatsApp',cta_mail:'✉️ Send email',about_title:'Not just a website builder',about_text:'I am Lior — VP Sales in a construction company with 18+ years in real estate. I saw businesses burn money on websites that do not work — and I know exactly why.',privacy_link:'Privacy policy',a11y_title:'Accessibility',a11y_text:'Short accessibility statement: we work to improve accessibility in line with Israeli Standard 5568. Contact: <a href="mailto:liorbll100@gmail.com">liorbll100@gmail.com</a>',privacy_title:'Privacy policy',pr1:'General',pr2:'Collected information',pr3:'Use of information',pr4:'Cookies',pr5:'Data security',pr6:'User rights',pr7:'Contact',privacy_text:'According to the Protection of Privacy Law, 1981. Email: <a href="mailto:liorbll100@gmail.com">liorbll100@gmail.com</a>',exit_title:'Wait! Before you leave…',exit_text:'Get a free website audit + improvement report with no commitment',exit_submit:'Send me the report',ph_name:'Full name',ph_phone:'Phone',ph_url:'Your website URL',s1:'Landing pages that convert',s2:'Trust-building business websites',s3:'Organic SEO',s4:'Google Business profile',s5:'Content that sells',s6:'Smart automations',p0_t:'00 — Google Business Profile',p0_price:'₪350 + VAT',p0_1:'📍 Google Business Profile setup + verification',p0_2:'Full optimization — description, categories, hours, services',p0_3:'Professional photo upload',p0_4:'First post + review management guidelines',p0_5:'Delivery: 1-3 days',p0_cta:'Send “Google” on WhatsApp',p1_t:'01 — Lead-driven landing page',p1_price:'From ₪1,200 + VAT',p1_1:'One high-converting page',p1_2:'Custom design + AI content',p1_3:'WhatsApp and form integration',p1_4:'Fast and mobile optimized',p1_5:'Delivery: 3-7 days',p1_cta:'Send “Landing” on WhatsApp',p2_t:'02 — Trust-building website',p2_price:'<span style=”text-decoration:line-through;opacity:.5”>From ₪2,500</span> <span style=”color:var(--acc);font-weight:800”>From ₪2,200 + VAT</span>',p2_1:'4-6 designed pages',p2_2:'About + Services + Portfolio',p2_3:'Smart CTA on every screen',p2_4:'Built-in basic SEO',p2_6:'Lead and messaging automation',p2_7:'CRM and Analytics integration',p2_8:'Google Business profile optimization',p2_9:'First-month guidance',p2_5:'Delivery: 5-10 days',p2_cta:'Send “Website” on WhatsApp',p3_t:'🤖 03 — AI Agent for your website',p3_price:'₪200/month | No setup fee | No commitment',p3_1:'AI agent answers your customers 24/7',p3_2:'Customized for your business, in Hebrew',p3_3:'Collects leads and details automatically',p3_4:'Installed on your existing site within 24 hours',p3_cta:'💬 Send WhatsApp message',stat_projects:'Projects',stat_years:'Years of experience',stat_leads:'Client leads ×2',cmp_feature:'Feature',cmp_h01:'Landing from ₪1,200',cmp_h02:'<s>₪2,500</s> ₪2,200 + VAT',cmp_h03:'AI Agent ₪200/month',cmp_pages:'Pages',cmp_inst:'Installs on your existing site',cmp_design:'Custom design',cmp_ai:'AI content',cmp_mobile:'Mobile optimized',cmp_auto:'Automation',cmp_month:'First-month guidance',cmp_ai_agent:'AI Agent 24/7',cmp_no_commit:'No commitment',cmp_code:'100% source code ownership',f0q:'What is Google Business Profile and why do I need it?',f0a:'Google Business Profile is what shows your business on Google Maps and local search results. Without an optimized profile — customers searching for your service in the area simply cannot find you. I set it up, verify it and fully optimize it so you appear first.',f1q:'How long does it take?',f1a:'3-7 business days',f2q:'Do I get the code?',f2a:'Yes, 100%',f3q:'Landing vs website?',f3a:'Landing = one page, Website = multiple pages',f4q:'What includes SEO?',f4a:'Keyword research, technical optimization, content',f5q:'How does AI help?',f5a:'Copywriting, competitor analysis, optimization',f6q:'Can it be in English?',f6a:'Yes',t1:'“Lior built me a landing page that doubled my inquiries. A true pro.”<br><strong>Adi Boganim — Brow Design</strong>',t2:'“The website elevated my business. Great service and impressive results.”<br><strong>Ilan Sadikov — Electrician</strong>',t3:'“From the first meeting I knew I was in good hands. Daily leads. Highly recommended!”<br><strong>Royal Service Car</strong>'}
-    };
-    function setLang(lang){document.documentElement.lang=lang;document.documentElement.dir=lang==='he'?'rtl':'ltr';document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.dataset.i18n;if(i18n[lang][k])el.innerHTML=i18n[lang][k]});document.querySelectorAll('[data-i18n-ph]').forEach(el=>{const k=el.dataset.i18nPh;if(i18n[lang][k])el.placeholder=i18n[lang][k]});enBtn.classList.toggle('active',lang==='en');heBtn.classList.toggle('active',lang==='he')}
-    enBtn.onclick=()=>setLang('en'); heBtn.onclick=()=>setLang('he');
-  </script>
+  <footer>
+    <div class="container">© lior-ai | ליאור בלול — בניית דפי נחיתה, אתרי תדמית, סוכן AI וייעוץ AI לעסקים בישראל</div>
+  </footer>
 </body>
 </html>
