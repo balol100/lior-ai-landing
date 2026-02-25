@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>תיק עבודות | lior-ai — ליאור בלול</title>
+  <meta name="description" content="תיק עבודות של lior-ai — דפי נחיתה, אתרי תדמית וסוכני AI לעסקים. 7 פרויקטים חיים בתחומי נדל״ן, מזון, רכב, בריאות ועוד.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://lior-ai.com/portfolio.html">
+  <meta property="og:title" content="תיק עבודות | lior-ai">
+  <meta property="og:description" content="7 פרויקטים חיים — דפי נחיתה ואתרי תדמית שמייצרים לידים ומכירות.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800&family=Rubik:wght@500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0a0f;
+      --card: #12121b;
+      --card-hover: #1a1a28;
+      --text: #f4f6fb;
+      --muted: #a8adbd;
+      --line: rgba(255,255,255,.08);
+      --accent: #00e5a0;
+      --accent2: #00b8d4;
+      --grad: linear-gradient(135deg, #00e5a0, #00b8d4);
+      --gold: #d4af37;
+      --orange: #f59e0b;
+      --green: #4caf50;
+      --cyan: #00bcd4;
+      --pink: #e91e90;
+      --blue: #4a90e2;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Heebo', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container { width: min(1180px, 92%); margin: auto; }
+
+    /* ===== NAV ===== */
+    nav {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(10,10,15,.92);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: .85rem 0; gap: 1rem;
+    }
+    .logo {
+      font-family: 'Rubik', sans-serif; font-weight: 800; font-size: 1.3rem;
+      background: var(--grad);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .nav-links { display: flex; gap: 1.2rem; align-items: center; flex-wrap: wrap; }
+    .nav-links a { font-size: .92rem; color: var(--muted); transition: color .2s; }
+    .nav-links a:hover { color: var(--accent); }
+    .cta-btn {
+      background: var(--grad); color: #05231a;
+      padding: .55rem 1.1rem; border-radius: 10px;
+      font-weight: 800; font-size: .92rem;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .cta-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(0,229,160,.25);
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      padding: 5rem 0 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: radial-gradient(ellipse at 30% 20%, rgba(0,229,160,.06) 0%, transparent 50%),
+                  radial-gradient(ellipse at 70% 80%, rgba(0,184,212,.05) 0%, transparent 50%);
+      animation: drift 20s ease-in-out infinite;
+    }
+    @keyframes drift {
+      0%, 100% { transform: translate(0, 0) rotate(0deg); }
+      50% { transform: translate(-30px, 20px) rotate(1deg); }
+    }
+    .hero-content { position: relative; z-index: 1; }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(0,229,160,.1);
+      border: 1px solid rgba(0,229,160,.2);
+      color: var(--accent);
+      padding: .35rem 1rem;
+      border-radius: 50px;
+      font-size: .85rem;
+      font-weight: 700;
+      margin-bottom: 1.2rem;
+    }
+    .hero h1 {
+      font-family: 'Rubik', sans-serif;
+      font-size: clamp(2.2rem, 5vw, 3.8rem);
+      line-height: 1.15;
+      margin-bottom: .8rem;
+    }
+    .hero h1 .accent-text {
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero p {
+      color: var(--muted);
+      font-size: 1.15rem;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+
+    /* ===== STATS BAR ===== */
+    .stats-bar {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 3rem;
+    }
+    .stat {
+      text-align: center;
+    }
+    .stat-num {
+      font-family: 'Rubik', sans-serif;
+      font-size: 2.2rem;
+      font-weight: 800;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .stat-label {
+      font-size: .85rem;
+      color: var(--muted);
+    }
+
+    /* ===== FILTER TABS ===== */
+    .filter-wrap {
+      display: flex;
+      justify-content: center;
+      gap: .5rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+    }
+    .filter-btn {
+      background: var(--card);
+      border: 1px solid var(--line);
+      color: var(--muted);
+      padding: .5rem 1.1rem;
+      border-radius: 50px;
+      font-family: 'Heebo', sans-serif;
+      font-size: .88rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all .25s;
+    }
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: rgba(0,229,160,.12);
+      border-color: rgba(0,229,160,.3);
+      color: var(--accent);
+    }
+
+    /* ===== PROJECTS GRID ===== */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 4rem;
+    }
+
+    .project-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      overflow: hidden;
+      transition: all .35s cubic-bezier(.22,1,.36,1);
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    .project-card.vis {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .project-card:hover {
+      border-color: rgba(0,229,160,.2);
+      transform: translateY(-6px);
+      box-shadow: 0 20px 50px rgba(0,0,0,.3), 0 0 30px rgba(0,229,160,.06);
+    }
+    .project-card.hidden {
+      display: none;
+    }
+
+    /* Browser mockup header */
+    .card-browser {
+      background: #1a1a26;
+      padding: .55rem .9rem;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      border-bottom: 1px solid var(--line);
+    }
+    .browser-dots {
+      display: flex; gap: 5px;
+    }
+    .browser-dots span {
+      width: 10px; height: 10px; border-radius: 50%;
+    }
+    .browser-dots span:nth-child(1) { background: #ff5f57; }
+    .browser-dots span:nth-child(2) { background: #ffbd2e; }
+    .browser-dots span:nth-child(3) { background: #28c940; }
+    .browser-url {
+      flex: 1;
+      background: rgba(255,255,255,.05);
+      border-radius: 6px;
+      padding: 3px 10px;
+      font-size: .72rem;
+      color: var(--muted);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      direction: ltr;
+      text-align: left;
+    }
+
+    /* Preview area */
+    .card-preview {
+      height: 220px;
+      position: relative;
+      overflow: hidden;
+    }
+    .card-preview .preview-bg {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 4rem;
+      position: relative;
+    }
+    .card-preview .preview-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, transparent 50%, rgba(10,10,15,.9) 100%);
+    }
+    .card-preview .category-badge {
+      position: absolute;
+      top: .8rem;
+      right: .8rem;
+      background: rgba(0,0,0,.6);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,.1);
+      color: white;
+      padding: .25rem .7rem;
+      border-radius: 8px;
+      font-size: .75rem;
+      font-weight: 600;
+    }
+
+    /* Card info */
+    .card-info {
+      padding: 1.2rem 1.3rem;
+    }
+    .card-title {
+      font-family: 'Rubik', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: .3rem;
+    }
+    .card-desc {
+      color: var(--muted);
+      font-size: .88rem;
+      line-height: 1.6;
+      margin-bottom: .9rem;
+    }
+
+    /* Tags */
+    .card-tags {
+      display: flex;
+      gap: .35rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+    .tag {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(255,255,255,.06);
+      padding: .2rem .6rem;
+      border-radius: 6px;
+      font-size: .72rem;
+      color: var(--muted);
+    }
+
+    /* Card action */
+    .card-action {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .live-link {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      background: var(--grad);
+      color: #05231a;
+      padding: .45rem 1rem;
+      border-radius: 10px;
+      font-size: .85rem;
+      font-weight: 700;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .live-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,229,160,.25);
+    }
+    .github-link {
+      color: var(--muted);
+      font-size: .8rem;
+      display: flex;
+      align-items: center;
+      gap: .3rem;
+      transition: color .2s;
+    }
+    .github-link:hover { color: var(--text); }
+
+    /* ===== COLOR ACCENTS PER PROJECT ===== */
+    .project-card[data-color="cyan"] .preview-bg { background: linear-gradient(135deg, #0a2a3a, #00bcd4 120%); }
+    .project-card[data-color="green"] .preview-bg { background: linear-gradient(135deg, #0a1f0f, #00e5a0 120%); }
+    .project-card[data-color="gold"] .preview-bg { background: linear-gradient(135deg, #1a150a, #c9a46a 120%); }
+    .project-card[data-color="pink"] .preview-bg { background: linear-gradient(135deg, #1a0a15, #e91e90 120%); }
+    .project-card[data-color="orange"] .preview-bg { background: linear-gradient(135deg, #1a130a, #f59e0b 120%); }
+    .project-card[data-color="nature"] .preview-bg { background: linear-gradient(135deg, #0a1a0f, #4caf50 120%); }
+    .project-card[data-color="blue"] .preview-bg { background: linear-gradient(135deg, #0a1028, #4a90e2 120%); }
+
+    /* ===== CTA SECTION ===== */
+    .cta-section {
+      text-align: center;
+      padding: 4rem 0 5rem;
+      position: relative;
+    }
+    .cta-box {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      padding: 3rem 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-box::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--grad);
+    }
+    .cta-box h2 {
+      font-family: 'Rubik', sans-serif;
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      margin-bottom: .6rem;
+    }
+    .cta-box p {
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+      font-size: 1.05rem;
+    }
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn-wa {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: #25d366;
+      color: white;
+      padding: .7rem 1.5rem;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .btn-wa:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(37,211,102,.3);
+    }
+    .btn-back {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      background: transparent;
+      border: 1px solid var(--line);
+      color: var(--muted);
+      padding: .7rem 1.5rem;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: all .2s;
+    }
+    .btn-back:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      padding: 1.5rem 0;
+      text-align: center;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: .85rem;
+    }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.2rem;
+      margin-top: .5rem;
+    }
+    .footer-links a {
+      color: var(--muted);
+      font-size: 1.1rem;
+      transition: color .2s;
+    }
+    .footer-links a:hover { color: var(--accent); }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+      .stats-bar {
+        gap: 1.5rem;
+      }
+      .nav-links { display: none; }
+      .hero { padding: 3.5rem 0 2rem; }
+    }
+
+    /* ===== SCROLL ANIMATIONS ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(25px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+    .reveal.vis {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="container">
+    <div class="nav-inner">
+      <a href="https://lior-ai.com/" class="logo">lior.AI</a>
+      <div class="nav-links">
+        <a href="https://lior-ai.com/">דף הבית</a>
+        <a href="#projects">עבודות</a>
+        <a href="#contact">צור קשר</a>
+        <a href="https://wa.me/972508668022?text=היי%20ליאור%2C%20ראיתי%20את%20תיק%20העבודות%20שלך%20ואשמח%20לשמוע%20פרטים" class="cta-btn">💬 דבר איתי</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero-content">
+    <div class="hero-badge">🔥 7 פרויקטים חיים באוויר</div>
+    <h1>תיק <span class="accent-text">עבודות</span></h1>
+    <p>דפי נחיתה ואתרי תדמית שבניתי ללקוחות אמיתיים — מותאמים לנייד, מהירים, ממוקדים בלידים ובהמרות.</p>
+
+    <div class="stats-bar reveal">
+      <div class="stat">
+        <div class="stat-num">7</div>
+        <div class="stat-label">פרויקטים חיים</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">6</div>
+        <div class="stat-label">תחומים שונים</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">מותאם לנייד</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">0</div>
+        <div class="stat-label">תלויות חיצוניות</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FILTER + PROJECTS -->
+<section id="projects">
+  <div class="container">
+
+    <div class="filter-wrap reveal">
+      <button class="filter-btn active" data-filter="all">הכל</button>
+      <button class="filter-btn" data-filter="landing">דפי נחיתה</button>
+      <button class="filter-btn" data-filter="business">אתרי תדמית</button>
+      <button class="filter-btn" data-filter="food">מזון</button>
+      <button class="filter-btn" data-filter="realestate">נדל״ן</button>
+    </div>
+
+    <div class="projects-grid">
+
+      <!-- 1. Royal Service Car -->
+      <div class="project-card" data-category="business" data-color="cyan">
+        <div class="card-browser">
+          <div class="browser-dots"><span></span><span></span><span></span></div>
+          <div class="browser-url">balol100.github.io/royal-service-car-website</div>
+        </div>
+        <div class="card-preview">
+          <div class="preview-bg">🚗</div>
+          <div class="preview-overlay"></div>
+          <span class="category-badge">רכב</span>
+        </div>
+        <div class="card-info">
+          <div class="card-title">Royal Service Car</div>
+          <div class="card-desc">אתר תדמית למוסך המתמחה ברכבי היברידי וחשמל בבאר שבע. עיצוב פרימיום עם שיחת טלפון ישירה.</div>
+          <div class="card-tags">
+            <span class="tag">אתר תדמית</span>
+            <span class="tag">רכב</span>
+            <span class="tag">RTL</span>
+            <span class="tag">מותאם נייד</span>
+          </div>
+          <div class="card-action">
+            <a href="https://balol100.github.io/royal-service-car-website" target="_blank" class="live-link">צפה באתר ←</a>
+            <a href="https://github.com/balol100/royal-service-car-website" target="_blank" class="github-link">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              קוד
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2. lior-ai Landing -->
+      <div class="project-card" data-category="landing" data-color="green">
+        <div class="card-browser">
+          <div class="browser-dots"><span></span><span></span><span></span></div>
+          <div class="browser-url">lior-ai.com</div>
+        </div>
+        <div class="card-preview">
+          <div class="preview-bg">🧠</div>
+          <div class="preview-overlay"></div>
+          <span class="category-badge">AI + שיווק</span>
+        </div>
+        <div class="card-info">
+          <div class="card-title">lior-ai — דף נחיתה ראשי</div>
+          <div class="card-desc">דף הנחיתה של העסק שלי. בניית אתרים, סוכני AI וייעוץ דיגיטלי. עיצוב כהה עם אנימציות ו-SEO מלא.</div>
+          <div class="card-tags">
+            <span class="tag">דף נחיתה</span>
+            <span class="tag">AI</span>
+            <span class="tag">SEO</span>
+            <span class="tag">Schema.org</span>
+          </div>
+          <div class="card-action">
+            <a href="https://balol100.github.io/lior-ai-landing" target="_blank" class="live-link">צפה באתר ←</a>
+            <a href="https://github.com/balol100/lior-ai-landing" target="_blank" class="github-link">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              קוד
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3. אצל יניב (Restaurant) -->
+      <div class="project-card" data-category="food" data-color="gold">
+        <div class="card-browser">
+          <div class="browser-dots"><span></span><span></span><span></span></div>
+          <div class="browser-url">ezelyanniv.co.il</div>
+        </div>
+        <div class="card-preview">
+          <div class="preview-bg">🔥</div>
+          <div class="preview-overlay"></div>
+          <span class="category-badge">מסעדה</span>
+        </div>
+        <div class="card-info">
+          <div class="card-title">אצל יניב — מסעדת בשרים</div>
+          <div class="card-desc">אתר תדמית למסעדת בשרים ואוכל ביתי כשר בדימונה. תפריט, שעות פעילות, וואטסאפ להזמנות וקייטרינג.</div>
+          <div class="card-tags">
+            <span class="tag">אתר תדמית</span>
+            <span class="tag">מסעדה</span>
+            <span class="tag">כשר</span>
+            <span class="tag">Schema.org</span>
+          </div>
+          <div class="card-action">
+            <a href="https://balol100.github.io/restaurant-website" target="_blank" class="live-link">צפה באתר ←</a>
+            <a href="https://github.com/balol100/restaurant-website" target="_blank" class="github-link">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              קוד
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. עדי בוגנים (Adi Brows) -->
+      <div class="project-card" data-category="landing" data-color="pink">
+        <div class="card-browser">
+          <div class="browser-dots"><span></span><span></span><span></span></div>
+          <div class="browser-url">balol100.github.io/adi-brows-landing</div>
+        </div>
+        <div class="card-preview">
+          <div class="preview-bg">✨</div>
+          <div class="preview-overlay"></div>
+          <span class="category-badge">יופי</span>
+        </div>
+        <div class="card-info">
+          <div class="card-title">עדי בוגנים — עיצוב גבות</div>
+          <div class="card-desc">דף נחיתה למעצבת גבות מקצועית. עיצוב אלגנטי בגוונים חמים עם קביעת תורים ישירה דרך וואטסאפ.</div>
+          <div class="card-tags">
+            <span class="tag">דף נחיתה</span>
+            <span class="tag">יופי</span>
+            <span class="tag">WhatsApp</span>
+            <span class="tag">נגישות</span>
+          </div>
+          <div class="card-action">
+            <a href="https://balol100.github.io/adi-brows-landing" target="_blank" class="live-link">צפה באתר ←</a>
+            <a href="https://github.com/balol100/adi-brows-landing" target="_blank" class="github-link">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              קוד
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. אילן חשמל -->
+      <div class="project-card" data-category="business" data-color="orange">
+        <div class="card-browser">
+          <div class="browser-dots"><span></span><span></span><span></span></div>
+          <div class="browser-url">balol100.github.io/ilan-electric</div>
+        </div>
+        <div class="card-preview">
+          <div class="preview-bg">⚡</div>
+          <div class="preview-overlay"></div>
+          <span class="category-badge">שירותים</span>
+        </div>
+        <div class="card-info">
+          <div class="card-title">אילן חשמל — חשמלאי מוסמך</div>
+          <div class="card-desc">אתר תדמית לחשמלאי מוסמך. עיצוב כהה-כתום עם דגש על זמינות, מחיר הוגן ודירוג 5.0 בגוגל.</div>
+          <div class="card-tags">
+            <span class="tag">אתר תדמית</span>
+            <span class="tag">חשמל</span>
+            <span class="tag">שיחת טלפון</span>
+            <span class="tag">Heebo</span>
+          </div>
+          <div class="card-action">
+            <a href="https://balol100.github.io/ilan-electric" target="_blank" class="live-link">צפה באתר ←</a>
+            <a href="https://github.com/balol100/ilan-electric" target="_blank" class="github-link">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              קוד
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. אריה מגריל -->
+      <div class="project-card" data-category="landing realestate" data-color="nature">
+        <div class="card-browser">
+          <div class="browser-dots"><span></span><span></span><span></span></div>
+          <div class="browser-url">balol100.github.io/arye-magril-landing</div>
+        </div>
+        <div class="card-preview">
+          <div class="preview-bg">🌿</div>
+          <div class="preview-overlay"></div>
+          <span class="category-badge">בריאות</span>
+        </div>
+        <div class="card-info">
+          <div class="card-title">אריה מגריל — רפואה סינית</div>
+          <div class="card-desc">דף נחיתה למטפל ברפואה סינית עם 25+ שנות ניסיון. עיצוב ירוק-טבעי, קליניקה ברוטשילד ת״א.</div>
+          <div class="card-tags">
+            <span class="tag">דף נחיתה</span>
+            <span class="tag">בריאות</span>
+            <span class="tag">רפואה סינית</span>
+            <span class="tag">תל אביב</span>
+          </div>
+          <div class="card-action">
+            <a href="https://balol100.github.io/arye-magril-landing" target="_blank" class="live-link">צפה באתר ←</a>
+            <a href="https://github.com/balol100/arye-magril-landing" target="_blank" class="github-link">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              קוד
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7. אבי דדון -->
+      <div class="project-card" data-category="landing realestate" data-color="blue">
+        <div class="card-browser">
+          <div class="browser-dots"><span></span><span></span><span></span></div>
+          <div class="browser-url">balol100.github.io/avi-dadon</div>
+        </div>
+        <div class="card-preview">
+          <div class="preview-bg">🏠</div>
+          <div class="preview-overlay"></div>
+          <span class="category-badge">נדל״ן</span>
+        </div>
+        <div class="card-info">
+          <div class="card-title">אבי דדון — יועץ משכנתאות</div>
+          <div class="card-desc">דף נחיתה ליועץ משכנתאות. עיצוב כחול-זהב פרימיום עם ניווט sticky, טפסים וקריאות לפעולה.</div>
+          <div class="card-tags">
+            <span class="tag">דף נחיתה</span>
+            <span class="tag">נדל״ן</span>
+            <span class="tag">משכנתאות</span>
+            <span class="tag">פרימיום</span>
+          </div>
+          <div class="card-action">
+            <a href="https://balol100.github.io/avi-dadon" target="_blank" class="live-link">צפה באתר ←</a>
+            <a href="https://github.com/balol100/avi-dadon" target="_blank" class="github-link">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+              קוד
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="contact" class="cta-section">
+  <div class="container">
+    <div class="cta-box reveal">
+      <h2>רוצה אתר כזה לעסק שלך?</h2>
+      <p>דף נחיתה ממוקד לידים, אתר תדמית מקצועי, או סוכן AI — בוא נדבר.</p>
+      <div class="cta-buttons">
+        <a href="https://wa.me/972508668022?text=היי%20ליאור%2C%20ראיתי%20את%20תיק%20העבודות%20ואשמח%20לשמוע%20פרטים%20על%20בניית%20אתר" class="btn-wa">
+          💬 שלח הודעה בוואטסאפ
+        </a>
+        <a href="https://lior-ai.com/" class="btn-back">
+          → חזרה לדף הראשי
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div>© 2026 lior.AI — ליאור בלול | נדל״ן × בינה מלאכותית</div>
+    <div class="footer-links">
+      <a href="https://x.com/LiorBalol" target="_blank" title="X / Twitter">𝕏</a>
+      <a href="https://www.youtube.com/channel/UCjwWgjFmZN5MELt2-QqkF8Q" target="_blank" title="YouTube">▶️</a>
+      <a href="https://github.com/balol100" target="_blank" title="GitHub">⌨️</a>
+      <a href="https://www.patreon.com/cw/lior_Ai1" target="_blank" title="Patreon">🅿️</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Scroll reveal
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('vis'), i * 100);
+      obs.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.reveal, .project-card').forEach(el => obs.observe(el));
+
+// Filter
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    document.querySelectorAll('.project-card').forEach(card => {
+      if (filter === 'all' || card.dataset.category.includes(filter)) {
+        card.classList.remove('hidden');
+        // Re-trigger animation
+        card.classList.remove('vis');
+        setTimeout(() => card.classList.add('vis'), 50);
+      } else {
+        card.classList.add('hidden');
+      }
+    });
+  });
+});
+</script>
+
+</body>
+</html>
