@@ -33,6 +33,8 @@
     .menu a{font-size:.95rem;color:var(--muted);text-decoration:none}
     .menu a:hover{color:var(--accent)}
     .cta-btn{background:var(--grad);color:#05231a;padding:.6rem 1rem;border-radius:10px;font-weight:800;text-decoration:none}
+    .portfolio-btn{border:1px solid rgba(0,229,160,.35);color:var(--accent);padding:.55rem .95rem;border-radius:10px;font-weight:700;font-size:.9rem;text-decoration:none;white-space:nowrap;transition:background .2s,box-shadow .2s}
+    .portfolio-btn:hover{background:rgba(0,229,160,.1);box-shadow:0 4px 16px rgba(0,229,160,.15)}
     header{padding:4.5rem 0 3rem;background-image:url('images/hero-bg.webp');background-size:cover;background-position:center;position:relative}
     header::before{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(10,10,15,.75),rgba(10,10,15,.95))}
     .hero{position:relative;z-index:1;display:grid;grid-template-columns:1.15fr .85fr;gap:1.2rem;align-items:start}
@@ -167,8 +169,8 @@
         <a href="#about">מי אני</a>
         <a href="#faq">שאלות ותשובות</a>
         <a href="#contact">יצירת קשר</a>
-        <a href="/portfolio.html">תיק עבודות</a>
       </div>
+      <a href="/portfolio.html" class="portfolio-btn">תיק עבודות</a>
       <a href="#contact" class="cta-btn">שלחו פרטים</a>
     </div>
   </nav>
