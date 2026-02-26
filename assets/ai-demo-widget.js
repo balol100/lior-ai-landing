@@ -6,8 +6,8 @@
    ========================================================= */
 (function () {
   const CFG = {
-    title: "צ'אטבוט AI חכם",
-    sub: "דמו פרימיום · סוכן שמרגיש כמו הייטק",
+    title: "Aria",
+    sub: "נציגה חכמה · מסננת פניות 24/7",
     whatsapp: "972508668022",
     anchor: "#contact",
     brand: "lior-ai.com",
@@ -299,7 +299,7 @@
     <div id="xai-sheet" role="dialog" aria-modal="true">
       <div id="xai-header">
         <button id="xai-close" aria-label="Close">×</button>
-        <div id="xai-badge">LIVE DEMO</div>
+        <div id="xai-badge">LIVE</div>
         <div>
           <h2 id="xai-title">${CFG.title}</h2>
           <div id="xai-sub">${CFG.sub}</div>
@@ -440,7 +440,7 @@
     await typing();
     cardHTML({
       step:"פתיחה",
-      text:`היי 👋 אני סוכן דמו של <b>${CFG.brand}</b>. אני מסנן פניות ומחזיר לך מה הצעד הכי נכון — מהר, בלי חפירות.`,
+      text:`היי 👋 אני Aria הנציגה החכמה. אני מסננת פניות מהר, בלי חפירות. רוצה כמוני באתר שלך?`,
       hint:"3 לחיצות + משפט אחד. ואז תקבל סיכום 'יועץ' שאפשר לשלוח אליי בוואטסאפ."
     });
     await askNext();
