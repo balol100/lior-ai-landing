@@ -1,642 +1,512 @@
-/* =========================================================
-   Lior-AI "Unicorn" Hi-Tech Modal Agent (No backend)
-   Premium UX: blur overlay, gradient header, micro-reasoning,
-   typing indicator, stepper, smooth animations, WhatsApp CTA.
-   WhatsApp: 050-8668022 => 972508668022
-   ========================================================= */
+/* Lior-AI "NEXUS" Premium Agent 2026 – Dark Cyberpunk Edition */
 (function () {
   const CFG = {
-    title: "צ'אטבוט AI חכם",
-    sub: "דמו פרימיום · סוכן שמרגיש כמו הייטק",
+    name: "NEXUS",
+    title: "סוכן AI NEXUS",
+    subtitle: "ממוקד · מהיר · סוגר עסקאות 24/7",
     whatsapp: "972508668022",
-    anchor: "#contact",
     brand: "lior-ai.com",
-    launcherSide: "left", // "left" or "right"
-    launcherBottom: 18
+    avatar: "https://api.dicebear.com/9.x/bottts/svg?seed=Nexus&style=bigSmile",
+    launcherSide: "right",
+    launcherBottom: 24,
+    primaryColor: "#00f0ff",
+    accentColor: "#ff00aa"
   };
 
-  /* ---------- Inject Styles ---------- */
   const css = `
-  :root{
-    --x-bg:#050713;
-    --x-panel:#F4F6FA;
-    --x-card:#FFFFFF;
-    --x-text:#0B1220;
-    --x-muted:#667085;
-    --x-border:rgba(15,23,42,.10);
-    --x-shadow:0 18px 55px rgba(0,0,0,.35);
-    --x-shadow2:0 10px 26px rgba(0,0,0,.10);
-    --x-r:26px;
-    --x-r2:18px;
-    --x-grad:linear-gradient(92deg,#1AD6C9 0%, #5B3CF4 55%, #A855F7 100%);
-    --x-grad2:linear-gradient(135deg,rgba(26,214,201,.20),rgba(168,85,247,.18));
-    --x-grad3:linear-gradient(180deg,rgba(255,255,255,.85),rgba(255,255,255,.92));
-  }
-  #xai-launcher{
-    position:fixed;
-    ${CFG.launcherSide}:18px;
-    bottom:${CFG.launcherBottom}px;
-    width:64px;height:64px;border-radius:999px;
-    border:none;cursor:pointer;z-index:99999;
-    background:var(--x-grad);
-    box-shadow:0 18px 40px rgba(0,0,0,.35);
-    display:grid;place-items:center;
-    transition:transform .18s ease, filter .18s ease;
-  }
-  #xai-launcher:hover{transform:translateY(-2px); filter:saturate(1.1)}
-  #xai-launcher::after{
-    content:"";
-    position:absolute;inset:3px;
-    border-radius:999px;
-    background:rgba(7,10,18,.92);
-    box-shadow:inset 0 0 0 1px rgba(255,255,255,.10);
-  }
-  #xai-launcher svg{position:relative;z-index:1}
-  #xai-launcher .dot{
-    position:absolute;right:7px;top:7px;
-    width:10px;height:10px;border-radius:50%;
-    background:#22C55E;
-    box-shadow:0 0 0 3px rgba(34,197,94,.18);
-    z-index:2;
+  :root {
+    --bg: #0a0e1a;
+    --panel: #111827;
+    --card: #1e293b;
+    --text: #e2e8f0;
+    --muted: #94a3b8;
+    --border: rgba(148,163,184,0.18);
+    --glow: 0 0 24px rgba(0,240,255,0.28);
+    --glow-accent: 0 0 32px rgba(255,0,170,0.22);
+    --radius: 20px;
+    --grad: linear-gradient(110deg, #00f0ff 0%, #7c3aed 48%, #ff00aa 100%);
+    --grad-subtle: linear-gradient(135deg, rgba(0,240,255,0.12), rgba(124,58,237,0.10), rgba(255,0,170,0.09));
   }
 
-  #xai-overlay{
-    position:fixed; inset:0; z-index:99998;
-    display:none;
-    align-items:center;
-    justify-content:center;
-    background:rgba(0,0,0,.42);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+  #nexus-launcher {
+    position: fixed;
+    ${CFG.launcherSide}: 24px;
+    bottom: ${CFG.launcherBottom}px;
+    width: 68px; height: 68px;
+    border-radius: 50%;
+    border: none;
+    background: var(--grad);
+    box-shadow: var(--glow), inset 0 0 0 1px rgba(255,255,255,0.14);
+    cursor: pointer;
+    z-index: 999999;
+    display: grid; place-items: center;
+    transition: all 0.28s cubic-bezier(0.34,1.56,0.64,1);
   }
-  #xai-sheet{
-    width:min(560px, calc(100vw - 26px));
-    height:min(78vh, 690px);
-    background:var(--x-panel);
-    border-radius:calc(var(--x-r) + 4px);
-    box-shadow:var(--x-shadow);
-    overflow:hidden;
-    direction:rtl;
-    font-family:Heebo, Arial, sans-serif;
-    display:flex; flex-direction:column;
-    animation:xai-pop .18s ease;
+  #nexus-launcher:hover {
+    transform: scale(1.14) translateY(-4px);
+    box-shadow: 0 0 40px rgba(0,240,255,0.45), var(--glow-accent);
   }
-  @keyframes xai-pop{from{transform:scale(.985);opacity:.7}to{transform:scale(1);opacity:1}}
-
-  #xai-header{
-    height:86px;
-    background:var(--x-grad);
-    position:relative;
-    display:flex;
-    align-items:flex-end;
-    justify-content:flex-start;
-    padding:14px 16px;
-    box-shadow:0 14px 30px rgba(0,0,0,.18);
-  }
-  #xai-header::after{
-    content:"";
-    position:absolute; inset:0;
-    background:radial-gradient(800px 120px at 20% 0%, rgba(255,255,255,.22), transparent 60%);
-    pointer-events:none;
-  }
-  #xai-title{
-    color:white; font-weight:900; font-size:28px; line-height:1.1; margin:0;
-    letter-spacing:.2px;
-  }
-  #xai-sub{
-    color:rgba(255,255,255,.86);
-    font-size:13px; margin-top:6px;
-    font-weight:600;
-  }
-  #xai-close{
-    position:absolute; left:16px; top:16px;
-    width:42px;height:42px;border-radius:14px;
-    border:1px solid rgba(255,255,255,.30);
-    background:rgba(0,0,0,.14);
-    color:white; font-size:22px;
-    cursor:pointer;
-    display:grid;place-items:center;
-    transition:transform .12s ease, background .12s ease;
-  }
-  #xai-close:hover{transform:scale(1.02); background:rgba(0,0,0,.20)}
-  #xai-badge{
-    position:absolute; right:16px; top:16px;
-    padding:8px 10px;
-    border-radius:999px;
-    background:rgba(255,255,255,.16);
-    border:1px solid rgba(255,255,255,.22);
-    color:white; font-size:12px; font-weight:800;
-    backdrop-filter: blur(8px);
+  #nexus-launcher img {
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    border: 2px solid rgba(255,255,255,0.22);
   }
 
-  #xai-body{
-    padding:16px;
-    overflow:auto;
-    flex:1;
-    background:
-      radial-gradient(900px 420px at 30% 0%, rgba(26,214,201,.14), transparent 60%),
-      radial-gradient(700px 360px at 90% 20%, rgba(168,85,247,.14), transparent 55%),
-      var(--x-panel);
+  #nexus-overlay {
+    position: fixed; inset: 0;
+    background: rgba(5,7,18,0.78);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    z-index: 999998;
+    display: none;
+    align-items: center; justify-content: center;
   }
 
-  .xai-card{
-    background:var(--x-card);
-    border:1px solid rgba(15,23,42,.08);
-    border-radius:18px;
-    padding:14px 14px;
-    margin:10px 0;
-    box-shadow:var(--x-shadow2);
+  #nexus-modal {
+    width: min(94vw, 580px);
+    max-height: 92vh;
+    background: var(--panel);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    box-shadow: var(--glow), 0 30px 90px rgba(0,0,0,0.55);
+    overflow: hidden;
+    display: flex; flex-direction: column;
+    direction: rtl;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: var(--text);
+    animation: nexusFadeIn 0.32s ease-out;
   }
-  .xai-card.ai{background:var(--x-grad3)}
-  .xai-step{
-    font-size:12px;
-    color:var(--x-muted);
-    font-weight:700;
-    margin-bottom:6px;
-  }
-  .xai-text{
-    font-size:15px;
-    color:var(--x-text);
-    line-height:1.5;
-    font-weight:600;
-  }
-  .xai-hint{
-    margin-top:10px;
-    font-size:13px;
-    color:var(--x-muted);
-    font-weight:600;
-  }
-  .xai-insight{
-    margin-top:10px;
-    padding:10px 12px;
-    border-radius:14px;
-    background:var(--x-grad2);
-    border:1px solid rgba(91,60,244,.14);
-    color:#111827;
-    font-size:13px;
-    font-weight:700;
-  }
-  .xai-choices{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
-    margin-top:12px;
-  }
-  .xai-chip{
-    border:none;
-    cursor:pointer;
-    padding:10px 12px;
-    border-radius:999px;
-    background:white;
-    border:1px solid rgba(15,23,42,.10);
-    box-shadow:0 8px 18px rgba(0,0,0,.06);
-    font-size:14px;
-    font-weight:800;
-    color:#0B1220;
-    transition:transform .12s ease, border-color .12s ease, box-shadow .12s ease;
-  }
-  .xai-chip:hover{
-    transform:translateY(-1px);
-    border-color:rgba(168,85,247,.40);
-    box-shadow:0 12px 22px rgba(0,0,0,.08);
+  @keyframes nexusFadeIn {
+    from { opacity: 0; transform: translateY(30px) scale(0.96); }
+    to   { opacity: 1; transform: translateY(0) scale(1); }
   }
 
-  .xai-typing{
-    display:flex; align-items:center; gap:10px;
-    color:var(--x-muted);
-    font-weight:800;
-    font-size:13px;
+  #nexus-header {
+    padding: 18px 22px;
+    background: linear-gradient(135deg, rgba(0,240,255,0.14), rgba(124,58,237,0.11));
+    border-bottom: 1px solid var(--border);
+    position: relative;
   }
-  .xai-dots{
-    display:inline-flex; gap:4px;
+  #nexus-header h2 {
+    margin: 0;
+    font-size: 1.9rem;
+    font-weight: 800;
+    background: var(--grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    letter-spacing: -0.5px;
   }
-  .xai-dots i{
-    width:6px;height:6px;border-radius:50%;
-    background:#7C3AED;
-    opacity:.25;
-    animation:xai-dot 1.05s infinite;
+  #nexus-header .subtitle {
+    font-size: 0.96rem;
+    color: var(--muted);
+    margin-top: 4px;
+    font-weight: 500;
   }
-  .xai-dots i:nth-child(2){animation-delay:.15s}
-  .xai-dots i:nth-child(3){animation-delay:.30s}
-  @keyframes xai-dot{0%,100%{transform:translateY(0);opacity:.25}50%{transform:translateY(-3px);opacity:.8}}
-
-  .xai-input{
-    width:100%;
-    margin-top:12px;
-    border-radius:16px;
-    border:1px solid rgba(15,23,42,.12);
-    padding:12px 12px;
-    font-family:inherit;
-    font-size:14px;
-    line-height:1.4;
-    resize:none;
-    background:white;
-    box-shadow:0 10px 22px rgba(0,0,0,.06);
+  #nexus-close {
+    position: absolute;
+    left: 18px; top: 18px;
+    width: 38px; height: 38px;
+    border-radius: 12px;
+    background: rgba(255,255,255,0.07);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: grid; place-items: center;
+    transition: all 0.2s;
   }
-
-  #xai-footer{
-    padding:12px;
-    border-top:1px solid rgba(15,23,42,.10);
-    background:white;
-    display:none;
-    gap:10px;
-    flex-wrap:wrap;
-    justify-content:flex-start;
-  }
-  .xai-btn{
-    cursor:pointer;
-    border-radius:14px;
-    padding:11px 14px;
-    border:1px solid rgba(15,23,42,.12);
-    background:#F7F8FC;
-    font-family:inherit;
-    font-weight:900;
-    font-size:14px;
-    color:#0B1220;
-    transition:transform .12s ease, filter .12s ease;
-  }
-  .xai-btn:hover{transform:translateY(-1px); filter:saturate(1.05)}
-  .xai-btn.primary{
-    border:none;
-    background:var(--x-grad);
-    color:white;
-    box-shadow:0 14px 28px rgba(91,60,244,.25);
-  }
-  .xai-mini{
-    font-size:12px;
-    color:var(--x-muted);
-    font-weight:700;
-    margin-top:8px;
+  #nexus-close:hover {
+    background: rgba(255,0,170,0.22);
+    color: white;
+    transform: rotate(90deg);
   }
 
-  /* Mobile tweaks */
-  @media (max-width: 520px){
-    #xai-sheet{height:min(86vh, 720px)}
-    #xai-title{font-size:24px}
+  #nexus-body {
+    flex: 1;
+    padding: 22px;
+    overflow-y: auto;
+    background: var(--grad-subtle);
+  }
+
+  .nexus-msg {
+    margin: 14px 0;
+    padding: 16px 18px;
+    border-radius: 18px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    position: relative;
+  }
+  .nexus-msg.ai {
+    background: linear-gradient(145deg, rgba(0,240,255,0.08), rgba(124,58,237,0.06));
+    border-color: rgba(0,240,255,0.22);
+  }
+  .nexus-step {
+    font-size: 0.82rem;
+    color: var(--muted);
+    font-weight: 700;
+    margin-bottom: 8px;
+    letter-spacing: 0.6px;
+  }
+  .nexus-text {
+    font-size: 1.05rem;
+    line-height: 1.52;
+  }
+  .nexus-insight {
+    margin-top: 12px;
+    padding: 12px 16px;
+    border-radius: 14px;
+    background: rgba(0,240,255,0.09);
+    border: 1px solid rgba(0,240,255,0.24);
+    font-size: 0.94rem;
+    color: #e0f7ff;
+  }
+
+  .nexus-options {
+    display: flex; flex-wrap: wrap; gap: 12px;
+    margin-top: 16px;
+  }
+  .nexus-chip {
+    padding: 12px 20px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid var(--border);
+    color: var(--text);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.22s;
+  }
+  .nexus-chip:hover {
+    background: rgba(0,240,255,0.18);
+    border-color: #00f0ff;
+    transform: translateY(-2px);
+    box-shadow: 0 0 20px rgba(0,240,255,0.3);
+  }
+
+  .nexus-typing {
+    display: flex; align-items: center; gap: 10px;
+    color: var(--muted);
+    font-size: 0.95rem;
+    font-weight: 600;
+  }
+  .nexus-dots i {
+    display: inline-block;
+    width: 8px; height: 8px;
+    background: #00f0ff;
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: nexusPulse 1.4s infinite;
+  }
+  .nexus-dots i:nth-child(2) { animation-delay: 0.2s; }
+  .nexus-dots i:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes nexusPulse {
+    0%,100% { transform: scale(1); opacity: 0.3; }
+    50%     { transform: scale(1.6); opacity: 0.9; }
+  }
+
+  .nexus-input {
+    width: 100%;
+    margin-top: 14px;
+    padding: 14px 16px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    background: rgba(255,255,255,0.05);
+    color: var(--text);
+    font-family: inherit;
+    font-size: 1rem;
+    line-height: 1.5;
+    resize: none;
+    box-sizing: border-box;
+  }
+  .nexus-input::placeholder { color: var(--muted); }
+  .nexus-input:focus {
+    outline: none;
+    border-color: rgba(0,240,255,0.5);
+    box-shadow: 0 0 0 3px rgba(0,240,255,0.12);
+  }
+
+  #nexus-footer {
+    padding: 16px 22px;
+    border-top: 1px solid var(--border);
+    background: rgba(17,24,39,0.6);
+    display: none;
+    flex-wrap: wrap; gap: 12px;
+  }
+  .nexus-btn {
+    padding: 14px 24px;
+    border-radius: 14px;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.24s;
+    font-family: inherit;
+  }
+  .nexus-btn.primary {
+    background: var(--grad);
+    color: white;
+    border: none;
+    box-shadow: 0 12px 32px rgba(0,240,255,0.35);
+  }
+  .nexus-btn.primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 48px rgba(0,240,255,0.5);
+  }
+  .nexus-btn.secondary {
+    background: rgba(255,255,255,0.08);
+    border: 1px solid var(--border);
+    color: var(--text);
+  }
+
+  @media (max-width: 560px) {
+    #nexus-modal { max-height: 96vh; border-radius: 0; }
+    #nexus-body { padding: 18px; }
   }
   `;
+
   const style = document.createElement("style");
   style.textContent = css;
   document.head.appendChild(style);
 
-  /* ---------- Build DOM ---------- */
+  // ─── DOM ────────────────────────────────────────────────
   const launcher = document.createElement("button");
-  launcher.id = "xai-launcher";
-  launcher.setAttribute("aria-label","Open AI chat");
-  launcher.innerHTML = `
-    <div class="dot"></div>
-    <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
-      <path d="M7 9V7.7C7 6.2 8.2 5 9.7 5h4.6C15.8 5 17 6.2 17 7.7V9" stroke="white" stroke-width="2" stroke-linecap="round"/>
-      <path d="M9 13h6" stroke="white" stroke-width="2" stroke-linecap="round"/>
-      <path d="M7.4 19h9.2c2.2 0 4-1.8 4-4v-3c0-2.2-1.8-4-4-4H7.4c-2.2 0-4 1.8-4 4v3c0 2.2 1.8 4 4 4Z" stroke="white" stroke-width="2" stroke-linejoin="round"/>
-    </svg>
-  `;
+  launcher.id = "nexus-launcher";
+  launcher.innerHTML = `<img src="${CFG.avatar}" alt="AI">`;
   document.body.appendChild(launcher);
 
   const overlay = document.createElement("div");
-  overlay.id = "xai-overlay";
+  overlay.id = "nexus-overlay";
   overlay.innerHTML = `
-    <div id="xai-sheet" role="dialog" aria-modal="true">
-      <div id="xai-header">
-        <button id="xai-close" aria-label="Close">×</button>
-        <div id="xai-badge">LIVE DEMO</div>
-        <div>
-          <h2 id="xai-title">${CFG.title}</h2>
-          <div id="xai-sub">${CFG.sub}</div>
-        </div>
+    <div id="nexus-modal" role="dialog">
+      <div id="nexus-header">
+        <button id="nexus-close">✕</button>
+        <h2>${CFG.title}</h2>
+        <div class="subtitle">${CFG.subtitle}</div>
       </div>
-      <div id="xai-body"></div>
-      <div id="xai-footer"></div>
+      <div id="nexus-body"></div>
+      <div id="nexus-footer"></div>
     </div>
   `;
   document.body.appendChild(overlay);
 
-  const body = overlay.querySelector("#xai-body");
-  const footer = overlay.querySelector("#xai-footer");
-  const closeBtn = overlay.querySelector("#xai-close");
+  const body = overlay.querySelector("#nexus-body");
+  const footer = overlay.querySelector("#nexus-footer");
+  const closeBtn = overlay.querySelector("#nexus-close");
 
-  function open() {
-    overlay.style.display = "flex";
-    document.body.style.overflow = "hidden";
-    reset();
-    run();
-  }
-  function close() {
-    overlay.style.display = "none";
-    document.body.style.overflow = "";
-  }
-  launcher.addEventListener("click", open);
-  closeBtn.addEventListener("click", close);
-  overlay.addEventListener("click", (e) => { if (e.target === overlay) close(); });
+  function open()  { overlay.style.display = "flex"; document.body.style.overflow = "hidden"; reset(); run(); }
+  function close() { overlay.style.display = "none";  document.body.style.overflow = ""; }
+  launcher.onclick  = open;
+  closeBtn.onclick  = close;
+  overlay.onclick   = e => { if (e.target === overlay) close(); };
 
-  /* ---------- State + Flow ---------- */
-  const state = { need:null, urgency:null, source:null, goal:"" };
+  // ─── Logic ──────────────────────────────────────────────
+  const state = { need: "", urgency: "", source: "", goal: "" };
+  let stepIndex = 0;
 
-  const steps = [
+  const flow = [
     {
-      key:"need",
-      step:"שלב 1/4",
-      text:"כדי לדייק לך פתרון תוך 30 שניות — מה הכי נכון לך כרגע?",
-      choices:[
-        "דף נחיתה שמביא לידים",
-        "אתר תדמית שמעלה אמון",
-        "סוכן AI שמסנן פניות",
-        "ייעוץ AI/קידום"
-      ],
-      insight:(v)=>{
-        if(v.includes("דף נחיתה")) return "אם המטרה היא תוצאות מהר — דף נחיתה חד עם CTA אחד מנצח כמעט תמיד.";
-        if(v.includes("אתר תדמית")) return "כשאמון הוא צוואר הבקבוק — אתר תדמית מסודר מעלה יחס סגירה גם בלי להגדיל תנועה.";
-        if(v.includes("סוכן AI")) return "אם אתה מפספס פניות כשאתה לא זמין — סוכן AI סוגר את הפער 24/7 ומעלה איכות לידים.";
-        return "כדי להתקדם חכם — נבנה מהלך שמתאים לשלב הצמיחה שלך, לא עוד 'טריק' שיווקי.";
-      }
+      step: "1/5",
+      text: "מה הכי בוער לך עכשיו בעסק?",
+      options: [
+        "יותר לידים איכותיים בוואטסאפ",
+        "אתר/דף נחיתה שסוגר יותר",
+        "סוכן AI שמסנן + מדבר במקומי",
+        "קידום ממומן עם ROI מטורף",
+        "אני עדיין לא בטוח מה הכיוון"
+      ]
     },
     {
-      key:"urgency",
-      step:"שלב 2/4",
-      text:"כמה זה דחוף?",
-      choices:["דחוף (שבוע-שבועיים)","בקרוב (חודש)","בודק אופציות"],
-      insight:(v)=>{
-        if(v.includes("דחוף")) return "בדחוף — הולכים על מה שמייצר פניות הכי מהר, בלי פרויקטים ארוכים.";
-        if(v.includes("בקרוב")) return "בחודש — אפשר לבנות גם תשתית אמון וגם מהלך לידים שירוץ קבוע.";
-        return "בבדיקה — אני אתן לך מסלול ברור כדי שתדע בדיוק מה לעשות כשמחליטים ללחוץ גז.";
-      }
+      step: "2/5",
+      text: "מה רמת הדחיפות שלך?",
+      options: ["צריך עכשיו (7–14 יום)", "חודש–חודשיים", "בודק אפשרויות בשקט"]
     },
     {
-      key:"source",
-      step:"שלב 3/4",
-      text:"איפה היום מגיעות רוב הפניות?",
-      choices:["וואטסאפ","טלפון","טופס באתר","פייסבוק/אינסטגרם"],
-      insight:(v)=>{
-        if(v==="וואטסאפ") return "מעולה — וואטסאפ זה המקום הכי מהיר לסגור. נבנה תהליך שמוציא 'רק רציניים' אליך.";
-        if(v==="טלפון") return "טלפון מבזבז זמן על סקרנים — פה סינון מוקדם נותן ROI מיידי.";
-        if(v==="טופס באתר") return "טופס טוב, אבל בלי חוויה הוא קר. שיחה קצרה לפני הטופס מעלה המרות משמעותית.";
-        return "סושיאל מביא הרבה רעש — סוכן סינון לפני שיחה זה ההבדל בין עומס לבין עסקאות.";
-      }
+      step: "3/5",
+      text: "איפה רוב הפניות מגיעות היום?",
+      options: ["וואטסאפ ישירות", "טלפון", "טופס באתר", "פייסבוק / אינסטגרם / טיקטוק"]
+    },
+    {
+      step: "4/5",
+      text: "מה המטרה הכי חשובה לך בחודש הקרוב? (במילים שלך)",
+      input: true
     }
   ];
 
-  function typing(ms=740){
-    return new Promise((res)=>{
-      const card = document.createElement("div");
-      card.className = "xai-card ai";
-      card.innerHTML = `
-        <div class="xai-typing">
-          <span>מחשב</span>
-          <span class="xai-dots"><i></i><i></i><i></i></span>
-        </div>
-      `;
-      body.appendChild(card);
-      body.scrollTop = body.scrollHeight;
-      setTimeout(()=>{ card.remove(); res(); }, ms + Math.random()*260);
-    });
+  async function type(ms = 800) {
+    const el = document.createElement("div");
+    el.className = "nexus-msg ai";
+    el.innerHTML = `<div class="nexus-typing">NEXUS חושב<span class="nexus-dots"><i></i><i></i><i></i></span></div>`;
+    body.appendChild(el);
+    body.scrollTop = body.scrollHeight;
+    await new Promise(r => setTimeout(r, ms + Math.random()*400));
+    el.remove();
   }
 
-  function cardHTML({step, text, hint, insight, choices, input}){
-    const card = document.createElement("div");
-    card.className = "xai-card ai";
-    card.innerHTML = `
-      <div class="xai-step">${step || ""}</div>
-      <div class="xai-text">${text}</div>
-      ${hint ? `<div class="xai-hint">${hint}</div>` : ""}
-      ${insight ? `<div class="xai-insight">💡 ${insight}</div>` : ""}
-    `;
-    if(choices){
-      const wrap = document.createElement("div");
-      wrap.className = "xai-choices";
-      choices.forEach(c=>{
-        const b = document.createElement("button");
-        b.className = "xai-chip";
-        b.textContent = c;
-        b.onclick = () => onChoice(c);
-        wrap.appendChild(b);
-      });
-      card.appendChild(wrap);
-    }
-    if(input){
-      const ta = document.createElement("textarea");
-      ta.className = "xai-input";
-      ta.rows = 2;
-      ta.placeholder = "לדוגמה: להביא 10 פניות איכותיות / לסגור 2 עסקאות / לשפר המרות...";
-      card.appendChild(ta);
-
-      const wrap = document.createElement("div");
-      wrap.className = "xai-choices";
-      const b = document.createElement("button");
-      b.className = "xai-chip";
-      b.textContent = "סיום וסיכום";
-      b.onclick = () => {
-        state.goal = (ta.value || "").trim();
-        finish();
-      };
-      wrap.appendChild(b);
-      card.appendChild(wrap);
-    }
-    body.appendChild(card);
+  function addMessage(isAI, html) {
+    const div = document.createElement("div");
+    div.className = `nexus-msg ${isAI ? "ai" : ""}`;
+    div.innerHTML = html;
+    body.appendChild(div);
     body.scrollTop = body.scrollHeight;
   }
 
-  let current = 0;
-  async function run(){
-    await typing();
-    cardHTML({
-      step:"פתיחה",
-      text:`היי 👋 אני סוכן דמו של <b>${CFG.brand}</b>. אני מסנן פניות ומחזיר לך מה הצעד הכי נכון — מהר, בלי חפירות.`,
-      hint:"3 לחיצות + משפט אחד. ואז תקבל סיכום 'יועץ' שאפשר לשלוח אליי בוואטסאפ."
-    });
-    await askNext();
+  async function run() {
+    await type(600);
+    addMessage(true, `
+      <div class="nexus-step">ברוכים הבאים</div>
+      <div class="nexus-text">היי, אני <b>${CFG.name}</b> — הסוכן שחוסך לך אלפי שעות של שיחות מיותרות.<br>
+      4–5 לחיצות ואתה מקבל תוכנית פעולה מדויקת + אפשרות לשלוח לי ישירות בוואטסאפ.</div>
+    `);
+    await askStep();
   }
 
-  async function askNext(){
-    const s = steps[current];
-    await typing();
-    cardHTML({
-      step:s.step,
-      text:s.text,
-      choices:s.choices
-    });
-  }
+  async function askStep() {
+    const q = flow[stepIndex];
+    await type();
+    let html = `<div class="nexus-step">${q.step}</div><div class="nexus-text">${q.text}</div>`;
 
-  async function onChoice(val){
-    const s = steps[current];
-    state[s.key] = val;
+    if (q.input) {
+      html += `<textarea id="nexus-goal" class="nexus-input" rows="3" placeholder="דוגמה: 15 לידים איכותיים בשבוע, או 40K ₪ הכנסה נוספת..."></textarea>`;
+    }
 
-    // micro-reasoning
-    await typing(560);
-    cardHTML({
-      step:"תובנה",
-      text:`קיבלתי: <b>${val}</b>`,
-      insight: s.insight(val)
-    });
+    addMessage(true, html);
 
-    current++;
-    if(current < steps.length){
-      await askNext();
-    } else {
-      await typing();
-      cardHTML({
-        step:"שלב 4/4",
-        text:"במשפט אחד — מה הכי חשוב לך להשיג החודש?",
-        input:true
+    if (q.options) {
+      const wrap = document.createElement("div");
+      wrap.className = "nexus-options";
+      q.options.forEach(opt => {
+        const b = document.createElement("button");
+        b.className = "nexus-chip";
+        b.textContent = opt;
+        b.onclick = () => select(opt);
+        wrap.appendChild(b);
       });
+      body.lastChild.appendChild(wrap);
+    } else if (q.input) {
+      const btn = document.createElement("button");
+      btn.className = "nexus-chip";
+      btn.textContent = "סיים → קבל תוכנית";
+      btn.style.marginTop = "16px";
+      btn.onclick = () => {
+        state.goal = document.getElementById("nexus-goal")?.value.trim() || "לא צוין";
+        finish();
+      };
+      body.lastChild.appendChild(btn);
     }
   }
 
-  function score(){
-    let sc = 0;
-    if((state.need||"").includes("סוכן AI")) sc += 3;
-    if((state.need||"").includes("דף נחיתה")) sc += 2;
-    if((state.need||"").includes("אתר תדמית")) sc += 2;
-    if((state.need||"").includes("ייעוץ")) sc += 1;
+  async function select(value) {
+    const keys = ["need", "urgency", "source"];
+    state[keys[stepIndex]] = value;
 
-    if((state.urgency||"").includes("דחוף")) sc += 4;
-    else if((state.urgency||"").includes("בקרוב")) sc += 3;
-    else sc += 1;
+    await type(500);
+    addMessage(true, `
+      <div class="nexus-step">תובנה מהירה</div>
+      <div class="nexus-insight">קלטתי: <b>${value}</b><br>→ זה משנה את סדר העדיפויות בצורה משמעותית.</div>
+    `);
 
-    if(state.source === "וואטסאפ") sc += 2;
-    else if(state.source === "טלפון") sc += 2;
-    else sc += 1;
-
-    return Math.min(10, sc);
+    stepIndex++;
+    await askStep();
   }
 
-  function level(sc){
-    if(sc>=8) return {tag:"🟢 ליד חם", note:"כדאי לדבר היום."};
-    if(sc>=5) return {tag:"🟡 ליד בינוני", note:"כדאי לדבר ב-24 שעות."};
-    return {tag:"⚪ ליד קר", note:"אפשר לשלוח כיוון/חומר ולהמשיך בהמשך."};
+  function getPriorityScore() {
+    let score = 0;
+    if (state.need.includes("סוכן AI") || state.need.includes("לידים איכותיים")) score += 4;
+    if (state.need.includes("דף נחיתה") || state.need.includes("אתר")) score += 3;
+    if (state.urgency.includes("עכשיו") || state.urgency.includes("7–14")) score += 5;
+    if (state.source === "וואטסאפ ישירות") score += 3;
+    return Math.min(10, score);
   }
 
-  function recommendation(){
-    if((state.need||"").includes("סוכן AI")) {
+  function getRecommendation() {
+    if (state.need.includes("סוכן AI")) {
       return {
-        first:"להתחיל מסוכן AI שמסנן פניות באתר + הודעת וואטסאפ מוכנה.",
-        why:"כי זה מייצר 'כיסוי 24/7' ומוציא אליך רק פניות עם כוונה אמיתית — בלי לבזבז זמן על סקרנים.",
-        next:"להטמיע וידג'ט + 3–4 שאלות סינון, ואז למדוד שבוע ראשון: כמה שיחות מיותרות נחסכו."
+        title: "סוכן AI + סינון אגרסיבי",
+        reason: "חוסך 60–80% מזמן השיחות המיותרות ומעלה אחוז סגירה של פניות אמיתיות.",
+        firstStep: "הטמעת וידג'ט + 4 שאלות סינון + תגובה אוטומטית חכמה בוואטסאפ"
       };
     }
-    if((state.need||"").includes("דף נחיתה")) {
+    if (state.need.includes("לידים איכותיים") || state.need.includes("דף נחיתה") || state.need.includes("אתר")) {
       return {
-        first:"דף נחיתה חד עם CTA אחד (וואטסאפ/שיחה) + מסר אחד חזק.",
-        why:"כי דף ממוקד מעלה המרות מהר יותר מאתר 'יפה' שלא סוגר.",
-        next:"נכתוב הצעה אחת, 3 הוכחות אמון, ותהליך פנייה קצר—ואז מודדים."
-      };
-    }
-    if((state.need||"").includes("אתר תדמית")) {
-      return {
-        first:"אתר תדמית קצר שמייצר אמון (הוכחות, תהליך עבודה, שאלות נפוצות) + CTA בכל מקטע.",
-        why:"כי אנשים קונים 'ביטחון' לפני שהם משאירים פרטים.",
-        next:"נבנה עמודים מינימליים + נקודות אמון + חיבור וואטסאפ."
+        title: "דף נחיתה ממוקד + וואטסאפ CTA",
+        reason: "המרות גבוהות פי 3–5 מדף גנרי. פחות תנועה = יותר רווח.",
+        firstStep: "כתיבת copy מנצח + 3 הוכחות אמון + A/B test של כותרות"
       };
     }
     return {
-      first:"ייעוץ קצר שממפה מטרות → קהל → מסר → משפך פניות.",
-      why:"כי בלי מיקוד, גם AI וגם קידום נהיים רעש.",
-      next:"בונים plan של 7 ימים עם 2-3 פעולות שמייצרות פניות."
+      title: "אסטרטגיה ממוקדת + בדיקת שוק מהירה",
+      reason: "בלי בסיס חזק — גם AI וגם קידום מבזבזים כסף.",
+      firstStep: "מיפוי קהל + 3 מסרים ראשונים + טסט של 7 ימים"
     };
   }
 
-  function buildSummary(){
-    const sc = score();
-    const lv = level(sc);
-    const rec = recommendation();
+  async function finish() {
+    await type(900);
+    const score = getPriorityScore();
+    const rec = getRecommendation();
 
-    const goal = state.goal ? state.goal : "לא צוין";
-    return [
-      `${lv.tag} | ציון: ${sc}/10`,
-      ``,
-      `מטרה: ${goal}`,
-      `מה נדרש: ${state.need}`,
-      `דחיפות: ${state.urgency}`,
-      `מקור פניות: ${state.source}`,
-      ``,
-      `מה מומלץ לעשות קודם: ${rec.first}`,
-      `למה: ${rec.why}`,
-      `השלב הבא: ${rec.next}`,
-      ``,
-      `—`,
-      `נשלח מ־${CFG.brand}`
-    ].join("\n");
-  }
+    const tag = score >= 8 ? "🟢 HOT LEAD – לדבר היום" :
+                score >= 5 ? "🟡 WARM – בתוך 24–36 שעות" :
+                             "⚪ COLD – לשלוח חומר + המשך מאוחר יותר";
 
-  async function finish(){
-    const sc = score();
-    const lv = level(sc);
-    const rec = recommendation();
-    const summary = buildSummary();
-
-    await typing(720);
-    cardHTML({
-      step:"סיכום יועץ",
-      text:`<b>${lv.tag}</b> · ציון <b>${sc}/10</b><br><br>
-      <b>מטרה:</b> ${state.goal ? escapeHTML(state.goal) : "לא צוין"}<br>
-      <b>מה נדרש:</b> ${escapeHTML(state.need)}<br>
-      <b>דחיפות:</b> ${escapeHTML(state.urgency)}<br>
-      <b>מקור פניות:</b> ${escapeHTML(state.source)}<br><br>
-      <b>מה מומלץ לעשות קודם:</b> ${escapeHTML(rec.first)}<br>
-      <b>למה:</b> ${escapeHTML(rec.why)}<br>
-      <b>השלב הבא:</b> ${escapeHTML(rec.next)}
-      `
-    });
+    addMessage(true, `
+      <div class="nexus-step">תוכנית פעולה מומלצת</div>
+      <div class="nexus-text">
+        <b>${tag}</b> · ציון התאמה ${score}/10<br><br>
+        <b>מטרה:</b> ${state.goal || "לא צוין"}<br>
+        <b>צורך עיקרי:</b> ${state.need}<br>
+        <b>דחיפות:</b> ${state.urgency}<br>
+        <b>מקור פניות:</b> ${state.source}<br><br>
+        <b>המלצה ראשונית:</b> ${rec.title}<br>
+        <b>למה דווקא זה:</b> ${rec.reason}<br>
+        <b>מה לעשות השבוע:</b> ${rec.firstStep}
+      </div>
+    `);
 
     footer.style.display = "flex";
-    footer.innerHTML = "";
 
-    const btnWA = document.createElement("button");
-    btnWA.className = "xai-btn primary";
-    btnWA.textContent = "שלח בוואטסאפ";
-    btnWA.onclick = () => {
-      const url = `https://wa.me/${CFG.whatsapp}?text=${encodeURIComponent(summary)}`;
-      window.open(url, "_blank");
-    };
+    const summary = [
+      `${tag} | ${score}/10`,
+      ``,
+      `מטרה: ${state.goal || "לא צוין"}`,
+      `צורך: ${state.need}`,
+      `דחיפות: ${state.urgency}`,
+      `מקור: ${state.source}`,
+      ``,
+      `המלצה: ${rec.title}`,
+      `למה: ${rec.reason}`,
+      `מה לעשות עכשיו: ${rec.firstStep}`,
+      ``,
+      `— נוצר על ידי ${CFG.name} • ${CFG.brand}`
+    ].join("\n");
 
-    const btnCopy = document.createElement("button");
-    btnCopy.className = "xai-btn";
-    btnCopy.textContent = "העתק סיכום";
-    btnCopy.onclick = async () => {
-      try{
+    const waBtn = document.createElement("button");
+    waBtn.className = "nexus-btn primary";
+    waBtn.textContent = "שלח לי בוואטסאפ עכשיו";
+    waBtn.onclick = () => window.open(`https://wa.me/${CFG.whatsapp}?text=${encodeURIComponent(summary)}`, "_blank");
+
+    const copyBtn = document.createElement("button");
+    copyBtn.className = "nexus-btn secondary";
+    copyBtn.textContent = "העתק סיכום";
+    copyBtn.onclick = async () => {
+      try {
         await navigator.clipboard.writeText(summary);
-        btnCopy.textContent = "הועתק ✅";
-        setTimeout(()=>btnCopy.textContent="העתק סיכום", 1400);
-      }catch(e){
-        btnCopy.textContent = "לא הצליח";
-        setTimeout(()=>btnCopy.textContent="העתק סיכום", 1400);
+        copyBtn.textContent = "הועתק! 🚀";
+        setTimeout(() => copyBtn.textContent = "העתק סיכום", 1800);
+      } catch {
+        copyBtn.textContent = "שגיאה בהעתקה";
+        setTimeout(() => copyBtn.textContent = "העתק סיכום", 1800);
       }
     };
 
-    const btnForm = document.createElement("button");
-    btnForm.className = "xai-btn";
-    btnForm.textContent = "לטופס יצירת קשר";
-    btnForm.onclick = () => {
-      close();
-      const hash = CFG.anchor.replace("#","");
-      if(hash) window.location.hash = hash;
-    };
-
-    footer.appendChild(btnWA);
-    footer.appendChild(btnCopy);
-    footer.appendChild(btnForm);
-
-    const mini = document.createElement("div");
-    mini.className = "xai-mini";
-    mini.textContent = "טיפ: תשלח עכשיו בוואטסאפ — אני אענה לך עם הצעה ממוקדת לפי מה שבחרת.";
-    footer.appendChild(mini);
+    footer.append(waBtn, copyBtn);
   }
 
-  function reset(){
+  function reset() {
     body.innerHTML = "";
     footer.style.display = "none";
     footer.innerHTML = "";
-    current = 0;
-    state.need = state.urgency = state.source = null;
-    state.goal = "";
+    stepIndex = 0;
+    Object.keys(state).forEach(k => state[k] = "");
   }
-
-  function escapeHTML(str){
-    return String(str)
-      .replaceAll("&","&amp;")
-      .replaceAll("<","&lt;")
-      .replaceAll(">","&gt;")
-      .replaceAll('"',"&quot;")
-      .replaceAll("'","&#039;");
-  }
-
 })();
