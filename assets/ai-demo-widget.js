@@ -63,13 +63,13 @@
   #xai-overlay{
     position:fixed; inset:0; z-index:99998;
     display:none;
+    align-items:center;
+    justify-content:center;
     background:rgba(0,0,0,.42);
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
   }
   #xai-sheet{
-    position:absolute;
-    left:50%; top:50%;
-    transform:translate(-50%,-50%);
     width:min(560px, calc(100vw - 26px));
     height:min(78vh, 690px);
     background:var(--x-panel);
@@ -81,7 +81,7 @@
     display:flex; flex-direction:column;
     animation:xai-pop .18s ease;
   }
-  @keyframes xai-pop{from{transform:translate(-50%,-49%) scale(.985);opacity:.7}to{transform:translate(-50%,-50%) scale(1);opacity:1}}
+  @keyframes xai-pop{from{transform:scale(.985);opacity:.7}to{transform:scale(1);opacity:1}}
 
   #xai-header{
     height:86px;
@@ -316,7 +316,7 @@
   const closeBtn = overlay.querySelector("#xai-close");
 
   function open() {
-    overlay.style.display = "block";
+    overlay.style.display = "flex";
     document.body.style.overflow = "hidden";
     reset();
     run();
