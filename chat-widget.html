@@ -116,7 +116,7 @@
       max-width:86%;
       border-radius:18px;
       padding:10px 12px;
-      line-height:1.35;
+      line-height:1.55;
       font-size:14px;
       border:1px solid var(--border);
       white-space:pre-wrap;
@@ -128,7 +128,13 @@
     .bubble.bot{
       background:rgba(168,85,247,.12);
       border-color:rgba(168,85,247,.32);
+      white-space:normal;
+      color:#E9E9F2;
     }
+    .bubble.bot strong{color:#D8B4FE}
+    .bubble.bot em{color:#C4B5FD; font-style:italic}
+    .bubble.bot ul{margin:6px 0; padding-right:18px; list-style:disc}
+    .bubble.bot li{margin:3px 0}
     .meta{
       margin-top:6px;
       font-size:11px;
@@ -257,7 +263,6 @@
 <section class="lior-chat" id="liorChat" aria-label="lior_Ai chat">
   <header class="lior-chat-header">
     <div class="lior-chat-title">
-      <div class="badge"><span>AI</span></div>
       <div class="title-text">
         <div class="h1">סוכנת lior_Ai</div>
         <div class="sub">נדל״ן • אתרים • סוכני AI • לידים</div>
@@ -399,12 +404,52 @@
     }
     scrollToBottom();
   }
+  function renderMarkdown(raw) {
+    // Escape HTML to prevent XSS
+    const esc = raw
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+    // Parse markdown
+    const lines = esc.split('\n');
+    let html = '';
+    let inList = false;
+    for (let i = 0; i < lines.length; i++) {
+      let line = lines[i];
+      // Bullet list lines (- item or * item)
+      const listMatch = line.match(/^[\s]*[-*]\s+(.+)$/);
+      if (listMatch) {
+        if (!inList) { html += '<ul>'; inList = true; }
+        let li = listMatch[1]
+          .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+          .replace(/\*(.+?)\*/g, '<em>$1</em>');
+        html += '<li>' + li + '</li>';
+      } else {
+        if (inList) { html += '</ul>'; inList = false; }
+        if (line.trim() === '') {
+          html += '<br>';
+        } else {
+          line = line
+            .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+            .replace(/\*(.+?)\*/g, '<em>$1</em>');
+          html += line + '<br>';
+        }
+      }
+    }
+    if (inList) html += '</ul>';
+    // Clean up trailing <br>
+    return html.replace(/<br>$/, '');
+  }
   function addBubble(role, text, opts={}){
     const wrap = document.createElement("div");
     wrap.className = "msg " + (role === "user" ? "user" : "bot");
     const bub = document.createElement("div");
     bub.className = "bubble " + (role === "user" ? "user" : "bot");
-    bub.textContent = text;
+    if (role === "user") {
+      bub.textContent = text;
+    } else {
+      bub.innerHTML = renderMarkdown(text);
+    }
     wrap.appendChild(bub);
     if(opts.time || opts.meta){
       const meta = document.createElement("div");
