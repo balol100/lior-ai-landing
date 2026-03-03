@@ -73,37 +73,40 @@
   @keyframes xa-pop{from{transform:translate(-50%,-49%) scale(.985);opacity:.7}to{transform:translate(-50%,-50%) scale(1);opacity:1}}
 
   #xa-header{
-    height:86px;background:var(--xa-grad);position:relative;
-    display:flex;align-items:flex-end;justify-content:flex-start;
-    padding:14px 16px;box-shadow:0 14px 30px rgba(0,0,0,.18);
+    background:var(--xa-grad);position:relative;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 16px;box-shadow:0 14px 30px rgba(0,0,0,.18);direction:rtl;
   }
   #xa-header::after{
     content:"";position:absolute;inset:0;
     background:radial-gradient(800px 120px at 20% 0%,rgba(255,255,255,.22),transparent 60%);
     pointer-events:none;
   }
-  #xa-title{color:white;font-weight:900;font-size:28px;line-height:1.1;margin:0;letter-spacing:.2px}
-  #xa-sub{color:rgba(255,255,255,.86);font-size:13px;margin-top:6px;font-weight:600}
+  #xa-header-title{display:flex;flex-direction:column;gap:2px;position:relative;z-index:1}
+  #xa-live{
+    display:inline-block;margin-bottom:4px;
+    padding:3px 8px;border-radius:999px;
+    background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.22);
+    color:white;font-size:11px;font-weight:800;backdrop-filter:blur(8px);
+    width:fit-content;
+  }
+  #xa-title{color:white;font-weight:900;font-size:26px;line-height:1.1;margin:0;letter-spacing:.2px}
+  #xa-sub{color:rgba(255,255,255,.86);font-size:12px;font-weight:600}
+  #xa-header-btns{display:flex;gap:8px;position:relative;z-index:1}
   #xa-close{
-    position:absolute;left:16px;top:16px;width:42px;height:42px;border-radius:14px;
+    width:42px;height:42px;border-radius:14px;
     border:1px solid rgba(255,255,255,.30);background:rgba(0,0,0,.14);
     color:white;font-size:22px;cursor:pointer;display:grid;place-items:center;
     transition:transform .12s ease,background .12s ease;
   }
   #xa-close:hover{transform:scale(1.02);background:rgba(0,0,0,.20)}
   #xa-reset-btn{
-    position:absolute;left:66px;top:16px;width:42px;height:42px;border-radius:14px;
+    width:42px;height:42px;border-radius:14px;
     border:1px solid rgba(255,255,255,.20);background:rgba(0,0,0,.10);
     color:white;font-size:16px;cursor:pointer;display:grid;place-items:center;
-    transition:transform .12s ease;title:"איפוס שיחה";
+    transition:transform .12s ease;
   }
   #xa-reset-btn:hover{transform:scale(1.02);background:rgba(0,0,0,.20)}
-  #xa-live{
-    position:absolute;right:16px;top:16px;
-    padding:8px 10px;border-radius:999px;
-    background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.22);
-    color:white;font-size:12px;font-weight:800;backdrop-filter:blur(8px);
-  }
 
   #xa-quick{
     padding:10px 14px 0;display:flex;flex-wrap:wrap;gap:8px;
@@ -131,6 +134,7 @@
     max-width:86%;border-radius:18px;padding:10px 13px;
     line-height:1.45;font-size:14px;border:1px solid var(--xa-border);
     white-space:pre-wrap;word-break:break-word;font-family:Heebo,Arial,sans-serif;
+    color:#0B1220 !important;
   }
   .xa-bubble.user{background:white;box-shadow:var(--xa-shadow2)}
   .xa-bubble.bot{
@@ -233,12 +237,14 @@
   overlay.innerHTML = `
     <div id="xa-sheet" role="dialog" aria-modal="true">
       <div id="xa-header">
-        <button id="xa-close" aria-label="סגור">×</button>
-        <button id="xa-reset-btn" title="איפוס שיחה" aria-label="איפוס שיחה">↺</button>
-        <div id="xa-live">LIVE AI</div>
-        <div>
+        <div id="xa-header-title">
+          <span id="xa-live">LIVE AI</span>
           <h2 id="xa-title">${CFG.title}</h2>
           <div id="xa-sub">${CFG.sub}</div>
+        </div>
+        <div id="xa-header-btns">
+          <button id="xa-reset-btn" title="איפוס שיחה" aria-label="איפוס שיחה">↺</button>
+          <button id="xa-close" aria-label="סגור">×</button>
         </div>
       </div>
       <div id="xa-quick">
