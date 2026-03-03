@@ -98,6 +98,14 @@ serve(async (req) => {
 }
 `;
 
+    if (messages.length === 0) {
+      return json({
+        reply: "שלום! במה אפשר לעזור? אפשר לשאול על מחירים, שירותים, או להשאיר פרטים להצעה.",
+        collect_lead: false,
+        quick_actions: ["כמה עולה סוכן AI?", "כמה עולה דף נחיתה?", "אני רוצה הצעה"],
+      });
+    }
+
     const anthropicBody = {
       model: "claude-sonnet-4-6",
       max_tokens: 700,

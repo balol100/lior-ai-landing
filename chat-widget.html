@@ -491,7 +491,8 @@
       messages: messages
         .filter(m => m.role === "user" || m.role === "assistant")
         .slice(-18)
-        .map(m => ({ role: m.role === "assistant" ? "assistant" : "user", content: m.text })),
+        .map(m => ({ role: m.role === "assistant" ? "assistant" : "user", content: m.text || m.content || "" }))
+        .filter(m => m.content),
       page_url: location.href
     };
     const res = await fetch(SUPABASE_FUNCTION_URL, {
