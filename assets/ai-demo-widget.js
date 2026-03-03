@@ -132,11 +132,16 @@
     line-height:1.45;font-size:14px;border:1px solid var(--xa-border);
     white-space:pre-wrap;word-break:break-word;font-family:Heebo,Arial,sans-serif;
   }
-  .xa-bubble.user{background:white;box-shadow:var(--xa-shadow2)}
+  .xa-bubble.user{background:white;box-shadow:var(--xa-shadow2);color:var(--xa-text)}
   .xa-bubble.bot{
     background:linear-gradient(180deg,rgba(255,255,255,.88),rgba(255,255,255,.95));
     border-color:rgba(91,60,244,.14);box-shadow:var(--xa-shadow2);
+    color:var(--xa-text);white-space:normal;
   }
+  .xa-bubble.bot strong{color:#5B3CF4;font-weight:700}
+  .xa-bubble.bot em{color:#7C3AED;font-style:italic}
+  .xa-bubble.bot ul{margin:6px 0;padding-right:18px;list-style:disc;color:var(--xa-text)}
+  .xa-bubble.bot li{margin:3px 0}
   .xa-meta{margin-top:5px;font-size:11px;color:var(--xa-muted);display:flex;gap:8px;align-items:center;justify-content:flex-end}
   .xa-meta a{color:var(--xa-muted);text-decoration:none;border-bottom:1px dashed rgba(102,112,133,.35)}
   .xa-meta a:hover{color:var(--xa-purple)}
@@ -324,12 +329,33 @@
     bodyEl.scrollTop = bodyEl.scrollHeight;
   }
 
+  function renderMarkdown(raw) {
+    const esc = raw.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+    const lines = esc.split("\n");
+    let html = "", inList = false;
+    for (const line of lines) {
+      const listMatch = line.match(/^[\s]*[-*]\s+(.+)$/);
+      if (listMatch) {
+        if (!inList) { html += "<ul>"; inList = true; }
+        html += "<li>" + applyInline(listMatch[1]) + "</li>";
+      } else {
+        if (inList) { html += "</ul>"; inList = false; }
+        html += line.trim() === "" ? "<br>" : applyInline(line) + "<br>";
+      }
+    }
+    if (inList) html += "</ul>";
+    return html.replace(/<br>$/, "");
+  }
+  function applyInline(s) {
+    return s.replace(/\*\*(.+?)\*\*/g,"<strong>$1</strong>").replace(/\*(.+?)\*/g,"<em>$1</em>");
+  }
+
   function appendBubble(role, text, opts = {}) {
     const wrap = document.createElement("div");
     wrap.className = "xa-msg " + (role === "user" ? "user" : "bot");
     const bub = document.createElement("div");
     bub.className = "xa-bubble " + (role === "user" ? "user" : "bot");
-    bub.textContent = text;
+    if (role === "user") { bub.textContent = text; } else { bub.innerHTML = renderMarkdown(text); }
     wrap.appendChild(bub);
     if (opts.time || opts.links) {
       const meta = document.createElement("div");
