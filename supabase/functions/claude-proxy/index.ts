@@ -123,7 +123,10 @@ serve(async (req) => {
     const out = await r.json();
     // Anthropic returns: content: [{type:"text", text:"..."}]
     const textBlock = Array.isArray(out?.content) ? out.content.find((c: any) => c?.type === "text") : null;
-    const rawText = String(textBlock?.text ?? "").trim();
+    let rawText = String(textBlock?.text ?? "").trim();
+
+    // Strip markdown code fences (e.g. ```json ... ```) that the model sometimes wraps around JSON
+    rawText = rawText.replace(/^```(?:json)?\s*/i, "").replace(/\s*```$/, "").trim();
 
     // Our system instructs JSON only, so try parse:
     const parsed = safeParseJson(rawText);
