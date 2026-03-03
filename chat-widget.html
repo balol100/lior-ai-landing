@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>lior_Ai Chat Widget</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#070812;
+      --panel:#0D0F1F;
+      --panel2:#10132A;
+      --border:rgba(255,255,255,.08);
+      --text:#E9E9F2;
+      --muted:#A7A7C3;
+      --purple:#A855F7;
+      --purple2:#7C3AED;
+      --ok:#22C55E;
+      --danger:#EF4444;
+      --shadow: 0 16px 50px rgba(0,0,0,.45);
+      --r:18px;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:Heebo,system-ui,-apple-system,Segoe UI,Arial;background:var(--bg);color:var(--text)}
+    /* Floating button */
+    .lior-chat-fab{
+      position:fixed; right:18px; bottom:18px; z-index:9999;
+      width:58px; height:58px; border-radius:18px;
+      border:1px solid var(--border);
+      background:linear-gradient(135deg,var(--purple2),var(--purple));
+      box-shadow:var(--shadow);
+      display:flex; align-items:center; justify-content:center;
+      cursor:pointer;
+    }
+    .lior-chat-fab svg{width:26px;height:26px;fill:white;opacity:.95}
+    /* Panel */
+    .lior-chat{
+      position:fixed; right:18px; bottom:88px; z-index:9999;
+      width:min(420px, calc(100vw - 36px));
+      height:min(640px, calc(100vh - 120px));
+      border-radius:22px;
+      border:1px solid var(--border);
+      background:radial-gradient(1200px 600px at 85% -10%, rgba(168,85,247,.28), transparent 55%),
+                 linear-gradient(180deg,var(--panel),var(--panel2));
+      box-shadow:var(--shadow);
+      display:none;
+      overflow:hidden;
+    }
+    .lior-chat.open{display:flex; flex-direction:column}
+    .lior-chat-header{
+      padding:14px 14px 12px 14px;
+      border-bottom:1px solid var(--border);
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+    }
+    .lior-chat-title{
+      display:flex; align-items:center; gap:10px;
+      min-width:0;
+    }
+    .badge{
+      width:38px; height:38px; border-radius:14px;
+      background:rgba(168,85,247,.15);
+      border:1px solid rgba(168,85,247,.35);
+      display:flex; align-items:center; justify-content:center;
+      flex:0 0 auto;
+    }
+    .badge span{
+      font-weight:800; letter-spacing:.5px; color:#fff;
+    }
+    .title-text{min-width:0}
+    .title-text .h1{font-weight:800; font-size:14px; line-height:1.15; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+    .title-text .sub{font-size:12px; color:var(--muted); margin-top:2px}
+    .header-actions{display:flex; align-items:center; gap:8px}
+    .icon-btn{
+      width:38px; height:38px; border-radius:14px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.03);
+      cursor:pointer;
+      display:flex; align-items:center; justify-content:center;
+    }
+    .icon-btn:hover{border-color:rgba(168,85,247,.55)}
+    .icon-btn svg{width:18px;height:18px;fill:rgba(255,255,255,.9)}
+    /* Quick actions */
+    .lior-quick{
+      padding:10px 14px 0 14px;
+      display:flex; flex-wrap:wrap; gap:8px;
+    }
+    .qa{
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.03);
+      color:var(--text);
+      padding:8px 10px;
+      border-radius:999px;
+      font-size:12px;
+      cursor:pointer;
+      user-select:none;
+    }
+    .qa:hover{border-color:rgba(168,85,247,.55)}
+    .qa strong{color:rgba(255,255,255,.92)}
+    /* Messages */
+    .lior-body{
+      padding:12px 14px;
+      overflow:auto;
+      flex:1;
+      scroll-behavior:smooth;
+    }
+    .msg{
+      display:flex;
+      margin:10px 0;
+      gap:10px;
+    }
+    .msg.user{justify-content:flex-start}
+    .msg.bot{justify-content:flex-end}
+    .bubble{
+      max-width:86%;
+      border-radius:18px;
+      padding:10px 12px;
+      line-height:1.35;
+      font-size:14px;
+      border:1px solid var(--border);
+      white-space:pre-wrap;
+      word-break:break-word;
+    }
+    .bubble.user{
+      background:rgba(255,255,255,.04);
+    }
+    .bubble.bot{
+      background:rgba(168,85,247,.12);
+      border-color:rgba(168,85,247,.32);
+    }
+    .meta{
+      margin-top:6px;
+      font-size:11px;
+      color:rgba(255,255,255,.55);
+      display:flex; gap:8px; align-items:center;
+    }
+    .meta a{color:rgba(255,255,255,.8); text-decoration:none; border-bottom:1px dashed rgba(255,255,255,.25)}
+    .meta a:hover{border-bottom-color:rgba(168,85,247,.6)}
+    /* Typing indicator */
+    .typing{
+      display:inline-flex; gap:6px; align-items:center;
+      padding:10px 12px;
+      border-radius:18px;
+      background:rgba(168,85,247,.12);
+      border:1px solid rgba(168,85,247,.32);
+    }
+    .dot{
+      width:6px;height:6px;border-radius:50%;
+      background:rgba(255,255,255,.85);
+      animation: bounce 1.15s infinite ease-in-out;
+      opacity:.85;
+    }
+    .dot:nth-child(2){animation-delay:.15s}
+    .dot:nth-child(3){animation-delay:.3s}
+    @keyframes bounce{
+      0%,80%,100%{transform:translateY(0); opacity:.55}
+      40%{transform:translateY(-4px); opacity:1}
+    }
+    /* Composer */
+    .lior-compose{
+      padding:12px 14px;
+      border-top:1px solid var(--border);
+      display:flex; gap:10px; align-items:flex-end;
+      background:linear-gradient(180deg, transparent, rgba(0,0,0,.12));
+    }
+    .input{
+      flex:1;
+      background:rgba(255,255,255,.03);
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:10px 12px;
+      color:var(--text);
+      font-size:14px;
+      outline:none;
+      min-height:44px;
+      max-height:120px;
+      resize:none;
+    }
+    .input:focus{border-color:rgba(168,85,247,.55)}
+    .send{
+      width:46px;height:46px;border-radius:16px;
+      border:1px solid rgba(168,85,247,.45);
+      background:linear-gradient(135deg,var(--purple2),var(--purple));
+      cursor:pointer;
+      display:flex; align-items:center; justify-content:center;
+      flex:0 0 auto;
+    }
+    .send:disabled{opacity:.5; cursor:not-allowed}
+    .send svg{width:18px;height:18px;fill:white}
+    /* Lead modal */
+    .modal-backdrop{
+      position:absolute; inset:0;
+      background:rgba(0,0,0,.55);
+      display:none;
+      align-items:center; justify-content:center;
+      padding:16px;
+    }
+    .modal-backdrop.open{display:flex}
+    .modal{
+      width:min(420px, 100%);
+      border-radius:22px;
+      border:1px solid var(--border);
+      background:linear-gradient(180deg,var(--panel),var(--panel2));
+      box-shadow:var(--shadow);
+      overflow:hidden;
+    }
+    .modal-head{
+      padding:14px 14px 10px 14px;
+      border-bottom:1px solid var(--border);
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+    }
+    .modal-head .t{font-weight:800}
+    .modal-body{padding:12px 14px 14px 14px}
+    .row{display:flex; gap:10px; flex-wrap:wrap}
+    .field{width:100%; margin-top:10px}
+    .label{font-size:12px; color:var(--muted); margin-bottom:6px}
+    .ctrl{
+      width:100%;
+      background:rgba(255,255,255,.03);
+      border:1px solid var(--border);
+      border-radius:14px;
+      padding:10px 12px;
+      color:var(--text);
+      outline:none;
+      font-size:14px;
+    }
+    .ctrl:focus{border-color:rgba(168,85,247,.55)}
+    .modal-actions{
+      display:flex; gap:10px; margin-top:12px;
+    }
+    .btn{
+      flex:1;
+      border-radius:14px;
+      padding:10px 12px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.03);
+      color:var(--text);
+      cursor:pointer;
+      font-weight:700;
+    }
+    .btn.primary{
+      border-color:rgba(168,85,247,.45);
+      background:linear-gradient(135deg,var(--purple2),var(--purple));
+    }
+    .hint{margin-top:10px; font-size:12px; color:var(--muted)}
+    .error{margin-top:10px; font-size:12px; color:var(--danger); display:none}
+    .ok{margin-top:10px; font-size:12px; color:var(--ok); display:none}
+  </style>
+</head>
+<body>
+<!-- Floating button -->
+<button class="lior-chat-fab" id="liorFab" aria-label="פתח צ'אט">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16v11H7.5L4 18.5V4zm3 6h10v2H7V10zm0-4h10v2H7V6z"/></svg>
+</button>
+<!-- Chat panel -->
+<section class="lior-chat" id="liorChat" aria-label="lior_Ai chat">
+  <header class="lior-chat-header">
+    <div class="lior-chat-title">
+      <div class="badge"><span>AI</span></div>
+      <div class="title-text">
+        <div class="h1">סוכנת lior_Ai</div>
+        <div class="sub">נדל״ן • אתרים • סוכני AI • לידים</div>
+      </div>
+    </div>
+    <div class="header-actions">
+      <button class="icon-btn" id="liorReset" title="איפוס שיחה" aria-label="איפוס שיחה">
+        <svg viewBox="0 0 24 24"><path d="M12 5V2L8 6l4 4V7c3.3 0 6 2.7 6 6a6 6 0 1 1-6-6zm-6 8a6 6 0 0 0 12 0h-2a4 4 0 1 1-4-4v2l4-4-4-4v2a6 6 0 0 0-6 6z"/></svg>
+      </button>
+      <button class="icon-btn" id="liorClose" title="סגור" aria-label="סגור">
+        <svg viewBox="0 0 24 24"><path d="M18.3 5.7 12 12l6.3 6.3-1.4 1.4L10.6 13.4 4.3 19.7 2.9 18.3 9.2 12 2.9 5.7 4.3 4.3l6.3 6.3 6.3-6.3z"/></svg>
+      </button>
+    </div>
+  </header>
+  <div class="lior-quick" id="liorQuick">
+    <button class="qa" data-q="כמה עולה סוכן AI (צ׳אטבוט)?" type="button">מחיר <strong>סוכן AI</strong></button>
+    <button class="qa" data-q="כמה עולה דף נחיתה ומה כולל?" type="button">מחיר <strong>דף נחיתה</strong></button>
+    <button class="qa" data-q="כמה עולה אתר תדמית ומה התהליך?" type="button">מחיר <strong>אתר תדמית</strong></button>
+    <button class="qa" data-q="מה זה בכלל סוכן AI ולמה עסק צריך אחד?" type="button">מה זה <strong>סוכן AI</strong></button>
+    <button class="qa" data-q="אני רוצה שתחזרו אליי עם הצעה מסודרת" type="button">אני <strong>מעוניין</strong></button>
+  </div>
+  <main class="lior-body" id="liorBody"></main>
+  <footer class="lior-compose">
+    <textarea class="input" id="liorInput" rows="1" placeholder="כתבו כאן... (עברית)" autocomplete="off"></textarea>
+    <button class="send" id="liorSend" aria-label="שליחה">
+      <svg viewBox="0 0 24 24"><path d="M2 21 23 12 2 3v7l15 2-15 2v7z"/></svg>
+    </button>
+  </footer>
+  <!-- Lead modal -->
+  <div class="modal-backdrop" id="leadBackdrop" role="dialog" aria-modal="true" aria-label="השארת פרטים">
+    <div class="modal">
+      <div class="modal-head">
+        <div class="t">מעולה — נשאיר פרטים ונדאג לחזור אליך</div>
+        <button class="icon-btn" id="leadClose" aria-label="סגור טופס">
+          <svg viewBox="0 0 24 24"><path d="M18.3 5.7 12 12l6.3 6.3-1.4 1.4L10.6 13.4 4.3 19.7 2.9 18.3 9.2 12 2.9 5.7 4.3 4.3l6.3 6.3 6.3-6.3z"/></svg>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="field">
+          <div class="label">שם</div>
+          <input class="ctrl" id="leadName" placeholder="לדוגמה: דניאל" />
+        </div>
+        <div class="field">
+          <div class="label">טלפון</div>
+          <input class="ctrl" id="leadPhone" placeholder="לדוגמה: 050-1234567" inputmode="tel" />
+        </div>
+        <div class="field">
+          <div class="label">אימייל</div>
+          <input class="ctrl" id="leadEmail" placeholder="example@email.com" inputmode="email" />
+        </div>
+        <div class="modal-actions">
+          <button class="btn" id="leadLater" type="button">אחר כך</button>
+          <button class="btn primary" id="leadSubmit" type="button">שלח פרטים</button>
+        </div>
+        <div class="hint">או שלחו עכשיו וואטסאפ: <span id="waLinkWrap"></span></div>
+        <div class="error" id="leadErr"></div>
+        <div class="ok" id="leadOk">נשלח! תודה 🙌 נחזור אליך בהקדם.</div>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+(() => {
+  /** =========================
+   *  CONFIG — החלף רק כאן
+   *  ========================= */
+  const SUPABASE_FUNCTION_URL = "https://evufisyrxfrwksequajt.supabase.co/functions/v1/claude-proxy";
+  const CHAT_STORAGE_KEY = "lior_ai_chat_v1";
+  const LEAD_STORAGE_KEY = "lior_ai_lead_sent_v1";
+  /** =========================
+   *  BUSINESS FACTS (client-side hints)
+   *  ========================= */
+  const BUSINESS = {
+    brand: "lior_Ai",
+    owner: "ליאור בלול",
+    whatsapp: "https://wa.me/972508668022",
+    email: "liorbll100@gmail.com",
+    prices: {
+      landing: "החל מ-1,200 ₪ + מע״מ",
+      site: "החל מ-2,200 ₪ + מע״מ",
+      agent: "200 ₪/חודש"
+    }
+  };
+  /** =========================
+   *  DOM
+   *  ========================= */
+  const fab = document.getElementById("liorFab");
+  const chat = document.getElementById("liorChat");
+  const closeBtn = document.getElementById("liorClose");
+  const resetBtn = document.getElementById("liorReset");
+  const body = document.getElementById("liorBody");
+  const input = document.getElementById("liorInput");
+  const sendBtn = document.getElementById("liorSend");
+  const quick = document.getElementById("liorQuick");
+  const leadBackdrop = document.getElementById("leadBackdrop");
+  const leadClose = document.getElementById("leadClose");
+  const leadLater = document.getElementById("leadLater");
+  const leadSubmit = document.getElementById("leadSubmit");
+  const leadName = document.getElementById("leadName");
+  const leadPhone = document.getElementById("leadPhone");
+  const leadEmail = document.getElementById("leadEmail");
+  const leadErr = document.getElementById("leadErr");
+  const leadOk = document.getElementById("leadOk");
+  const waLinkWrap = document.getElementById("waLinkWrap");
+  waLinkWrap.innerHTML = `<a href="${BUSINESS.whatsapp}" target="_blank" rel="noopener">לחצו כאן</a>`;
+  /** =========================
+   *  STATE
+   *  ========================= */
+  let messages = loadMessages();
+  function nowHHMM(){
+    const d = new Date();
+    return d.toLocaleTimeString("he-IL",{hour:"2-digit",minute:"2-digit"});
+  }
+  function loadMessages(){
+    try{
+      const raw = localStorage.getItem(CHAT_STORAGE_KEY);
+      if(!raw) return [];
+      const parsed = JSON.parse(raw);
+      if(!Array.isArray(parsed)) return [];
+      return parsed;
+    }catch{ return []; }
+  }
+  function saveMessages(){
+    localStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify(messages.slice(-40)));
+  }
+  function scrollToBottom(){
+    body.scrollTop = body.scrollHeight;
+  }
+  function render(){
+    body.innerHTML = "";
+    if(messages.length === 0){
+      addBotBubble(`היי 👋 אני הסוכנת של ${BUSINESS.brand}.\nרוצה מחיר, להבין מה זה סוכן AI, או להשאיר פרטים להצעה?`, {renderOnly:true});
+      addBotBubble(`במה תרצה להתחיל?`, {renderOnly:true});
+      scrollToBottom();
+      return;
+    }
+    for(const m of messages){
+      addBubble(m.role, m.text, {time:m.time, renderOnly:true, meta:m.meta});
+    }
+    scrollToBottom();
+  }
+  function addBubble(role, text, opts={}){
+    const wrap = document.createElement("div");
+    wrap.className = "msg " + (role === "user" ? "user" : "bot");
+    const bub = document.createElement("div");
+    bub.className = "bubble " + (role === "user" ? "user" : "bot");
+    bub.textContent = text;
+    wrap.appendChild(bub);
+    if(opts.time || opts.meta){
+      const meta = document.createElement("div");
+      meta.className = "meta";
+      if(opts.time){
+        const t = document.createElement("span");
+        t.textContent = opts.time;
+        meta.appendChild(t);
+      }
+      if(opts.meta && Array.isArray(opts.meta)){
+        for(const item of opts.meta){
+          const a = document.createElement("a");
+          a.href = item.href;
+          a.target = "_blank";
+          a.rel = "noopener";
+          a.textContent = item.label;
+          meta.appendChild(a);
+        }
+      }
+      wrap.appendChild(meta);
+    }
+    body.appendChild(wrap);
+    if(!opts.renderOnly) scrollToBottom();
+  }
+  function addUserBubble(text){
+    messages.push({role:"user", text, time: nowHHMM()});
+    saveMessages();
+    addBubble("user", text, {time: nowHHMM()});
+  }
+  function addBotBubble(text, extra={}){
+    const item = {role:"assistant", text, time: nowHHMM()};
+    if(extra.meta) item.meta = extra.meta;
+    if(!extra.renderOnly){
+      messages.push(item);
+      saveMessages();
+    }
+    addBubble("assistant", text, {time: item.time, meta:item.meta, renderOnly: extra.renderOnly});
+  }
+  function showTyping(){
+    const wrap = document.createElement("div");
+    wrap.className = "msg bot";
+    wrap.id = "typingRow";
+    const t = document.createElement("div");
+    t.className = "typing";
+    t.innerHTML = `<span class="dot"></span><span class="dot"></span><span class="dot"></span>`;
+    wrap.appendChild(t);
+    body.appendChild(wrap);
+    scrollToBottom();
+  }
+  function hideTyping(){
+    const el = document.getElementById("typingRow");
+    if(el) el.remove();
+  }
+  function openLeadModal(prefill={}){
+    if(localStorage.getItem(LEAD_STORAGE_KEY) === "1") return;
+    leadErr.style.display = "none";
+    leadOk.style.display = "none";
+    leadName.value = prefill.name || leadName.value || "";
+    leadPhone.value = prefill.phone || leadPhone.value || "";
+    leadEmail.value = prefill.email || leadEmail.value || "";
+    leadBackdrop.classList.add("open");
+    setTimeout(() => leadName.focus(), 50);
+  }
+  function closeLeadModal(){
+    leadBackdrop.classList.remove("open");
+  }
+  function looksInterested(userText){
+    const t = (userText || "").toLowerCase();
+    return [
+      "מעוניין","רוצה","הצעה","דבר איתי","דברו איתי","לחזור אליי","חזרו אליי",
+      "טלפון","וואטסאפ","פגישה","מחיר","כמה עולה","להתחיל","לסגור"
+    ].some(k => t.includes(k.toLowerCase()));
+  }
+  function autoGrow(){
+    input.style.height = "auto";
+    input.style.height = Math.min(input.scrollHeight, 120) + "px";
+  }
+  input.addEventListener("input", autoGrow);
+  /** =========================
+   *  API CALL
+   *  ========================= */
+  async function callAgent(){
+    const payload = {
+      messages: messages
+        .filter(m => m.role === "user" || m.role === "assistant")
+        .slice(-18)
+        .map(m => ({ role: m.role === "assistant" ? "assistant" : "user", content: m.text })),
+      page_url: location.href
+    };
+    const res = await fetch(SUPABASE_FUNCTION_URL, {
+      method:"POST",
+      headers: {"content-type":"application/json"},
+      body: JSON.stringify(payload)
+    });
+    if(!res.ok){
+      const txt = await res.text().catch(()=>"");
+      throw new Error(`Proxy error: ${res.status} ${txt}`);
+    }
+    return await res.json();
+  }
+  async function send(text){
+    const trimmed = (text || "").trim();
+    if(!trimmed) return;
+    sendBtn.disabled = true;
+    addUserBubble(trimmed);
+    if(looksInterested(trimmed)) openLeadModal();
+    showTyping();
+    try{
+      const data = await callAgent();
+      const reply = (data && data.reply) ? String(data.reply) : "משהו השתבש. נסה שוב בעוד רגע.";
+      addBotBubble(reply, {
+        meta: [
+          {label:"וואטסאפ", href: BUSINESS.whatsapp},
+          {label:"אימייל", href: "mailto:" + BUSINESS.email}
+        ]
+      });
+      if(data && data.collect_lead === true){
+        openLeadModal();
+      }
+    }catch(e){
+      console.error(e);
+      addBotBubble("יש תקלה זמנית בחיבור. אפשר להשאיר פרטים או לפנות אליי בוואטסאפ ונמשיך שם 🙏", {
+        meta: [{label:"וואטסאפ", href: BUSINESS.whatsapp}]
+      });
+      openLeadModal();
+    }finally{
+      hideTyping();
+      sendBtn.disabled = false;
+      input.value = "";
+      autoGrow();
+      input.focus();
+    }
+  }
+  /** =========================
+   *  LEAD SUBMIT
+   *  ========================= */
+  function validEmail(v){
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(v||"").trim());
+  }
+  async function submitLead(){
+    leadErr.style.display = "none";
+    leadOk.style.display = "none";
+    const lead = {
+      name: leadName.value.trim(),
+      phone: leadPhone.value.trim(),
+      email: leadEmail.value.trim(),
+      source: "chat_widget",
+      page_url: location.href
+    };
+    if(!lead.name || !lead.phone || !lead.email){
+      leadErr.textContent = "כדי שנחזור אליך מהר — צריך שם, טלפון ואימייל.";
+      leadErr.style.display = "block";
+      return;
+    }
+    if(!validEmail(lead.email)){
+      leadErr.textContent = "האימייל לא נראה תקין. בדוק שוב 🙂";
+      leadErr.style.display = "block";
+      return;
+    }
+    leadSubmit.disabled = true;
+    try{
+      const res = await fetch(SUPABASE_FUNCTION_URL, {
+        method:"POST",
+        headers: {"content-type":"application/json"},
+        body: JSON.stringify({ lead, page_url: location.href })
+      });
+      if(!res.ok){
+        const txt = await res.text().catch(()=>"");
+        throw new Error(`Lead save error: ${res.status} ${txt}`);
+      }
+      localStorage.setItem(LEAD_STORAGE_KEY, "1");
+      leadOk.style.display = "block";
+      addBotBubble("קיבלתי ✅ נחזור אליך בהקדם עם הצעה מסודרת. אם דחוף — אפשר גם וואטסאפ.", {
+        meta:[{label:"וואטסאפ", href: BUSINESS.whatsapp}]
+      });
+      setTimeout(() => closeLeadModal(), 850);
+    }catch(e){
+      console.error(e);
+      leadErr.textContent = "לא הצלחתי לשמור את הפרטים כרגע. שלח וואטסאפ ונמשיך שם 🙏";
+      leadErr.style.display = "block";
+    }finally{
+      leadSubmit.disabled = false;
+    }
+  }
+  /** =========================
+   *  EVENTS
+   *  ========================= */
+  fab.addEventListener("click", () => {
+    chat.classList.add("open");
+    input.focus();
+    render();
+  });
+  closeBtn.addEventListener("click", () => chat.classList.remove("open"));
+  resetBtn.addEventListener("click", () => {
+    if(confirm("לאפס את השיחה?")){
+      messages = [];
+      saveMessages();
+      render();
+      localStorage.removeItem(LEAD_STORAGE_KEY);
+    }
+  });
+  quick.addEventListener("click", (e) => {
+    const btn = e.target.closest(".qa");
+    if(!btn) return;
+    send(btn.dataset.q || "");
+  });
+  sendBtn.addEventListener("click", () => send(input.value));
+  input.addEventListener("keydown", (e) => {
+    if(e.key === "Enter" && !e.shiftKey){
+      e.preventDefault();
+      send(input.value);
+    }
+  });
+  leadClose.addEventListener("click", closeLeadModal);
+  leadLater.addEventListener("click", closeLeadModal);
+  leadBackdrop.addEventListener("click", (e) => {
+    if(e.target === leadBackdrop) closeLeadModal();
+  });
+  leadSubmit.addEventListener("click", submitLead);
+  render();
+})();
+</script>
+</body>
+</html>
