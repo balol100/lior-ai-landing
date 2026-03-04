@@ -29,9 +29,11 @@
       --purple: #a855f7;
       --purple2: #7c3aed;
       --green: #00e5a0;
-      --grad-cta: linear-gradient(135deg, #00d2ff, #a855f7);
-      --grad-cta2: linear-gradient(135deg, #a855f7, #00d2ff);
-      --glow-cyan: 0 0 30px rgba(0,210,255,.35), 0 0 60px rgba(0,210,255,.15);
+      --electric: #1a6cff;
+      --electric2: #0af;
+      --grad-cta: linear-gradient(135deg, #1a6cff, #00aaff);
+      --grad-cta2: linear-gradient(135deg, #00aaff, #1a6cff);
+      --glow-cyan: 0 0 35px rgba(26,108,255,.55), 0 0 70px rgba(0,170,255,.25);
       --glow-purple: 0 0 30px rgba(168,85,247,.35), 0 0 60px rgba(168,85,247,.15);
       --r: 20px;
       --r-sm: 14px;
@@ -104,7 +106,7 @@
       min-height: 100vh;
       display: flex;
       align-items: center;
-      padding: 6rem 0 5rem;
+      padding: 8rem 0 7rem;
       position: relative;
     }
     #hero::before {
@@ -153,7 +155,7 @@
       font-weight: 800;
       line-height: 1.12;
       letter-spacing: -1.5px;
-      margin-bottom: 1.5rem;
+      margin-bottom: 2rem;
     }
     h1 .highlight {
       background: var(--grad-cta);
@@ -165,8 +167,8 @@
       font-size: clamp(1rem, 2vw, 1.2rem);
       color: var(--muted);
       max-width: 640px;
-      margin: 0 auto 2.5rem;
-      line-height: 1.75;
+      margin: 0 auto 3.5rem;
+      line-height: 1.85;
     }
     .hero-cta-group {
       display: flex;
@@ -178,10 +180,10 @@
       display: inline-flex;
       align-items: center;
       gap: .6rem;
-      padding: .9rem 2rem;
+      padding: 1rem 2.25rem;
       border-radius: 999px;
       background: var(--grad-cta);
-      color: #04040a;
+      color: #fff;
       font-weight: 800;
       font-size: 1rem;
       border: none;
@@ -189,6 +191,7 @@
       position: relative;
       overflow: hidden;
       transition: box-shadow .25s, transform .15s;
+      letter-spacing: .2px;
     }
     .btn-primary::after {
       content: '';
@@ -221,10 +224,10 @@
       background: rgba(0,210,255,.08);
     }
     .hero-trust {
-      margin-top: 3rem;
+      margin-top: 4.5rem;
       display: flex;
       justify-content: center;
-      gap: 2.5rem;
+      gap: 3.5rem;
       flex-wrap: wrap;
     }
     .trust-item {
@@ -244,7 +247,7 @@
     .trust-label { font-size: .8rem; color: var(--muted); }
 
     /* ── Section base ── */
-    section { padding: 6rem 0; position: relative; z-index: 1; }
+    section { padding: 7.5rem 0; position: relative; z-index: 1; }
     .section-label {
       display: inline-block;
       font-size: .75rem;
@@ -264,8 +267,9 @@
     .section-sub {
       color: var(--muted);
       max-width: 560px;
-      margin-bottom: 3.5rem;
+      margin-bottom: 4.5rem;
       font-size: 1.05rem;
+      line-height: 1.8;
     }
 
     /* ── DESTRUCTION / COMPARISON ── */
@@ -1090,12 +1094,41 @@
 
   resizeCanvas();
   window.addEventListener('resize', resizeCanvas);
-  setInterval(drawMatrix, 50);
+
+  // Canvas רץ עם RAF — לא חוסם את ה-Hero rendering
+  let lastFrame = 0;
+  function animate(ts) {
+    if (ts - lastFrame >= 50) { drawMatrix(); lastFrame = ts; }
+    requestAnimationFrame(animate);
+  }
+  // מתחיל רק אחרי שה-Hero נטען — לא מאחר את FCP
+  if (document.readyState === 'complete') {
+    (window.requestIdleCallback || setTimeout)(function() { requestAnimationFrame(animate); }, { timeout: 800 });
+  } else {
+    window.addEventListener('load', function() {
+      (window.requestIdleCallback || setTimeout)(function() { requestAnimationFrame(animate); }, { timeout: 800 });
+    });
+  }
 
   /* ─── Demo Chat ─── */
   const SUPABASE_URL = 'https://evufisyrxfrwksequajt.supabase.co/functions/v1/claude-proxy';
   const LEAD_KEY = 'lior_ad_lead_v1';
   const CHAT_KEY = 'lior_ad_chat_v1';
+
+  // ── Instant Lead Notification ──
+  // החלף ב-Webhook URL של Make.com / n8n שלך (תומכים CORS)
+  const NOTIFY_WEBHOOK = '';  // ← הדבק כאן את ה-URL שלך
+
+  async function notifyOwner(data) {
+    if (!NOTIFY_WEBHOOK) return;
+    try {
+      await fetch(NOTIFY_WEBHOOK, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ ...data, ts: new Date().toISOString(), source: 'ad.lior-ai.com' })
+      });
+    } catch(e) {} // silent — לא לפגוע ב-UX אם ה-webhook נכשל
+  }
 
   const chatBody = document.getElementById('demoChatBody');
   const chatInput = document.getElementById('demoChatInput');
@@ -1294,6 +1327,7 @@
       });
       if (!res.ok) throw new Error('save failed');
       localStorage.setItem(LEAD_KEY, '1');
+      notifyOwner({ type: 'lead_modal', name: lead.name, phone: lead.phone, email: lead.email });
       mOk.style.display = 'block';
       setTimeout(closeLeadModal, 900);
     } catch(err) {
@@ -1310,6 +1344,8 @@
     const name = document.getElementById('c-name').value.trim();
     const biz = document.getElementById('c-biz').value.trim();
     const phone = document.getElementById('c-phone').value.trim();
+    // שליחת התראה מיידית לבעלים לפני פתיחת WhatsApp
+    notifyOwner({ type: 'contact_form', name, biz, phone });
     let text = 'היי ליאור, הגעתי מהדף הפרסומי ואשמח לשמוע על שירות ה-AI.%0A';
     text += 'שם: ' + name + '%0A';
     text += 'עסק: ' + biz + '%0A';
