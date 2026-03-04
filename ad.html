@@ -1121,13 +1121,15 @@
 
   async function notifyOwner(data) {
     if (!NOTIFY_WEBHOOK) return;
+    const payload = JSON.stringify({ ...data, ts: new Date().toISOString(), source: 'ad.lior-ai.com' });
     try {
-      await fetch(NOTIFY_WEBHOOK, {
-        method: 'POST',
-        headers: { 'content-type': 'application/json' },
-        body: JSON.stringify({ ...data, ts: new Date().toISOString(), source: 'ad.lior-ai.com' })
-      });
-    } catch(e) {} // silent — לא לפגוע ב-UX אם ה-webhook נכשל
+      // sendBeacon מובטח להגיע גם כשהעמוד זזה (WhatsApp popup / navigation)
+      if (navigator.sendBeacon) {
+        navigator.sendBeacon(NOTIFY_WEBHOOK, new Blob([payload], { type: 'application/json' }));
+      } else {
+        fetch(NOTIFY_WEBHOOK, { method: 'POST', headers: { 'content-type': 'application/json' }, body: payload });
+      }
+    } catch(e) {}
   }
 
   const chatBody = document.getElementById('demoChatBody');
