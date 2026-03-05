@@ -1295,8 +1295,8 @@
         <div class="about-grid">
           <div class="about-photo reveal">
             <picture>
-              <source srcset="images/profile-optimized.webp" type="image/webp">
-              <img src="images/profile-optimized.jpg" alt="ליאור בלול - מומחה בניית אתרים וסוכני AI לעסקים ישראלים" loading="lazy" width="600" height="800">
+              <source srcset="/profile.webp" type="image/webp">
+              <img src="/profile-optimized.jpg" alt="ליאור בלול - מומחה בניית אתרים וסוכני AI לעסקים ישראלים" loading="lazy" width="600" height="800">
             </picture>
           </div>
           <div class="about-text">
@@ -1521,6 +1521,13 @@
                 <label for="message">הערות נוספות</label>
                 <textarea id="message" name="message" rows="3" placeholder="פרטים נוספים, שאלות, או כל מה שיעזור לדייק את ההצעה" aria-label="הערות נוספות"></textarea>
               </div>
+              <div class="form-group consent-group">
+                <label for="privacyConsent" style="display:flex;gap:8px;align-items:flex-start;font-size:0.9rem;color:var(--muted)">
+                  <input id="privacyConsent" name="privacyConsent" type="checkbox" required aria-required="true" style="margin-top:6px">
+                  <span>אני מאשר/ת שמירת פרטי הפנייה לצורך חזרה אליי בלבד, בהתאם ל<a href="/privacy-policy.html" target="_blank" rel="noopener noreferrer" style="text-decoration:underline">מדיניות הפרטיות</a>.</span>
+                </label>
+                <input type="text" name="company_website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-10000px;opacity:0">
+              </div>
               <button type="submit" class="form-submit">
                 💬 שלח בוואטסאפ
               </button>
@@ -1574,6 +1581,7 @@
           <ul>
             <li><a href="/privacy-policy.html">מדיניות פרטיות</a></li>
             <li><a href="/accessibility-statement.html">הצהרת נגישות</a></li>
+            <li><a href="/terms.html">תקנון אתר וזכויות שימוש</a></li>
           </ul>
         </div>
         <div class="footer-col">
@@ -1591,6 +1599,8 @@
           <a href="/privacy-policy.html">מדיניות פרטיות</a>
           &nbsp;|&nbsp;
           <a href="/accessibility-statement.html">הצהרת נגישות</a>
+          &nbsp;|&nbsp;
+          <a href="/terms.html">תקנון אתר</a>
         </p>
       </div>
       <p class="data-notice">
@@ -1712,6 +1722,13 @@
       var phone = document.getElementById('phone').value.trim();
       var service = document.getElementById('service').value;
       var message = document.getElementById('message').value.trim();
+      var consent = document.getElementById('privacyConsent');
+      var honeypot = document.querySelector('input[name="company_website"]');
+      if (honeypot && honeypot.value) return;
+      if (consent && !consent.checked) {
+        consent.focus();
+        return;
+      }
       var text = 'היי ליאור, אשמח לשמוע על השירותים שלך.%0A';
       text += 'שם: ' + encodeURIComponent(name) + '%0A';
       text += 'עסק: ' + encodeURIComponent(business) + '%0A';
@@ -1722,6 +1739,7 @@
     }
   </script>
 
+  <script defer src="/assets/site-compliance.js"></script>
   <script defer src="/assets/accessibility.js"></script>
   <script defer src="/assets/ai-demo-widget.js"></script>
 </body>
