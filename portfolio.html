@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>תיק עבודות | lior-ai — ליאור בלול</title>
+  <meta property="og:image" content="https://lior-ai.com/og-image.jpg">
+  <meta property="og:url" content="https://lior-ai.com/portfolio.html">
+  <meta property="og:type" content="website">
   <meta name="description" content="תיק עבודות של lior-ai — דפי נחיתה, אתרי תדמית וסוכני AI לעסקים. 7 פרויקטים חיים בתחומי נדל״ן, מזון, רכב, בריאות ועוד.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://lior-ai.com/portfolio.html">
@@ -14,9 +17,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800&family=Rubik:wght@500;700;800&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0a0a0f;
-      --card: #12121b;
-      --card-hover: #1a1a28;
+      --bg: #000;
+      --card: #0e0e0e;
+      --card-hover: #161616;
       --text: #f4f6fb;
       --muted: #a8adbd;
       --line: rgba(255,255,255,.08);
@@ -494,6 +497,7 @@
   </style>
 </head>
 <body>
+<a href="#main-content" style="position:absolute;top:-60px;right:0;background:#00e5a0;color:#000;padding:.6rem 1.2rem;font-weight:700;border-radius:0 0 0 10px;z-index:9999;transition:top .2s;text-decoration:none" onfocus="this.style.top='0'" onblur="this.style.top='-60px'">דלג לתוכן הראשי</a>
 
 <!-- NAV -->
 <nav>
@@ -511,7 +515,7 @@
 </nav>
 
 <!-- HERO -->
-<section class="hero">
+<section class="hero" id="main-content" tabindex="-1">
   <div class="container hero-content">
     <div class="hero-badge">🔥 9 פרויקטים חיים באוויר</div>
     <h1>תיק <span class="accent-text">עבודות</span></h1>
@@ -849,12 +853,16 @@
 <!-- FOOTER -->
 <footer>
   <div class="container">
-    <div>© 2026 lior.AI — ליאור בלול | נדל״ן × בינה מלאכותית</div>
-    <div class="footer-links">
-      <a href="https://x.com/LiorBalol" target="_blank" title="X / Twitter">𝕏</a>
-      <a href="https://www.youtube.com/channel/UCjwWgjFmZN5MELt2-QqkF8Q" target="_blank" title="YouTube">▶️</a>
-      <a href="https://github.com/balol100" target="_blank" title="GitHub">⌨️</a>
-      <a href="https://www.patreon.com/cw/lior_Ai1" target="_blank" title="Patreon">🅿️</a>
+    <div>© 2026 lior-ai | ליאור בלול — בניית אתרים, דפי נחיתה וסוכני AI לעסקים</div>
+    <div class="footer-links" style="margin-top:.5rem">
+      <a href="https://x.com/LiorBalol" target="_blank" rel="noopener" title="X / Twitter" aria-label="X Twitter">𝕏</a>
+      <a href="https://www.youtube.com/channel/UCjwWgjFmZN5MELt2-QqkF8Q" target="_blank" rel="noopener" title="YouTube" aria-label="YouTube">▶️</a>
+      <a href="https://github.com/balol100" target="_blank" rel="noopener" title="GitHub" aria-label="GitHub">⌨️</a>
+    </div>
+    <div style="margin-top:.6rem;font-size:.82rem;color:rgba(255,255,255,.3);display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap">
+      <a href="/privacy-policy.html" style="color:rgba(255,255,255,.35)" onmouseover="this.style.color='#00e5a0'" onmouseout="this.style.color='rgba(255,255,255,.35)'">מדיניות פרטיות</a>
+      <a href="/accessibility-statement.html" style="color:rgba(255,255,255,.35)" onmouseover="this.style.color='#00e5a0'" onmouseout="this.style.color='rgba(255,255,255,.35)'">הצהרת נגישות</a>
+      <a href="/" style="color:rgba(255,255,255,.35)" onmouseover="this.style.color='#00e5a0'" onmouseout="this.style.color='rgba(255,255,255,.35)'">עמוד הבית</a>
     </div>
   </div>
 </footer>
@@ -893,5 +901,6 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
 
 
 <script defer src="/assets/ai-demo-widget.js"></script>
+<script defer src="/assets/accessibility.js"></script>
 </body>
 </html>

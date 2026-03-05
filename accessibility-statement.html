@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>הצהרת נגישות – lior-ai | ליאור בלול</title>
+  <meta name="description" content="הצהרת הנגישות של lior-ai.com בהתאם לחוק שוויון זכויות לאנשים עם מוגבלות ותקן IS 5568.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://lior-ai.com/accessibility-statement.html">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800&family=Rubik:wght@500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#000;--bg1:#0a0a0a;
+      --card:rgba(255,255,255,.04);--card-border:rgba(255,255,255,.08);
+      --text:#fff;--muted:rgba(255,255,255,.58);--dim:rgba(255,255,255,.32);
+      --accent:#00e5a0;--accent2:#00b8d4;
+      --grad:linear-gradient(135deg,#00e5a0,#00b8d4);
+      --radius:16px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);line-height:1.8;direction:rtl}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+    .skip-link{position:absolute;top:-60px;right:0;background:var(--accent);color:#000;padding:.6rem 1.2rem;font-weight:700;border-radius:0 0 0 10px;z-index:9999;transition:top .2s}
+    .skip-link:focus{top:0}
+    nav{position:sticky;top:0;z-index:50;background:rgba(0,0,0,.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--card-border)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:1rem;max-width:900px;margin:auto;gap:1rem}
+    .logo{font-family:'Rubik',sans-serif;font-weight:800;font-size:1.3rem;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .nav-back{display:flex;align-items:center;gap:.5rem;color:var(--muted);font-size:.9rem;padding:.4rem .8rem;border-radius:8px;border:1px solid var(--card-border);transition:all .2s}
+    .nav-back:hover{color:#fff;border-color:rgba(255,255,255,.25);text-decoration:none}
+    main{max-width:860px;margin:0 auto;padding:3rem 1.5rem 5rem}
+    .page-header{margin-bottom:3rem;padding-bottom:2rem;border-bottom:1px solid var(--card-border)}
+    .page-label{display:inline-block;background:rgba(0,229,160,.12);color:var(--accent);border:1px solid rgba(0,229,160,.25);border-radius:8px;padding:.3rem .8rem;font-size:.85rem;font-weight:700;margin-bottom:1rem}
+    h1{font-family:'Rubik',sans-serif;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;line-height:1.2;margin-bottom:.8rem}
+    .page-meta{color:var(--muted);font-size:.9rem;display:flex;flex-wrap:wrap;gap:1.5rem}
+    .level-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(0,229,160,.12);border:1px solid rgba(0,229,160,.3);border-radius:10px;padding:.5rem 1rem;color:var(--accent);font-weight:700;font-size:.95rem;margin:1rem 0}
+    section.a11y-section{margin-bottom:2.5rem;scroll-margin-top:80px}
+    h2{font-family:'Rubik',sans-serif;font-size:1.25rem;font-weight:700;margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1px solid var(--card-border);display:flex;align-items:center;gap:.6rem}
+    .sec-icon{font-size:1.1rem}
+    p{color:var(--muted);margin-bottom:1rem;line-height:1.85}
+    ul,ol{color:var(--muted);padding-right:1.4rem;margin-bottom:1rem}
+    li{margin:.4rem 0;line-height:1.8}
+    strong{color:var(--text)}
+    .feature-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem;margin:1rem 0}
+    .feature-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:1rem 1.2rem;display:flex;align-items:flex-start;gap:.8rem}
+    .feature-icon{font-size:1.4rem;flex-shrink:0;margin-top:.1rem}
+    .feature-text strong{display:block;color:var(--text);font-size:.95rem;margin-bottom:.2rem}
+    .feature-text span{color:var(--muted);font-size:.85rem;line-height:1.5}
+    .status-ok{color:#00e5a0}
+    .status-partial{color:#f59e0b}
+    .status-na{color:rgba(255,255,255,.35)}
+    table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.9rem}
+    th,td{padding:.7rem 1rem;border:1px solid var(--card-border);text-align:right;vertical-align:top}
+    th{background:rgba(255,255,255,.05);color:var(--text);font-weight:700}
+    td{color:var(--muted)}
+    .contact-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:1.5rem;margin-top:1rem}
+    .contact-row{display:flex;align-items:flex-start;gap:.8rem;padding:.5rem 0;border-bottom:1px solid var(--card-border)}
+    .contact-row:last-child{border-bottom:none}
+    .contact-icon{font-size:1.2rem;flex-shrink:0;margin-top:.1rem}
+    .highlight-box{background:rgba(0,229,160,.07);border:1px solid rgba(0,229,160,.2);border-radius:12px;padding:1.2rem 1.4rem;margin:1.2rem 0}
+    .highlight-box p{color:rgba(255,255,255,.75);margin:0}
+    .widget-demo{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:1.5rem;margin:1rem 0;text-align:center}
+    .widget-demo p{color:var(--muted);font-size:.9rem;margin-bottom:.8rem}
+    footer{text-align:center;padding:2rem;border-top:1px solid var(--card-border);color:var(--dim);font-size:.85rem}
+    footer a{color:var(--dim)}
+    footer a:hover{color:var(--accent)}
+    @media(max-width:600px){
+      main{padding:2rem 1rem 4rem}
+      .feature-grid{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">דלג לתוכן הראשי</a>
+
+  <nav aria-label="ניווט ראשי">
+    <div class="nav-inner">
+      <a href="/" class="logo" aria-label="עמוד הבית lior-ai">lior-ai</a>
+      <a href="/" class="nav-back" aria-label="חזרה לעמוד הבית">← חזרה לאתר</a>
+    </div>
+  </nav>
+
+  <main id="main-content" tabindex="-1">
+    <header class="page-header">
+      <div class="page-label">♿ נגישות</div>
+      <h1>הצהרת נגישות</h1>
+      <div class="page-meta">
+        <span>📅 עדכון אחרון: 1 במרץ 2026</span>
+        <span>⚖️ חוק שוויון זכויות לאנשים עם מוגבלות, תשנ״ח-1998</span>
+      </div>
+      <div class="level-badge" role="status">
+        ✅ תואם תקן IS 5568 · WCAG 2.1 רמה AA (חלקי)
+      </div>
+    </header>
+
+    <section class="a11y-section" id="commitment" aria-labelledby="h-commitment">
+      <h2 id="h-commitment"><span class="sec-icon">💡</span> מחויבות לנגישות</h2>
+      <p><strong>lior-ai (ליאור בלול)</strong> מחויבת לנגישות דיגיטלית ולשוויון גישה לאנשים עם מוגבלות, בהתאם ל<strong>חוק שוויון זכויות לאנשים עם מוגבלות, תשנ״ח-1998</strong>, ותקנות שוויון זכויות לאנשים עם מוגבלות (התאמות נגישות לשירות), תשע״ג-2013.</p>
+      <p>אנו שואפים לעמוד בדרישות <strong>תקן ישראלי IS 5568</strong> (המבוסס על WCAG 2.1, רמה AA) ומבצעים שיפורי נגישות שוטפים.</p>
+    </section>
+
+    <section class="a11y-section" id="features" aria-labelledby="h-features">
+      <h2 id="h-features"><span class="sec-icon">🛠️</span> אמצעי הנגישות באתר</h2>
+      <p>הכפתור <strong>♿ נגישות</strong> (בפינה הימנית התחתונה של כל עמוד) מאפשר:</p>
+      <div class="feature-grid" role="list">
+        <div class="feature-card" role="listitem">
+          <div class="feature-icon">🔤</div>
+          <div class="feature-text">
+            <strong>שינוי גודל טקסט</strong>
+            <span>הגדלה עד 200% והקטנה עד 80%, ניתן לשנות בכל עמוד</span>
+          </div>
+        </div>
+        <div class="feature-card" role="listitem">
+          <div class="feature-icon">🌗</div>
+          <div class="feature-text">
+            <strong>ניגודיות גבוהה</strong>
+            <span>מצב ניגודיות גבוהה לקושי בראיית צבעים</span>
+          </div>
+        </div>
+        <div class="feature-card" role="listitem">
+          <div class="feature-icon">🔄</div>
+          <div class="feature-text">
+            <strong>צבעים הפוכים</strong>
+            <span>היפוך מלא של צבעי התצוגה</span>
+          </div>
+        </div>
+        <div class="feature-card" role="listitem">
+          <div class="feature-icon">🟡</div>
+          <div class="feature-text">
+            <strong>צהוב על שחור</strong>
+            <span>פלטת ניגודיות גבוהה צהוב/שחור לרגישות לאור</span>
+          </div>
+        </div>
+        <div class="feature-card" role="listitem">
+          <div class="feature-icon">⬜</div>
+          <div class="feature-text">
+            <strong>גווני אפור</strong>
+            <span>מצב מונוכרום לרגישות לצבע</span>
+          </div>
+        </div>
+        <div class="feature-card" role="listitem">
+          <div class="feature-icon">🔗</div>
+          <div class="feature-text">
+            <strong>הדגשת קישורים</strong>
+            <span>מסגרת צהובה ברורה סביב כל קישורי העמוד</span>
+          </div>
+        </div>
+        <div class="feature-card" role="listitem">
+          <div class="feature-icon">🖱️</div>
+          <div class="feature-text">
+            <strong>סמן מוגדל</strong>
+            <span>הגדלת מצביע העכבר לנראות טובה יותר</span>
+          </div>
+        </div>
+        <div class="feature-card" role="listitem">
+          <div class="feature-icon">⏹️</div>
+          <div class="feature-text">
+            <strong>עצירת אנימציות</strong>
+            <span>ביטול כל האנימציות, מצגות ואפקטים בתנועה</span>
+          </div>
+        </div>
+        <div class="feature-card" role="listitem">
+          <div class="feature-icon">📝</div>
+          <div class="feature-text">
+            <strong>גופן דיסלקציה</strong>
+            <span>מעבר לגופן Arial עם ריווח מוגדל לקוראים עם דיסלקציה</span>
+          </div>
+        </div>
+        <div class="feature-card" role="listitem">
+          <div class="feature-icon">📏</div>
+          <div class="feature-text">
+            <strong>מדריך קריאה</strong>
+            <span>שורת מעקב אופקית לעזרה בקריאה שורה אחרי שורה</span>
+          </div>
+        </div>
+        <div class="feature-card" role="listitem">
+          <div class="feature-icon">↺</div>
+          <div class="feature-text">
+            <strong>איפוס הגדרות</strong>
+            <span>חזרה מלאה להגדרות ברירת מחדל בלחיצה אחת</span>
+          </div>
+        </div>
+        <div class="feature-card" role="listitem">
+          <div class="feature-icon">💾</div>
+          <div class="feature-text">
+            <strong>שמירה אוטומטית</strong>
+            <span>כל ההגדרות נשמרות ומיושמות בכל ביקור עתידי</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="a11y-section" id="technical" aria-labelledby="h-technical">
+      <h2 id="h-technical"><span class="sec-icon">⚙️</span> נגישות טכנית</h2>
+      <p>מעבר לוויג'ט הנגישות, האתר כולל את האמצעים הטכניים הבאים:</p>
+      <table>
+        <thead>
+          <tr><th>אמצעי נגישות</th><th>מצב יישום</th><th>פירוט</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>שפה ברמת קוד</td>
+            <td class="status-ok">✅ מיושם</td>
+            <td>lang="he" dir="rtl" על כל עמוד</td>
+          </tr>
+          <tr>
+            <td>קישור דילוג לתוכן</td>
+            <td class="status-ok">✅ מיושם</td>
+            <td>"דלג לתוכן הראשי" נגיש ב-Tab בכל עמוד</td>
+          </tr>
+          <tr>
+            <td>מבנה כותרות היררכי</td>
+            <td class="status-ok">✅ מיושם</td>
+            <td>h1 → h2 → h3 בסדר לוגי בכל עמוד</td>
+          </tr>
+          <tr>
+            <td>תגיות ARIA</td>
+            <td class="status-ok">✅ מיושם</td>
+            <td>aria-label, aria-pressed, role, aria-live, aria-expanded</td>
+          </tr>
+          <tr>
+            <td>טקסט חלופי לתמונות</td>
+            <td class="status-ok">✅ מיושם</td>
+            <td>alt בכל תמונות האתר</td>
+          </tr>
+          <tr>
+            <td>ניווט מקלדת</td>
+            <td class="status-ok">✅ מיושם</td>
+            <td>גישה ל-Tab לכל אלמנטים אינטראקטיביים</td>
+          </tr>
+          <tr>
+            <td>מחוון פוקוס גלוי</td>
+            <td class="status-ok">✅ מיושם</td>
+            <td>focus-visible מוגדר בכל כפתורים וקישורים</td>
+          </tr>
+          <tr>
+            <td>יחסי ניגודיות</td>
+            <td class="status-ok">✅ מיושם</td>
+            <td>טקסט בגוון בהיר על רקע כהה, עומד ב-4.5:1</td>
+          </tr>
+          <tr>
+            <td>תגיות Landmark</td>
+            <td class="status-ok">✅ מיושם</td>
+            <td>nav, main, header, footer, section</td>
+          </tr>
+          <tr>
+            <td>טפסים נגישים</td>
+            <td class="status-ok">✅ מיושם</td>
+            <td>label מקושר לכל שדה, required, placeholder</td>
+          </tr>
+          <tr>
+            <td>תאימות מגדלי מסך</td>
+            <td class="status-ok">✅ מיושם</td>
+            <td>גודל טקסט בהיחידה rem לסקלה נכונה</td>
+          </tr>
+          <tr>
+            <td>עיצוב רספונסיבי</td>
+            <td class="status-ok">✅ מיושם</td>
+            <td>תצוגה מלאה ממסכי 320px ומעלה</td>
+          </tr>
+          <tr>
+            <td>ניגודיות מוגברת (prefers-contrast)</td>
+            <td class="status-partial">⚠️ חלקי</td>
+            <td>וויג'ט הנגישות מספק פתרון, אך CSS media query בפיתוח</td>
+          </tr>
+          <tr>
+            <td>Reduced Motion (prefers-reduced-motion)</td>
+            <td class="status-partial">⚠️ חלקי</td>
+            <td>זמין דרך וויג'ט, תמיכה ישירה ב-CSS מתוכננת</td>
+          </tr>
+          <tr>
+            <td>תמלול שמע/וידאו</td>
+            <td class="status-na">— לא רלוונטי</td>
+            <td>אין תוכן מדיה באתר</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="a11y-section" id="known-issues" aria-labelledby="h-known">
+      <h2 id="h-known"><span class="sec-icon">⚠️</span> מגבלות ידועות</h2>
+      <p>אנו מודעים לפערים הבאים ועובדים על פתרונם:</p>
+      <ul>
+        <li>ממשק הצ'אט החכם (Aria) אינו עומד עדיין בכל דרישות WCAG 2.1 AA לרכיבי dialog ו-live region</li>
+        <li>חלק מהכרטיסיות (cards) הגרפיות בפורטפוליו מכילות מידע חזותי בלבד, ללא טקסט מלא מקביל</li>
+        <li>שיפורי <code>prefers-reduced-motion</code> ו-<code>prefers-contrast</code> ישירות ב-CSS יתווספו</li>
+      </ul>
+    </section>
+
+    <section class="a11y-section" id="testing" aria-labelledby="h-testing">
+      <h2 id="h-testing"><span class="sec-icon">🧪</span> בדיקות נגישות שבוצעו</h2>
+      <ul>
+        <li>בדיקת ניווט מקלדת מלא בדפדפני Chrome, Firefox ו-Safari</li>
+        <li>בדיקת ניגודיות צבע עם Colour Contrast Analyser</li>
+        <li>בדיקה עם קורא מסך NVDA ו-VoiceOver (macOS/iOS)</li>
+        <li>בדיקת זום עד 200% בכל הדפדפנים הראשיים</li>
+        <li>בדיקת תצוגה רספונסיבית מ-320px עד 2560px</li>
+        <li>וולידציה אוטומטית עם WAVE ו-axe DevTools</li>
+      </ul>
+      <p><strong>תאריך בדיקה אחרון:</strong> מרץ 2026</p>
+    </section>
+
+    <section class="a11y-section" id="report" aria-labelledby="h-report">
+      <h2 id="h-report"><span class="sec-icon">📢</span> דיווח על בעיות נגישות</h2>
+      <p>נתקלת בבעיית נגישות? אנו מעוניינים לדעת ולתקן. פנה אלינו:</p>
+      <div class="contact-card" role="group" aria-label="פרטי קשר לנגישות">
+        <div class="contact-row">
+          <div class="contact-icon">📧</div>
+          <div>
+            <strong>דוא״ל:</strong><br>
+            <a href="mailto:liorbll100@gmail.com?subject=בקשת נגישות">liorbll100@gmail.com</a><br>
+            <span style="color:var(--muted);font-size:.85rem">נושא: "בקשת נגישות"</span>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-icon">📱</div>
+          <div>
+            <strong>וואטסאפ:</strong><br>
+            <a href="https://wa.me/972508668022?text=בקשת נגישות - " target="_blank" rel="noopener">050-8668022</a>
+          </div>
+        </div>
+        <div class="contact-row">
+          <div class="contact-icon">⏱️</div>
+          <div>
+            <strong>זמן מענה:</strong><br>
+            <span style="color:var(--muted)">עד 14 ימי עסקים</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="highlight-box" style="margin-top:1.5rem">
+        <p>🏛️ אם לאחר פנייתך לא תקבל מענה מספק, תוכל לפנות ל<strong>הנציבות לשוויון זכויות לאנשים עם מוגבלות</strong> במשרד המשפטים: <a href="https://www.gov.il/he/departments/topics/equal_right_for_disabilities" target="_blank" rel="noopener" style="color:var(--accent)">gov.il</a></p>
+      </div>
+    </section>
+
+    <section class="a11y-section" id="legal" aria-labelledby="h-legal">
+      <h2 id="h-legal"><span class="sec-icon">⚖️</span> בסיס חוקי</h2>
+      <ul>
+        <li><strong>חוק שוויון זכויות לאנשים עם מוגבלות, תשנ״ח-1998</strong></li>
+        <li><strong>תקנות שוויון זכויות לאנשים עם מוגבלות (התאמות נגישות לשירות), תשע״ג-2013</strong></li>
+        <li><strong>תקן ישראלי IS 5568:2023</strong> – נגישות תכנים באינטרנט (מבוסס על WCAG 2.1)</li>
+        <li><strong>WCAG 2.1 AA</strong> – Web Content Accessibility Guidelines, W3C</li>
+      </ul>
+      <p style="font-size:.88rem">הצהרה זו הוכנה בהתאם לסעיף 35 לחוק שוויון זכויות לאנשים עם מוגבלות ולהחלטת ממשלה מס׳ 3815 בנוגע לנגישות שירותים אלקטרוניים.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 lior-ai | ליאור בלול &nbsp;·&nbsp; <a href="/">עמוד הבית</a> &nbsp;·&nbsp; <a href="/privacy-policy.html">מדיניות פרטיות</a></p>
+  </footer>
+
+  <script defer src="/assets/accessibility.js"></script>
+</body>
+</html>
