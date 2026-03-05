@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lior-ai.com/sitemap.xml

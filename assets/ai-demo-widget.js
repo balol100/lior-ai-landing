@@ -10,7 +10,7 @@
     email: "liorbll100@gmail.com",
     brand: "lior-ai.com",
     launcherSide: "left",
-    launcherBottom: 18,
+    launcherBottom: 24,
     storageKey: "lior_ai_chat_v1",
     leadKey: "lior_ai_lead_v1"
   };
@@ -49,6 +49,9 @@
     background:rgba(7,10,18,.92);box-shadow:inset 0 0 0 1px rgba(255,255,255,.10);
   }
   #xa-launcher svg{position:relative;z-index:1}
+  #xa-launcher .xa-label{position:absolute;left:74px;top:50%;transform:translateY(-50%);background:rgba(5,7,19,.92);color:#fff;border:1px solid rgba(255,255,255,.2);padding:8px 12px;border-radius:999px;font-size:12px;font-weight:800;white-space:nowrap;box-shadow:0 8px 20px rgba(0,0,0,.35)}
+  #xa-launcher:hover .xa-label{background:rgba(12,15,28,.98)}
+  @media(max-width:680px){#xa-launcher .xa-label{display:none}}
   #xa-launcher .xa-dot{
     position:absolute;right:7px;top:7px;width:10px;height:10px;border-radius:50%;
     background:#22C55E;box-shadow:0 0 0 3px rgba(34,197,94,.18);z-index:2;
@@ -222,9 +225,11 @@
   /* ---------- DOM ---------- */
   const launcher = document.createElement("button");
   launcher.id = "xa-launcher";
-  launcher.setAttribute("aria-label", "פתח צ'אט AI");
+  launcher.setAttribute("aria-label", "פתחו שיחה עם הנציגה הדיגיטלית");
+  launcher.setAttribute("title", "שיחה עם נציגה דיגיטלית");
   launcher.innerHTML = `
     <div class="xa-dot"></div>
+    <span class="xa-label" aria-hidden="true">שיחה עם נציגה AI</span>
     <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
       <path d="M7 9V7.7C7 6.2 8.2 5 9.7 5h4.6C15.8 5 17 6.2 17 7.7V9" stroke="white" stroke-width="2" stroke-linecap="round"/>
       <path d="M9 13h6" stroke="white" stroke-width="2" stroke-linecap="round"/>
