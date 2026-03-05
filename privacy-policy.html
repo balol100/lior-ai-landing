@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>מדיניות פרטיות – lior-ai | ליאור בלול</title>
+  <meta name="description" content="מדיניות פרטיות של lior-ai בהתאם לחוק הגנת הפרטיות, התשמ״א-1981 ותקנות אבטחת מידע.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://lior-ai.com/privacy-policy.html">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700;800&family=Rubik:wght@500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#000;--bg1:#0a0a0a;--bg2:#111;
+      --card:rgba(255,255,255,.04);--card-border:rgba(255,255,255,.08);
+      --text:#fff;--muted:rgba(255,255,255,.58);--dim:rgba(255,255,255,.32);
+      --accent:#00e5a0;--accent2:#00b8d4;
+      --grad:linear-gradient(135deg,#00e5a0,#00b8d4);
+      --radius:16px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'Heebo',sans-serif;background:var(--bg);color:var(--text);line-height:1.8;direction:rtl}
+    a{color:var(--accent);text-decoration:none}
+    a:hover{text-decoration:underline}
+    a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:3px}
+    .skip-link{position:absolute;top:-60px;right:0;background:var(--accent);color:#000;padding:.6rem 1.2rem;font-weight:700;border-radius:0 0 0 10px;z-index:9999;transition:top .2s}
+    .skip-link:focus{top:0}
+    nav{position:sticky;top:0;z-index:50;background:rgba(0,0,0,.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--card-border)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:1rem;max-width:900px;margin:auto;gap:1rem}
+    .logo{font-family:'Rubik',sans-serif;font-weight:800;font-size:1.3rem;background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .nav-back{display:flex;align-items:center;gap:.5rem;color:var(--muted);font-size:.9rem;padding:.4rem .8rem;border-radius:8px;border:1px solid var(--card-border);transition:all .2s}
+    .nav-back:hover{color:#fff;border-color:rgba(255,255,255,.25);text-decoration:none}
+    main{max-width:860px;margin:0 auto;padding:3rem 1.5rem 5rem}
+    .page-header{margin-bottom:3rem;padding-bottom:2rem;border-bottom:1px solid var(--card-border)}
+    .page-label{display:inline-block;background:rgba(0,229,160,.12);color:var(--accent);border:1px solid rgba(0,229,160,.25);border-radius:8px;padding:.3rem .8rem;font-size:.85rem;font-weight:700;margin-bottom:1rem}
+    h1{font-family:'Rubik',sans-serif;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800;line-height:1.2;margin-bottom:.8rem}
+    .page-meta{color:var(--muted);font-size:.9rem;display:flex;flex-wrap:wrap;gap:1.5rem}
+    .page-meta span{display:flex;align-items:center;gap:.4rem}
+    .toc{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:1.5rem;margin-bottom:2.5rem}
+    .toc-title{font-weight:700;margin-bottom:.8rem;font-size:.95rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;font-size:.82rem}
+    .toc ol{padding-right:1.2rem;color:var(--muted)}
+    .toc li{margin:.3rem 0}
+    .toc a{color:var(--muted);font-size:.9rem}
+    .toc a:hover{color:var(--accent)}
+    section.policy-section{margin-bottom:2.5rem;scroll-margin-top:80px}
+    h2{font-family:'Rubik',sans-serif;font-size:1.3rem;font-weight:700;margin-bottom:1rem;padding-bottom:.5rem;border-bottom:1px solid var(--card-border);display:flex;align-items:center;gap:.6rem}
+    .sec-num{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:var(--grad);color:#000;font-size:.8rem;font-weight:800;flex-shrink:0}
+    p{color:var(--muted);margin-bottom:1rem;line-height:1.85}
+    ul,ol{color:var(--muted);padding-right:1.4rem;margin-bottom:1rem}
+    li{margin:.4rem 0;line-height:1.8}
+    strong{color:var(--text)}
+    .highlight-box{background:rgba(0,229,160,.07);border:1px solid rgba(0,229,160,.2);border-radius:12px;padding:1.2rem 1.4rem;margin:1.2rem 0}
+    .highlight-box p{color:rgba(255,255,255,.75);margin:0}
+    .warning-box{background:rgba(255,200,0,.07);border:1px solid rgba(255,200,0,.2);border-radius:12px;padding:1.2rem 1.4rem;margin:1.2rem 0}
+    .warning-box p{color:rgba(255,255,255,.75);margin:0}
+    table{width:100%;border-collapse:collapse;margin:1rem 0;font-size:.9rem}
+    th,td{padding:.75rem 1rem;border:1px solid var(--card-border);text-align:right;vertical-align:top}
+    th{background:rgba(255,255,255,.05);color:var(--text);font-weight:700}
+    td{color:var(--muted)}
+    .contact-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:1.5rem;margin-top:1rem}
+    .contact-row{display:flex;align-items:center;gap:.8rem;padding:.5rem 0;border-bottom:1px solid var(--card-border)}
+    .contact-row:last-child{border-bottom:none}
+    .contact-icon{font-size:1.2rem;flex-shrink:0}
+    footer{text-align:center;padding:2rem;border-top:1px solid var(--card-border);color:var(--dim);font-size:.85rem}
+    footer a{color:var(--dim)}
+    footer a:hover{color:var(--accent)}
+    @media(max-width:600px){
+      main{padding:2rem 1rem 4rem}
+      .page-meta{flex-direction:column;gap:.5rem}
+    }
+  </style>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">דלג לתוכן הראשי</a>
+
+  <nav aria-label="ניווט ראשי">
+    <div class="nav-inner">
+      <a href="/" class="logo" aria-label="עמוד הבית lior-ai">lior-ai</a>
+      <a href="/" class="nav-back" aria-label="חזרה לעמוד הבית">← חזרה לאתר</a>
+    </div>
+  </nav>
+
+  <main id="main-content" tabindex="-1">
+    <header class="page-header">
+      <div class="page-label">📋 מסמך משפטי</div>
+      <h1>מדיניות פרטיות</h1>
+      <div class="page-meta">
+        <span>📅 תאריך עדכון אחרון: 1 במרץ 2026</span>
+        <span>⚖️ בהתאם לחוק הגנת הפרטיות, התשמ״א-1981</span>
+        <span>🌐 lior-ai.com</span>
+      </div>
+    </header>
+
+    <nav class="toc" aria-label="תוכן עניינים">
+      <p class="toc-title">תוכן עניינים</p>
+      <ol>
+        <li><a href="#s1">כללי ומטרת המדיניות</a></li>
+        <li><a href="#s2">פרטי בעל האתר ומאגר המידע</a></li>
+        <li><a href="#s3">סוגי המידע הנאסף</a></li>
+        <li><a href="#s4">מטרות עיבוד המידע</a></li>
+        <li><a href="#s5">שמירת מידע והעברתו לצדדים שלישיים</a></li>
+        <li><a href="#s6">תקופת שמירת המידע</a></li>
+        <li><a href="#s7">עוגיות ועקיבה</a></li>
+        <li><a href="#s8">אבטחת מידע</a></li>
+        <li><a href="#s9">זכויות הנושא (זכות עיון, תיקון ומחיקה)</a></li>
+        <li><a href="#s10">העברת מידע לחו״ל</a></li>
+        <li><a href="#s11">ילדים קטינים</a></li>
+        <li><a href="#s12">שינויים במדיניות</a></li>
+        <li><a href="#s13">יצירת קשר בעניין פרטיות</a></li>
+      </ol>
+    </nav>
+
+    <section class="policy-section" id="s1" aria-labelledby="h-s1">
+      <h2 id="h-s1"><span class="sec-num" aria-hidden="true">1</span> כללי ומטרת המדיניות</h2>
+      <p>מדיניות פרטיות זו מפרטת את האופן שבו <strong>lior-ai (ליאור בלול)</strong> אוסף, עושה שימוש, מאחסן ומגן על המידע האישי שאתה מוסר לנו, בעת השימוש באתר <strong>lior-ai.com</strong> ובכל שירותיו.</p>
+      <p>מדיניות זו נכתבה בהתאם לדרישות <strong>חוק הגנת הפרטיות, התשמ״א-1981</strong>, <strong>תקנות הגנת הפרטיות (אבטחת מידע), תשע״ז-2017</strong>, וכן הנחיות הרשות להגנת הפרטיות (ILPA) בישראל.</p>
+      <div class="highlight-box">
+        <p>בשימושך באתר, אתה מביע הסכמה לאיסוף ועיבוד המידע כמפורט במדיניות זו. אם אינך מסכים לתנאים, אנא הימנע מהשארת פרטים אישיים.</p>
+      </div>
+    </section>
+
+    <section class="policy-section" id="s2" aria-labelledby="h-s2">
+      <h2 id="h-s2"><span class="sec-num" aria-hidden="true">2</span> פרטי בעל האתר ומאגר המידע</h2>
+      <div class="contact-card" role="group" aria-label="פרטי בעל האתר">
+        <div class="contact-row">
+          <span class="contact-icon">👤</span>
+          <div><strong>שם:</strong> ליאור בלול</div>
+        </div>
+        <div class="contact-row">
+          <span class="contact-icon">🏢</span>
+          <div><strong>שם עסקי:</strong> lior-ai</div>
+        </div>
+        <div class="contact-row">
+          <span class="contact-icon">🌐</span>
+          <div><strong>אתר:</strong> <a href="https://lior-ai.com">lior-ai.com</a></div>
+        </div>
+        <div class="contact-row">
+          <span class="contact-icon">📧</span>
+          <div><strong>דוא״ל:</strong> <a href="mailto:liorbll100@gmail.com">liorbll100@gmail.com</a></div>
+        </div>
+        <div class="contact-row">
+          <span class="contact-icon">📱</span>
+          <div><strong>טלפון/וואטסאפ:</strong> <a href="tel:+972508668022">050-8668022</a></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="policy-section" id="s3" aria-labelledby="h-s3">
+      <h2 id="h-s3"><span class="sec-num" aria-hidden="true">3</span> סוגי המידע הנאסף</h2>
+      <p>אנו אוספים את הקטגוריות הבאות של מידע אישי:</p>
+
+      <h3 style="margin:1rem 0 .5rem;font-size:1rem;color:var(--text)">א. מידע שאתה מוסר ישירות</h3>
+      <ul>
+        <li><strong>פרטי זהות:</strong> שם מלא, שם עסק/תחום</li>
+        <li><strong>פרטי תקשורת:</strong> מספר טלפון, כתובת דוא״ל (כאשר נמסרת)</li>
+        <li><strong>תוכן פניות:</strong> הודעות ששלחת דרך טופס הקשר, שיחות עם הצ'אט החכם (Aria)</li>
+        <li><strong>העדפות שירות:</strong> סוג השירות המבוקש, הערות נוספות</li>
+      </ul>
+
+      <h3 style="margin:1rem 0 .5rem;font-size:1rem;color:var(--text)">ב. מידע שנאסף אוטומטית</h3>
+      <ul>
+        <li><strong>מידע טכני:</strong> כתובת IP, סוג דפדפן, מערכת הפעלה</li>
+        <li><strong>נתוני שימוש:</strong> עמודים שנצפו, זמן שהייה, מקור ההפניה</li>
+        <li><strong>נתוני LocalStorage:</strong> העדפות נגישות ומצב שיחת צ'אט (מאוחסן בדפדפן בלבד)</li>
+        <li><strong>עמוד מקור הפנייה:</strong> URL ממנו הגיעה הפנייה (page_url)</li>
+      </ul>
+
+      <div class="highlight-box">
+        <p>⚠️ אנו <strong>לא</strong> אוספים מספרי כרטיסי אשראי, סיסמאות, נתונים ביומטריים, מידע רפואי, או כל מידע רגיש אחר כמוגדר בחוק הגנת הפרטיות.</p>
+      </div>
+    </section>
+
+    <section class="policy-section" id="s4" aria-labelledby="h-s4">
+      <h2 id="h-s4"><span class="sec-num" aria-hidden="true">4</span> מטרות עיבוד המידע</h2>
+      <p>המידע שנאסף משמש אך ורק למטרות הבאות:</p>
+      <table>
+        <thead>
+          <tr>
+            <th>מטרה</th>
+            <th>בסיס משפטי</th>
+            <th>סוג המידע</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>חזרה אליך עם הצעה מותאמת אישית</td>
+            <td>הסכמה / חוזה</td>
+            <td>שם, טלפון, עסק</td>
+          </tr>
+          <tr>
+            <td>מתן מענה לשאלות ופניות</td>
+            <td>הסכמה</td>
+            <td>שם, דוא״ל, הודעה</td>
+          </tr>
+          <tr>
+            <td>שיפור השירות וחוויית המשתמש</td>
+            <td>אינטרס לגיטימי</td>
+            <td>נתוני שימוש אנונימיים</td>
+          </tr>
+          <tr>
+            <td>שמירת מצב שיחה בצ'אט AI</td>
+            <td>הסכמה</td>
+            <td>היסטוריית שיחה (LocalStorage)</td>
+          </tr>
+          <tr>
+            <td>שמירת העדפות נגישות</td>
+            <td>אינטרס לגיטימי</td>
+            <td>הגדרות נגישות (LocalStorage)</td>
+          </tr>
+          <tr>
+            <td>עמידה בדרישות חוק</td>
+            <td>חובה חוקית</td>
+            <td>כנדרש</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>אנו <strong>לא</strong> משתמשים במידע לצרכי שיווק לצדדים שלישיים, פרסום ממוקד, או כריית מידע.</p>
+    </section>
+
+    <section class="policy-section" id="s5" aria-labelledby="h-s5">
+      <h2 id="h-s5"><span class="sec-num" aria-hidden="true">5</span> שמירת מידע והעברתו לצדדים שלישיים</h2>
+      <p>המידע שלך <strong>לא יועבר</strong>, לא יימכר ולא יושכר לכל גוף חיצוני לצרכי שיווק מסחרי. המידע עשוי להיות מועבר לגורמים הבאים בלבד, למטרות הפעלה טכנית של השירות:</p>
+
+      <h3 style="margin:1rem 0 .5rem;font-size:1rem;color:var(--text)">ספקי שירות טכנולוגיים (מעבדי מידע)</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>ספק</th>
+            <th>שירות</th>
+            <th>מדיניות פרטיות</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Supabase Inc.</strong></td>
+            <td>אחסון מאגר לידים, הפעלת פונקציות שרת</td>
+            <td><a href="https://supabase.com/privacy" target="_blank" rel="noopener">supabase.com/privacy</a></td>
+          </tr>
+          <tr>
+            <td><strong>Anthropic, PBC</strong></td>
+            <td>מענה AI (Aria) – שיחות מועברות לעיבוד ומוחזרות</td>
+            <td><a href="https://www.anthropic.com/privacy" target="_blank" rel="noopener">anthropic.com/privacy</a></td>
+          </tr>
+          <tr>
+            <td><strong>GitHub Pages</strong></td>
+            <td>אירוח אתר סטטי</td>
+            <td><a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener">github.com/privacy</a></td>
+          </tr>
+          <tr>
+            <td><strong>Google Fonts</strong></td>
+            <td>טעינת גופנים (ללא קישור לזהות)</td>
+            <td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>כל ספקי השירות מחויבים לנהוג במידע בהתאם לסטנדרטים של GDPR ו/או חוק הגנת הפרטיות הישראלי.</p>
+
+      <div class="warning-box">
+        <p>📌 גילוי מאגר מידע: מאגר המידע (לידים) רשום/ייווסף בהתאם לדרישות חוק הגנת הפרטיות ותקנות הגנת הפרטיות.</p>
+      </div>
+    </section>
+
+    <section class="policy-section" id="s6" aria-labelledby="h-s6">
+      <h2 id="h-s6"><span class="sec-num" aria-hidden="true">6</span> תקופת שמירת המידע</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>סוג מידע</th>
+            <th>תקופת שמירה</th>
+            <th>הסבר</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>פרטי יצירת קשר (לידים)</td>
+            <td>3 שנים</td>
+            <td>לצורך מעקב עסקי ואינטרס לגיטימי</td>
+          </tr>
+          <tr>
+            <td>היסטוריית שיחת צ'אט</td>
+            <td>עד 40 הודעות אחרונות</td>
+            <td>מאוחסן בדפדפן בלבד (LocalStorage)</td>
+          </tr>
+          <tr>
+            <td>הגדרות נגישות</td>
+            <td>ללא תפוגה (עד מחיקה ידנית)</td>
+            <td>מאוחסן בדפדפן בלבד</td>
+          </tr>
+          <tr>
+            <td>נתוני שימוש טכניים</td>
+            <td>90 ימים</td>
+            <td>לצורך אבטחה ושיפור שירות</td>
+          </tr>
+        </tbody>
+      </table>
+      <p>בתום תקופת השמירה, המידע יימחק לצמיתות או יהפוך לאנונימי.</p>
+    </section>
+
+    <section class="policy-section" id="s7" aria-labelledby="h-s7">
+      <h2 id="h-s7"><span class="sec-num" aria-hidden="true">7</span> עוגיות (Cookies) ועקיבה</h2>
+      <p>האתר משתמש ב-<strong>LocalStorage</strong> (ולא בעוגיות) לצרכים הבאים:</p>
+      <ul>
+        <li><strong>שמירת מצב שיחה עם Aria</strong> – על מנת שלא תצטרך להתחיל שיחה מחדש בכל ביקור</li>
+        <li><strong>שמירת הגדרות נגישות</strong> – כגון גודל טקסט, ניגודיות, ועצירת אנימציות</li>
+      </ul>
+      <p>כל הנתונים הללו מאוחסנים <strong>בדפדפן שלך בלבד</strong> ואינם נשלחים לשרתינו.</p>
+      <p>GitHub Pages ו-Google Fonts עשויים להשתמש בעוגיות טכניות לצרכי ביצועים. לפרטים, עיין במדיניות הפרטיות שלהם (ראה סעיף 5).</p>
+      <div class="highlight-box">
+        <p>🍪 האתר <strong>אינו</strong> משתמש בעוגיות מעקב (Tracking Cookies), עוגיות פרסום, או כל עוגייה הדורשת הסכמה מפורשת לפי תקנות הגנת הפרטיות.</p>
+      </div>
+    </section>
+
+    <section class="policy-section" id="s8" aria-labelledby="h-s8">
+      <h2 id="h-s8"><span class="sec-num" aria-hidden="true">8</span> אבטחת מידע</h2>
+      <p>אנו מיישמים אמצעי אבטחה בהתאם ל<strong>תקנות הגנת הפרטיות (אבטחת מידע), תשע״ז-2017</strong>:</p>
+      <ul>
+        <li>🔐 <strong>הצפנת תעבורה:</strong> כל התקשורת מוגנת ב-HTTPS/TLS 1.3</li>
+        <li>🛡️ <strong>בקרת גישה:</strong> גישה למסד הנתונים מוגבלת לאנשי הצוות המורשים בלבד</li>
+        <li>🔑 <strong>Row-Level Security:</strong> הפרדת נתונים ברמת שורה ב-Supabase</li>
+        <li>🌐 <strong>HTTPS חובה:</strong> האתר אינו מאפשר גישה בפרוטוקול HTTP לא מאובטח</li>
+        <li>📊 <strong>עיקרון המינימליות:</strong> אנו אוספים רק מידע הכרחי לפעילות</li>
+        <li>🔄 <strong>עדכוני אבטחה:</strong> ספריות ותשתיות מתעדכנות באופן שוטף</li>
+      </ul>
+      <div class="warning-box">
+        <p>⚠️ למרות אמצעי האבטחה, אין אפשרות להבטיח אבטחה מוחלטת. במקרה של אירוע אבטחה שיפגע בפרטיותך, נדווח לך ולרשות הרלוונטית בהתאם לחוק.</p>
+      </div>
+    </section>
+
+    <section class="policy-section" id="s9" aria-labelledby="h-s9">
+      <h2 id="h-s9"><span class="sec-num" aria-hidden="true">9</span> זכויות נושא המידע</h2>
+      <p>בהתאם לחוק הגנת הפרטיות, התשמ״א-1981, יש לך את הזכויות הבאות:</p>
+      <ul>
+        <li>📄 <strong>זכות עיון:</strong> לקבל עותק של המידע שנשמר עליך</li>
+        <li>✏️ <strong>זכות תיקון:</strong> לתקן מידע שגוי, חסר או לא עדכני</li>
+        <li>🗑️ <strong>זכות מחיקה:</strong> לבקש מחיקת מידע שאיננו נדרש עוד (בכפוף לחובות חוקיות)</li>
+        <li>🚫 <strong>זכות התנגדות:</strong> להתנגד לעיבוד המידע לצרכי דיוור ישיר</li>
+        <li>📤 <strong>זכות ניוד:</strong> לקבל את מידעך בפורמט מובנה</li>
+        <li>⏸️ <strong>זכות הגבלת עיבוד:</strong> לבקש הגבלת עיבוד בנסיבות מסוימות</li>
+      </ul>
+      <p>למימוש זכויותיך, פנה אלינו בדוא״ל <a href="mailto:liorbll100@gmail.com">liorbll100@gmail.com</a> עם הנושא "בקשת פרטיות". נשיב תוך <strong>30 ימי עסקים</strong> לכל היותר.</p>
+      <p>אם אינך מרוצה מהטיפול בבקשתך, תוכל לפנות ל<strong>רשות להגנת הפרטיות</strong> (ILPA) באמצעות אתר <a href="https://www.gov.il/he/departments/israel_privacy_protection_authority" target="_blank" rel="noopener">gov.il</a>.</p>
+    </section>
+
+    <section class="policy-section" id="s10" aria-labelledby="h-s10">
+      <h2 id="h-s10"><span class="sec-num" aria-hidden="true">10</span> העברת מידע לחו״ל</h2>
+      <p>חלק מספקי השירות שלנו ממוקמים מחוץ לישראל:</p>
+      <ul>
+        <li><strong>Supabase:</strong> שרתים ב-AWS (ארה״ב ואיחוד אירופי) – עומד ב-GDPR ומסגרות הגנה מקובלות</li>
+        <li><strong>Anthropic:</strong> ארה״ב – מחויב לסטנדרטי אבטחה ופרטיות גבוהים</li>
+        <li><strong>GitHub Pages:</strong> ארה״ב – Microsoft Azure, עומד ב-GDPR</li>
+      </ul>
+      <p>ההעברה נעשית בהתאם לסעיף 23 לחוק הגנת הפרטיות ותקנות אבטחת המידע, לצדדים שעומדים בדרישות הגנת פרטיות מספקות.</p>
+    </section>
+
+    <section class="policy-section" id="s11" aria-labelledby="h-s11">
+      <h2 id="h-s11"><span class="sec-num" aria-hidden="true">11</span> ילדים קטינים</h2>
+      <p>האתר אינו מיועד לילדים מתחת לגיל 18. אנו לא אוספים ביודעין מידע מקטינים. אם הגעת אלינו מידע שנמסר על ידי קטין, אנא פנה אלינו למחיקתו המיידית.</p>
+    </section>
+
+    <section class="policy-section" id="s12" aria-labelledby="h-s12">
+      <h2 id="h-s12"><span class="sec-num" aria-hidden="true">12</span> שינויים במדיניות</h2>
+      <p>אנו עשויים לעדכן מדיניות פרטיות זו מעת לעת. שינויים מהותיים יפורסמו בדף זה עם עדכון התאריך. המשך השימוש באתר לאחר הפרסום מהווה הסכמה לשינויים.</p>
+      <p>גרסה נוכחית: <strong>1.0</strong> | תאריך: <strong>1 במרץ 2026</strong></p>
+    </section>
+
+    <section class="policy-section" id="s13" aria-labelledby="h-s13">
+      <h2 id="h-s13"><span class="sec-num" aria-hidden="true">13</span> יצירת קשר בעניין פרטיות</h2>
+      <p>לכל שאלה, בקשה או תלונה בנושא פרטיות ועיבוד מידע אישי:</p>
+      <div class="contact-card" role="group" aria-label="פרטי קשר לענייני פרטיות">
+        <div class="contact-row">
+          <span class="contact-icon">👤</span>
+          <div><strong>ממונה פרטיות:</strong> ליאור בלול</div>
+        </div>
+        <div class="contact-row">
+          <span class="contact-icon">📧</span>
+          <div><strong>דוא״ל:</strong> <a href="mailto:liorbll100@gmail.com">liorbll100@gmail.com</a> – נושא: "בקשת פרטיות"</div>
+        </div>
+        <div class="contact-row">
+          <span class="contact-icon">📱</span>
+          <div><strong>וואטסאפ:</strong> <a href="https://wa.me/972508668022" target="_blank" rel="noopener">050-8668022</a></div>
+        </div>
+        <div class="contact-row">
+          <span class="contact-icon">⏱️</span>
+          <div><strong>זמן תגובה:</strong> עד 30 ימי עסקים</div>
+        </div>
+      </div>
+      <p style="margin-top:1.2rem;font-size:.9rem">ניתן לפנות גם ל<strong>רשות להגנת הפרטיות בישראל:</strong> <a href="https://www.gov.il/he/departments/israel_privacy_protection_authority" target="_blank" rel="noopener">gov.il/he/departments/israel_privacy_protection_authority</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 lior-ai | ליאור בלול &nbsp;·&nbsp; <a href="/">עמוד הבית</a> &nbsp;·&nbsp; <a href="/accessibility-statement.html">הצהרת נגישות</a></p>
+  </footer>
+
+  <script defer src="/assets/accessibility.js"></script>
+</body>
+</html>
