@@ -1051,11 +1051,31 @@
       .orb { animation: none; }
       .reveal { opacity: 1; transform: none; }
     }
+
+    /* ===== Language Toggle Button ===== */
+    .lang-btn {
+      background: transparent;
+      border: 1px solid var(--card-border);
+      color: var(--muted);
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 0.32rem 0.72rem;
+      border-radius: 100px;
+      cursor: pointer;
+      letter-spacing: 0.08em;
+      transition: color var(--transition), border-color var(--transition), background var(--transition);
+      flex-shrink: 0;
+    }
+    .lang-btn:hover { color: var(--text); border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.05); }
+    @media (max-width: 768px) {
+      .hamburger { margin-inline-start: auto; }
+    }
   </style>
 </head>
 <body id="top">
   <!-- Skip to content -->
-  <a href="#main-content" class="skip-link">דלג לתוכן הראשי</a>
+  <a href="#main-content" class="skip-link" data-he="דלג לתוכן הראשי" data-en="Skip to main content">דלג לתוכן הראשי</a>
 
   <!-- Navigation -->
   <nav class="nav" id="main-nav" role="navigation" aria-label="ניווט ראשי">
@@ -1065,13 +1085,14 @@
         <span></span><span></span><span></span>
       </button>
       <div class="nav-menu" id="nav-menu" role="menubar">
-        <a href="#packages" role="menuitem">שירותים</a>
-        <a href="#portfolio-preview" role="menuitem">פורטפוליו</a>
-        <a href="#pricing" role="menuitem">תמחור</a>
-        <a href="#about" role="menuitem">מי אני</a>
-        <a href="#contact" role="menuitem">צור קשר</a>
+        <a href="#packages" role="menuitem" data-he="שירותים" data-en="Services">שירותים</a>
+        <a href="#portfolio-preview" role="menuitem" data-he="פורטפוליו" data-en="Portfolio">פורטפוליו</a>
+        <a href="#pricing" role="menuitem" data-he="תמחור" data-en="Pricing">תמחור</a>
+        <a href="#about" role="menuitem" data-he="מי אני" data-en="About">מי אני</a>
+        <a href="#contact" role="menuitem" data-he="צור קשר" data-en="Contact">צור קשר</a>
       </div>
-      <a href="#contact" class="btn-primary nav-cta" aria-label="צור קשר - בואו נדבר">בואו נדבר ←</a>
+      <button class="lang-btn" id="lang-toggle" aria-label="Switch to English">EN</button>
+      <a href="#contact" class="btn-primary nav-cta" aria-label="צור קשר - בואו נדבר" data-he="בואו נדבר ←" data-en="Let's Talk →">בואו נדבר ←</a>
     </div>
   </nav>
 
@@ -1086,38 +1107,38 @@
         <div class="orb orb-3"></div>
       </div>
       <div class="hero-content container">
-        <div class="hero-badge" aria-label="מומחה דיגיטל בישראל">
+        <div class="hero-badge" aria-label="מומחה דיגיטל בישראל" data-he="<span aria-hidden='true'>🚀</span> מומחה דיגיטל בישראל" data-en="<span aria-hidden='true'>🚀</span> Digital Expert in Israel">
           <span aria-hidden="true">🚀</span> מומחה דיגיטל בישראל
         </div>
-        <h1 id="hero-heading">
+        <h1 id="hero-heading" data-he="אנחנו לא בונים<br><span class='gradient-text'>אתרים יפים.</span><br>אנחנו מהנדסים<br><span class='gradient-text'>מנועי צמיחה.</span>" data-en="We don't build<br><span class='gradient-text'>pretty websites.</span><br>We engineer<br><span class='gradient-text'>growth engines.</span>">
           אנחנו לא בונים<br>
           <span class="gradient-text">אתרים יפים.</span><br>
           אנחנו מהנדסים<br>
           <span class="gradient-text">מנועי צמיחה.</span>
         </h1>
-        <p class="hero-sub">
+        <p class="hero-sub" data-he="עמודי נחיתה, אתרי תדמית וסוכני AI שעובדים בשבילך 24/7 ומייצרים לידים לעסק הישראלי שלך." data-en="Landing pages, brand websites &amp; AI agents working for you 24/7, generating leads for your Israeli business.">
           עמודי נחיתה, אתרי תדמית וסוכני AI שעובדים בשבילך 24/7 ומייצרים לידים לעסק הישראלי שלך.
         </p>
         <div class="hero-ctas">
-          <a href="#contact" class="btn-primary">התחל עכשיו ←</a>
-          <a href="#portfolio-preview" class="btn-ghost">ראה עבודות</a>
+          <a href="#contact" class="btn-primary" data-he="התחל עכשיו ←" data-en="Start Now →">התחל עכשיו ←</a>
+          <a href="#portfolio-preview" class="btn-ghost" data-he="ראה עבודות" data-en="See Work">ראה עבודות</a>
         </div>
         <div class="hero-stats" role="list" aria-label="נתוני הצלחה">
           <div class="stat" role="listitem">
             <div class="stat-num" data-count="50" data-suffix="+">0</div>
-            <div class="stat-label">לקוחות</div>
+            <div class="stat-label" data-he="לקוחות" data-en="Clients">לקוחות</div>
           </div>
           <div class="stat" role="listitem">
             <div class="stat-num" data-count="18" data-suffix="+">0</div>
-            <div class="stat-label">שנות ניסיון</div>
+            <div class="stat-label" data-he="שנות ניסיון" data-en="Yrs Exp.">שנות ניסיון</div>
           </div>
           <div class="stat" role="listitem">
             <div class="stat-num" data-count="9" data-suffix="+">0</div>
-            <div class="stat-label">פרויקטים</div>
+            <div class="stat-label" data-he="פרויקטים" data-en="Projects">פרויקטים</div>
           </div>
           <div class="stat" role="listitem">
             <div class="stat-num" data-count="100" data-suffix="%">0</div>
-            <div class="stat-label">שביעות רצון</div>
+            <div class="stat-label" data-he="שביעות רצון" data-en="Satisfaction">שביעות רצון</div>
           </div>
         </div>
       </div>
@@ -1134,28 +1155,28 @@
     <section class="why-section section-pad" id="why-no-leads" aria-labelledby="why-heading">
       <div class="container">
         <div class="reveal">
-          <div class="section-label">הבעיה האמיתית</div>
-          <h2 id="why-heading">האתר שלך לא מביא לידים?<br><span class="gradient-text">הסיבות ברורות.</span></h2>
+          <div class="section-label" data-he="הבעיה האמיתית" data-en="The Real Problem">הבעיה האמיתית</div>
+          <h2 id="why-heading" data-he="האתר שלך לא מביא לידים?<br><span class='gradient-text'>הסיבות ברורות.</span>" data-en="Your website isn't generating leads?<br><span class='gradient-text'>The reasons are clear.</span>">האתר שלך לא מביא לידים?<br><span class="gradient-text">הסיבות ברורות.</span></h2>
         </div>
         <div class="why-grid">
           <article class="problem-card reveal reveal-delay-1" aria-label="בעיה: אין מסר ברור">
             <div class="problem-icon" aria-hidden="true">❌</div>
-            <h3>אין מסר ברור</h3>
-            <p>המבקר לא מבין תוך שלוש שניות מה אתה עושה ולמה דווקא אתה. הוא עוזב ולא חוזר.</p>
+            <h3 data-he="אין מסר ברור" data-en="No Clear Message">אין מסר ברור</h3>
+            <p data-he="המבקר לא מבין תוך שלוש שניות מה אתה עושה ולמה דווקא אתה. הוא עוזב ולא חוזר." data-en="Visitors can't tell within 3 seconds what you do and why you. They leave and don't come back.">המבקר לא מבין תוך שלוש שניות מה אתה עושה ולמה דווקא אתה. הוא עוזב ולא חוזר.</p>
           </article>
           <article class="problem-card reveal reveal-delay-2" aria-label="בעיה: אין קריאה לפעולה">
             <div class="problem-icon" aria-hidden="true">❌</div>
-            <h3>אין קריאה לפעולה</h3>
-            <p>אין כפתור בולט, אין טופס נגיש, אין סיבה לפנות. הלקוח הפוטנציאלי פשוט ממשיך הלאה.</p>
+            <h3 data-he="אין קריאה לפעולה" data-en="No Call to Action">אין קריאה לפעולה</h3>
+            <p data-he="אין כפתור בולט, אין טופס נגיש, אין סיבה לפנות. הלקוח הפוטנציאלי פשוט ממשיך הלאה." data-en="No visible button, no accessible form, no reason to reach out. The potential customer simply moves on.">אין כפתור בולט, אין טופס נגיש, אין סיבה לפנות. הלקוח הפוטנציאלי פשוט ממשיך הלאה.</p>
           </article>
           <article class="problem-card reveal reveal-delay-3" aria-label="בעיה: אין חיבור לכוונת החיפוש">
             <div class="problem-icon" aria-hidden="true">❌</div>
-            <h3>אין חיבור לכוונת החיפוש</h3>
-            <p>התוכן לא מדבר בשפה שהלקוח מחפש בגוגל. אין SEO, אין התאמה, אין תנועה איכותית.</p>
+            <h3 data-he="אין חיבור לכוונת החיפוש" data-en="No Search Intent Match">אין חיבור לכוונת החיפוש</h3>
+            <p data-he="התוכן לא מדבר בשפה שהלקוח מחפש בגוגל. אין SEO, אין התאמה, אין תנועה איכותית." data-en="The content doesn't speak the language customers search on Google. No SEO, no targeting, no quality traffic.">התוכן לא מדבר בשפה שהלקוח מחפש בגוגל. אין SEO, אין התאמה, אין תנועה איכותית.</p>
           </article>
         </div>
         <div class="solution-box reveal">
-          <p>⚡ הפתרון: אתר שנבנה ממסר, מבנה, ומנגנון המרה — ולא רק "נראה טוב".</p>
+          <p data-he="⚡ הפתרון: אתר שנבנה ממסר, מבנה, ומנגנון המרה — ולא רק &quot;נראה טוב&quot;." data-en="⚡ The solution: A website built on message, structure, and conversion — not just &quot;looks nice&quot;.">⚡ הפתרון: אתר שנבנה ממסר, מבנה, ומנגנון המרה — ולא רק "נראה טוב".</p>
         </div>
       </div>
     </section>
@@ -1166,40 +1187,40 @@
     <section class="section-pad" id="packages" aria-labelledby="services-heading">
       <div class="container">
         <div class="reveal">
-          <div class="section-label">השירותים שלנו</div>
-          <h2 id="services-heading">בחר את הכלי<br><span class="gradient-text">שיגדיל את העסק שלך</span></h2>
+          <div class="section-label" data-he="השירותים שלנו" data-en="Our Services">השירותים שלנו</div>
+          <h2 id="services-heading" data-he="בחר את הכלי<br><span class='gradient-text'>שיגדיל את העסק שלך</span>" data-en="Choose the Tool<br><span class='gradient-text'>That Will Grow Your Business</span>">בחר את הכלי<br><span class="gradient-text">שיגדיל את העסק שלך</span></h2>
         </div>
         <div class="services-grid">
           <article class="service-card reveal reveal-delay-1" aria-label="שירות: דף נחיתה">
             <span class="service-icon" aria-hidden="true">🎯</span>
-            <span class="price-badge">מ-1,200₪</span>
-            <h3>דף נחיתה</h3>
-            <p>הצעת ערך חדה. מסר אחד. לידים. עמוד ממוקד שהופך מבקרים ללקוחות.</p>
-            <a href="#contact" class="btn-ghost">קבל הצעה</a>
+            <span class="price-badge" data-he="מ-1,200₪" data-en="From ₪1,200">מ-1,200₪</span>
+            <h3 data-he="דף נחיתה" data-en="Landing Page">דף נחיתה</h3>
+            <p data-he="הצעת ערך חדה. מסר אחד. לידים. עמוד ממוקד שהופך מבקרים ללקוחות." data-en="Sharp value prop. One message. Leads. A focused page that converts visitors into customers.">הצעת ערך חדה. מסר אחד. לידים. עמוד ממוקד שהופך מבקרים ללקוחות.</p>
+            <a href="#contact" class="btn-ghost" data-he="קבל הצעה" data-en="Get a Quote">קבל הצעה</a>
           </article>
           <article class="service-card reveal reveal-delay-2" aria-label="שירות: אתר תדמית">
             <span class="service-icon" aria-hidden="true">🏛️</span>
-            <span class="price-badge">מ-2,200₪</span>
-            <h3>אתר תדמית</h3>
-            <p>סמכות. אמינות. צמיחה לטווח ארוך. אתר שבונה אמון ומייצר פניות לאורך זמן.</p>
-            <a href="#contact" class="btn-ghost">קבל הצעה</a>
+            <span class="price-badge" data-he="מ-2,200₪" data-en="From ₪2,200">מ-2,200₪</span>
+            <h3 data-he="אתר תדמית" data-en="Brand Website">אתר תדמית</h3>
+            <p data-he="סמכות. אמינות. צמיחה לטווח ארוך. אתר שבונה אמון ומייצר פניות לאורך זמן." data-en="Authority. Credibility. Long-term growth. A website that builds trust and generates inquiries over time.">סמכות. אמינות. צמיחה לטווח ארוך. אתר שבונה אמון ומייצר פניות לאורך זמן.</p>
+            <a href="#contact" class="btn-ghost" data-he="קבל הצעה" data-en="Get a Quote">קבל הצעה</a>
           </article>
           <article class="service-card reveal reveal-delay-3" aria-label="שירות: סוכן AI">
             <span class="service-icon" aria-hidden="true">🤖</span>
-            <span class="price-badge">200₪/חודש</span>
-            <h3>סוכן AI</h3>
-            <p>זמינות 24/7. מענה מיידי. לידים בשעה 3 בלילה. AI שעובד בשבילך כשאתה ישן.</p>
-            <a href="#contact" class="btn-ghost">קבל הצעה</a>
+            <span class="price-badge" data-he="200₪/חודש" data-en="₪200/month">200₪/חודש</span>
+            <h3 data-he="סוכן AI" data-en="AI Agent">סוכן AI</h3>
+            <p data-he="זמינות 24/7. מענה מיידי. לידים בשעה 3 בלילה. AI שעובד בשבילך כשאתה ישן." data-en="Available 24/7. Instant responses. Leads at 3am. AI that works for you while you sleep.">זמינות 24/7. מענה מיידי. לידים בשעה 3 בלילה. AI שעובד בשבילך כשאתה ישן.</p>
+            <a href="#contact" class="btn-ghost" data-he="קבל הצעה" data-en="Get a Quote">קבל הצעה</a>
           </article>
         </div>
         <div class="service-card-wide reveal" role="complementary" aria-label="שירות נוסף: ייעוץ AI וקידום">
           <div>
             <span class="service-icon" aria-hidden="true" style="display:inline;margin-left:0.5rem">⚡</span>
-            <h3 style="display:inline;">ייעוץ AI / קידום</h3>
-            <p style="margin-top:0.5rem;margin-bottom:0">מותאם אישית. למי שכבר פעיל ורוצה לגדול: AI בתהליכי עבודה, דיוק מסרים, וצעדי קידום שמחוברים למטרות העסק שלך.</p>
+            <h3 style="display:inline;" data-he="ייעוץ AI / קידום" data-en="AI Consulting / Growth">ייעוץ AI / קידום</h3>
+            <p style="margin-top:0.5rem;margin-bottom:0" data-he="מותאם אישית. למי שכבר פעיל ורוצה לגדול: AI בתהליכי עבודה, דיוק מסרים, וצעדי קידום שמחוברים למטרות העסק שלך." data-en="Personalized. For those already active who want to grow: AI in workflows, message refinement, and growth steps connected to your business goals.">מותאם אישית. למי שכבר פעיל ורוצה לגדול: AI בתהליכי עבודה, דיוק מסרים, וצעדי קידום שמחוברים למטרות העסק שלך.</p>
           </div>
           <div>
-            <a href="#contact" class="btn-primary" style="white-space:nowrap">אני רוצה ייעוץ ←</a>
+            <a href="#contact" class="btn-primary" style="white-space:nowrap" data-he="אני רוצה ייעוץ ←" data-en="I Want Consulting →">אני רוצה ייעוץ ←</a>
           </div>
         </div>
       </div>
@@ -1211,29 +1232,29 @@
     <section class="process-section section-pad" id="process" aria-labelledby="process-heading">
       <div class="container">
         <div class="reveal">
-          <div class="section-label">תהליך העבודה</div>
-          <h2 id="process-heading">איך זה <span class="gradient-text">עובד?</span></h2>
+          <div class="section-label" data-he="תהליך העבודה" data-en="How We Work">תהליך העבודה</div>
+          <h2 id="process-heading" data-he="איך זה <span class='gradient-text'>עובד?</span>" data-en="How Does It <span class='gradient-text'>Work?</span>">איך זה <span class="gradient-text">עובד?</span></h2>
         </div>
         <div class="process-steps">
           <div class="process-step reveal reveal-delay-1">
             <div class="step-num" aria-hidden="true">1</div>
-            <h3>פגישת אפיון</h3>
-            <p>מבינים את העסק, המטרות והקהל. בונים תכנית מדויקת לפני שמגיעים לקוד.</p>
+            <h3 data-he="פגישת אפיון" data-en="Discovery Meeting">פגישת אפיון</h3>
+            <p data-he="מבינים את העסק, המטרות והקהל. בונים תכנית מדויקת לפני שמגיעים לקוד." data-en="We understand the business, goals, and audience. We build a precise plan before any code is written.">מבינים את העסק, המטרות והקהל. בונים תכנית מדויקת לפני שמגיעים לקוד.</p>
           </div>
           <div class="process-step reveal reveal-delay-2">
             <div class="step-num" aria-hidden="true">2</div>
-            <h3>עיצוב ומבנה</h3>
-            <p>מאפיינים את ארכיטקטורת המסר, ההיררכיה החזותית ונתיב ההמרה.</p>
+            <h3 data-he="עיצוב ומבנה" data-en="Design &amp; Structure">עיצוב ומבנה</h3>
+            <p data-he="מאפיינים את ארכיטקטורת המסר, ההיררכיה החזותית ונתיב ההמרה." data-en="We define the message architecture, visual hierarchy, and conversion path.">מאפיינים את ארכיטקטורת המסר, ההיררכיה החזותית ונתיב ההמרה.</p>
           </div>
           <div class="process-step reveal reveal-delay-3">
             <div class="step-num" aria-hidden="true">3</div>
-            <h3>בנייה ובדיקות</h3>
-            <p>פיתוח מלא, אופטימיזציה למהירות, נגישות, SEO ובדיקות על כל מכשיר.</p>
+            <h3 data-he="בנייה ובדיקות" data-en="Build &amp; Test">בנייה ובדיקות</h3>
+            <p data-he="פיתוח מלא, אופטימיזציה למהירות, נגישות, SEO ובדיקות על כל מכשיר." data-en="Full development, speed optimization, accessibility, SEO, and testing across all devices.">פיתוח מלא, אופטימיזציה למהירות, נגישות, SEO ובדיקות על כל מכשיר.</p>
           </div>
           <div class="process-step reveal reveal-delay-4">
             <div class="step-num" aria-hidden="true">4</div>
-            <h3>השקה ומעקב</h3>
-            <p>עולים לאוויר, מחברים כלי מעקב ומוודאים שהאתר ממיר ומייצר לידים.</p>
+            <h3 data-he="השקה ומעקב" data-en="Launch &amp; Track">השקה ומעקב</h3>
+            <p data-he="עולים לאוויר, מחברים כלי מעקב ומוודאים שהאתר ממיר ומייצר לידים." data-en="We go live, connect tracking tools, and ensure the site converts and generates leads.">עולים לאוויר, מחברים כלי מעקב ומוודאים שהאתר ממיר ומייצר לידים.</p>
           </div>
         </div>
       </div>
@@ -1245,8 +1266,8 @@
     <section class="section-pad" id="portfolio-preview" aria-labelledby="portfolio-heading">
       <div class="container">
         <div class="reveal">
-          <div class="section-label">פורטפוליו</div>
-          <h2 id="portfolio-heading">עבודות <span class="gradient-text">אחרונות</span></h2>
+          <div class="section-label" data-he="פורטפוליו" data-en="Portfolio">פורטפוליו</div>
+          <h2 id="portfolio-heading" data-he="עבודות <span class='gradient-text'>אחרונות</span>" data-en="Recent <span class='gradient-text'>Work</span>">עבודות <span class="gradient-text">אחרונות</span></h2>
         </div>
         <div class="portfolio-grid">
           <article class="portfolio-card reveal reveal-delay-1" aria-label="פרויקט: Royal Service Car">
@@ -1256,11 +1277,11 @@
             </div>
             <div class="portfolio-preview portfolio-preview-1" aria-hidden="true">
               <span style="font-size:3rem">🚗</span>
-              <span class="portfolio-tag">אתר עסקי</span>
+              <span class="portfolio-tag" data-he="אתר עסקי" data-en="Business Site">אתר עסקי</span>
             </div>
             <div class="portfolio-info">
               <h3>Royal Service Car</h3>
-              <p>אתר עסקי לחברת השכרת רכב — עיצוב מקצועי, ממשק הזמנות ו-SEO מלא.</p>
+              <p data-he="אתר עסקי לחברת השכרת רכב — עיצוב מקצועי, ממשק הזמנות ו-SEO מלא." data-en="Business website for a car rental company — professional design, booking interface, and full SEO.">אתר עסקי לחברת השכרת רכב — עיצוב מקצועי, ממשק הזמנות ו-SEO מלא.</p>
             </div>
           </article>
           <article class="portfolio-card reveal reveal-delay-2" aria-label="פרויקט: אצל יניב מסעדה">
@@ -1270,11 +1291,11 @@
             </div>
             <div class="portfolio-preview portfolio-preview-2" aria-hidden="true">
               <span style="font-size:3rem">🍽️</span>
-              <span class="portfolio-tag">אתר עסקי</span>
+              <span class="portfolio-tag" data-he="אתר עסקי" data-en="Business Site">אתר עסקי</span>
             </div>
             <div class="portfolio-info">
-              <h3>אצל יניב מסעדה</h3>
-              <p>אתר תדמית למסעדה — תפריט דינמי, הזמנת מקומות וחוויה ויזואלית חמה.</p>
+              <h3 data-he="אצל יניב מסעדה" data-en="Etzel Yaniv Restaurant">אצל יניב מסעדה</h3>
+              <p data-he="אתר תדמית למסעדה — תפריט דינמי, הזמנת מקומות וחוויה ויזואלית חמה." data-en="Brand website for a restaurant — dynamic menu, table reservations, and warm visual experience.">אתר תדמית למסעדה — תפריט דינמי, הזמנת מקומות וחוויה ויזואלית חמה.</p>
             </div>
           </article>
           <article class="portfolio-card reveal reveal-delay-3" aria-label="פרויקט: עו&quot;ד יניב מור יוסף">
@@ -1284,16 +1305,16 @@
             </div>
             <div class="portfolio-preview portfolio-preview-3" aria-hidden="true">
               <span style="font-size:3rem">⚖️</span>
-              <span class="portfolio-tag">אתר + AI</span>
+              <span class="portfolio-tag" data-he="אתר + AI" data-en="Website + AI">אתר + AI</span>
             </div>
             <div class="portfolio-info">
-              <h3>עו"ד יניב מור יוסף</h3>
-              <p>אתר משרד עורכי דין עם סוכן AI לשאלות ראשוניות וסינון לקוחות אוטומטי.</p>
+              <h3 data-he="עו&quot;ד יניב מור יוסף" data-en="Adv. Yaniv Mor Yosef">עו"ד יניב מור יוסף</h3>
+              <p data-he="אתר משרד עורכי דין עם סוכן AI לשאלות ראשוניות וסינון לקוחות אוטומטי." data-en="Law firm website with an AI agent for initial inquiries and automatic client screening.">אתר משרד עורכי דין עם סוכן AI לשאלות ראשוניות וסינון לקוחות אוטומטי.</p>
             </div>
           </article>
         </div>
         <div class="portfolio-cta reveal">
-          <a href="portfolio.html" class="btn-ghost">לפורטפוליו המלא ←</a>
+          <a href="portfolio.html" class="btn-ghost" data-he="לפורטפוליו המלא ←" data-en="Full Portfolio →">לפורטפוליו המלא ←</a>
         </div>
       </div>
     </section>
@@ -1312,23 +1333,23 @@
           </div>
           <div class="about-text">
             <div class="reveal">
-              <div class="section-label">מי אני</div>
+              <div class="section-label" data-he="מי אני" data-en="About Me">מי אני</div>
               <h2 id="about-heading"><span class="gradient-text">ליאור בלול</span></h2>
             </div>
-            <p class="reveal reveal-delay-1">
-              18+ שנות ניסיון בנדל"ן, מכירות ושיווק — תחום שבו כל מילה צריכה לגרום לפעולה. 
+            <p class="reveal reveal-delay-1" data-he="18+ שנות ניסיון בנדל&quot;ן, מכירות ושיווק — תחום שבו כל מילה צריכה לגרום לפעולה. היום אני מביא את אותה פרגמטיות לעולם הדיגיטל, עם התמחות עמוקה ב-AI ופתרונות אוטומציה לעסקים ישראלים." data-en="18+ years of experience in real estate, sales, and marketing — a field where every word must drive action. Today I bring that same pragmatism to the digital world, with deep expertise in AI and automation solutions for Israeli businesses.">
+              18+ שנות ניסיון בנדל"ן, מכירות ושיווק — תחום שבו כל מילה צריכה לגרום לפעולה.
               היום אני מביא את אותה פרגמטיות לעולם הדיגיטל, עם התמחות עמוקה ב-AI ופתרונות אוטומציה לעסקים ישראלים.
             </p>
-            <p class="reveal reveal-delay-2">
+            <p class="reveal reveal-delay-2" data-he="אני לא מוכר &quot;אתר יפה&quot;. אני בונה מנגנון שיווקי שמייצר לידים: מסר חד, מבנה מדויק, חוויית משתמש ש<em>ממירה</em> — ו-AI שעובד בשבילך גם כשאתה ישן." data-en="I don't sell a &quot;pretty website&quot;. I build a marketing mechanism that generates leads: a sharp message, precise structure, a UX that <em>converts</em> — and AI that works for you even while you sleep.">
               אני לא מוכר "אתר יפה". אני בונה מנגנון שיווקי שמייצר לידים: מסר חד, מבנה מדויק, חוויית משתמש ש<em>ממירה</em> — ו-AI שעובד בשבילך גם כשאתה ישן.
             </p>
             <div class="about-badges reveal reveal-delay-3" aria-label="תחומי התמחות">
-              <span class="badge">18+ שנות מכירות</span>
-              <span class="badge">AI &amp; אוטומציה</span>
-              <span class="badge">שיווק דיגיטלי</span>
+              <span class="badge" data-he="18+ שנות מכירות" data-en="18+ Yrs in Sales">18+ שנות מכירות</span>
+              <span class="badge" data-he="AI &amp; אוטומציה" data-en="AI &amp; Automation">AI &amp; אוטומציה</span>
+              <span class="badge" data-he="שיווק דיגיטלי" data-en="Digital Marketing">שיווק דיגיטלי</span>
             </div>
             <div class="reveal reveal-delay-4">
-              <a href="#contact" class="btn-primary">דבר איתי ישירות ←</a>
+              <a href="#contact" class="btn-primary" data-he="דבר איתי ישירות ←" data-en="Talk to Me Directly →">דבר איתי ישירות ←</a>
             </div>
           </div>
         </div>
@@ -1341,62 +1362,62 @@
     <section class="section-pad" id="pricing" aria-labelledby="pricing-heading">
       <div class="container">
         <div class="reveal">
-          <div class="section-label">תמחור</div>
-          <h2 id="pricing-heading">מה <span class="gradient-text">מקבלים?</span></h2>
+          <div class="section-label" data-he="תמחור" data-en="Pricing">תמחור</div>
+          <h2 id="pricing-heading" data-he="מה <span class='gradient-text'>מקבלים?</span>" data-en="What <span class='gradient-text'>You Get?</span>">מה <span class="gradient-text">מקבלים?</span></h2>
         </div>
         <div class="pricing-wrap reveal">
           <table class="pricing-table" role="table" aria-label="השוואת חבילות שירות">
-            <caption>השוואת החבילות שאני מציע לעסקים</caption>
+            <caption data-he="השוואת החבילות שאני מציע לעסקים" data-en="Comparison of packages I offer">השוואת החבילות שאני מציע לעסקים</caption>
             <thead>
               <tr>
-                <th scope="col">פיצ׳ר</th>
-                <th scope="col">דף נחיתה<br><small style="font-weight:500;color:var(--muted)">מ-1,200₪</small></th>
-                <th scope="col">אתר תדמית<br><small style="font-weight:500;color:var(--muted)">מ-2,200₪</small></th>
-                <th scope="col">סוכן AI<br><small style="font-weight:500;color:var(--muted)">200₪/חודש</small></th>
+                <th scope="col" data-he="פיצ׳ר" data-en="Feature">פיצ׳ר</th>
+                <th scope="col" data-he="דף נחיתה<br><small style='font-weight:500;color:var(--muted)'>מ-1,200₪</small>" data-en="Landing Page<br><small style='font-weight:500;color:var(--muted)'>From ₪1,200</small>">דף נחיתה<br><small style="font-weight:500;color:var(--muted)">מ-1,200₪</small></th>
+                <th scope="col" data-he="אתר תדמית<br><small style='font-weight:500;color:var(--muted)'>מ-2,200₪</small>" data-en="Brand Website<br><small style='font-weight:500;color:var(--muted)'>From ₪2,200</small>">אתר תדמית<br><small style="font-weight:500;color:var(--muted)">מ-2,200₪</small></th>
+                <th scope="col" data-he="סוכן AI<br><small style='font-weight:500;color:var(--muted)'>200₪/חודש</small>" data-en="AI Agent<br><small style='font-weight:500;color:var(--muted)'>₪200/month</small>">סוכן AI<br><small style="font-weight:500;color:var(--muted)">200₪/חודש</small></th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td>מיקוד בלידים</td>
-                <td>ממוקד לליד אחד ברור</td>
-                <td>מציג את העסק + טפסי פנייה</td>
-                <td>מענה חכם שמגדיל סגירת לידים</td>
+                <td data-he="מיקוד בלידים" data-en="Lead Focus">מיקוד בלידים</td>
+                <td data-he="ממוקד לליד אחד ברור" data-en="Focused on one clear lead">ממוקד לליד אחד ברור</td>
+                <td data-he="מציג את העסק + טפסי פנייה" data-en="Shows the business + inquiry forms">מציג את העסק + טפסי פנייה</td>
+                <td data-he="מענה חכם שמגדיל סגירת לידים" data-en="Smart response that increases lead closure">מענה חכם שמגדיל סגירת לידים</td>
               </tr>
               <tr>
-                <td>SEO בסיסי</td>
-                <td>SEO בסיסי לעמוד אחד</td>
-                <td>SEO לכל עמודי הליבה</td>
-                <td>מותאם לתוכן האתר הקיים</td>
+                <td data-he="SEO בסיסי" data-en="Basic SEO">SEO בסיסי</td>
+                <td data-he="SEO בסיסי לעמוד אחד" data-en="Basic SEO for one page">SEO בסיסי לעמוד אחד</td>
+                <td data-he="SEO לכל עמודי הליבה" data-en="SEO for all core pages">SEO לכל עמודי הליבה</td>
+                <td data-he="מותאם לתוכן האתר הקיים" data-en="Adapted to existing site content">מותאם לתוכן האתר הקיים</td>
               </tr>
               <tr>
-                <td>זמן תגובה ללקוח</td>
-                <td>לפי זמינות העסק</td>
-                <td>לפי זמינות העסק</td>
-                <td>מענה 24/7 עם איסוף פרטים</td>
+                <td data-he="זמן תגובה ללקוח" data-en="Response Time">זמן תגובה ללקוח</td>
+                <td data-he="לפי זמינות העסק" data-en="Per business availability">לפי זמינות העסק</td>
+                <td data-he="לפי זמינות העסק" data-en="Per business availability">לפי זמינות העסק</td>
+                <td data-he="מענה 24/7 עם איסוף פרטים" data-en="24/7 response with lead capture">מענה 24/7 עם איסוף פרטים</td>
               </tr>
               <tr>
-                <td>עמודים</td>
-                <td>עמוד אחד ממוקד</td>
-                <td>3-8 עמודים</td>
-                <td>מוטמע בכל עמוד באתר</td>
+                <td data-he="עמודים" data-en="Pages">עמודים</td>
+                <td data-he="עמוד אחד ממוקד" data-en="One focused page">עמוד אחד ממוקד</td>
+                <td data-he="3-8 עמודים" data-en="3-8 pages">3-8 עמודים</td>
+                <td data-he="מוטמע בכל עמוד באתר" data-en="Embedded on every page">מוטמע בכל עמוד באתר</td>
               </tr>
               <tr>
-                <td>נגישות WCAG</td>
-                <td>תקן ת"י 5568</td>
-                <td>תקן ת"י 5568</td>
-                <td>תואם נגישות</td>
+                <td data-he="נגישות WCAG" data-en="WCAG Accessibility">נגישות WCAG</td>
+                <td data-he="תקן ת&quot;י 5568" data-en="Standard IL 5568">תקן ת"י 5568</td>
+                <td data-he="תקן ת&quot;י 5568" data-en="Standard IL 5568">תקן ת"י 5568</td>
+                <td data-he="תואם נגישות" data-en="Accessibility compliant">תואם נגישות</td>
               </tr>
               <tr>
-                <td>תמיכה לאחר השקה</td>
-                <td>30 יום</td>
-                <td>60 יום</td>
-                <td>שוטף כחלק מהמנוי</td>
+                <td data-he="תמיכה לאחר השקה" data-en="Post-launch Support">תמיכה לאחר השקה</td>
+                <td data-he="30 יום" data-en="30 days">30 יום</td>
+                <td data-he="60 יום" data-en="60 days">60 יום</td>
+                <td data-he="שוטף כחלק מהמנוי" data-en="Ongoing with subscription">שוטף כחלק מהמנוי</td>
               </tr>
             </tbody>
           </table>
         </div>
         <div style="text-align:center;margin-top:2rem" class="reveal">
-          <a href="#contact" class="btn-primary">בוא נדבר על הפרויקט שלך ←</a>
+          <a href="#contact" class="btn-primary" data-he="בוא נדבר על הפרויקט שלך ←" data-en="Let's Talk About Your Project →">בוא נדבר על הפרויקט שלך ←</a>
         </div>
       </div>
     </section>
@@ -1407,68 +1428,68 @@
     <section class="section-pad" id="faq" aria-labelledby="faq-heading">
       <div class="container">
         <div class="reveal">
-          <div class="section-label">שאלות ותשובות</div>
-          <h2 id="faq-heading">שאלות <span class="gradient-text">נפוצות</span></h2>
+          <div class="section-label" data-he="שאלות ותשובות" data-en="FAQ">שאלות ותשובות</div>
+          <h2 id="faq-heading" data-he="שאלות <span class='gradient-text'>נפוצות</span>" data-en="Frequently <span class='gradient-text'>Asked Questions</span>">שאלות <span class="gradient-text">נפוצות</span></h2>
         </div>
         <div class="faq-list reveal" role="list">
 
           <div class="faq-item" role="listitem">
-            <button class="faq-q" aria-expanded="false" aria-controls="faq-a1" id="faq-q1">
+            <button class="faq-q" aria-expanded="false" aria-controls="faq-a1" id="faq-q1" data-he="מה ההבדל בין דף נחיתה לאתר תדמית? <span class='faq-arrow' aria-hidden='true'>▼</span>" data-en="What's the difference between a landing page and a brand website? <span class='faq-arrow' aria-hidden='true'>▼</span>">
               מה ההבדל בין דף נחיתה לאתר תדמית?
               <span class="faq-arrow" aria-hidden="true">▼</span>
             </button>
             <div class="faq-a" id="faq-a1" role="region" aria-labelledby="faq-q1">
-              <div class="faq-a-inner">דף נחיתה ממוקד בפעולה אחת ברורה — השארת פרטים, שיחה או הזמנה. הוא קצר, חד, ומיועד לקמפיינים. אתר תדמית מציג את כל העסק: שירותים, אודות, עדויות לקוחות — ובונה אמינות לאורך זמן.</div>
+              <div class="faq-a-inner" data-he="דף נחיתה ממוקד בפעולה אחת ברורה — השארת פרטים, שיחה או הזמנה. הוא קצר, חד, ומיועד לקמפיינים. אתר תדמית מציג את כל העסק: שירותים, אודות, עדויות לקוחות — ובונה אמינות לאורך זמן." data-en="A landing page focuses on one clear action — leaving details, calling, or booking. It's short, sharp, and designed for campaigns. A brand website presents the full business: services, about, testimonials — and builds credibility over time.">דף נחיתה ממוקד בפעולה אחת ברורה — השארת פרטים, שיחה או הזמנה. הוא קצר, חד, ומיועד לקמפיינים. אתר תדמית מציג את כל העסק: שירותים, אודות, עדויות לקוחות — ובונה אמינות לאורך זמן.</div>
             </div>
           </div>
 
           <div class="faq-item" role="listitem">
-            <button class="faq-q" aria-expanded="false" aria-controls="faq-a2" id="faq-q2">
+            <button class="faq-q" aria-expanded="false" aria-controls="faq-a2" id="faq-q2" data-he="איך סוכן AI באתר יעזור לי? <span class='faq-arrow' aria-hidden='true'>▼</span>" data-en="How will an AI agent on my website help? <span class='faq-arrow' aria-hidden='true'>▼</span>">
               איך סוכן AI באתר יעזור לי?
               <span class="faq-arrow" aria-hidden="true">▼</span>
             </button>
             <div class="faq-a" id="faq-a2" role="region" aria-labelledby="faq-q2">
-              <div class="faq-a-inner">סוכן AI נותן מענה מיידי ללקוחות 24/7, מסביר על השירותים שלך, עונה על שאלות נפוצות ואוסף פרטי לידים גם כשאתה ישן. במקום שהלקוח יעזוב — הוא מקבל מענה ברגע.</div>
+              <div class="faq-a-inner" data-he="סוכן AI נותן מענה מיידי ללקוחות 24/7, מסביר על השירותים שלך, עונה על שאלות נפוצות ואוסף פרטי לידים גם כשאתה ישן. במקום שהלקוח יעזוב — הוא מקבל מענה ברגע." data-en="An AI agent provides immediate 24/7 responses to customers, explains your services, answers FAQs, and collects lead details even while you sleep. Instead of the customer leaving — they get an instant response.">סוכן AI נותן מענה מיידי ללקוחות 24/7, מסביר על השירותים שלך, עונה על שאלות נפוצות ואוסף פרטי לידים גם כשאתה ישן. במקום שהלקוח יעזוב — הוא מקבל מענה ברגע.</div>
             </div>
           </div>
 
           <div class="faq-item" role="listitem">
-            <button class="faq-q" aria-expanded="false" aria-controls="faq-a3" id="faq-q3">
+            <button class="faq-q" aria-expanded="false" aria-controls="faq-a3" id="faq-q3" data-he="תוך כמה זמן אפשר לעלות לאוויר? <span class='faq-arrow' aria-hidden='true'>▼</span>" data-en="How quickly can we go live? <span class='faq-arrow' aria-hidden='true'>▼</span>">
               תוך כמה זמן אפשר לעלות לאוויר?
               <span class="faq-arrow" aria-hidden="true">▼</span>
             </button>
             <div class="faq-a" id="faq-a3" role="region" aria-labelledby="faq-q3">
-              <div class="faq-a-inner">דף נחיתה עולה בדרך כלל תוך 5-7 ימי עסקים מרגע אישור האפיון. אתר תדמית לוקח 10-21 ימים בהתאם להיקף. לאחר קבלת כל החומרים — פועלים במהירות.</div>
+              <div class="faq-a-inner" data-he="דף נחיתה עולה בדרך כלל תוך 5-7 ימי עסקים מרגע אישור האפיון. אתר תדמית לוקח 10-21 ימים בהתאם להיקף. לאחר קבלת כל החומרים — פועלים במהירות." data-en="A landing page is typically ready within 5-7 business days from brief approval. A brand website takes 10-21 days depending on scope. Once all materials are received — we move fast.">דף נחיתה עולה בדרך כלל תוך 5-7 ימי עסקים מרגע אישור האפיון. אתר תדמית לוקח 10-21 ימים בהתאם להיקף. לאחר קבלת כל החומרים — פועלים במהירות.</div>
             </div>
           </div>
 
           <div class="faq-item" role="listitem">
-            <button class="faq-q" aria-expanded="false" aria-controls="faq-a4" id="faq-q4">
+            <button class="faq-q" aria-expanded="false" aria-controls="faq-a4" id="faq-q4" data-he="אפשר להתחיל בקטן ואז להתרחב? <span class='faq-arrow' aria-hidden='true'>▼</span>" data-en="Can I start small and scale up? <span class='faq-arrow' aria-hidden='true'>▼</span>">
               אפשר להתחיל בקטן ואז להתרחב?
               <span class="faq-arrow" aria-hidden="true">▼</span>
             </button>
             <div class="faq-a" id="faq-a4" role="region" aria-labelledby="faq-q4">
-              <div class="faq-a-inner">בהחלט. הרבה עסקים מתחילים עם דף נחיתה ממוקד, רואים תוצאות, ואז מרחיבים לאתר תדמית ומוסיפים סוכן AI. כל שלב בנוי כך שיתאים להמשך.</div>
+              <div class="faq-a-inner" data-he="בהחלט. הרבה עסקים מתחילים עם דף נחיתה ממוקד, רואים תוצאות, ואז מרחיבים לאתר תדמית ומוסיפים סוכן AI. כל שלב בנוי כך שיתאים להמשך." data-en="Absolutely. Many businesses start with a focused landing page, see results, then expand to a brand website and add an AI agent. Each phase is built to fit the next.">בהחלט. הרבה עסקים מתחילים עם דף נחיתה ממוקד, רואים תוצאות, ואז מרחיבים לאתר תדמית ומוסיפים סוכן AI. כל שלב בנוי כך שיתאים להמשך.</div>
             </div>
           </div>
 
           <div class="faq-item" role="listitem">
-            <button class="faq-q" aria-expanded="false" aria-controls="faq-a5" id="faq-q5">
+            <button class="faq-q" aria-expanded="false" aria-controls="faq-a5" id="faq-q5" data-he="כמה עולה אחזקת אתר? <span class='faq-arrow' aria-hidden='true'>▼</span>" data-en="How much does website maintenance cost? <span class='faq-arrow' aria-hidden='true'>▼</span>">
               כמה עולה אחזקת אתר?
               <span class="faq-arrow" aria-hidden="true">▼</span>
             </button>
             <div class="faq-a" id="faq-a5" role="region" aria-labelledby="faq-q5">
-              <div class="faq-a-inner">אחזקה בסיסית כוללת אירוח, גיבויים ועדכוני אבטחה. עלות משתנה לפי סוג האתר ורמת השירות הנדרשת. צרו קשר לפרטים מלאים ומותאמים לצרכים שלכם.</div>
+              <div class="faq-a-inner" data-he="אחזקה בסיסית כוללת אירוח, גיבויים ועדכוני אבטחה. עלות משתנה לפי סוג האתר ורמת השירות הנדרשת. צרו קשר לפרטים מלאים ומותאמים לצרכים שלכם." data-en="Basic maintenance includes hosting, backups, and security updates. Cost varies by site type and required service level. Contact us for full details tailored to your needs.">אחזקה בסיסית כוללת אירוח, גיבויים ועדכוני אבטחה. עלות משתנה לפי סוג האתר ורמת השירות הנדרשת. צרו קשר לפרטים מלאים ומותאמים לצרכים שלכם.</div>
             </div>
           </div>
 
           <div class="faq-item" role="listitem">
-            <button class="faq-q" aria-expanded="false" aria-controls="faq-a6" id="faq-q6">
+            <button class="faq-q" aria-expanded="false" aria-controls="faq-a6" id="faq-q6" data-he="האם האתר יהיה נגיש ותואם WCAG? <span class='faq-arrow' aria-hidden='true'>▼</span>" data-en="Will the website be accessible and WCAG compliant? <span class='faq-arrow' aria-hidden='true'>▼</span>">
               האם האתר יהיה נגיש ותואם WCAG?
               <span class="faq-arrow" aria-hidden="true">▼</span>
             </button>
             <div class="faq-a" id="faq-a6" role="region" aria-labelledby="faq-q6">
-              <div class="faq-a-inner">כן. כל האתרים נבנים עם עמידה מלאה בתקן הנגישות הישראלי ת"י 5568 ובהנחיות WCAG 2.1 ברמה AA. נגישות היא לא אופציה — היא סטנדרט חובה.</div>
+              <div class="faq-a-inner" data-he="כן. כל האתרים נבנים עם עמידה מלאה בתקן הנגישות הישראלי ת&quot;י 5568 ובהנחיות WCAG 2.1 ברמה AA. נגישות היא לא אופציה — היא סטנדרט חובה." data-en="Yes. All websites are built with full compliance to the Israeli accessibility standard IL 5568 and WCAG 2.1 guidelines at level AA. Accessibility is not optional — it's a mandatory standard.">כן. כל האתרים נבנים עם עמידה מלאה בתקן הנגישות הישראלי ת"י 5568 ובהנחיות WCAG 2.1 ברמה AA. נגישות היא לא אופציה — היא סטנדרט חובה.</div>
             </div>
           </div>
 
@@ -1484,18 +1505,18 @@
         <div class="contact-grid">
           <div class="contact-info">
             <div class="reveal">
-              <div class="section-label">צור קשר</div>
-              <h2 id="contact-heading">בואו נבנה<br><span class="gradient-text">משהו שעובד</span></h2>
+              <div class="section-label" data-he="צור קשר" data-en="Contact">צור קשר</div>
+              <h2 id="contact-heading" data-he="בואו נבנה<br><span class='gradient-text'>משהו שעובד</span>" data-en="Let's Build<br><span class='gradient-text'>Something That Works</span>">בואו נבנה<br><span class="gradient-text">משהו שעובד</span></h2>
             </div>
-            <p class="reveal reveal-delay-1">
-              שלחו פרטים ותוך 24 שעות תקבלו הצעה מותאמת אישית. 
+            <p class="reveal reveal-delay-1" data-he="שלחו פרטים ותוך 24 שעות תקבלו הצעה מותאמת אישית. מתחילים ממסר, בונים מבנה, ומדדים תוצאות." data-en="Send your details and within 24 hours you'll receive a personalized proposal. We start with message, build structure, and measure results.">
+              שלחו פרטים ותוך 24 שעות תקבלו הצעה מותאמת אישית.
               מתחילים ממסר, בונים מבנה, ומדדים תוצאות.
             </p>
             <div class="reveal reveal-delay-2" style="margin-top:1.5rem">
-              <p style="margin-bottom:0.8rem;color:var(--muted);font-size:0.9rem">מעדיפים לדבר ישירות?</p>
+              <p style="margin-bottom:0.8rem;color:var(--muted);font-size:0.9rem" data-he="מעדיפים לדבר ישירות?" data-en="Prefer to talk directly?">מעדיפים לדבר ישירות?</p>
               <a href="https://wa.me/972508668022" target="_blank" rel="noopener noreferrer" class="wa-direct" aria-label="שלח הודעת וואטסאפ לליאור בלול">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-                וואטסאפ ישיר
+                <span data-he="וואטסאפ ישיר" data-en="WhatsApp Direct">וואטסאפ ישיר</span>
               </a>
             </div>
             <div class="reveal reveal-delay-3" style="margin-top:1.5rem">
@@ -1507,39 +1528,39 @@
           <div class="contact-form-card reveal">
             <form id="contactForm" onsubmit="sendToWhatsApp(event)" novalidate aria-label="טופס יצירת קשר">
               <div class="form-group">
-                <label for="name">שם מלא <span aria-hidden="true" style="color:#f87171">*</span></label>
-                <input id="name" type="text" name="name" required placeholder="השם שלך" autocomplete="name" aria-required="true">
+                <label for="name" data-he="שם מלא <span aria-hidden='true' style='color:#f87171'>*</span>" data-en="Full Name <span aria-hidden='true' style='color:#f87171'>*</span>">שם מלא <span aria-hidden="true" style="color:#f87171">*</span></label>
+                <input id="name" type="text" name="name" required placeholder="השם שלך" autocomplete="name" aria-required="true" data-he-ph="השם שלך" data-en-ph="Your name">
               </div>
               <div class="form-group">
-                <label for="business">שם עסק / תחום <span aria-hidden="true" style="color:#f87171">*</span></label>
-                <input id="business" type="text" name="business" required placeholder="שם העסק או תחום פעילות" aria-required="true">
+                <label for="business" data-he="שם עסק / תחום <span aria-hidden='true' style='color:#f87171'>*</span>" data-en="Business Name / Field <span aria-hidden='true' style='color:#f87171'>*</span>">שם עסק / תחום <span aria-hidden="true" style="color:#f87171">*</span></label>
+                <input id="business" type="text" name="business" required placeholder="שם העסק או תחום פעילות" aria-required="true" data-he-ph="שם העסק או תחום פעילות" data-en-ph="Business name or field">
               </div>
               <div class="form-group">
-                <label for="phone">טלפון / וואטסאפ <span aria-hidden="true" style="color:#f87171">*</span></label>
+                <label for="phone" data-he="טלפון / וואטסאפ <span aria-hidden='true' style='color:#f87171'>*</span>" data-en="Phone / WhatsApp <span aria-hidden='true' style='color:#f87171'>*</span>">טלפון / וואטסאפ <span aria-hidden="true" style="color:#f87171">*</span></label>
                 <input id="phone" type="tel" name="phone" required placeholder="05X-XXXXXXX" autocomplete="tel" aria-required="true">
               </div>
               <div class="form-group">
-                <label for="service">מה אתם מחפשים?</label>
+                <label for="service" data-he="מה אתם מחפשים?" data-en="What are you looking for?">מה אתם מחפשים?</label>
                 <select id="service" name="service" aria-label="סוג השירות המבוקש">
-                  <option value="דף נחיתה">דף נחיתה</option>
-                  <option value="אתר תדמית">אתר תדמית</option>
-                  <option value="סוכן AI">סוכן AI</option>
-                  <option value="ייעוץ AI / קידום">ייעוץ AI / קידום</option>
-                  <option value="לא בטוח - רוצה ייעוץ">לא בטוח — רוצה ייעוץ</option>
+                  <option value="דף נחיתה" data-he="דף נחיתה" data-en="Landing Page">דף נחיתה</option>
+                  <option value="אתר תדמית" data-he="אתר תדמית" data-en="Brand Website">אתר תדמית</option>
+                  <option value="סוכן AI" data-he="סוכן AI" data-en="AI Agent">סוכן AI</option>
+                  <option value="ייעוץ AI / קידום" data-he="ייעוץ AI / קידום" data-en="AI Consulting / Growth">ייעוץ AI / קידום</option>
+                  <option value="לא בטוח - רוצה ייעוץ" data-he="לא בטוח — רוצה ייעוץ" data-en="Not sure — I want advice">לא בטוח — רוצה ייעוץ</option>
                 </select>
               </div>
               <div class="form-group">
-                <label for="message">הערות נוספות</label>
-                <textarea id="message" name="message" rows="3" placeholder="פרטים נוספים, שאלות, או כל מה שיעזור לדייק את ההצעה" aria-label="הערות נוספות"></textarea>
+                <label for="message" data-he="הערות נוספות" data-en="Additional Notes">הערות נוספות</label>
+                <textarea id="message" name="message" rows="3" placeholder="פרטים נוספים, שאלות, או כל מה שיעזור לדייק את ההצעה" aria-label="הערות נוספות" data-he-ph="פרטים נוספים, שאלות, או כל מה שיעזור לדייק את ההצעה" data-en-ph="Additional details, questions, or anything that will help refine the proposal"></textarea>
               </div>
               <div class="form-group consent-group">
                 <label for="privacyConsent" style="display:flex;gap:8px;align-items:flex-start;font-size:0.9rem;color:var(--muted)">
                   <input id="privacyConsent" name="privacyConsent" type="checkbox" required aria-required="true" style="margin-top:6px">
-                  <span>אני מאשר/ת שמירת פרטי הפנייה לצורך חזרה אליי בלבד, בהתאם ל<a href="/privacy-policy.html" target="_blank" rel="noopener noreferrer" style="text-decoration:underline">מדיניות הפרטיות</a>.</span>
+                  <span data-he="אני מאשר/ת שמירת פרטי הפנייה לצורך חזרה אליי בלבד, בהתאם ל<a href='/privacy-policy.html' target='_blank' rel='noopener noreferrer' style='text-decoration:underline'>מדיניות הפרטיות</a>." data-en="I confirm the storage of my contact details for follow-up purposes only, in accordance with the <a href='/privacy-policy.html' target='_blank' rel='noopener noreferrer' style='text-decoration:underline'>Privacy Policy</a>.">אני מאשר/ת שמירת פרטי הפנייה לצורך חזרה אליי בלבד, בהתאם ל<a href="/privacy-policy.html" target="_blank" rel="noopener noreferrer" style="text-decoration:underline">מדיניות הפרטיות</a>.</span>
                 </label>
                 <input type="text" name="company_website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-10000px;opacity:0">
               </div>
-              <button type="submit" class="form-submit">
+              <button type="submit" class="form-submit" data-he="💬 שלח בוואטסאפ" data-en="💬 Send via WhatsApp">
                 💬 שלח בוואטסאפ
               </button>
             </form>
@@ -1556,7 +1577,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="#top" class="logo" aria-label="lior-ai - חזרה לראש הדף">lior-ai</a>
-          <p>בניית דפי נחיתה, אתרי תדמית וסוכני AI לעסקים ישראלים שרוצים יותר לידים ויותר לקוחות.</p>
+          <p data-he="בניית דפי נחיתה, אתרי תדמית וסוכני AI לעסקים ישראלים שרוצים יותר לידים ויותר לקוחות." data-en="Landing pages, brand websites &amp; AI agents for Israeli businesses who want more leads and more clients.">בניית דפי נחיתה, אתרי תדמית וסוכני AI לעסקים ישראלים שרוצים יותר לידים ויותר לקוחות.</p>
           <div class="footer-socials" aria-label="רשתות חברתיות">
             <a href="https://x.com/LiorBalol" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="עקוב ב-X (Twitter)">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.259 5.635L18.244 2.25zM17.08 19.77h1.833L7.084 4.126H5.117z"/></svg>
@@ -1570,33 +1591,33 @@
           </div>
         </div>
         <div class="footer-col">
-          <h4>שירותים</h4>
+          <h4 data-he="שירותים" data-en="Services">שירותים</h4>
           <ul>
-            <li><a href="#packages">דף נחיתה</a></li>
-            <li><a href="#packages">אתר תדמית</a></li>
-            <li><a href="#packages">סוכן AI</a></li>
-            <li><a href="#packages">ייעוץ AI</a></li>
+            <li><a href="#packages" data-he="דף נחיתה" data-en="Landing Page">דף נחיתה</a></li>
+            <li><a href="#packages" data-he="אתר תדמית" data-en="Brand Website">אתר תדמית</a></li>
+            <li><a href="#packages" data-he="סוכן AI" data-en="AI Agent">סוכן AI</a></li>
+            <li><a href="#packages" data-he="ייעוץ AI" data-en="AI Consulting">ייעוץ AI</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4>קישורים</h4>
+          <h4 data-he="קישורים" data-en="Links">קישורים</h4>
           <ul>
-            <li><a href="portfolio.html">פורטפוליו</a></li>
-            <li><a href="#pricing">תמחור</a></li>
-            <li><a href="#about">אודות</a></li>
-            <li><a href="#faq">שאלות ותשובות</a></li>
+            <li><a href="portfolio.html" data-he="פורטפוליו" data-en="Portfolio">פורטפוליו</a></li>
+            <li><a href="#pricing" data-he="תמחור" data-en="Pricing">תמחור</a></li>
+            <li><a href="#about" data-he="אודות" data-en="About">אודות</a></li>
+            <li><a href="#faq" data-he="שאלות ותשובות" data-en="FAQ">שאלות ותשובות</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4>משפטי</h4>
+          <h4 data-he="משפטי" data-en="Legal">משפטי</h4>
           <ul>
-            <li><a href="/privacy-policy.html">מדיניות פרטיות</a></li>
-            <li><a href="/accessibility-statement.html">הצהרת נגישות</a></li>
-            <li><a href="/terms.html">תקנון אתר וזכויות שימוש</a></li>
+            <li><a href="/privacy-policy.html" data-he="מדיניות פרטיות" data-en="Privacy Policy">מדיניות פרטיות</a></li>
+            <li><a href="/accessibility-statement.html" data-he="הצהרת נגישות" data-en="Accessibility Statement">הצהרת נגישות</a></li>
+            <li><a href="/terms.html" data-he="תקנון אתר וזכויות שימוש" data-en="Terms of Use">תקנון אתר וזכויות שימוש</a></li>
           </ul>
         </div>
         <div class="footer-col">
-          <h4>עקוב אחרי</h4>
+          <h4 data-he="עקוב אחרי" data-en="Follow Me">עקוב אחרי</h4>
           <ul>
             <li><a href="https://x.com/LiorBalol" target="_blank" rel="noopener noreferrer">X (Twitter)</a></li>
             <li><a href="https://www.youtube.com/channel/UCjwWgjFmZN5MELt2-QqkF8Q" target="_blank" rel="noopener noreferrer">YouTube</a></li>
@@ -1605,17 +1626,17 @@
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2026 lior-ai | ליאור בלול — כל הזכויות שמורות</p>
+        <p data-he="&copy; 2026 lior-ai | ליאור בלול — כל הזכויות שמורות" data-en="&copy; 2026 lior-ai | Lior Balol — All rights reserved">&copy; 2026 lior-ai | ליאור בלול — כל הזכויות שמורות</p>
         <p>
-          <a href="/privacy-policy.html">מדיניות פרטיות</a>
+          <a href="/privacy-policy.html" data-he="מדיניות פרטיות" data-en="Privacy Policy">מדיניות פרטיות</a>
           &nbsp;|&nbsp;
-          <a href="/accessibility-statement.html">הצהרת נגישות</a>
+          <a href="/accessibility-statement.html" data-he="הצהרת נגישות" data-en="Accessibility Statement">הצהרת נגישות</a>
           &nbsp;|&nbsp;
-          <a href="/terms.html">תקנון אתר</a>
+          <a href="/terms.html" data-he="תקנון אתר" data-en="Terms">תקנון אתר</a>
         </p>
       </div>
-      <p class="data-notice">
-        האתר אוסף פרטי קשר (שם, טלפון, שם עסק) לצורך חזרת פנייה בלבד, בהתאם לחוק הגנת הפרטיות, התשמ"א-1981. 
+      <p class="data-notice" data-he="האתר אוסף פרטי קשר (שם, טלפון, שם עסק) לצורך חזרת פנייה בלבד, בהתאם לחוק הגנת הפרטיות, התשמ&quot;א-1981. המידע אינו מועבר לגורמי צד שלישי. לבירורים: <a href='mailto:liorbll100@gmail.com'>liorbll100@gmail.com</a>" data-en="This website collects contact details (name, phone, business name) for follow-up purposes only, in accordance with the Privacy Protection Law 5741-1981. Information is not shared with third parties. For inquiries: <a href='mailto:liorbll100@gmail.com'>liorbll100@gmail.com</a>">
+        האתר אוסף פרטי קשר (שם, טלפון, שם עסק) לצורך חזרת פנייה בלבד, בהתאם לחוק הגנת הפרטיות, התשמ"א-1981.
         המידע אינו מועבר לגורמי צד שלישי. לבירורים: <a href="mailto:liorbll100@gmail.com">liorbll100@gmail.com</a>
       </p>
     </div>
@@ -1740,14 +1761,65 @@
         consent.focus();
         return;
       }
-      var text = 'היי ליאור, אשמח לשמוע על השירותים שלך.%0A';
-      text += 'שם: ' + encodeURIComponent(name) + '%0A';
-      text += 'עסק: ' + encodeURIComponent(business) + '%0A';
-      text += 'טלפון: ' + encodeURIComponent(phone) + '%0A';
-      text += 'שירות: ' + encodeURIComponent(service);
-      if (message) text += '%0Aהערות: ' + encodeURIComponent(message);
+      var isEn = document.documentElement.lang === 'en';
+      var text = isEn
+        ? 'Hi Lior, I\'d love to hear about your services.%0A'
+        : 'היי ליאור, אשמח לשמוע על השירותים שלך.%0A';
+      text += (isEn ? 'Name: ' : 'שם: ') + encodeURIComponent(name) + '%0A';
+      text += (isEn ? 'Business: ' : 'עסק: ') + encodeURIComponent(business) + '%0A';
+      text += (isEn ? 'Phone: ' : 'טלפון: ') + encodeURIComponent(phone) + '%0A';
+      text += (isEn ? 'Service: ' : 'שירות: ') + encodeURIComponent(service);
+      if (message) text += '%0A' + (isEn ? 'Notes: ' : 'הערות: ') + encodeURIComponent(message);
       window.open('https://wa.me/972508668022?text=' + text, '_blank');
     }
+
+    /* ---- Language Toggle ---- */
+    (function() {
+      var currentLang = (new URLSearchParams(window.location.search).get('lang')) || localStorage.getItem('lang') || 'he';
+
+      function applyLang(lang) {
+        document.documentElement.lang = lang;
+        document.documentElement.dir = lang === 'he' ? 'rtl' : 'ltr';
+
+        /* swap innerHTML for all [data-he][data-en] elements */
+        document.querySelectorAll('[data-he][data-en]').forEach(function(el) {
+          /* skip input/textarea/select — handled separately */
+          if (el.tagName === 'INPUT' || el.tagName === 'TEXTAREA' || el.tagName === 'SELECT') return;
+          el.innerHTML = lang === 'en' ? el.dataset.en : el.dataset.he;
+        });
+
+        /* swap placeholders */
+        document.querySelectorAll('[data-he-ph][data-en-ph]').forEach(function(el) {
+          el.placeholder = lang === 'en' ? el.dataset.enPh : el.dataset.hePh;
+        });
+
+        /* swap select option text */
+        document.querySelectorAll('select option[data-he][data-en]').forEach(function(opt) {
+          opt.textContent = lang === 'en' ? opt.dataset.en : opt.dataset.he;
+        });
+
+        /* update toggle button label */
+        var btn = document.getElementById('lang-toggle');
+        if (btn) {
+          btn.textContent = lang === 'en' ? 'עב' : 'EN';
+          btn.setAttribute('aria-label', lang === 'en' ? 'עבור לעברית' : 'Switch to English');
+        }
+
+        localStorage.setItem('lang', lang);
+      }
+
+      /* apply on load if not default Hebrew */
+      if (currentLang === 'en') applyLang('en');
+
+      /* toggle button handler */
+      var toggleBtn = document.getElementById('lang-toggle');
+      if (toggleBtn) {
+        toggleBtn.addEventListener('click', function() {
+          currentLang = currentLang === 'he' ? 'en' : 'he';
+          applyLang(currentLang);
+        });
+      }
+    })();
   </script>
 
   <script defer src="/assets/site-compliance.js"></script>
