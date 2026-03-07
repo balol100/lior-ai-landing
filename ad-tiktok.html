@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lior-AI | סוכן AI לעסק שלך — 24/7</title>
+  <meta name="description" content="סוכן AI שעובד 24/7 — עונה ללקוחות, מסביר על השירותים שלך, ואוסף לידים. גם בשעה 3 בלילה.">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Lior-AI | סוכן AI לעסק שלך">
+  <meta property="og:description" content="ראית את הסרטון? עכשיו תראה מה AI עושה לעסק שלך — 24/7, בלי שאתה מרים אצבע.">
+  <meta property="og:type" content="website">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    /* ── Variables ── */
+    :root {
+      --bg: #04040a;
+      --surface: #08081a;
+      --surface2: #0d0d20;
+      --border: rgba(255,255,255,.07);
+      --border-glow: rgba(0,210,255,.2);
+      --text: #f0f0ff;
+      --muted: #8888aa;
+      --muted2: #5a5a7a;
+      --cyan: #00d2ff;
+      --cyan2: #00a8d8;
+      --purple: #a855f7;
+      --green: #00e5a0;
+      --grad-cta: linear-gradient(135deg, #00d2ff, #a855f7);
+      --glow-cyan: 0 0 28px rgba(0,210,255,.3), 0 0 56px rgba(0,210,255,.12);
+      --glow-purple: 0 0 28px rgba(168,85,247,.3), 0 0 56px rgba(168,85,247,.12);
+      --r: 18px;
+      --r-sm: 12px;
+    }
+
+    /* ── Reset ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Heebo', system-ui, -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Layout ── */
+    .container {
+      width: 100%;
+      max-width: 640px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* ── Sections ── */
+    section { padding: 64px 0; }
+
+    /* ── Fade-in animation ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ══════════════════════
+       SCREEN 1: HERO
+    ══════════════════════ */
+    #hero {
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 0 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Background glow blobs */
+    #hero::before, #hero::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+      z-index: 0;
+    }
+    #hero::before {
+      width: 320px; height: 320px;
+      background: rgba(0,210,255,.12);
+      top: -60px; right: -80px;
+    }
+    #hero::after {
+      width: 280px; height: 280px;
+      background: rgba(168,85,247,.1);
+      bottom: -40px; left: -60px;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(0,210,255,.08);
+      border: 1px solid rgba(0,210,255,.2);
+      border-radius: 100px;
+      padding: 6px 14px;
+      font-size: .75rem;
+      font-weight: 600;
+      color: var(--cyan);
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .hero-badge .dot {
+      width: 6px; height: 6px;
+      background: var(--cyan);
+      border-radius: 50%;
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: .5; transform: scale(.75); }
+    }
+
+    .hero-title {
+      font-size: clamp(1.85rem, 7vw, 2.6rem);
+      font-weight: 900;
+      line-height: 1.2;
+      letter-spacing: -.02em;
+      margin-bottom: 16px;
+    }
+    .hero-title .accent {
+      background: var(--grad-cta);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-sub {
+      font-size: clamp(.95rem, 3.5vw, 1.1rem);
+      color: var(--muted);
+      max-width: 480px;
+      margin: 0 auto 32px;
+      line-height: 1.7;
+    }
+
+    .btn-hero {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--grad-cta);
+      color: #fff;
+      font-family: inherit;
+      font-size: 1.05rem;
+      font-weight: 700;
+      padding: 16px 32px;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      box-shadow: var(--glow-cyan);
+      transition: transform .2s, box-shadow .2s;
+      text-decoration: none;
+    }
+    .btn-hero:hover, .btn-hero:focus-visible {
+      transform: scale(1.04);
+      box-shadow: var(--glow-purple);
+    }
+    .btn-hero:active { transform: scale(.98); }
+
+    .hero-hint {
+      margin-top: 16px;
+      font-size: .82rem;
+      color: var(--muted2);
+    }
+    .hero-hint strong { color: var(--muted); }
+
+    /* ══════════════════════
+       SCREEN 2: AGENT DEMO
+    ══════════════════════ */
+    #demo {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .section-label {
+      display: inline-block;
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--cyan);
+      margin-bottom: 12px;
+    }
+
+    .demo-title {
+      font-size: clamp(1.4rem, 5vw, 1.9rem);
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+    .demo-sub {
+      color: var(--muted);
+      font-size: .92rem;
+      margin-bottom: 28px;
+      line-height: 1.6;
+    }
+
+    /* ── Chat Widget ── */
+    .chat-wrapper {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: var(--r);
+      overflow: hidden;
+      box-shadow: 0 4px 40px rgba(0,0,0,.4);
+    }
+
+    .chat-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 18px;
+      background: rgba(255,255,255,.03);
+      border-bottom: 1px solid var(--border);
+    }
+    .chat-header-left { display: flex; align-items: center; gap: 10px; }
+    .chat-avatar {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: var(--grad-cta);
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 800; font-size: .75rem; color: #fff;
+      flex-shrink: 0;
+    }
+    .chat-header-name { font-weight: 700; font-size: .88rem; }
+    .chat-header-status {
+      display: flex; align-items: center; gap: 5px;
+      font-size: .72rem; color: var(--green);
+    }
+    .status-dot {
+      width: 6px; height: 6px;
+      background: var(--green);
+      border-radius: 50%;
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    .chat-quick {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--border);
+    }
+    .qbtn {
+      background: rgba(0,210,255,.07);
+      border: 1px solid rgba(0,210,255,.2);
+      border-radius: 100px;
+      color: var(--cyan);
+      font-family: inherit;
+      font-size: .75rem;
+      font-weight: 600;
+      padding: 5px 12px;
+      cursor: pointer;
+      transition: background .18s, border-color .18s;
+      white-space: nowrap;
+    }
+    .qbtn:hover { background: rgba(0,210,255,.14); border-color: rgba(0,210,255,.4); }
+
+    .chat-messages {
+      min-height: 240px;
+      max-height: 360px;
+      overflow-y: auto;
+      padding: 16px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      scroll-behavior: smooth;
+    }
+    .chat-messages::-webkit-scrollbar { width: 4px; }
+    .chat-messages::-webkit-scrollbar-track { background: transparent; }
+    .chat-messages::-webkit-scrollbar-thumb { background: rgba(255,255,255,.1); border-radius: 4px; }
+
+    .chat-msg { display: flex; max-width: 85%; }
+    .chat-msg.user { align-self: flex-start; }
+    .chat-msg.bot { align-self: flex-end; }
+
+    .chat-bubble {
+      padding: 10px 14px;
+      border-radius: var(--r-sm);
+      font-size: .875rem;
+      line-height: 1.55;
+    }
+    .chat-msg.user .chat-bubble {
+      background: rgba(255,255,255,.08);
+      color: var(--text);
+      border-radius: var(--r-sm) var(--r-sm) var(--r-sm) 4px;
+    }
+    .chat-msg.bot .chat-bubble {
+      background: rgba(0,210,255,.1);
+      border: 1px solid rgba(0,210,255,.15);
+      color: var(--text);
+      border-radius: var(--r-sm) var(--r-sm) 4px var(--r-sm);
+    }
+    .chat-msg.bot .chat-bubble strong { color: #c4b5fd; }
+    .chat-msg.bot .chat-bubble ul { padding-right: 16px; margin: 6px 0; }
+    .chat-msg.bot .chat-bubble li { margin: 3px 0; }
+
+    /* Typing indicator */
+    .typing-indicator {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 10px 14px;
+      background: rgba(0,210,255,.08);
+      border: 1px solid rgba(0,210,255,.12);
+      border-radius: var(--r-sm) var(--r-sm) 4px var(--r-sm);
+    }
+    .typing-dot {
+      width: 7px; height: 7px;
+      background: var(--cyan);
+      border-radius: 50%;
+      animation: typing-bounce .9s ease-in-out infinite;
+    }
+    .typing-dot:nth-child(2) { animation-delay: .15s; }
+    .typing-dot:nth-child(3) { animation-delay: .3s; }
+    @keyframes typing-bounce {
+      0%, 80%, 100% { transform: translateY(0); opacity: .5; }
+      40% { transform: translateY(-5px); opacity: 1; }
+    }
+
+    .chat-composer {
+      display: flex;
+      align-items: flex-end;
+      gap: 8px;
+      padding: 10px 14px;
+      border-top: 1px solid var(--border);
+    }
+    .chat-input {
+      flex: 1;
+      background: rgba(255,255,255,.05);
+      border: 1px solid var(--border);
+      border-radius: var(--r-sm);
+      color: var(--text);
+      font-family: inherit;
+      font-size: .88rem;
+      padding: 10px 14px;
+      resize: none;
+      min-height: 42px;
+      max-height: 110px;
+      transition: border-color .2s;
+    }
+    .chat-input:focus {
+      outline: none;
+      border-color: rgba(168,85,247,.4);
+    }
+    .chat-input::placeholder { color: var(--muted2); }
+    .chat-send {
+      width: 42px; height: 42px;
+      background: var(--grad-cta);
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      transition: box-shadow .2s, transform .15s;
+    }
+    .chat-send:hover { box-shadow: var(--glow-purple); }
+    .chat-send:active { transform: scale(.92); }
+    .chat-send:disabled { opacity: .4; cursor: not-allowed; }
+    .chat-send svg { width: 16px; height: 16px; fill: white; }
+
+    /* ── Testimonial ── */
+    .testimonial {
+      margin-top: 24px;
+      padding: 16px 20px;
+      background: rgba(0,229,160,.05);
+      border: 1px solid rgba(0,229,160,.15);
+      border-radius: var(--r-sm);
+    }
+    .testimonial-text {
+      font-size: .88rem;
+      color: var(--muted);
+      line-height: 1.6;
+      font-style: italic;
+      margin-bottom: 8px;
+    }
+    .testimonial-author {
+      font-size: .78rem;
+      font-weight: 700;
+      color: var(--green);
+    }
+
+    /* ── Quick actions below chat ── */
+    .quick-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+    .qa-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(168,85,247,.08);
+      border: 1px solid rgba(168,85,247,.2);
+      border-radius: 100px;
+      color: var(--purple);
+      font-family: inherit;
+      font-size: .8rem;
+      font-weight: 600;
+      padding: 8px 16px;
+      cursor: pointer;
+      transition: background .18s;
+    }
+    .qa-btn:hover { background: rgba(168,85,247,.16); }
+
+    /* ══════════════════════
+       SCREEN 3: FORM
+    ══════════════════════ */
+    #contact {
+      padding-bottom: 80px;
+    }
+
+    .contact-title {
+      font-size: clamp(1.4rem, 5vw, 1.9rem);
+      font-weight: 800;
+      line-height: 1.25;
+      margin-bottom: 8px;
+    }
+    .contact-sub {
+      color: var(--muted);
+      font-size: .92rem;
+      margin-bottom: 28px;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+    .form-field label {
+      font-size: .82rem;
+      font-weight: 600;
+      color: var(--muted);
+    }
+    .form-field input {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-sm);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 1rem;
+      padding: 13px 16px;
+      transition: border-color .2s;
+      width: 100%;
+    }
+    .form-field input:focus {
+      outline: none;
+      border-color: rgba(0,210,255,.4);
+    }
+    .form-field input::placeholder { color: var(--muted2); }
+
+    .btn-submit {
+      width: 100%;
+      background: var(--grad-cta);
+      color: #fff;
+      font-family: inherit;
+      font-size: 1.05rem;
+      font-weight: 700;
+      padding: 15px;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      box-shadow: var(--glow-cyan);
+      transition: transform .2s, box-shadow .2s;
+      margin-top: 4px;
+    }
+    .btn-submit:hover { transform: scale(1.02); box-shadow: var(--glow-purple); }
+    .btn-submit:active { transform: scale(.98); }
+    .btn-submit:disabled { opacity: .5; cursor: not-allowed; transform: none; }
+
+    .form-thanks {
+      display: none;
+      text-align: center;
+      padding: 32px 20px;
+      background: rgba(0,229,160,.06);
+      border: 1px solid rgba(0,229,160,.2);
+      border-radius: var(--r);
+    }
+    .form-thanks .thanks-icon { font-size: 2rem; margin-bottom: 12px; }
+    .form-thanks p { color: var(--green); font-weight: 700; font-size: 1rem; }
+    .form-thanks small { color: var(--muted); font-size: .85rem; }
+
+    .wa-link-inline {
+      display: block;
+      text-align: center;
+      margin-top: 16px;
+      font-size: .88rem;
+      color: var(--muted);
+    }
+    .wa-link-inline a {
+      color: var(--green);
+      font-weight: 600;
+    }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 24px 20px;
+      text-align: center;
+    }
+    footer p {
+      font-size: .75rem;
+      color: var(--muted2);
+      line-height: 2;
+    }
+    footer a { color: var(--muted); transition: color .15s; }
+    footer a:hover { color: var(--text); }
+
+    /* ══════════════════════
+       FLOATING WHATSAPP
+    ══════════════════════ */
+    .wa-float {
+      position: fixed;
+      bottom: 24px;
+      left: 20px; /* RTL — float on left side */
+      z-index: 999;
+      width: 56px; height: 56px;
+      background: #25d366;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 20px rgba(37,211,102,.4);
+      transition: transform .2s, box-shadow .2s;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .wa-float:hover {
+      transform: scale(1.1);
+      box-shadow: 0 6px 28px rgba(37,211,102,.55);
+    }
+    .wa-float svg { width: 28px; height: 28px; fill: white; }
+    .wa-float-tooltip {
+      position: absolute;
+      right: calc(100% + 10px);
+      bottom: 50%;
+      transform: translateY(50%);
+      background: #1a1a2e;
+      color: var(--text);
+      font-size: .75rem;
+      font-weight: 600;
+      white-space: nowrap;
+      padding: 6px 12px;
+      border-radius: 100px;
+      border: 1px solid var(--border);
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity .2s;
+    }
+    .wa-float:hover .wa-float-tooltip { opacity: 1; }
+
+    /* ══════════════════════
+       LEAD MODAL
+    ══════════════════════ */
+    #leadModal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,.75);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    #leadModal.open { display: flex; }
+
+    .modal-box {
+      background: var(--surface2);
+      border: 1px solid var(--border-glow);
+      border-radius: var(--r);
+      width: 100%;
+      max-width: 400px;
+      padding: 24px;
+      position: relative;
+      animation: modal-in .25s ease;
+    }
+    @keyframes modal-in {
+      from { opacity: 0; transform: scale(.94) translateY(16px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+    .modal-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+    .modal-title { font-weight: 800; font-size: 1rem; }
+    .modal-close {
+      background: none; border: none; color: var(--muted);
+      font-size: 1.4rem; cursor: pointer; line-height: 1;
+      padding: 0 4px;
+    }
+    .modal-field { margin-bottom: 12px; }
+    .modal-field label { display: block; font-size: .8rem; font-weight: 600; color: var(--muted); margin-bottom: 5px; }
+    .modal-field input {
+      width: 100%;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--r-sm);
+      color: var(--text);
+      font-family: inherit;
+      font-size: .95rem;
+      padding: 11px 14px;
+      transition: border-color .2s;
+    }
+    .modal-field input:focus { outline: none; border-color: rgba(0,210,255,.4); }
+    .modal-field input::placeholder { color: var(--muted2); }
+    .modal-actions {
+      display: flex;
+      gap: 8px;
+      margin-top: 16px;
+    }
+    .modal-btn {
+      flex: 1;
+      font-family: inherit;
+      font-size: .9rem;
+      font-weight: 700;
+      padding: 11px;
+      border-radius: 100px;
+      border: none;
+      cursor: pointer;
+      transition: opacity .2s;
+    }
+    .modal-btn.secondary { background: rgba(255,255,255,.07); color: var(--muted); }
+    .modal-btn.primary { background: var(--grad-cta); color: #fff; }
+    .modal-btn:disabled { opacity: .5; cursor: not-allowed; }
+    .modal-hint {
+      font-size: .78rem;
+      color: var(--muted2);
+      text-align: center;
+      margin-top: 12px;
+    }
+    .modal-err {
+      display: none;
+      font-size: .8rem;
+      color: #f87171;
+      margin-top: 10px;
+      text-align: center;
+    }
+    .modal-ok {
+      display: none;
+      font-size: .88rem;
+      color: var(--green);
+      text-align: center;
+      margin-top: 10px;
+      font-weight: 700;
+    }
+
+    /* ── Responsive ── */
+    @media (min-width: 640px) {
+      section { padding: 80px 0; }
+      .hero-title { font-size: 2.8rem; }
+      .chat-messages { max-height: 420px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════
+     SCREEN 1: HERO
+══════════════════════════════ -->
+<section id="hero" aria-labelledby="hero-heading">
+  <div class="container">
+    <div class="hero-inner fade-in">
+      <div class="hero-badge" aria-label="סוכן AI פעיל">
+        <span class="dot" aria-hidden="true"></span>
+        סוכן AI פעיל 24/7
+      </div>
+
+      <h1 class="hero-title" id="hero-heading">
+        ראית את הסרטון?<br>
+        עכשיו תראה מה <span class="accent">AI</span><br>
+        עושה לעסק שלך
+      </h1>
+
+      <p class="hero-sub">
+        הסוכן הזה עונה ללקוחות, מסביר על השירותים שלך, ואוסף לידים — 24/7.
+        בלי שאתה מרים אצבע.
+      </p>
+
+      <a href="#demo" class="btn-hero" aria-label="גלול לדמו הסוכן">
+        דבר עם הסוכן עכשיו ←
+      </a>
+
+      <p class="hero-hint">
+        <strong>⚡ תוך 30 שניות</strong> תבין למה "אתר רגיל" כבר לא מספיק
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════
+     SCREEN 2: AGENT DEMO
+══════════════════════════════ -->
+<section id="demo" aria-labelledby="demo-heading">
+  <div class="container">
+    <div class="fade-in">
+      <span class="section-label">דמו חי</span>
+      <h2 class="demo-title" id="demo-heading">
+        תנסה אותו.<br>הוא כבר יודע הכל על העסק.
+      </h2>
+      <p class="demo-sub">
+        הסוכן שתראה כאן — זה בדיוק מה שהלקוחות שלך יראו באתר שלך.
+      </p>
+
+      <!-- Chat Widget -->
+      <div class="chat-wrapper" id="demoChat" role="region" aria-label="צ'אט עם סוכן AI">
+        <div class="chat-header">
+          <div class="chat-header-left">
+            <div class="chat-avatar" aria-hidden="true">LA</div>
+            <div>
+              <div class="chat-header-name">סוכן Lior-AI</div>
+              <div class="chat-header-status">
+                <span class="status-dot" aria-hidden="true"></span>
+                פעיל ומוכן
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="chat-quick" id="demoChatQuick" role="group" aria-label="שאלות מהירות">
+          <button class="qbtn" data-q="מה זה סוכן AI ולמה אני צריך אחד?">מה זה סוכן AI?</button>
+          <button class="qbtn" data-q="כמה עולה לבנות סוכן AI לעסק שלי?">כמה זה עולה?</button>
+          <button class="qbtn" data-q="אני רוצה לתאם שיחה עם ליאור">תתאם לי שיחה</button>
+        </div>
+
+        <div class="chat-messages" id="demoChatBody" aria-live="polite" aria-label="הודעות צ'אט"></div>
+
+        <div class="chat-composer">
+          <textarea
+            class="chat-input"
+            id="demoChatInput"
+            rows="1"
+            placeholder="שאל כל שאלה... (עברית / English)"
+            autocomplete="off"
+            aria-label="הקלד הודעה"
+          ></textarea>
+          <button class="chat-send" id="demoChatSend" aria-label="שלח הודעה">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 21 23 12 2 3v7l15 2-15 2v7z"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Quick Action Buttons -->
+      <div class="quick-actions" role="group" aria-label="פעולות מהירות">
+        <button class="qa-btn" onclick="document.getElementById('demoChatInput').value='מה זה סוכן AI ולמה אני צריך אחד?'; document.getElementById('demoChatSend').click();">
+          🤖 מה זה סוכן AI?
+        </button>
+        <button class="qa-btn" onclick="document.getElementById('demoChatInput').value='כמה עולה לבנות סוכן AI?'; document.getElementById('demoChatSend').click();">
+          💰 כמה זה עולה?
+        </button>
+        <button class="qa-btn" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'});">
+          📅 תתאם לי שיחה
+        </button>
+      </div>
+
+      <!-- Testimonial -->
+      <div class="testimonial fade-in" role="complementary" aria-label="המלצת לקוח">
+        <p class="testimonial-text">
+          "הסוכן תפס לי ליד ב-2 בלילה. הלקוח חתם על עסקה יומיים אחרי."
+        </p>
+        <div class="testimonial-author">— יניב מ., עורך דין</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════
+     SCREEN 3: FORM + CLOSE
+══════════════════════════════ -->
+<section id="contact" aria-labelledby="contact-heading">
+  <div class="container">
+    <div class="fade-in">
+      <span class="section-label">מוכן להתחיל?</span>
+      <h2 class="contact-title" id="contact-heading">
+        השאר פרטים ואחזור<br>אליך תוך 24 שעות
+      </h2>
+      <p class="contact-sub">ללא התחייבות, ללא מכירות אגרסיביות — רק שיחה.</p>
+
+      <form id="tikTokForm" novalidate aria-label="טופס יצירת קשר">
+        <div class="form-field">
+          <label for="f-name">שם</label>
+          <input
+            id="f-name"
+            type="text"
+            placeholder="השם שלך"
+            autocomplete="name"
+            required
+            aria-required="true"
+          >
+        </div>
+        <div class="form-field">
+          <label for="f-phone">טלפון / וואטסאפ</label>
+          <input
+            id="f-phone"
+            type="tel"
+            placeholder="05X-XXXXXXX"
+            autocomplete="tel"
+            inputmode="tel"
+            required
+            aria-required="true"
+          >
+        </div>
+        <div class="form-field">
+          <label for="f-field">מה התחום שלך?</label>
+          <input
+            id="f-field"
+            type="text"
+            placeholder="לדוגמה: קליניקה, נדל&quot;ן, e-commerce..."
+            required
+            aria-required="true"
+          >
+        </div>
+
+        <button type="submit" class="btn-submit" id="formSubmit">
+          💬 שלח ונתחיל
+        </button>
+      </form>
+
+      <!-- Thank you state -->
+      <div class="form-thanks" id="formThanks" role="alert" aria-live="assertive">
+        <div class="thanks-icon">🙌</div>
+        <p>תודה! נחזור אליך בהקדם.</p>
+        <small>בינתיים — אפשר לשאול את הסוכן כל שאלה ↑</small>
+      </div>
+
+      <p class="wa-link-inline">
+        מעדיף לדבר?
+        <a href="https://wa.me/972508668022" target="_blank" rel="noopener" aria-label="פתח וואטסאפ ישיר">
+          וואטסאפ ישיר ←
+        </a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer>
+  <div class="container">
+    <p>
+      © Lior-AI | ליאור בלול —
+      <a href="https://lior-ai.com" target="_blank" rel="noopener">lior-ai.com</a>
+      &nbsp;|&nbsp;
+      <a href="/privacy-policy.html">מדיניות פרטיות</a>
+      &nbsp;|&nbsp;
+      <a href="/accessibility-statement.html">נגישות</a>
+      &nbsp;|&nbsp;
+      <a href="/terms.html">תקנון</a>
+    </p>
+  </div>
+</footer>
+
+<!-- ══════════════════════════════
+     FLOATING WHATSAPP BUTTON
+══════════════════════════════ -->
+<a
+  href="https://wa.me/972508668022"
+  class="wa-float"
+  target="_blank"
+  rel="noopener"
+  aria-label="שלח הודעה בוואטסאפ"
+>
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+    <path d="M11.963 2C6.476 2 2 6.477 2 11.963c0 1.896.525 3.668 1.438 5.188L2 22l5.006-1.413A9.916 9.916 0 0011.963 22c5.487 0 9.963-4.476 9.963-9.963C21.926 6.554 17.45 2 11.963 2zm0 18.13a8.178 8.178 0 01-4.169-1.14l-.299-.177-3.096.875.84-3.088-.195-.317a8.18 8.18 0 01-1.249-4.32c0-4.523 3.68-8.203 8.203-8.203 4.523 0 8.203 3.68 8.203 8.203 0 4.523-3.68 8.167-8.238 8.167z"/>
+  </svg>
+  <span class="wa-float-tooltip">וואטסאפ ישיר</span>
+</a>
+
+<!-- ══════════════════════════════
+     LEAD MODAL (triggered from chat)
+══════════════════════════════ -->
+<div id="leadModal" role="dialog" aria-modal="true" aria-labelledby="modal-title-text">
+  <div class="modal-box">
+    <div class="modal-head">
+      <div class="modal-title" id="modal-title-text">מעולה — נשאיר פרטים ונחזור אליך</div>
+      <button class="modal-close" id="leadModalClose" aria-label="סגור">×</button>
+    </div>
+    <div class="modal-field">
+      <label for="m-name">שם</label>
+      <input id="m-name" type="text" placeholder="לדוגמה: דניאל" autocomplete="name">
+    </div>
+    <div class="modal-field">
+      <label for="m-phone">טלפון</label>
+      <input id="m-phone" type="tel" placeholder="05X-XXXXXXX" inputmode="tel" autocomplete="tel">
+    </div>
+    <div class="modal-field">
+      <label for="m-email">אימייל</label>
+      <input id="m-email" type="email" placeholder="example@email.com" inputmode="email" autocomplete="email">
+    </div>
+    <div class="modal-actions">
+      <button class="modal-btn secondary" id="m-later">אחר כך</button>
+      <button class="modal-btn primary" id="m-submit">שלח פרטים</button>
+    </div>
+    <div class="modal-hint">
+      או וואטסאפ ישיר:
+      <a href="https://wa.me/972508668022" target="_blank" rel="noopener" style="color:var(--green);">לחץ כאן</a>
+    </div>
+    <div class="modal-err" id="m-err" role="alert"></div>
+    <div class="modal-ok" id="m-ok">נשלח! תודה — נחזור אליך בהקדם 🙌</div>
+  </div>
+</div>
+
+<script>
+(function() {
+  'use strict';
+
+  /* ── Config ── */
+  const SUPABASE_URL = 'https://evufisyrxfrwksequajt.supabase.co/functions/v1/claude-proxy';
+  const WEBHOOK_ENDPOINT = ''; /* ← הוסף כאן endpoint נוסף אם רלוונטי */
+  const WA_NUMBER = '972508668022';
+  const LEAD_KEY = 'lior_tt_lead_v1';
+  const CHAT_KEY = 'lior_tt_chat_v1';
+
+  /* ── Fade-in on scroll ── */
+  const fadeEls = document.querySelectorAll('.fade-in');
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+  fadeEls.forEach(function(el) { observer.observe(el); });
+
+  /* ── Smooth scroll hero CTA ── */
+  document.querySelector('.btn-hero').addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
+  /* ════════════════════════
+     CHAT WIDGET
+  ════════════════════════ */
+  const chatBody = document.getElementById('demoChatBody');
+  const chatInput = document.getElementById('demoChatInput');
+  const chatSend = document.getElementById('demoChatSend');
+  const chatQuick = document.getElementById('demoChatQuick');
+
+  let messages = [];
+  try {
+    const raw = localStorage.getItem(CHAT_KEY);
+    if (raw) messages = JSON.parse(raw) || [];
+  } catch(e) { messages = []; }
+
+  function saveChat() {
+    try { localStorage.setItem(CHAT_KEY, JSON.stringify(messages.slice(-30))); } catch(e) {}
+  }
+
+  function renderMd(raw) {
+    const esc = raw.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    const lines = esc.split('\n');
+    let html = '', inList = false;
+    for (const line of lines) {
+      const listMatch = line.match(/^[\s]*[-*]\s+(.+)$/);
+      if (listMatch) {
+        if (!inList) { html += '<ul>'; inList = true; }
+        html += '<li>' + listMatch[1]
+          .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+          .replace(/\*(.+?)\*/g, '<em>$1</em>') + '</li>';
+      } else {
+        if (inList) { html += '</ul>'; inList = false; }
+        if (!line.trim()) { html += '<br>'; }
+        else {
+          html += line
+            .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+            .replace(/\*(.+?)\*/g, '<em>$1</em>') + '<br>';
+        }
+      }
+    }
+    if (inList) html += '</ul>';
+    return html.replace(/<br>$/, '');
+  }
+
+  function addBubble(role, text, renderOnly) {
+    const wrap = document.createElement('div');
+    wrap.className = 'chat-msg ' + role;
+    const bub = document.createElement('div');
+    bub.className = 'chat-bubble';
+    if (role === 'user') { bub.textContent = text; }
+    else { bub.innerHTML = renderMd(text); }
+    wrap.appendChild(bub);
+    chatBody.appendChild(wrap);
+    if (!renderOnly) chatBody.scrollTop = chatBody.scrollHeight;
+  }
+
+  function showTyping() {
+    const wrap = document.createElement('div');
+    wrap.className = 'chat-msg bot';
+    wrap.id = 'typing-row';
+    const t = document.createElement('div');
+    t.className = 'typing-indicator';
+    t.innerHTML = '<span class="typing-dot"></span><span class="typing-dot"></span><span class="typing-dot"></span>';
+    t.setAttribute('aria-label', 'הסוכן מקליד...');
+    wrap.appendChild(t);
+    chatBody.appendChild(wrap);
+    chatBody.scrollTop = chatBody.scrollHeight;
+  }
+
+  function hideTyping() {
+    const el = document.getElementById('typing-row');
+    if (el) el.remove();
+  }
+
+  function renderHistory() {
+    chatBody.innerHTML = '';
+    if (messages.length === 0) {
+      addBubble('bot', 'היי 👋 אני סוכן המכירות של **Lior-AI**.\n\nאני כאן כדי לעזור לך להבין איך מערכת AI אוטונומית יכולה לשנות את העסק שלך.\n\nבמה תרצה להתחיל?', true);
+    } else {
+      for (const m of messages) {
+        addBubble(m.role === 'assistant' ? 'bot' : 'user', m.text, true);
+      }
+    }
+    chatBody.scrollTop = chatBody.scrollHeight;
+  }
+
+  function looksInterested(text) {
+    const t = (text || '').toLowerCase();
+    return ['מעוניין','רוצה','הצעה','דברו','לחזור','פגישה','אפיון','מחיר','כמה','להתחיל','לסגור','תיאום'].some(k => t.includes(k));
+  }
+
+  async function sendMessage(text) {
+    const trimmed = (text || '').trim();
+    if (!trimmed) return;
+
+    chatSend.disabled = true;
+    chatInput.value = '';
+    chatInput.style.height = 'auto';
+
+    messages.push({ role: 'user', text: trimmed });
+    saveChat();
+    addBubble('user', trimmed, false);
+
+    /* Hide quick buttons after first message */
+    if (chatQuick) chatQuick.style.display = 'none';
+
+    if (looksInterested(trimmed)) openLeadModal();
+    showTyping();
+
+    try {
+      const payload = {
+        messages: messages
+          .filter(function(m) { return m.role === 'user' || m.role === 'assistant'; })
+          .slice(-16)
+          .map(function(m) { return { role: m.role === 'assistant' ? 'assistant' : 'user', content: m.text }; }),
+        page_url: location.href
+      };
+
+      const res = await fetch(SUPABASE_URL, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+
+      const data = await res.json();
+      const reply = (data && data.reply) ? String(data.reply) : 'משהו השתבש. נסה שוב בעוד רגע.';
+      messages.push({ role: 'assistant', text: reply });
+      saveChat();
+      hideTyping();
+      addBubble('bot', reply, false);
+      if (data && data.collect_lead) openLeadModal();
+
+    } catch(err) {
+      console.error(err);
+      hideTyping();
+      const fallback = 'יש תקלה זמנית. תשאיר פרטים או כתוב לי ישירות בוואטסאפ 👇\n\nhttps://wa.me/' + WA_NUMBER;
+      messages.push({ role: 'assistant', text: fallback });
+      saveChat();
+      addBubble('bot', fallback, false);
+      openLeadModal();
+    } finally {
+      chatSend.disabled = false;
+      chatInput.focus();
+    }
+  }
+
+  chatInput.addEventListener('input', function() {
+    this.style.height = 'auto';
+    this.style.height = Math.min(this.scrollHeight, 110) + 'px';
+  });
+
+  chatInput.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      sendMessage(this.value);
+    }
+  });
+
+  chatSend.addEventListener('click', function() { sendMessage(chatInput.value); });
+
+  chatQuick.addEventListener('click', function(e) {
+    const btn = e.target.closest('.qbtn');
+    if (btn) sendMessage(btn.dataset.q || '');
+  });
+
+  renderHistory();
+
+  /* ════════════════════════
+     LEAD MODAL (from chat)
+  ════════════════════════ */
+  const leadModal = document.getElementById('leadModal');
+  const mName = document.getElementById('m-name');
+  const mPhone = document.getElementById('m-phone');
+  const mEmail = document.getElementById('m-email');
+  const mErr = document.getElementById('m-err');
+  const mOk = document.getElementById('m-ok');
+
+  function openLeadModal() {
+    if (localStorage.getItem(LEAD_KEY) === '1') return;
+    mErr.style.display = 'none';
+    mOk.style.display = 'none';
+    leadModal.classList.add('open');
+    setTimeout(function() { mName.focus(); }, 60);
+  }
+
+  function closeLeadModal() { leadModal.classList.remove('open'); }
+
+  document.getElementById('leadModalClose').addEventListener('click', closeLeadModal);
+  document.getElementById('m-later').addEventListener('click', closeLeadModal);
+  leadModal.addEventListener('click', function(e) { if (e.target === this) closeLeadModal(); });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && leadModal.classList.contains('open')) closeLeadModal();
+  });
+
+  document.getElementById('m-submit').addEventListener('click', async function() {
+    mErr.style.display = 'none';
+    mOk.style.display = 'none';
+    const lead = {
+      name: mName.value.trim(),
+      phone: mPhone.value.trim(),
+      email: mEmail.value.trim(),
+      source: 'tiktok_page',
+      page_url: location.href
+    };
+    if (!lead.name || !lead.phone || !lead.email) {
+      mErr.textContent = 'כדי שנחזור אליך מהר — צריך שם, טלפון ואימייל.';
+      mErr.style.display = 'block'; return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(lead.email)) {
+      mErr.textContent = 'האימייל לא נראה תקין. בדוק שוב 🙂';
+      mErr.style.display = 'block'; return;
+    }
+    this.disabled = true;
+    try {
+      await fetch(SUPABASE_URL, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ lead, page_url: location.href })
+      });
+      localStorage.setItem(LEAD_KEY, '1');
+      mOk.style.display = 'block';
+      setTimeout(closeLeadModal, 900);
+    } catch(err) {
+      mErr.textContent = 'לא הצלחתי לשמור כרגע. שלח וואטסאפ ונמשיך שם 🙏';
+      mErr.style.display = 'block';
+    } finally {
+      this.disabled = false;
+    }
+  });
+
+  /* ════════════════════════
+     MAIN CONTACT FORM
+  ════════════════════════ */
+  const tikTokForm = document.getElementById('tikTokForm');
+  const formThanks = document.getElementById('formThanks');
+  const formSubmit = document.getElementById('formSubmit');
+
+  tikTokForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
+
+    const name = document.getElementById('f-name').value.trim();
+    const phone = document.getElementById('f-phone').value.trim();
+    const field = document.getElementById('f-field').value.trim();
+
+    if (!name || !phone || !field) {
+      alert('נא למלא את כל השדות 🙂');
+      return;
+    }
+
+    formSubmit.disabled = true;
+    formSubmit.textContent = 'שולח...';
+
+    /* 1. Open WhatsApp with pre-filled message */
+    const waText = encodeURIComponent(
+      'היי ליאור, הגעתי מהטיקטוק ואשמח לשמוע על שירות ה-AI.\n' +
+      'שם: ' + name + '\n' +
+      'תחום: ' + field + '\n' +
+      'טלפון: ' + phone
+    );
+    window.open('https://wa.me/' + WA_NUMBER + '?text=' + waText, '_blank');
+
+    /* 2. Also save to Supabase (optional — fires async, no blocking) */
+    try {
+      const lead = { name, phone, field, source: 'tiktok_form', page_url: location.href };
+      await fetch(SUPABASE_URL, {
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({ lead, page_url: location.href })
+      });
+    } catch(err) { /* silent — wa already opened */ }
+
+    /* 3. Optional webhook endpoint */
+    if (WEBHOOK_ENDPOINT) {
+      try {
+        await fetch(WEBHOOK_ENDPOINT, {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify({ name, phone, field, source: 'tiktok', timestamp: new Date().toISOString() })
+        });
+      } catch(err) { /* silent */ }
+    }
+
+    /* 4. Show thank you */
+    tikTokForm.style.display = 'none';
+    formThanks.style.display = 'block';
+    localStorage.setItem(LEAD_KEY, '1');
+  });
+
+})();
+</script>
+
+<!-- Accessibility & compliance scripts (same as main site) -->
+<script defer src="/assets/site-compliance.js"></script>
+<script defer src="/assets/accessibility.js"></script>
+</body>
+</html>
