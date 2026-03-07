@@ -137,6 +137,8 @@
       --radius: 20px;
       --radius-sm: 12px;
       --transition: 0.35s cubic-bezier(0.4,0,0.2,1);
+      --hero-parallax-x: 0px;
+      --hero-parallax-y: 0px;
       --font-body: 'Heebo', 'Arial Hebrew', sans-serif;
       --font-head: 'Rubik', 'Arial Hebrew', sans-serif;
     }
@@ -341,6 +343,17 @@
       overflow: hidden;
       /* Ensure orbs never cause horizontal scroll */
       contain: layout paint;
+    }
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      inset: -4%;
+      background:
+        linear-gradient(150deg, rgba(0,0,0,0.85), rgba(0,0,0,0.45)),
+        url('/images/hero-bg.webp') center/cover no-repeat;
+      opacity: 0.42;
+      transform: translate3d(var(--hero-parallax-x), var(--hero-parallax-y), 0) scale(1.05);
+      will-change: transform;
     }
     /* Animated orbs */
     .orb {
@@ -667,15 +680,42 @@
       font-size: 2.5rem;
       position: relative;
       overflow: hidden;
+      background-size: cover;
+      background-position: center;
+    }
+    .portfolio-preview::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(140deg, rgba(0,0,0,0.15), rgba(0,0,0,0.65));
+    }
+    .portfolio-preview-icon {
+      position: relative;
+      z-index: 1;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: rgba(0,0,0,0.45);
+      border: 1px solid rgba(255,255,255,0.22);
+      backdrop-filter: blur(6px);
+      font-size: 1.8rem;
     }
     .portfolio-preview-1 {
-      background: linear-gradient(135deg, #001a2e, #003d5b, #006b8f);
+      background-image:
+        linear-gradient(130deg, rgba(0,20,35,0.35), rgba(0,65,95,0.72)),
+        url('/images/resized_1920x1080_IMG_2918.jpg');
     }
     .portfolio-preview-2 {
-      background: linear-gradient(135deg, #1a1000, #3d2800, #6b4a00);
+      background-image:
+        linear-gradient(130deg, rgba(35,20,0,0.35), rgba(115,64,0,0.72)),
+        url('/images/resized_1920x1080_IMG_2919.jpg');
     }
     .portfolio-preview-3 {
-      background: linear-gradient(135deg, #0d0020, #2a0050, #4a0080);
+      background-image:
+        linear-gradient(130deg, rgba(13,0,32,0.32), rgba(74,0,128,0.72)),
+        url('/images/services-bg.webp');
     }
     .portfolio-tag {
       position: absolute;
@@ -1276,7 +1316,7 @@
               <div class="browser-url"></div>
             </div>
             <div class="portfolio-preview portfolio-preview-1" aria-hidden="true">
-              <span style="font-size:3rem">🚗</span>
+              <span class="portfolio-preview-icon" aria-hidden="true">🚗</span>
               <span class="portfolio-tag" data-he="אתר עסקי" data-en="Business Site">אתר עסקי</span>
             </div>
             <div class="portfolio-info">
@@ -1290,7 +1330,7 @@
               <div class="browser-url"></div>
             </div>
             <div class="portfolio-preview portfolio-preview-2" aria-hidden="true">
-              <span style="font-size:3rem">🍽️</span>
+              <span class="portfolio-preview-icon" aria-hidden="true">🍽️</span>
               <span class="portfolio-tag" data-he="אתר עסקי" data-en="Business Site">אתר עסקי</span>
             </div>
             <div class="portfolio-info">
@@ -1304,7 +1344,7 @@
               <div class="browser-url"></div>
             </div>
             <div class="portfolio-preview portfolio-preview-3" aria-hidden="true">
-              <span style="font-size:3rem">⚖️</span>
+              <span class="portfolio-preview-icon" aria-hidden="true">⚖️</span>
               <span class="portfolio-tag" data-he="אתר + AI" data-en="Website + AI">אתר + AI</span>
             </div>
             <div class="portfolio-info">
@@ -1721,6 +1761,43 @@
       } else {
         counters.forEach(animateCounter);
       }
+    })();
+
+
+    /* ---- Lightweight hero parallax ---- */
+    (function() {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      if (window.matchMedia('(pointer: coarse)').matches) return;
+      var root = document.documentElement;
+      var rafId = null;
+      var tx = 0;
+      var ty = 0;
+      var x = 0;
+      var y = 0;
+      function animate() {
+        x += (tx - x) * 0.08;
+        y += (ty - y) * 0.08;
+        root.style.setProperty('--hero-parallax-x', x.toFixed(2) + 'px');
+        root.style.setProperty('--hero-parallax-y', y.toFixed(2) + 'px');
+        if (Math.abs(tx - x) > 0.1 || Math.abs(ty - y) > 0.1) {
+          rafId = requestAnimationFrame(animate);
+        } else {
+          rafId = null;
+        }
+      }
+      function onMove(e) {
+        var w = window.innerWidth || 1;
+        var h = window.innerHeight || 1;
+        tx = ((e.clientX / w) - 0.5) * 16;
+        ty = ((e.clientY / h) - 0.5) * 10;
+        if (!rafId) rafId = requestAnimationFrame(animate);
+      }
+      window.addEventListener('pointermove', onMove, { passive: true });
+      window.addEventListener('pointerleave', function() {
+        tx = 0;
+        ty = 0;
+        if (!rafId) rafId = requestAnimationFrame(animate);
+      }, { passive: true });
     })();
 
     /* ---- FAQ accordion ---- */
